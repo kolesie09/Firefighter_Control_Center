@@ -45,10 +45,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1284, 734);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "DepartureCard";
             this.Text = "Form1";
             this.ResumeLayout(false);

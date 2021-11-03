@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FirefighterControlCenter.UserInterface.Forms
+namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
 {
-    public partial class Ranking : Form
+    public partial class City : Form
     {
-        public Ranking()
+        public City()
         {
             InitializeComponent();
         }

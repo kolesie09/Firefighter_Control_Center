@@ -56,6 +56,12 @@
     <Compile Include="Forms\DepartureCard.Designer.cs">
       <DependentUpon>DepartureCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Exercises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Exercises.Designer.cs">
+      <DependentUpon>Exercises.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Garage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,16 +98,49 @@
     <Compile Include="Forms\Meetings.Designer.cs">
       <DependentUpon>Meetings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Ranking.cs">
+    <Compile Include="Forms\Rankings\Choose\City.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Ranking.Designer.cs">
-      <DependentUpon>Ranking.cs</DependentUpon>
+    <Compile Include="Forms\Rankings\Choose\City.Designer.cs">
+      <DependentUpon>City.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Firefighter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Firefighter.Designer.cs">
+      <DependentUpon>Firefighter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Incident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Incident.Designer.cs">
+      <DependentUpon>Incident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Nonstandard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Nonstandard.Designer.cs">
+      <DependentUpon>Nonstandard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Street.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rankings\Choose\Street.Designer.cs">
+      <DependentUpon>Street.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rankings\Rankings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rankings\Rankings.Designer.cs">
+      <DependentUpon>Rankings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\DepartureCard.resx">
       <DependentUpon>DepartureCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Exercises.resx">
+      <DependentUpon>Exercises.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Garage.resx">
       <DependentUpon>Garage.cs</DependentUpon>
@@ -121,8 +160,23 @@
     <EmbeddedResource Include="Forms\Meetings.resx">
       <DependentUpon>Meetings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Ranking.resx">
-      <DependentUpon>Ranking.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Rankings\Choose\City.resx">
+      <DependentUpon>City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rankings\Choose\Firefighter.resx">
+      <DependentUpon>Firefighter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rankings\Choose\Incident.resx">
+      <DependentUpon>Incident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rankings\Choose\Nonstandard.resx">
+      <DependentUpon>Nonstandard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rankings\Choose\Street.resx">
+      <DependentUpon>Street.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rankings\Rankings.resx">
+      <DependentUpon>Rankings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

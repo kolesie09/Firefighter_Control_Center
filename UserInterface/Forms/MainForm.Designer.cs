@@ -40,6 +40,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btn_meetings = new System.Windows.Forms.Button();
             this.btn_info_panel = new System.Windows.Forms.Button();
             this.pMain = new System.Windows.Forms.Panel();
+            this.btn_exercises = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,66 +62,73 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_departure_card
             // 
-            this.btn_departure_card.Location = new System.Drawing.Point(107, 12);
+            this.btn_departure_card.Location = new System.Drawing.Point(40, 12);
             this.btn_departure_card.Name = "btn_departure_card";
             this.btn_departure_card.Size = new System.Drawing.Size(146, 37);
             this.btn_departure_card.TabIndex = 1;
             this.btn_departure_card.Text = "Karta wyjazdu";
             this.btn_departure_card.UseVisualStyleBackColor = true;
+            this.btn_departure_card.Click += new System.EventHandler(this.btn_departure_card_Click);
             // 
             // btn_ranking
             // 
-            this.btn_ranking.Location = new System.Drawing.Point(259, 12);
+            this.btn_ranking.Location = new System.Drawing.Point(344, 12);
             this.btn_ranking.Name = "btn_ranking";
             this.btn_ranking.Size = new System.Drawing.Size(146, 37);
             this.btn_ranking.TabIndex = 2;
             this.btn_ranking.Text = "Ranking";
             this.btn_ranking.UseVisualStyleBackColor = true;
+            this.btn_ranking.Click += new System.EventHandler(this.btn_ranking_Click);
             // 
             // btn_head_panel
             // 
-            this.btn_head_panel.Location = new System.Drawing.Point(715, 12);
+            this.btn_head_panel.Location = new System.Drawing.Point(800, 12);
             this.btn_head_panel.Name = "btn_head_panel";
             this.btn_head_panel.Size = new System.Drawing.Size(146, 37);
             this.btn_head_panel.TabIndex = 3;
             this.btn_head_panel.Text = "Panel naczelnika";
             this.btn_head_panel.UseVisualStyleBackColor = true;
+            this.btn_head_panel.Click += new System.EventHandler(this.btn_head_panel_Click);
             // 
             // btn_history
             // 
-            this.btn_history.Location = new System.Drawing.Point(411, 12);
+            this.btn_history.Location = new System.Drawing.Point(496, 12);
             this.btn_history.Name = "btn_history";
             this.btn_history.Size = new System.Drawing.Size(146, 37);
             this.btn_history.TabIndex = 4;
             this.btn_history.Text = "Historia";
             this.btn_history.UseVisualStyleBackColor = true;
+            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
             // 
             // btn_garage
             // 
-            this.btn_garage.Location = new System.Drawing.Point(563, 12);
+            this.btn_garage.Location = new System.Drawing.Point(648, 12);
             this.btn_garage.Name = "btn_garage";
             this.btn_garage.Size = new System.Drawing.Size(146, 37);
             this.btn_garage.TabIndex = 5;
             this.btn_garage.Text = "Garaż";
             this.btn_garage.UseVisualStyleBackColor = true;
+            this.btn_garage.Click += new System.EventHandler(this.btn_garage_Click);
             // 
             // btn_meetings
             // 
-            this.btn_meetings.Location = new System.Drawing.Point(867, 12);
+            this.btn_meetings.Location = new System.Drawing.Point(952, 12);
             this.btn_meetings.Name = "btn_meetings";
             this.btn_meetings.Size = new System.Drawing.Size(146, 37);
             this.btn_meetings.TabIndex = 6;
             this.btn_meetings.Text = "Zebrania";
             this.btn_meetings.UseVisualStyleBackColor = true;
+            this.btn_meetings.Click += new System.EventHandler(this.btn_meetings_Click);
             // 
             // btn_info_panel
             // 
-            this.btn_info_panel.Location = new System.Drawing.Point(1019, 12);
+            this.btn_info_panel.Location = new System.Drawing.Point(1104, 12);
             this.btn_info_panel.Name = "btn_info_panel";
             this.btn_info_panel.Size = new System.Drawing.Size(146, 37);
             this.btn_info_panel.TabIndex = 7;
             this.btn_info_panel.Text = "Panel informacyjny";
             this.btn_info_panel.UseVisualStyleBackColor = true;
+            this.btn_info_panel.Click += new System.EventHandler(this.btn_info_panel_Click);
             // 
             // pMain
             // 
@@ -130,11 +138,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.pMain.Size = new System.Drawing.Size(1284, 734);
             this.pMain.TabIndex = 8;
             // 
+            // btn_exercises
+            // 
+            this.btn_exercises.Location = new System.Drawing.Point(192, 12);
+            this.btn_exercises.Name = "btn_exercises";
+            this.btn_exercises.Size = new System.Drawing.Size(146, 37);
+            this.btn_exercises.TabIndex = 9;
+            this.btn_exercises.Text = "Ćwiczenia";
+            this.btn_exercises.UseVisualStyleBackColor = true;
+            this.btn_exercises.Click += new System.EventHandler(this.btn_exercises_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 811);
+            this.Controls.Add(this.btn_exercises);
             this.Controls.Add(this.pMain);
             this.Controls.Add(this.btn_info_panel);
             this.Controls.Add(this.btn_meetings);
@@ -149,6 +168,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Firefighter Control Center";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -168,5 +188,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_meetings;
         private System.Windows.Forms.Button btn_info_panel;
         private System.Windows.Forms.Panel pMain;
+        private System.Windows.Forms.Button btn_exercises;
     }
 }
