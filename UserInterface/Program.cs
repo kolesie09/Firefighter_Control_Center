@@ -1,4 +1,5 @@
 ﻿using FirefighterControlCenter.UserInterface.Forms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace UserInterface
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
+        
     }
 }

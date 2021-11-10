@@ -36,6 +36,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btn_incident = new System.Windows.Forms.Button();
             this.btn_nonstandard = new System.Windows.Forms.Button();
             this.pRanking = new System.Windows.Forms.Panel();
+            this.DB_ranking = new System.Windows.Forms.DataGridView();
+            this.pRanking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DB_ranking)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,11 +105,21 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // pRanking
             // 
+            this.pRanking.Controls.Add(this.DB_ranking);
             this.pRanking.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pRanking.Location = new System.Drawing.Point(0, 88);
             this.pRanking.Name = "pRanking";
             this.pRanking.Size = new System.Drawing.Size(1284, 646);
             this.pRanking.TabIndex = 6;
+            // 
+            // DB_ranking
+            // 
+            this.DB_ranking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DB_ranking.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DB_ranking.Location = new System.Drawing.Point(0, 0);
+            this.DB_ranking.Name = "DB_ranking";
+            this.DB_ranking.Size = new System.Drawing.Size(1284, 646);
+            this.DB_ranking.TabIndex = 0;
             // 
             // Rankings
             // 
@@ -123,6 +136,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rankings";
             this.Text = "Ranking";
+            this.pRanking.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DB_ranking)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +152,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_incident;
         private System.Windows.Forms.Button btn_nonstandard;
         private System.Windows.Forms.Panel pRanking;
+        private System.Windows.Forms.DataGridView DB_ranking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
     }
 }

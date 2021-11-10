@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
@@ -23,6 +24,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
             CloseForm();
             DepartureCard frm = new DepartureCard();
             Show(frm);
+            
+
+
         }
 
         private void btn_ranking_Click(object sender, EventArgs e)

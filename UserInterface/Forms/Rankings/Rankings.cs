@@ -7,12 +7,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
     public partial class Rankings : Form
     {
+        
         public Rankings()
         {
             InitializeComponent();
@@ -41,9 +46,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_firefighter_Click(object sender, EventArgs e)
         {
-            CloseForm();
-            Firefighter frm = new Firefighter();
-            Show(frm);
+            DB_ranking.DataSource = SqlConnector.Ranking();
+
         }
 
         private void btn_street_Click(object sender, EventArgs e)
