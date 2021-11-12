@@ -48,60 +48,60 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LPreviousNumberDepartureCard = new System.Windows.Forms.Label();
             this.LPreviousDepartureCard = new System.Windows.Forms.Label();
             this.GBPlace = new System.Windows.Forms.GroupBox();
-            this.LCity = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CBCity = new System.Windows.Forms.ComboBox();
-            this.CBStreet = new System.Windows.Forms.ComboBox();
-            this.TBCity = new System.Windows.Forms.TextBox();
-            this.TBStreet = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.LNewStreet = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TBStreet = new System.Windows.Forms.TextBox();
+            this.TBCity = new System.Windows.Forms.TextBox();
+            this.CBStreet = new System.Windows.Forms.ComboBox();
+            this.CBCity = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LCity = new System.Windows.Forms.Label();
             this.GBIncident = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.LIncident = new System.Windows.Forms.Label();
-            this.LTypeIncident = new System.Windows.Forms.Label();
-            this.LTypeNewIncydent = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.LNewIncident = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LTypeNewIncydent = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.LTypeIncident = new System.Windows.Forms.Label();
+            this.LIncident = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.GP499z01 = new System.Windows.Forms.GroupBox();
-            this.GB499z15 = new System.Windows.Forms.GroupBox();
-            this.GB499z18 = new System.Windows.Forms.GroupBox();
-            this.LDriver499z01 = new System.Windows.Forms.Label();
-            this.LCommander499z01 = new System.Windows.Forms.Label();
-            this.LFirefighter1499z01 = new System.Windows.Forms.Label();
-            this.LFirefighter2499z01 = new System.Windows.Forms.Label();
-            this.LFirefighter3499z01 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z014 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z013 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z012 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z011 = new System.Windows.Forms.ComboBox();
+            this.CBCommander499z01 = new System.Windows.Forms.ComboBox();
             this.LFirefighter4499z01 = new System.Windows.Forms.Label();
             this.CBDriver499z01 = new System.Windows.Forms.ComboBox();
-            this.CBCommander499z01 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z011 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z012 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z013 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z014 = new System.Windows.Forms.ComboBox();
+            this.LDriver499z01 = new System.Windows.Forms.Label();
+            this.LCommander499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter3499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter1499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter2499z01 = new System.Windows.Forms.Label();
+            this.GB499z15 = new System.Windows.Forms.GroupBox();
             this.CBFirefighter499z154 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z153 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z152 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z151 = new System.Windows.Forms.ComboBox();
-            this.CBCommander499z15 = new System.Windows.Forms.ComboBox();
-            this.LFirefighter4499z15 = new System.Windows.Forms.Label();
             this.CBDriver499z15 = new System.Windows.Forms.ComboBox();
-            this.LDriver499z15 = new System.Windows.Forms.Label();
-            this.LCommander499z15 = new System.Windows.Forms.Label();
-            this.LFirefighter3499z15 = new System.Windows.Forms.Label();
-            this.LFirefighter1499z15 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z153 = new System.Windows.Forms.ComboBox();
             this.LFirefighter2499z15 = new System.Windows.Forms.Label();
-            this.CBFirefighter499z183 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z182 = new System.Windows.Forms.ComboBox();
-            this.CBFirefighter499z181 = new System.Windows.Forms.ComboBox();
-            this.CBCommander499z18 = new System.Windows.Forms.ComboBox();
-            this.CBDriver499z18 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z152 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter1499z15 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z151 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter3499z15 = new System.Windows.Forms.Label();
+            this.CBCommander499z15 = new System.Windows.Forms.ComboBox();
+            this.LCommander499z15 = new System.Windows.Forms.Label();
+            this.LFirefighter4499z15 = new System.Windows.Forms.Label();
+            this.LDriver499z15 = new System.Windows.Forms.Label();
+            this.GB499z18 = new System.Windows.Forms.GroupBox();
             this.LDriver499z18 = new System.Windows.Forms.Label();
-            this.LCommander499z18 = new System.Windows.Forms.Label();
-            this.LFirefighter3499z18 = new System.Windows.Forms.Label();
-            this.LFirefighter1499z18 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z183 = new System.Windows.Forms.ComboBox();
             this.LFirefighter2499z18 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z182 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter1499z18 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z181 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter3499z18 = new System.Windows.Forms.Label();
+            this.CBCommander499z18 = new System.Windows.Forms.ComboBox();
+            this.LCommander499z18 = new System.Windows.Forms.Label();
+            this.CBDriver499z18 = new System.Windows.Forms.ComboBox();
             this.GB499z19 = new System.Windows.Forms.GroupBox();
             this.CBFirefighter499z194 = new System.Windows.Forms.ComboBox();
             this.CBFirefighter499z193 = new System.Windows.Forms.ComboBox();
@@ -494,57 +494,15 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GBPlace.TabIndex = 2;
             this.GBPlace.TabStop = false;
             this.GBPlace.Text = "Miejsce wyjazdu";
-            this.GBPlace.Enter += new System.EventHandler(this.GBPlace_Enter);
             // 
-            // LCity
+            // LNewStreet
             // 
-            this.LCity.AutoSize = true;
-            this.LCity.Location = new System.Drawing.Point(6, 32);
-            this.LCity.Name = "LCity";
-            this.LCity.Size = new System.Drawing.Size(115, 13);
-            this.LCity.TabIndex = 0;
-            this.LCity.Text = "Miejscowość wyjazdu :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ulica wyjazdu :";
-            // 
-            // CBCity
-            // 
-            this.CBCity.FormattingEnabled = true;
-            this.CBCity.Location = new System.Drawing.Point(170, 29);
-            this.CBCity.Name = "CBCity";
-            this.CBCity.Size = new System.Drawing.Size(176, 21);
-            this.CBCity.TabIndex = 16;
-            // 
-            // CBStreet
-            // 
-            this.CBStreet.FormattingEnabled = true;
-            this.CBStreet.Location = new System.Drawing.Point(170, 56);
-            this.CBStreet.Name = "CBStreet";
-            this.CBStreet.Size = new System.Drawing.Size(176, 21);
-            this.CBStreet.TabIndex = 17;
-            // 
-            // TBCity
-            // 
-            this.TBCity.Location = new System.Drawing.Point(170, 85);
-            this.TBCity.Margin = new System.Windows.Forms.Padding(0);
-            this.TBCity.Name = "TBCity";
-            this.TBCity.Size = new System.Drawing.Size(176, 20);
-            this.TBCity.TabIndex = 16;
-            // 
-            // TBStreet
-            // 
-            this.TBStreet.Location = new System.Drawing.Point(170, 113);
-            this.TBStreet.Margin = new System.Windows.Forms.Padding(0);
-            this.TBStreet.Name = "TBStreet";
-            this.TBStreet.Size = new System.Drawing.Size(176, 20);
-            this.TBStreet.TabIndex = 18;
+            this.LNewStreet.AutoSize = true;
+            this.LNewStreet.Location = new System.Drawing.Point(6, 116);
+            this.LNewStreet.Name = "LNewStreet";
+            this.LNewStreet.Size = new System.Drawing.Size(107, 13);
+            this.LNewStreet.TabIndex = 20;
+            this.LNewStreet.Text = "Nowa ulica wyjazdu :";
             // 
             // label2
             // 
@@ -555,14 +513,58 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.label2.TabIndex = 19;
             this.label2.Text = "Nowa miejscowość wyjazdu :";
             // 
-            // LNewStreet
+            // TBStreet
             // 
-            this.LNewStreet.AutoSize = true;
-            this.LNewStreet.Location = new System.Drawing.Point(6, 116);
-            this.LNewStreet.Name = "LNewStreet";
-            this.LNewStreet.Size = new System.Drawing.Size(107, 13);
-            this.LNewStreet.TabIndex = 20;
-            this.LNewStreet.Text = "Nowa ulica wyjazdu :";
+            this.TBStreet.Location = new System.Drawing.Point(170, 113);
+            this.TBStreet.Margin = new System.Windows.Forms.Padding(0);
+            this.TBStreet.Name = "TBStreet";
+            this.TBStreet.Size = new System.Drawing.Size(176, 20);
+            this.TBStreet.TabIndex = 18;
+            this.TBStreet.TextChanged += new System.EventHandler(this.TBStreet_TextChanged);
+            // 
+            // TBCity
+            // 
+            this.TBCity.Location = new System.Drawing.Point(170, 85);
+            this.TBCity.Margin = new System.Windows.Forms.Padding(0);
+            this.TBCity.Name = "TBCity";
+            this.TBCity.Size = new System.Drawing.Size(176, 20);
+            this.TBCity.TabIndex = 16;
+            this.TBCity.TextChanged += new System.EventHandler(this.TBCity_TextChanged);
+            // 
+            // CBStreet
+            // 
+            this.CBStreet.FormattingEnabled = true;
+            this.CBStreet.Location = new System.Drawing.Point(170, 56);
+            this.CBStreet.Name = "CBStreet";
+            this.CBStreet.Size = new System.Drawing.Size(176, 21);
+            this.CBStreet.TabIndex = 17;
+            // 
+            // CBCity
+            // 
+            this.CBCity.FormattingEnabled = true;
+            this.CBCity.Location = new System.Drawing.Point(170, 29);
+            this.CBCity.Name = "CBCity";
+            this.CBCity.Size = new System.Drawing.Size(176, 21);
+            this.CBCity.TabIndex = 16;
+            this.CBCity.SelectedValueChanged += new System.EventHandler(this.CBCity_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ulica wyjazdu :";
+            // 
+            // LCity
+            // 
+            this.LCity.AutoSize = true;
+            this.LCity.Location = new System.Drawing.Point(6, 32);
+            this.LCity.Name = "LCity";
+            this.LCity.Size = new System.Drawing.Size(115, 13);
+            this.LCity.TabIndex = 0;
+            this.LCity.Text = "Miejscowość wyjazdu :";
             // 
             // GBIncident
             // 
@@ -581,39 +583,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GBIncident.TabStop = false;
             this.GBIncident.Text = "Powód wyjazdu";
             // 
-            // comboBox1
+            // LNewIncident
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(170, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 21);
-            this.comboBox1.TabIndex = 25;
+            this.LNewIncident.AutoSize = true;
+            this.LNewIncident.Location = new System.Drawing.Point(6, 111);
+            this.LNewIncident.Name = "LNewIncident";
+            this.LNewIncident.Size = new System.Drawing.Size(145, 13);
+            this.LNewIncident.TabIndex = 22;
+            this.LNewIncident.Text = "Nowa miejscowość wyjazdu :";
             // 
-            // comboBox2
+            // textBox1
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(170, 24);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(176, 21);
-            this.comboBox2.TabIndex = 24;
-            // 
-            // LIncident
-            // 
-            this.LIncident.AutoSize = true;
-            this.LIncident.Location = new System.Drawing.Point(6, 54);
-            this.LIncident.Name = "LIncident";
-            this.LIncident.Size = new System.Drawing.Size(78, 13);
-            this.LIncident.TabIndex = 22;
-            this.LIncident.Text = "Ulica wyjazdu :";
-            // 
-            // LTypeIncident
-            // 
-            this.LTypeIncident.AutoSize = true;
-            this.LTypeIncident.Location = new System.Drawing.Point(6, 27);
-            this.LTypeIncident.Name = "LTypeIncident";
-            this.LTypeIncident.Size = new System.Drawing.Size(115, 13);
-            this.LTypeIncident.TabIndex = 21;
-            this.LTypeIncident.Text = "Miejscowość wyjazdu :";
+            this.textBox1.Location = new System.Drawing.Point(170, 108);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(176, 20);
+            this.textBox1.TabIndex = 21;
             // 
             // LTypeNewIncydent
             // 
@@ -632,22 +617,39 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.comboBox3.Size = new System.Drawing.Size(176, 21);
             this.comboBox3.TabIndex = 27;
             // 
-            // LNewIncident
+            // LTypeIncident
             // 
-            this.LNewIncident.AutoSize = true;
-            this.LNewIncident.Location = new System.Drawing.Point(6, 111);
-            this.LNewIncident.Name = "LNewIncident";
-            this.LNewIncident.Size = new System.Drawing.Size(145, 13);
-            this.LNewIncident.TabIndex = 22;
-            this.LNewIncident.Text = "Nowa miejscowość wyjazdu :";
+            this.LTypeIncident.AutoSize = true;
+            this.LTypeIncident.Location = new System.Drawing.Point(6, 27);
+            this.LTypeIncident.Name = "LTypeIncident";
+            this.LTypeIncident.Size = new System.Drawing.Size(115, 13);
+            this.LTypeIncident.TabIndex = 21;
+            this.LTypeIncident.Text = "Miejscowość wyjazdu :";
             // 
-            // textBox1
+            // LIncident
             // 
-            this.textBox1.Location = new System.Drawing.Point(170, 108);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 20);
-            this.textBox1.TabIndex = 21;
+            this.LIncident.AutoSize = true;
+            this.LIncident.Location = new System.Drawing.Point(6, 54);
+            this.LIncident.Name = "LIncident";
+            this.LIncident.Size = new System.Drawing.Size(78, 13);
+            this.LIncident.TabIndex = 22;
+            this.LIncident.Text = "Ulica wyjazdu :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(170, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(176, 21);
+            this.comboBox1.TabIndex = 25;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(170, 24);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(176, 21);
+            this.comboBox2.TabIndex = 24;
             // 
             // GP499z01
             // 
@@ -670,45 +672,63 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GP499z01.TabStop = false;
             this.GP499z01.Text = "Obsada 499z01";
             // 
-            // GB499z15
+            // CBFirefighter499z014
             // 
-            this.GB499z15.Controls.Add(this.CBFirefighter499z154);
-            this.GB499z15.Controls.Add(this.CBDriver499z15);
-            this.GB499z15.Controls.Add(this.CBFirefighter499z153);
-            this.GB499z15.Controls.Add(this.LFirefighter2499z15);
-            this.GB499z15.Controls.Add(this.CBFirefighter499z152);
-            this.GB499z15.Controls.Add(this.LFirefighter1499z15);
-            this.GB499z15.Controls.Add(this.CBFirefighter499z151);
-            this.GB499z15.Controls.Add(this.LFirefighter3499z15);
-            this.GB499z15.Controls.Add(this.CBCommander499z15);
-            this.GB499z15.Controls.Add(this.LCommander499z15);
-            this.GB499z15.Controls.Add(this.LFirefighter4499z15);
-            this.GB499z15.Controls.Add(this.LDriver499z15);
-            this.GB499z15.Location = new System.Drawing.Point(436, 266);
-            this.GB499z15.Name = "GB499z15";
-            this.GB499z15.Size = new System.Drawing.Size(399, 206);
-            this.GB499z15.TabIndex = 5;
-            this.GB499z15.TabStop = false;
-            this.GB499z15.Text = "Obsada 499z15";
+            this.CBFirefighter499z014.FormattingEnabled = true;
+            this.CBFirefighter499z014.Location = new System.Drawing.Point(99, 160);
+            this.CBFirefighter499z014.Name = "CBFirefighter499z014";
+            this.CBFirefighter499z014.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z014.TabIndex = 27;
             // 
-            // GB499z18
+            // CBFirefighter499z013
             // 
-            this.GB499z18.Controls.Add(this.LDriver499z18);
-            this.GB499z18.Controls.Add(this.CBFirefighter499z183);
-            this.GB499z18.Controls.Add(this.LFirefighter2499z18);
-            this.GB499z18.Controls.Add(this.CBFirefighter499z182);
-            this.GB499z18.Controls.Add(this.LFirefighter1499z18);
-            this.GB499z18.Controls.Add(this.CBFirefighter499z181);
-            this.GB499z18.Controls.Add(this.LFirefighter3499z18);
-            this.GB499z18.Controls.Add(this.CBCommander499z18);
-            this.GB499z18.Controls.Add(this.LCommander499z18);
-            this.GB499z18.Controls.Add(this.CBDriver499z18);
-            this.GB499z18.Location = new System.Drawing.Point(841, 268);
-            this.GB499z18.Name = "GB499z18";
-            this.GB499z18.Size = new System.Drawing.Size(402, 206);
-            this.GB499z18.TabIndex = 6;
-            this.GB499z18.TabStop = false;
-            this.GB499z18.Text = "Obsada 499z18";
+            this.CBFirefighter499z013.FormattingEnabled = true;
+            this.CBFirefighter499z013.Location = new System.Drawing.Point(99, 133);
+            this.CBFirefighter499z013.Name = "CBFirefighter499z013";
+            this.CBFirefighter499z013.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z013.TabIndex = 26;
+            // 
+            // CBFirefighter499z012
+            // 
+            this.CBFirefighter499z012.FormattingEnabled = true;
+            this.CBFirefighter499z012.Location = new System.Drawing.Point(99, 106);
+            this.CBFirefighter499z012.Name = "CBFirefighter499z012";
+            this.CBFirefighter499z012.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z012.TabIndex = 25;
+            // 
+            // CBFirefighter499z011
+            // 
+            this.CBFirefighter499z011.FormattingEnabled = true;
+            this.CBFirefighter499z011.Location = new System.Drawing.Point(99, 79);
+            this.CBFirefighter499z011.Name = "CBFirefighter499z011";
+            this.CBFirefighter499z011.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z011.TabIndex = 24;
+            // 
+            // CBCommander499z01
+            // 
+            this.CBCommander499z01.FormattingEnabled = true;
+            this.CBCommander499z01.Location = new System.Drawing.Point(99, 52);
+            this.CBCommander499z01.Name = "CBCommander499z01";
+            this.CBCommander499z01.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z01.TabIndex = 23;
+            // 
+            // LFirefighter4499z01
+            // 
+            this.LFirefighter4499z01.AutoSize = true;
+            this.LFirefighter4499z01.Location = new System.Drawing.Point(3, 163);
+            this.LFirefighter4499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter4499z01.Name = "LFirefighter4499z01";
+            this.LFirefighter4499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter4499z01.TabIndex = 21;
+            this.LFirefighter4499z01.Text = "Ratownik";
+            // 
+            // CBDriver499z01
+            // 
+            this.CBDriver499z01.FormattingEnabled = true;
+            this.CBDriver499z01.Location = new System.Drawing.Point(99, 25);
+            this.CBDriver499z01.Name = "CBDriver499z01";
+            this.CBDriver499z01.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z01.TabIndex = 22;
             // 
             // LDriver499z01
             // 
@@ -730,6 +750,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LCommander499z01.TabIndex = 17;
             this.LCommander499z01.Text = "Dowódca";
             // 
+            // LFirefighter3499z01
+            // 
+            this.LFirefighter3499z01.AutoSize = true;
+            this.LFirefighter3499z01.Location = new System.Drawing.Point(3, 136);
+            this.LFirefighter3499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z01.Name = "LFirefighter3499z01";
+            this.LFirefighter3499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z01.TabIndex = 20;
+            this.LFirefighter3499z01.Text = "Ratownik";
+            // 
             // LFirefighter1499z01
             // 
             this.LFirefighter1499z01.AutoSize = true;
@@ -750,73 +780,26 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter2499z01.TabIndex = 19;
             this.LFirefighter2499z01.Text = "Ratownik";
             // 
-            // LFirefighter3499z01
+            // GB499z15
             // 
-            this.LFirefighter3499z01.AutoSize = true;
-            this.LFirefighter3499z01.Location = new System.Drawing.Point(3, 136);
-            this.LFirefighter3499z01.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter3499z01.Name = "LFirefighter3499z01";
-            this.LFirefighter3499z01.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter3499z01.TabIndex = 20;
-            this.LFirefighter3499z01.Text = "Ratownik";
-            // 
-            // LFirefighter4499z01
-            // 
-            this.LFirefighter4499z01.AutoSize = true;
-            this.LFirefighter4499z01.Location = new System.Drawing.Point(3, 163);
-            this.LFirefighter4499z01.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter4499z01.Name = "LFirefighter4499z01";
-            this.LFirefighter4499z01.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter4499z01.TabIndex = 21;
-            this.LFirefighter4499z01.Text = "Ratownik";
-            // 
-            // CBDriver499z01
-            // 
-            this.CBDriver499z01.FormattingEnabled = true;
-            this.CBDriver499z01.Location = new System.Drawing.Point(99, 25);
-            this.CBDriver499z01.Name = "CBDriver499z01";
-            this.CBDriver499z01.Size = new System.Drawing.Size(176, 21);
-            this.CBDriver499z01.TabIndex = 22;
-            // 
-            // CBCommander499z01
-            // 
-            this.CBCommander499z01.FormattingEnabled = true;
-            this.CBCommander499z01.Location = new System.Drawing.Point(99, 52);
-            this.CBCommander499z01.Name = "CBCommander499z01";
-            this.CBCommander499z01.Size = new System.Drawing.Size(176, 21);
-            this.CBCommander499z01.TabIndex = 23;
-            // 
-            // CBFirefighter499z011
-            // 
-            this.CBFirefighter499z011.FormattingEnabled = true;
-            this.CBFirefighter499z011.Location = new System.Drawing.Point(99, 79);
-            this.CBFirefighter499z011.Name = "CBFirefighter499z011";
-            this.CBFirefighter499z011.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z011.TabIndex = 24;
-            // 
-            // CBFirefighter499z012
-            // 
-            this.CBFirefighter499z012.FormattingEnabled = true;
-            this.CBFirefighter499z012.Location = new System.Drawing.Point(99, 106);
-            this.CBFirefighter499z012.Name = "CBFirefighter499z012";
-            this.CBFirefighter499z012.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z012.TabIndex = 25;
-            // 
-            // CBFirefighter499z013
-            // 
-            this.CBFirefighter499z013.FormattingEnabled = true;
-            this.CBFirefighter499z013.Location = new System.Drawing.Point(99, 133);
-            this.CBFirefighter499z013.Name = "CBFirefighter499z013";
-            this.CBFirefighter499z013.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z013.TabIndex = 26;
-            // 
-            // CBFirefighter499z014
-            // 
-            this.CBFirefighter499z014.FormattingEnabled = true;
-            this.CBFirefighter499z014.Location = new System.Drawing.Point(99, 160);
-            this.CBFirefighter499z014.Name = "CBFirefighter499z014";
-            this.CBFirefighter499z014.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z014.TabIndex = 27;
+            this.GB499z15.Controls.Add(this.CBFirefighter499z154);
+            this.GB499z15.Controls.Add(this.CBDriver499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z153);
+            this.GB499z15.Controls.Add(this.LFirefighter2499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z152);
+            this.GB499z15.Controls.Add(this.LFirefighter1499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z151);
+            this.GB499z15.Controls.Add(this.LFirefighter3499z15);
+            this.GB499z15.Controls.Add(this.CBCommander499z15);
+            this.GB499z15.Controls.Add(this.LCommander499z15);
+            this.GB499z15.Controls.Add(this.LFirefighter4499z15);
+            this.GB499z15.Controls.Add(this.LDriver499z15);
+            this.GB499z15.Location = new System.Drawing.Point(436, 266);
+            this.GB499z15.Name = "GB499z15";
+            this.GB499z15.Size = new System.Drawing.Size(399, 206);
+            this.GB499z15.TabIndex = 5;
+            this.GB499z15.TabStop = false;
+            this.GB499z15.Text = "Obsada 499z15";
             // 
             // CBFirefighter499z154
             // 
@@ -826,48 +809,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z154.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z154.TabIndex = 39;
             // 
-            // CBFirefighter499z153
-            // 
-            this.CBFirefighter499z153.FormattingEnabled = true;
-            this.CBFirefighter499z153.Location = new System.Drawing.Point(99, 133);
-            this.CBFirefighter499z153.Name = "CBFirefighter499z153";
-            this.CBFirefighter499z153.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z153.TabIndex = 38;
-            // 
-            // CBFirefighter499z152
-            // 
-            this.CBFirefighter499z152.FormattingEnabled = true;
-            this.CBFirefighter499z152.Location = new System.Drawing.Point(99, 106);
-            this.CBFirefighter499z152.Name = "CBFirefighter499z152";
-            this.CBFirefighter499z152.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z152.TabIndex = 37;
-            // 
-            // CBFirefighter499z151
-            // 
-            this.CBFirefighter499z151.FormattingEnabled = true;
-            this.CBFirefighter499z151.Location = new System.Drawing.Point(99, 79);
-            this.CBFirefighter499z151.Name = "CBFirefighter499z151";
-            this.CBFirefighter499z151.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z151.TabIndex = 36;
-            // 
-            // CBCommander499z15
-            // 
-            this.CBCommander499z15.FormattingEnabled = true;
-            this.CBCommander499z15.Location = new System.Drawing.Point(99, 52);
-            this.CBCommander499z15.Name = "CBCommander499z15";
-            this.CBCommander499z15.Size = new System.Drawing.Size(176, 21);
-            this.CBCommander499z15.TabIndex = 35;
-            // 
-            // LFirefighter4499z15
-            // 
-            this.LFirefighter4499z15.AutoSize = true;
-            this.LFirefighter4499z15.Location = new System.Drawing.Point(3, 163);
-            this.LFirefighter4499z15.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter4499z15.Name = "LFirefighter4499z15";
-            this.LFirefighter4499z15.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter4499z15.TabIndex = 33;
-            this.LFirefighter4499z15.Text = "Ratownik";
-            // 
             // CBDriver499z15
             // 
             this.CBDriver499z15.FormattingEnabled = true;
@@ -876,45 +817,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBDriver499z15.Size = new System.Drawing.Size(176, 21);
             this.CBDriver499z15.TabIndex = 34;
             // 
-            // LDriver499z15
+            // CBFirefighter499z153
             // 
-            this.LDriver499z15.AutoSize = true;
-            this.LDriver499z15.Location = new System.Drawing.Point(3, 28);
-            this.LDriver499z15.Margin = new System.Windows.Forms.Padding(0);
-            this.LDriver499z15.Name = "LDriver499z15";
-            this.LDriver499z15.Size = new System.Drawing.Size(51, 13);
-            this.LDriver499z15.TabIndex = 28;
-            this.LDriver499z15.Text = "Kierowca";
-            // 
-            // LCommander499z15
-            // 
-            this.LCommander499z15.AutoSize = true;
-            this.LCommander499z15.Location = new System.Drawing.Point(3, 55);
-            this.LCommander499z15.Margin = new System.Windows.Forms.Padding(0);
-            this.LCommander499z15.Name = "LCommander499z15";
-            this.LCommander499z15.Size = new System.Drawing.Size(53, 13);
-            this.LCommander499z15.TabIndex = 29;
-            this.LCommander499z15.Text = "Dowódca";
-            // 
-            // LFirefighter3499z15
-            // 
-            this.LFirefighter3499z15.AutoSize = true;
-            this.LFirefighter3499z15.Location = new System.Drawing.Point(3, 136);
-            this.LFirefighter3499z15.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter3499z15.Name = "LFirefighter3499z15";
-            this.LFirefighter3499z15.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter3499z15.TabIndex = 32;
-            this.LFirefighter3499z15.Text = "Ratownik";
-            // 
-            // LFirefighter1499z15
-            // 
-            this.LFirefighter1499z15.AutoSize = true;
-            this.LFirefighter1499z15.Location = new System.Drawing.Point(3, 82);
-            this.LFirefighter1499z15.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter1499z15.Name = "LFirefighter1499z15";
-            this.LFirefighter1499z15.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter1499z15.TabIndex = 30;
-            this.LFirefighter1499z15.Text = "Ratownik";
+            this.CBFirefighter499z153.FormattingEnabled = true;
+            this.CBFirefighter499z153.Location = new System.Drawing.Point(99, 133);
+            this.CBFirefighter499z153.Name = "CBFirefighter499z153";
+            this.CBFirefighter499z153.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z153.TabIndex = 38;
             // 
             // LFirefighter2499z15
             // 
@@ -926,45 +835,98 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter2499z15.TabIndex = 31;
             this.LFirefighter2499z15.Text = "Ratownik";
             // 
-            // CBFirefighter499z183
+            // CBFirefighter499z152
             // 
-            this.CBFirefighter499z183.FormattingEnabled = true;
-            this.CBFirefighter499z183.Location = new System.Drawing.Point(99, 131);
-            this.CBFirefighter499z183.Name = "CBFirefighter499z183";
-            this.CBFirefighter499z183.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z183.TabIndex = 38;
+            this.CBFirefighter499z152.FormattingEnabled = true;
+            this.CBFirefighter499z152.Location = new System.Drawing.Point(99, 106);
+            this.CBFirefighter499z152.Name = "CBFirefighter499z152";
+            this.CBFirefighter499z152.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z152.TabIndex = 37;
             // 
-            // CBFirefighter499z182
+            // LFirefighter1499z15
             // 
-            this.CBFirefighter499z182.FormattingEnabled = true;
-            this.CBFirefighter499z182.Location = new System.Drawing.Point(99, 104);
-            this.CBFirefighter499z182.Name = "CBFirefighter499z182";
-            this.CBFirefighter499z182.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z182.TabIndex = 37;
+            this.LFirefighter1499z15.AutoSize = true;
+            this.LFirefighter1499z15.Location = new System.Drawing.Point(3, 82);
+            this.LFirefighter1499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter1499z15.Name = "LFirefighter1499z15";
+            this.LFirefighter1499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter1499z15.TabIndex = 30;
+            this.LFirefighter1499z15.Text = "Ratownik";
             // 
-            // CBFirefighter499z181
+            // CBFirefighter499z151
             // 
-            this.CBFirefighter499z181.FormattingEnabled = true;
-            this.CBFirefighter499z181.Location = new System.Drawing.Point(99, 77);
-            this.CBFirefighter499z181.Name = "CBFirefighter499z181";
-            this.CBFirefighter499z181.Size = new System.Drawing.Size(176, 21);
-            this.CBFirefighter499z181.TabIndex = 36;
+            this.CBFirefighter499z151.FormattingEnabled = true;
+            this.CBFirefighter499z151.Location = new System.Drawing.Point(99, 79);
+            this.CBFirefighter499z151.Name = "CBFirefighter499z151";
+            this.CBFirefighter499z151.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z151.TabIndex = 36;
             // 
-            // CBCommander499z18
+            // LFirefighter3499z15
             // 
-            this.CBCommander499z18.FormattingEnabled = true;
-            this.CBCommander499z18.Location = new System.Drawing.Point(99, 50);
-            this.CBCommander499z18.Name = "CBCommander499z18";
-            this.CBCommander499z18.Size = new System.Drawing.Size(176, 21);
-            this.CBCommander499z18.TabIndex = 35;
+            this.LFirefighter3499z15.AutoSize = true;
+            this.LFirefighter3499z15.Location = new System.Drawing.Point(3, 136);
+            this.LFirefighter3499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z15.Name = "LFirefighter3499z15";
+            this.LFirefighter3499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z15.TabIndex = 32;
+            this.LFirefighter3499z15.Text = "Ratownik";
             // 
-            // CBDriver499z18
+            // CBCommander499z15
             // 
-            this.CBDriver499z18.FormattingEnabled = true;
-            this.CBDriver499z18.Location = new System.Drawing.Point(99, 23);
-            this.CBDriver499z18.Name = "CBDriver499z18";
-            this.CBDriver499z18.Size = new System.Drawing.Size(176, 21);
-            this.CBDriver499z18.TabIndex = 34;
+            this.CBCommander499z15.FormattingEnabled = true;
+            this.CBCommander499z15.Location = new System.Drawing.Point(99, 52);
+            this.CBCommander499z15.Name = "CBCommander499z15";
+            this.CBCommander499z15.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z15.TabIndex = 35;
+            // 
+            // LCommander499z15
+            // 
+            this.LCommander499z15.AutoSize = true;
+            this.LCommander499z15.Location = new System.Drawing.Point(3, 55);
+            this.LCommander499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z15.Name = "LCommander499z15";
+            this.LCommander499z15.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z15.TabIndex = 29;
+            this.LCommander499z15.Text = "Dowódca";
+            // 
+            // LFirefighter4499z15
+            // 
+            this.LFirefighter4499z15.AutoSize = true;
+            this.LFirefighter4499z15.Location = new System.Drawing.Point(3, 163);
+            this.LFirefighter4499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter4499z15.Name = "LFirefighter4499z15";
+            this.LFirefighter4499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter4499z15.TabIndex = 33;
+            this.LFirefighter4499z15.Text = "Ratownik";
+            // 
+            // LDriver499z15
+            // 
+            this.LDriver499z15.AutoSize = true;
+            this.LDriver499z15.Location = new System.Drawing.Point(3, 28);
+            this.LDriver499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LDriver499z15.Name = "LDriver499z15";
+            this.LDriver499z15.Size = new System.Drawing.Size(51, 13);
+            this.LDriver499z15.TabIndex = 28;
+            this.LDriver499z15.Text = "Kierowca";
+            // 
+            // GB499z18
+            // 
+            this.GB499z18.Controls.Add(this.LDriver499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z183);
+            this.GB499z18.Controls.Add(this.LFirefighter2499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z182);
+            this.GB499z18.Controls.Add(this.LFirefighter1499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z181);
+            this.GB499z18.Controls.Add(this.LFirefighter3499z18);
+            this.GB499z18.Controls.Add(this.CBCommander499z18);
+            this.GB499z18.Controls.Add(this.LCommander499z18);
+            this.GB499z18.Controls.Add(this.CBDriver499z18);
+            this.GB499z18.Location = new System.Drawing.Point(841, 268);
+            this.GB499z18.Name = "GB499z18";
+            this.GB499z18.Size = new System.Drawing.Size(402, 206);
+            this.GB499z18.TabIndex = 6;
+            this.GB499z18.TabStop = false;
+            this.GB499z18.Text = "Obsada 499z18";
             // 
             // LDriver499z18
             // 
@@ -976,25 +938,31 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LDriver499z18.TabIndex = 28;
             this.LDriver499z18.Text = "Kierowca";
             // 
-            // LCommander499z18
+            // CBFirefighter499z183
             // 
-            this.LCommander499z18.AutoSize = true;
-            this.LCommander499z18.Location = new System.Drawing.Point(3, 53);
-            this.LCommander499z18.Margin = new System.Windows.Forms.Padding(0);
-            this.LCommander499z18.Name = "LCommander499z18";
-            this.LCommander499z18.Size = new System.Drawing.Size(53, 13);
-            this.LCommander499z18.TabIndex = 29;
-            this.LCommander499z18.Text = "Dowódca";
+            this.CBFirefighter499z183.FormattingEnabled = true;
+            this.CBFirefighter499z183.Location = new System.Drawing.Point(99, 131);
+            this.CBFirefighter499z183.Name = "CBFirefighter499z183";
+            this.CBFirefighter499z183.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z183.TabIndex = 38;
             // 
-            // LFirefighter3499z18
+            // LFirefighter2499z18
             // 
-            this.LFirefighter3499z18.AutoSize = true;
-            this.LFirefighter3499z18.Location = new System.Drawing.Point(3, 134);
-            this.LFirefighter3499z18.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter3499z18.Name = "LFirefighter3499z18";
-            this.LFirefighter3499z18.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter3499z18.TabIndex = 32;
-            this.LFirefighter3499z18.Text = "Ratownik";
+            this.LFirefighter2499z18.AutoSize = true;
+            this.LFirefighter2499z18.Location = new System.Drawing.Point(3, 107);
+            this.LFirefighter2499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter2499z18.Name = "LFirefighter2499z18";
+            this.LFirefighter2499z18.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter2499z18.TabIndex = 31;
+            this.LFirefighter2499z18.Text = "Ratownik";
+            // 
+            // CBFirefighter499z182
+            // 
+            this.CBFirefighter499z182.FormattingEnabled = true;
+            this.CBFirefighter499z182.Location = new System.Drawing.Point(99, 104);
+            this.CBFirefighter499z182.Name = "CBFirefighter499z182";
+            this.CBFirefighter499z182.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z182.TabIndex = 37;
             // 
             // LFirefighter1499z18
             // 
@@ -1006,15 +974,49 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter1499z18.TabIndex = 30;
             this.LFirefighter1499z18.Text = "Ratownik";
             // 
-            // LFirefighter2499z18
+            // CBFirefighter499z181
             // 
-            this.LFirefighter2499z18.AutoSize = true;
-            this.LFirefighter2499z18.Location = new System.Drawing.Point(3, 107);
-            this.LFirefighter2499z18.Margin = new System.Windows.Forms.Padding(0);
-            this.LFirefighter2499z18.Name = "LFirefighter2499z18";
-            this.LFirefighter2499z18.Size = new System.Drawing.Size(52, 13);
-            this.LFirefighter2499z18.TabIndex = 31;
-            this.LFirefighter2499z18.Text = "Ratownik";
+            this.CBFirefighter499z181.FormattingEnabled = true;
+            this.CBFirefighter499z181.Location = new System.Drawing.Point(99, 77);
+            this.CBFirefighter499z181.Name = "CBFirefighter499z181";
+            this.CBFirefighter499z181.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z181.TabIndex = 36;
+            // 
+            // LFirefighter3499z18
+            // 
+            this.LFirefighter3499z18.AutoSize = true;
+            this.LFirefighter3499z18.Location = new System.Drawing.Point(3, 134);
+            this.LFirefighter3499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z18.Name = "LFirefighter3499z18";
+            this.LFirefighter3499z18.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z18.TabIndex = 32;
+            this.LFirefighter3499z18.Text = "Ratownik";
+            // 
+            // CBCommander499z18
+            // 
+            this.CBCommander499z18.FormattingEnabled = true;
+            this.CBCommander499z18.Location = new System.Drawing.Point(99, 50);
+            this.CBCommander499z18.Name = "CBCommander499z18";
+            this.CBCommander499z18.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z18.TabIndex = 35;
+            // 
+            // LCommander499z18
+            // 
+            this.LCommander499z18.AutoSize = true;
+            this.LCommander499z18.Location = new System.Drawing.Point(3, 53);
+            this.LCommander499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z18.Name = "LCommander499z18";
+            this.LCommander499z18.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z18.TabIndex = 29;
+            this.LCommander499z18.Text = "Dowódca";
+            // 
+            // CBDriver499z18
+            // 
+            this.CBDriver499z18.FormattingEnabled = true;
+            this.CBDriver499z18.Location = new System.Drawing.Point(99, 23);
+            this.CBDriver499z18.Name = "CBDriver499z18";
+            this.CBDriver499z18.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z18.TabIndex = 34;
             // 
             // GB499z19
             // 

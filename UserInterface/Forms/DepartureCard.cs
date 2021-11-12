@@ -18,14 +18,27 @@ namespace FirefighterControlCenter.UserInterface.Forms
             InitializeComponent();
         }
 
-        private void GBPlace_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void DepartureCard_Load(object sender, EventArgs e)
         {
-            LPreviousNumberDepartureCard.Text = SqlConnector.NumberDeparture().ToString();
+            LPreviousNumberDepartureCard.Text = SqlConnector.SelectNumberDeparture().ToString();
+            CBCity.DataSource = SqlConnector.SelectDateDepartureCard("City","");
+        }
+
+        private void CBCity_SelectedValueChanged(object sender, EventArgs e)
+        {
+                CBStreet.DataSource = null;
+                CBStreet.DataSource = SqlConnector.SelectDateDepartureCard("Street", CBCity.Text);
+        }
+
+        private void TBCity_TextChanged(object sender, EventArgs e)
+        {
+            CBCity.Text = "";
+            CBStreet.Text = "";
+        }
+
+        private void TBStreet_TextChanged(object sender, EventArgs e)
+        {
+            CBStreet.Text = "";
         }
     }
 }

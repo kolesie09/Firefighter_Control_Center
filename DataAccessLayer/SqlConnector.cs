@@ -24,14 +24,14 @@ namespace FirefighterControlCenter.DataAccessLayer
                     {
                         Firefighter_ranking firefighter = new Firefighter_ranking
                         {
-                            /*Id = int.Parse(reader["id_departure_ranking"].ToString()),
+                            //Id = int.Parse(reader["id_departure_ranking"].ToString()),
                             Imie = reader["name"].ToString(),
                             Naziwsko = reader["last_name"].ToString(),
                             Nazwa_miasta = reader["Name_City"].ToString(),
                             Nazwa_ulicy = reader["Name_Street"].ToString(),
                             Rok = int.Parse(reader["Year"].ToString()),
                             Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
-                            */
+                            
                         };
                         list.Add(firefighter);
                     }
@@ -45,7 +45,7 @@ namespace FirefighterControlCenter.DataAccessLayer
             return list;
         }
 
-        public static int NumberDeparture()
+        public static int SelectNumberDeparture()
         {
             int LastNumberDeparture = 0;
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
@@ -74,6 +74,51 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
             }
             return LastNumberDeparture;
+        }
+
+        public static List<string> SelectDateDepartureCard(string TypeSelect, string x)
+        {
+            var list = new List<string>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if (TypeSelect == "City")
+                {
+                    const string sqlquery = "SELECT Name_City FROM city";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Name_City"].ToString());
+                        }
+                    }
+                }
+                else if(TypeSelect == "Street")
+                {
+                    string sqlquery =("SELECT Name_Street FROM street, city WHERE city.ID_city=street.ID_City AND city.Name_City='" + x + "'");
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Name_Street"].ToString());
+                        }
+                    }
+                }
+
+                
+                cnn.Close();
+                
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
         }
     }
 }

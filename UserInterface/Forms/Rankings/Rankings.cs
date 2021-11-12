@@ -46,7 +46,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_firefighter_Click(object sender, EventArgs e)
         {
-            DB_ranking.DataSource = SqlConnector.Ranking();
+            //DB_ranking.DataSource = SqlConnector.fiSelectDateDepartureCard();
 
         }
 
