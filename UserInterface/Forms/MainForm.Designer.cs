@@ -134,6 +134,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             this.pMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pMain.Location = new System.Drawing.Point(0, 55);
+            this.pMain.Margin = new System.Windows.Forms.Padding(0);
             this.pMain.Name = "pMain";
             this.pMain.Size = new System.Drawing.Size(1284, 734);
             this.pMain.TabIndex = 8;

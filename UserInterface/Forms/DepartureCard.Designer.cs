@@ -29,27 +29,1163 @@ namespace FirefighterControlCenter.UserInterface.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.Title = new System.Windows.Forms.Label();
+            this.GBPrimary = new System.Windows.Forms.GroupBox();
+            this.LDateDepartureCard = new System.Windows.Forms.Label();
+            this.DTPDepartureCard = new System.Windows.Forms.DateTimePicker();
+            this.LMIN2 = new System.Windows.Forms.Label();
+            this.LMIN1 = new System.Windows.Forms.Label();
+            this.LH2 = new System.Windows.Forms.Label();
+            this.LH1 = new System.Windows.Forms.Label();
+            this.CBMinuteArrival = new System.Windows.Forms.ComboBox();
+            this.CBHourArrival = new System.Windows.Forms.ComboBox();
+            this.CBMinuteDeparture = new System.Windows.Forms.ComboBox();
+            this.CBHourDeparture = new System.Windows.Forms.ComboBox();
+            this.LHourArrival = new System.Windows.Forms.Label();
+            this.LHourdeparture = new System.Windows.Forms.Label();
+            this.LNextDepartureCard = new System.Windows.Forms.Label();
+            this.TBNumberDepartureCard = new System.Windows.Forms.TextBox();
+            this.LPreviousNumberDepartureCard = new System.Windows.Forms.Label();
+            this.LPreviousDepartureCard = new System.Windows.Forms.Label();
+            this.GBPlace = new System.Windows.Forms.GroupBox();
+            this.LCity = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.CBCity = new System.Windows.Forms.ComboBox();
+            this.CBStreet = new System.Windows.Forms.ComboBox();
+            this.TBCity = new System.Windows.Forms.TextBox();
+            this.TBStreet = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LNewStreet = new System.Windows.Forms.Label();
+            this.GBIncident = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.LIncident = new System.Windows.Forms.Label();
+            this.LTypeIncident = new System.Windows.Forms.Label();
+            this.LTypeNewIncydent = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.LNewIncident = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.GP499z01 = new System.Windows.Forms.GroupBox();
+            this.GB499z15 = new System.Windows.Forms.GroupBox();
+            this.GB499z18 = new System.Windows.Forms.GroupBox();
+            this.LDriver499z01 = new System.Windows.Forms.Label();
+            this.LCommander499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter1499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter2499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter3499z01 = new System.Windows.Forms.Label();
+            this.LFirefighter4499z01 = new System.Windows.Forms.Label();
+            this.CBDriver499z01 = new System.Windows.Forms.ComboBox();
+            this.CBCommander499z01 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z011 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z012 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z013 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z014 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z154 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z153 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z152 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z151 = new System.Windows.Forms.ComboBox();
+            this.CBCommander499z15 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter4499z15 = new System.Windows.Forms.Label();
+            this.CBDriver499z15 = new System.Windows.Forms.ComboBox();
+            this.LDriver499z15 = new System.Windows.Forms.Label();
+            this.LCommander499z15 = new System.Windows.Forms.Label();
+            this.LFirefighter3499z15 = new System.Windows.Forms.Label();
+            this.LFirefighter1499z15 = new System.Windows.Forms.Label();
+            this.LFirefighter2499z15 = new System.Windows.Forms.Label();
+            this.CBFirefighter499z183 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z182 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z181 = new System.Windows.Forms.ComboBox();
+            this.CBCommander499z18 = new System.Windows.Forms.ComboBox();
+            this.CBDriver499z18 = new System.Windows.Forms.ComboBox();
+            this.LDriver499z18 = new System.Windows.Forms.Label();
+            this.LCommander499z18 = new System.Windows.Forms.Label();
+            this.LFirefighter3499z18 = new System.Windows.Forms.Label();
+            this.LFirefighter1499z18 = new System.Windows.Forms.Label();
+            this.LFirefighter2499z18 = new System.Windows.Forms.Label();
+            this.GB499z19 = new System.Windows.Forms.GroupBox();
+            this.CBFirefighter499z194 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z193 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z192 = new System.Windows.Forms.ComboBox();
+            this.CBFirefighter499z191 = new System.Windows.Forms.ComboBox();
+            this.CBCommander499z19 = new System.Windows.Forms.ComboBox();
+            this.LFirefighter4499z19 = new System.Windows.Forms.Label();
+            this.CBDriver499z19 = new System.Windows.Forms.ComboBox();
+            this.LDriver499z19 = new System.Windows.Forms.Label();
+            this.LCommander499z19 = new System.Windows.Forms.Label();
+            this.LFirefighter3499z19 = new System.Windows.Forms.Label();
+            this.LFirefighter1499z19 = new System.Windows.Forms.Label();
+            this.LFirefighter2499z19 = new System.Windows.Forms.Label();
+            this.BPrint = new System.Windows.Forms.Button();
+            this.GBPrimary.SuspendLayout();
+            this.GBPlace.SuspendLayout();
+            this.GBIncident.SuspendLayout();
+            this.GP499z01.SuspendLayout();
+            this.GB499z15.SuspendLayout();
+            this.GB499z18.SuspendLayout();
+            this.GB499z19.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Title.Location = new System.Drawing.Point(419, 9);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(326, 55);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "Karta wyjazdu";
+            // 
+            // GBPrimary
+            // 
+            this.GBPrimary.Controls.Add(this.LDateDepartureCard);
+            this.GBPrimary.Controls.Add(this.DTPDepartureCard);
+            this.GBPrimary.Controls.Add(this.LMIN2);
+            this.GBPrimary.Controls.Add(this.LMIN1);
+            this.GBPrimary.Controls.Add(this.LH2);
+            this.GBPrimary.Controls.Add(this.LH1);
+            this.GBPrimary.Controls.Add(this.CBMinuteArrival);
+            this.GBPrimary.Controls.Add(this.CBHourArrival);
+            this.GBPrimary.Controls.Add(this.CBMinuteDeparture);
+            this.GBPrimary.Controls.Add(this.CBHourDeparture);
+            this.GBPrimary.Controls.Add(this.LHourArrival);
+            this.GBPrimary.Controls.Add(this.LHourdeparture);
+            this.GBPrimary.Controls.Add(this.LNextDepartureCard);
+            this.GBPrimary.Controls.Add(this.TBNumberDepartureCard);
+            this.GBPrimary.Controls.Add(this.LPreviousNumberDepartureCard);
+            this.GBPrimary.Controls.Add(this.LPreviousDepartureCard);
+            this.GBPrimary.Location = new System.Drawing.Point(39, 93);
+            this.GBPrimary.Margin = new System.Windows.Forms.Padding(0);
+            this.GBPrimary.Name = "GBPrimary";
+            this.GBPrimary.Padding = new System.Windows.Forms.Padding(0);
+            this.GBPrimary.Size = new System.Drawing.Size(394, 169);
+            this.GBPrimary.TabIndex = 1;
+            this.GBPrimary.TabStop = false;
+            this.GBPrimary.Text = "Podstawowe informacje";
+            // 
+            // LDateDepartureCard
+            // 
+            this.LDateDepartureCard.AutoSize = true;
+            this.LDateDepartureCard.Location = new System.Drawing.Point(4, 143);
+            this.LDateDepartureCard.Margin = new System.Windows.Forms.Padding(0);
+            this.LDateDepartureCard.Name = "LDateDepartureCard";
+            this.LDateDepartureCard.Size = new System.Drawing.Size(77, 13);
+            this.LDateDepartureCard.TabIndex = 15;
+            this.LDateDepartureCard.Text = "Data wyjazdu :";
+            // 
+            // DTPDepartureCard
+            // 
+            this.DTPDepartureCard.CustomFormat = "dd-MM-yyyy";
+            this.DTPDepartureCard.Location = new System.Drawing.Point(159, 137);
+            this.DTPDepartureCard.Name = "DTPDepartureCard";
+            this.DTPDepartureCard.Size = new System.Drawing.Size(200, 20);
+            this.DTPDepartureCard.TabIndex = 14;
+            this.DTPDepartureCard.Value = new System.DateTime(2021, 11, 12, 0, 5, 40, 0);
+            // 
+            // LMIN2
+            // 
+            this.LMIN2.AutoSize = true;
+            this.LMIN2.Location = new System.Drawing.Point(301, 104);
+            this.LMIN2.Name = "LMIN2";
+            this.LMIN2.Size = new System.Drawing.Size(27, 13);
+            this.LMIN2.TabIndex = 13;
+            this.LMIN2.Text = "MIN";
+            // 
+            // LMIN1
+            // 
+            this.LMIN1.AutoSize = true;
+            this.LMIN1.Location = new System.Drawing.Point(301, 79);
+            this.LMIN1.Name = "LMIN1";
+            this.LMIN1.Size = new System.Drawing.Size(27, 13);
+            this.LMIN1.TabIndex = 12;
+            this.LMIN1.Text = "MIN";
+            // 
+            // LH2
+            // 
+            this.LH2.AutoSize = true;
+            this.LH2.Location = new System.Drawing.Point(203, 104);
+            this.LH2.Name = "LH2";
+            this.LH2.Size = new System.Drawing.Size(15, 13);
+            this.LH2.TabIndex = 11;
+            this.LH2.Text = "H";
+            // 
+            // LH1
+            // 
+            this.LH1.AutoSize = true;
+            this.LH1.Location = new System.Drawing.Point(203, 79);
+            this.LH1.Name = "LH1";
+            this.LH1.Size = new System.Drawing.Size(15, 13);
+            this.LH1.TabIndex = 10;
+            this.LH1.Text = "H";
+            // 
+            // CBMinuteArrival
+            // 
+            this.CBMinuteArrival.FormattingEnabled = true;
+            this.CBMinuteArrival.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.CBMinuteArrival.Location = new System.Drawing.Point(257, 101);
+            this.CBMinuteArrival.Name = "CBMinuteArrival";
+            this.CBMinuteArrival.Size = new System.Drawing.Size(38, 21);
+            this.CBMinuteArrival.TabIndex = 9;
+            // 
+            // CBHourArrival
+            // 
+            this.CBHourArrival.FormattingEnabled = true;
+            this.CBHourArrival.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.CBHourArrival.Location = new System.Drawing.Point(159, 101);
+            this.CBHourArrival.Name = "CBHourArrival";
+            this.CBHourArrival.Size = new System.Drawing.Size(38, 21);
+            this.CBHourArrival.TabIndex = 8;
+            // 
+            // CBMinuteDeparture
+            // 
+            this.CBMinuteDeparture.FormattingEnabled = true;
+            this.CBMinuteDeparture.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.CBMinuteDeparture.Location = new System.Drawing.Point(257, 73);
+            this.CBMinuteDeparture.Name = "CBMinuteDeparture";
+            this.CBMinuteDeparture.Size = new System.Drawing.Size(38, 21);
+            this.CBMinuteDeparture.TabIndex = 7;
+            // 
+            // CBHourDeparture
+            // 
+            this.CBHourDeparture.FormattingEnabled = true;
+            this.CBHourDeparture.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.CBHourDeparture.Location = new System.Drawing.Point(159, 73);
+            this.CBHourDeparture.Name = "CBHourDeparture";
+            this.CBHourDeparture.Size = new System.Drawing.Size(38, 21);
+            this.CBHourDeparture.TabIndex = 6;
+            // 
+            // LHourArrival
+            // 
+            this.LHourArrival.AutoSize = true;
+            this.LHourArrival.Location = new System.Drawing.Point(4, 104);
+            this.LHourArrival.Margin = new System.Windows.Forms.Padding(0);
+            this.LHourArrival.Name = "LHourArrival";
+            this.LHourArrival.Size = new System.Drawing.Size(102, 13);
+            this.LHourArrival.TabIndex = 5;
+            this.LHourArrival.Text = "Godzina przyjazdu : ";
+            // 
+            // LHourdeparture
+            // 
+            this.LHourdeparture.AutoSize = true;
+            this.LHourdeparture.Location = new System.Drawing.Point(4, 76);
+            this.LHourdeparture.Margin = new System.Windows.Forms.Padding(0);
+            this.LHourdeparture.Name = "LHourdeparture";
+            this.LHourdeparture.Size = new System.Drawing.Size(93, 13);
+            this.LHourdeparture.TabIndex = 4;
+            this.LHourdeparture.Text = "Godzina wyjazdu :";
+            // 
+            // LNextDepartureCard
+            // 
+            this.LNextDepartureCard.AutoSize = true;
+            this.LNextDepartureCard.Location = new System.Drawing.Point(4, 47);
+            this.LNextDepartureCard.Margin = new System.Windows.Forms.Padding(0);
+            this.LNextDepartureCard.Name = "LNextDepartureCard";
+            this.LNextDepartureCard.Size = new System.Drawing.Size(131, 13);
+            this.LNextDepartureCard.TabIndex = 3;
+            this.LNextDepartureCard.Text = "Nastepny numer wyjazdu :";
+            // 
+            // TBNumberDepartureCard
+            // 
+            this.TBNumberDepartureCard.Location = new System.Drawing.Point(159, 44);
+            this.TBNumberDepartureCard.Margin = new System.Windows.Forms.Padding(0);
+            this.TBNumberDepartureCard.Name = "TBNumberDepartureCard";
+            this.TBNumberDepartureCard.Size = new System.Drawing.Size(32, 20);
+            this.TBNumberDepartureCard.TabIndex = 2;
+            // 
+            // LPreviousNumberDepartureCard
+            // 
+            this.LPreviousNumberDepartureCard.AutoSize = true;
+            this.LPreviousNumberDepartureCard.Location = new System.Drawing.Point(156, 20);
+            this.LPreviousNumberDepartureCard.Name = "LPreviousNumberDepartureCard";
+            this.LPreviousNumberDepartureCard.Size = new System.Drawing.Size(19, 13);
+            this.LPreviousNumberDepartureCard.TabIndex = 1;
+            this.LPreviousNumberDepartureCard.Text = "36";
+            // 
+            // LPreviousDepartureCard
+            // 
+            this.LPreviousDepartureCard.AutoSize = true;
+            this.LPreviousDepartureCard.Location = new System.Drawing.Point(4, 20);
+            this.LPreviousDepartureCard.Margin = new System.Windows.Forms.Padding(0);
+            this.LPreviousDepartureCard.Name = "LPreviousDepartureCard";
+            this.LPreviousDepartureCard.Size = new System.Drawing.Size(133, 13);
+            this.LPreviousDepartureCard.TabIndex = 0;
+            this.LPreviousDepartureCard.Text = "Poprzedni numer wyjazdu :";
+            // 
+            // GBPlace
+            // 
+            this.GBPlace.Controls.Add(this.LNewStreet);
+            this.GBPlace.Controls.Add(this.label2);
+            this.GBPlace.Controls.Add(this.TBStreet);
+            this.GBPlace.Controls.Add(this.TBCity);
+            this.GBPlace.Controls.Add(this.CBStreet);
+            this.GBPlace.Controls.Add(this.CBCity);
+            this.GBPlace.Controls.Add(this.label1);
+            this.GBPlace.Controls.Add(this.LCity);
+            this.GBPlace.Location = new System.Drawing.Point(436, 93);
+            this.GBPlace.Name = "GBPlace";
+            this.GBPlace.Size = new System.Drawing.Size(399, 169);
+            this.GBPlace.TabIndex = 2;
+            this.GBPlace.TabStop = false;
+            this.GBPlace.Text = "Miejsce wyjazdu";
+            this.GBPlace.Enter += new System.EventHandler(this.GBPlace_Enter);
+            // 
+            // LCity
+            // 
+            this.LCity.AutoSize = true;
+            this.LCity.Location = new System.Drawing.Point(6, 32);
+            this.LCity.Name = "LCity";
+            this.LCity.Size = new System.Drawing.Size(115, 13);
+            this.LCity.TabIndex = 0;
+            this.LCity.Text = "Miejscowość wyjazdu :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(401, 88);
+            this.label1.Location = new System.Drawing.Point(6, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Karta wyjazdu";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ulica wyjazdu :";
+            // 
+            // CBCity
+            // 
+            this.CBCity.FormattingEnabled = true;
+            this.CBCity.Location = new System.Drawing.Point(170, 29);
+            this.CBCity.Name = "CBCity";
+            this.CBCity.Size = new System.Drawing.Size(176, 21);
+            this.CBCity.TabIndex = 16;
+            // 
+            // CBStreet
+            // 
+            this.CBStreet.FormattingEnabled = true;
+            this.CBStreet.Location = new System.Drawing.Point(170, 56);
+            this.CBStreet.Name = "CBStreet";
+            this.CBStreet.Size = new System.Drawing.Size(176, 21);
+            this.CBStreet.TabIndex = 17;
+            // 
+            // TBCity
+            // 
+            this.TBCity.Location = new System.Drawing.Point(170, 85);
+            this.TBCity.Margin = new System.Windows.Forms.Padding(0);
+            this.TBCity.Name = "TBCity";
+            this.TBCity.Size = new System.Drawing.Size(176, 20);
+            this.TBCity.TabIndex = 16;
+            // 
+            // TBStreet
+            // 
+            this.TBStreet.Location = new System.Drawing.Point(170, 113);
+            this.TBStreet.Margin = new System.Windows.Forms.Padding(0);
+            this.TBStreet.Name = "TBStreet";
+            this.TBStreet.Size = new System.Drawing.Size(176, 20);
+            this.TBStreet.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Nowa miejscowość wyjazdu :";
+            // 
+            // LNewStreet
+            // 
+            this.LNewStreet.AutoSize = true;
+            this.LNewStreet.Location = new System.Drawing.Point(6, 116);
+            this.LNewStreet.Name = "LNewStreet";
+            this.LNewStreet.Size = new System.Drawing.Size(107, 13);
+            this.LNewStreet.TabIndex = 20;
+            this.LNewStreet.Text = "Nowa ulica wyjazdu :";
+            // 
+            // GBIncident
+            // 
+            this.GBIncident.Controls.Add(this.LNewIncident);
+            this.GBIncident.Controls.Add(this.textBox1);
+            this.GBIncident.Controls.Add(this.LTypeNewIncydent);
+            this.GBIncident.Controls.Add(this.comboBox3);
+            this.GBIncident.Controls.Add(this.LTypeIncident);
+            this.GBIncident.Controls.Add(this.LIncident);
+            this.GBIncident.Controls.Add(this.comboBox1);
+            this.GBIncident.Controls.Add(this.comboBox2);
+            this.GBIncident.Location = new System.Drawing.Point(841, 93);
+            this.GBIncident.Name = "GBIncident";
+            this.GBIncident.Size = new System.Drawing.Size(402, 169);
+            this.GBIncident.TabIndex = 3;
+            this.GBIncident.TabStop = false;
+            this.GBIncident.Text = "Powód wyjazdu";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(170, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(176, 21);
+            this.comboBox1.TabIndex = 25;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(170, 24);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(176, 21);
+            this.comboBox2.TabIndex = 24;
+            // 
+            // LIncident
+            // 
+            this.LIncident.AutoSize = true;
+            this.LIncident.Location = new System.Drawing.Point(6, 54);
+            this.LIncident.Name = "LIncident";
+            this.LIncident.Size = new System.Drawing.Size(78, 13);
+            this.LIncident.TabIndex = 22;
+            this.LIncident.Text = "Ulica wyjazdu :";
+            // 
+            // LTypeIncident
+            // 
+            this.LTypeIncident.AutoSize = true;
+            this.LTypeIncident.Location = new System.Drawing.Point(6, 27);
+            this.LTypeIncident.Name = "LTypeIncident";
+            this.LTypeIncident.Size = new System.Drawing.Size(115, 13);
+            this.LTypeIncident.TabIndex = 21;
+            this.LTypeIncident.Text = "Miejscowość wyjazdu :";
+            // 
+            // LTypeNewIncydent
+            // 
+            this.LTypeNewIncydent.AutoSize = true;
+            this.LTypeNewIncydent.Location = new System.Drawing.Point(6, 83);
+            this.LTypeNewIncydent.Name = "LTypeNewIncydent";
+            this.LTypeNewIncydent.Size = new System.Drawing.Size(78, 13);
+            this.LTypeNewIncydent.TabIndex = 26;
+            this.LTypeNewIncydent.Text = "Ulica wyjazdu :";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(170, 80);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(176, 21);
+            this.comboBox3.TabIndex = 27;
+            // 
+            // LNewIncident
+            // 
+            this.LNewIncident.AutoSize = true;
+            this.LNewIncident.Location = new System.Drawing.Point(6, 111);
+            this.LNewIncident.Name = "LNewIncident";
+            this.LNewIncident.Size = new System.Drawing.Size(145, 13);
+            this.LNewIncident.TabIndex = 22;
+            this.LNewIncident.Text = "Nowa miejscowość wyjazdu :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(170, 108);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(176, 20);
+            this.textBox1.TabIndex = 21;
+            // 
+            // GP499z01
+            // 
+            this.GP499z01.Controls.Add(this.CBFirefighter499z014);
+            this.GP499z01.Controls.Add(this.CBFirefighter499z013);
+            this.GP499z01.Controls.Add(this.CBFirefighter499z012);
+            this.GP499z01.Controls.Add(this.CBFirefighter499z011);
+            this.GP499z01.Controls.Add(this.CBCommander499z01);
+            this.GP499z01.Controls.Add(this.LFirefighter4499z01);
+            this.GP499z01.Controls.Add(this.CBDriver499z01);
+            this.GP499z01.Controls.Add(this.LDriver499z01);
+            this.GP499z01.Controls.Add(this.LCommander499z01);
+            this.GP499z01.Controls.Add(this.LFirefighter3499z01);
+            this.GP499z01.Controls.Add(this.LFirefighter1499z01);
+            this.GP499z01.Controls.Add(this.LFirefighter2499z01);
+            this.GP499z01.Location = new System.Drawing.Point(39, 266);
+            this.GP499z01.Name = "GP499z01";
+            this.GP499z01.Size = new System.Drawing.Size(394, 206);
+            this.GP499z01.TabIndex = 4;
+            this.GP499z01.TabStop = false;
+            this.GP499z01.Text = "Obsada 499z01";
+            // 
+            // GB499z15
+            // 
+            this.GB499z15.Controls.Add(this.CBFirefighter499z154);
+            this.GB499z15.Controls.Add(this.CBDriver499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z153);
+            this.GB499z15.Controls.Add(this.LFirefighter2499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z152);
+            this.GB499z15.Controls.Add(this.LFirefighter1499z15);
+            this.GB499z15.Controls.Add(this.CBFirefighter499z151);
+            this.GB499z15.Controls.Add(this.LFirefighter3499z15);
+            this.GB499z15.Controls.Add(this.CBCommander499z15);
+            this.GB499z15.Controls.Add(this.LCommander499z15);
+            this.GB499z15.Controls.Add(this.LFirefighter4499z15);
+            this.GB499z15.Controls.Add(this.LDriver499z15);
+            this.GB499z15.Location = new System.Drawing.Point(436, 266);
+            this.GB499z15.Name = "GB499z15";
+            this.GB499z15.Size = new System.Drawing.Size(399, 206);
+            this.GB499z15.TabIndex = 5;
+            this.GB499z15.TabStop = false;
+            this.GB499z15.Text = "Obsada 499z15";
+            // 
+            // GB499z18
+            // 
+            this.GB499z18.Controls.Add(this.LDriver499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z183);
+            this.GB499z18.Controls.Add(this.LFirefighter2499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z182);
+            this.GB499z18.Controls.Add(this.LFirefighter1499z18);
+            this.GB499z18.Controls.Add(this.CBFirefighter499z181);
+            this.GB499z18.Controls.Add(this.LFirefighter3499z18);
+            this.GB499z18.Controls.Add(this.CBCommander499z18);
+            this.GB499z18.Controls.Add(this.LCommander499z18);
+            this.GB499z18.Controls.Add(this.CBDriver499z18);
+            this.GB499z18.Location = new System.Drawing.Point(841, 268);
+            this.GB499z18.Name = "GB499z18";
+            this.GB499z18.Size = new System.Drawing.Size(402, 206);
+            this.GB499z18.TabIndex = 6;
+            this.GB499z18.TabStop = false;
+            this.GB499z18.Text = "Obsada 499z18";
+            // 
+            // LDriver499z01
+            // 
+            this.LDriver499z01.AutoSize = true;
+            this.LDriver499z01.Location = new System.Drawing.Point(3, 28);
+            this.LDriver499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LDriver499z01.Name = "LDriver499z01";
+            this.LDriver499z01.Size = new System.Drawing.Size(51, 13);
+            this.LDriver499z01.TabIndex = 16;
+            this.LDriver499z01.Text = "Kierowca";
+            // 
+            // LCommander499z01
+            // 
+            this.LCommander499z01.AutoSize = true;
+            this.LCommander499z01.Location = new System.Drawing.Point(3, 55);
+            this.LCommander499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z01.Name = "LCommander499z01";
+            this.LCommander499z01.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z01.TabIndex = 17;
+            this.LCommander499z01.Text = "Dowódca";
+            // 
+            // LFirefighter1499z01
+            // 
+            this.LFirefighter1499z01.AutoSize = true;
+            this.LFirefighter1499z01.Location = new System.Drawing.Point(3, 82);
+            this.LFirefighter1499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter1499z01.Name = "LFirefighter1499z01";
+            this.LFirefighter1499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter1499z01.TabIndex = 18;
+            this.LFirefighter1499z01.Text = "Ratownik";
+            // 
+            // LFirefighter2499z01
+            // 
+            this.LFirefighter2499z01.AutoSize = true;
+            this.LFirefighter2499z01.Location = new System.Drawing.Point(3, 109);
+            this.LFirefighter2499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter2499z01.Name = "LFirefighter2499z01";
+            this.LFirefighter2499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter2499z01.TabIndex = 19;
+            this.LFirefighter2499z01.Text = "Ratownik";
+            // 
+            // LFirefighter3499z01
+            // 
+            this.LFirefighter3499z01.AutoSize = true;
+            this.LFirefighter3499z01.Location = new System.Drawing.Point(3, 136);
+            this.LFirefighter3499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z01.Name = "LFirefighter3499z01";
+            this.LFirefighter3499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z01.TabIndex = 20;
+            this.LFirefighter3499z01.Text = "Ratownik";
+            // 
+            // LFirefighter4499z01
+            // 
+            this.LFirefighter4499z01.AutoSize = true;
+            this.LFirefighter4499z01.Location = new System.Drawing.Point(3, 163);
+            this.LFirefighter4499z01.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter4499z01.Name = "LFirefighter4499z01";
+            this.LFirefighter4499z01.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter4499z01.TabIndex = 21;
+            this.LFirefighter4499z01.Text = "Ratownik";
+            // 
+            // CBDriver499z01
+            // 
+            this.CBDriver499z01.FormattingEnabled = true;
+            this.CBDriver499z01.Location = new System.Drawing.Point(99, 25);
+            this.CBDriver499z01.Name = "CBDriver499z01";
+            this.CBDriver499z01.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z01.TabIndex = 22;
+            // 
+            // CBCommander499z01
+            // 
+            this.CBCommander499z01.FormattingEnabled = true;
+            this.CBCommander499z01.Location = new System.Drawing.Point(99, 52);
+            this.CBCommander499z01.Name = "CBCommander499z01";
+            this.CBCommander499z01.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z01.TabIndex = 23;
+            // 
+            // CBFirefighter499z011
+            // 
+            this.CBFirefighter499z011.FormattingEnabled = true;
+            this.CBFirefighter499z011.Location = new System.Drawing.Point(99, 79);
+            this.CBFirefighter499z011.Name = "CBFirefighter499z011";
+            this.CBFirefighter499z011.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z011.TabIndex = 24;
+            // 
+            // CBFirefighter499z012
+            // 
+            this.CBFirefighter499z012.FormattingEnabled = true;
+            this.CBFirefighter499z012.Location = new System.Drawing.Point(99, 106);
+            this.CBFirefighter499z012.Name = "CBFirefighter499z012";
+            this.CBFirefighter499z012.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z012.TabIndex = 25;
+            // 
+            // CBFirefighter499z013
+            // 
+            this.CBFirefighter499z013.FormattingEnabled = true;
+            this.CBFirefighter499z013.Location = new System.Drawing.Point(99, 133);
+            this.CBFirefighter499z013.Name = "CBFirefighter499z013";
+            this.CBFirefighter499z013.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z013.TabIndex = 26;
+            // 
+            // CBFirefighter499z014
+            // 
+            this.CBFirefighter499z014.FormattingEnabled = true;
+            this.CBFirefighter499z014.Location = new System.Drawing.Point(99, 160);
+            this.CBFirefighter499z014.Name = "CBFirefighter499z014";
+            this.CBFirefighter499z014.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z014.TabIndex = 27;
+            // 
+            // CBFirefighter499z154
+            // 
+            this.CBFirefighter499z154.FormattingEnabled = true;
+            this.CBFirefighter499z154.Location = new System.Drawing.Point(99, 160);
+            this.CBFirefighter499z154.Name = "CBFirefighter499z154";
+            this.CBFirefighter499z154.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z154.TabIndex = 39;
+            // 
+            // CBFirefighter499z153
+            // 
+            this.CBFirefighter499z153.FormattingEnabled = true;
+            this.CBFirefighter499z153.Location = new System.Drawing.Point(99, 133);
+            this.CBFirefighter499z153.Name = "CBFirefighter499z153";
+            this.CBFirefighter499z153.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z153.TabIndex = 38;
+            // 
+            // CBFirefighter499z152
+            // 
+            this.CBFirefighter499z152.FormattingEnabled = true;
+            this.CBFirefighter499z152.Location = new System.Drawing.Point(99, 106);
+            this.CBFirefighter499z152.Name = "CBFirefighter499z152";
+            this.CBFirefighter499z152.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z152.TabIndex = 37;
+            // 
+            // CBFirefighter499z151
+            // 
+            this.CBFirefighter499z151.FormattingEnabled = true;
+            this.CBFirefighter499z151.Location = new System.Drawing.Point(99, 79);
+            this.CBFirefighter499z151.Name = "CBFirefighter499z151";
+            this.CBFirefighter499z151.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z151.TabIndex = 36;
+            // 
+            // CBCommander499z15
+            // 
+            this.CBCommander499z15.FormattingEnabled = true;
+            this.CBCommander499z15.Location = new System.Drawing.Point(99, 52);
+            this.CBCommander499z15.Name = "CBCommander499z15";
+            this.CBCommander499z15.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z15.TabIndex = 35;
+            // 
+            // LFirefighter4499z15
+            // 
+            this.LFirefighter4499z15.AutoSize = true;
+            this.LFirefighter4499z15.Location = new System.Drawing.Point(3, 163);
+            this.LFirefighter4499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter4499z15.Name = "LFirefighter4499z15";
+            this.LFirefighter4499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter4499z15.TabIndex = 33;
+            this.LFirefighter4499z15.Text = "Ratownik";
+            // 
+            // CBDriver499z15
+            // 
+            this.CBDriver499z15.FormattingEnabled = true;
+            this.CBDriver499z15.Location = new System.Drawing.Point(99, 25);
+            this.CBDriver499z15.Name = "CBDriver499z15";
+            this.CBDriver499z15.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z15.TabIndex = 34;
+            // 
+            // LDriver499z15
+            // 
+            this.LDriver499z15.AutoSize = true;
+            this.LDriver499z15.Location = new System.Drawing.Point(3, 28);
+            this.LDriver499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LDriver499z15.Name = "LDriver499z15";
+            this.LDriver499z15.Size = new System.Drawing.Size(51, 13);
+            this.LDriver499z15.TabIndex = 28;
+            this.LDriver499z15.Text = "Kierowca";
+            // 
+            // LCommander499z15
+            // 
+            this.LCommander499z15.AutoSize = true;
+            this.LCommander499z15.Location = new System.Drawing.Point(3, 55);
+            this.LCommander499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z15.Name = "LCommander499z15";
+            this.LCommander499z15.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z15.TabIndex = 29;
+            this.LCommander499z15.Text = "Dowódca";
+            // 
+            // LFirefighter3499z15
+            // 
+            this.LFirefighter3499z15.AutoSize = true;
+            this.LFirefighter3499z15.Location = new System.Drawing.Point(3, 136);
+            this.LFirefighter3499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z15.Name = "LFirefighter3499z15";
+            this.LFirefighter3499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z15.TabIndex = 32;
+            this.LFirefighter3499z15.Text = "Ratownik";
+            // 
+            // LFirefighter1499z15
+            // 
+            this.LFirefighter1499z15.AutoSize = true;
+            this.LFirefighter1499z15.Location = new System.Drawing.Point(3, 82);
+            this.LFirefighter1499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter1499z15.Name = "LFirefighter1499z15";
+            this.LFirefighter1499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter1499z15.TabIndex = 30;
+            this.LFirefighter1499z15.Text = "Ratownik";
+            // 
+            // LFirefighter2499z15
+            // 
+            this.LFirefighter2499z15.AutoSize = true;
+            this.LFirefighter2499z15.Location = new System.Drawing.Point(3, 109);
+            this.LFirefighter2499z15.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter2499z15.Name = "LFirefighter2499z15";
+            this.LFirefighter2499z15.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter2499z15.TabIndex = 31;
+            this.LFirefighter2499z15.Text = "Ratownik";
+            // 
+            // CBFirefighter499z183
+            // 
+            this.CBFirefighter499z183.FormattingEnabled = true;
+            this.CBFirefighter499z183.Location = new System.Drawing.Point(99, 131);
+            this.CBFirefighter499z183.Name = "CBFirefighter499z183";
+            this.CBFirefighter499z183.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z183.TabIndex = 38;
+            // 
+            // CBFirefighter499z182
+            // 
+            this.CBFirefighter499z182.FormattingEnabled = true;
+            this.CBFirefighter499z182.Location = new System.Drawing.Point(99, 104);
+            this.CBFirefighter499z182.Name = "CBFirefighter499z182";
+            this.CBFirefighter499z182.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z182.TabIndex = 37;
+            // 
+            // CBFirefighter499z181
+            // 
+            this.CBFirefighter499z181.FormattingEnabled = true;
+            this.CBFirefighter499z181.Location = new System.Drawing.Point(99, 77);
+            this.CBFirefighter499z181.Name = "CBFirefighter499z181";
+            this.CBFirefighter499z181.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z181.TabIndex = 36;
+            // 
+            // CBCommander499z18
+            // 
+            this.CBCommander499z18.FormattingEnabled = true;
+            this.CBCommander499z18.Location = new System.Drawing.Point(99, 50);
+            this.CBCommander499z18.Name = "CBCommander499z18";
+            this.CBCommander499z18.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z18.TabIndex = 35;
+            // 
+            // CBDriver499z18
+            // 
+            this.CBDriver499z18.FormattingEnabled = true;
+            this.CBDriver499z18.Location = new System.Drawing.Point(99, 23);
+            this.CBDriver499z18.Name = "CBDriver499z18";
+            this.CBDriver499z18.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z18.TabIndex = 34;
+            // 
+            // LDriver499z18
+            // 
+            this.LDriver499z18.AutoSize = true;
+            this.LDriver499z18.Location = new System.Drawing.Point(3, 26);
+            this.LDriver499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LDriver499z18.Name = "LDriver499z18";
+            this.LDriver499z18.Size = new System.Drawing.Size(51, 13);
+            this.LDriver499z18.TabIndex = 28;
+            this.LDriver499z18.Text = "Kierowca";
+            // 
+            // LCommander499z18
+            // 
+            this.LCommander499z18.AutoSize = true;
+            this.LCommander499z18.Location = new System.Drawing.Point(3, 53);
+            this.LCommander499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z18.Name = "LCommander499z18";
+            this.LCommander499z18.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z18.TabIndex = 29;
+            this.LCommander499z18.Text = "Dowódca";
+            // 
+            // LFirefighter3499z18
+            // 
+            this.LFirefighter3499z18.AutoSize = true;
+            this.LFirefighter3499z18.Location = new System.Drawing.Point(3, 134);
+            this.LFirefighter3499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z18.Name = "LFirefighter3499z18";
+            this.LFirefighter3499z18.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z18.TabIndex = 32;
+            this.LFirefighter3499z18.Text = "Ratownik";
+            // 
+            // LFirefighter1499z18
+            // 
+            this.LFirefighter1499z18.AutoSize = true;
+            this.LFirefighter1499z18.Location = new System.Drawing.Point(3, 80);
+            this.LFirefighter1499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter1499z18.Name = "LFirefighter1499z18";
+            this.LFirefighter1499z18.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter1499z18.TabIndex = 30;
+            this.LFirefighter1499z18.Text = "Ratownik";
+            // 
+            // LFirefighter2499z18
+            // 
+            this.LFirefighter2499z18.AutoSize = true;
+            this.LFirefighter2499z18.Location = new System.Drawing.Point(3, 107);
+            this.LFirefighter2499z18.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter2499z18.Name = "LFirefighter2499z18";
+            this.LFirefighter2499z18.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter2499z18.TabIndex = 31;
+            this.LFirefighter2499z18.Text = "Ratownik";
+            // 
+            // GB499z19
+            // 
+            this.GB499z19.Controls.Add(this.CBFirefighter499z194);
+            this.GB499z19.Controls.Add(this.CBFirefighter499z193);
+            this.GB499z19.Controls.Add(this.CBFirefighter499z192);
+            this.GB499z19.Controls.Add(this.CBFirefighter499z191);
+            this.GB499z19.Controls.Add(this.CBCommander499z19);
+            this.GB499z19.Controls.Add(this.LFirefighter4499z19);
+            this.GB499z19.Controls.Add(this.CBDriver499z19);
+            this.GB499z19.Controls.Add(this.LDriver499z19);
+            this.GB499z19.Controls.Add(this.LCommander499z19);
+            this.GB499z19.Controls.Add(this.LFirefighter3499z19);
+            this.GB499z19.Controls.Add(this.LFirefighter1499z19);
+            this.GB499z19.Controls.Add(this.LFirefighter2499z19);
+            this.GB499z19.Location = new System.Drawing.Point(39, 478);
+            this.GB499z19.Name = "GB499z19";
+            this.GB499z19.Size = new System.Drawing.Size(394, 206);
+            this.GB499z19.TabIndex = 28;
+            this.GB499z19.TabStop = false;
+            this.GB499z19.Text = "Obsada 499z19";
+            // 
+            // CBFirefighter499z194
+            // 
+            this.CBFirefighter499z194.FormattingEnabled = true;
+            this.CBFirefighter499z194.Location = new System.Drawing.Point(99, 160);
+            this.CBFirefighter499z194.Name = "CBFirefighter499z194";
+            this.CBFirefighter499z194.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z194.TabIndex = 27;
+            // 
+            // CBFirefighter499z193
+            // 
+            this.CBFirefighter499z193.FormattingEnabled = true;
+            this.CBFirefighter499z193.Location = new System.Drawing.Point(99, 133);
+            this.CBFirefighter499z193.Name = "CBFirefighter499z193";
+            this.CBFirefighter499z193.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z193.TabIndex = 26;
+            // 
+            // CBFirefighter499z192
+            // 
+            this.CBFirefighter499z192.FormattingEnabled = true;
+            this.CBFirefighter499z192.Location = new System.Drawing.Point(99, 106);
+            this.CBFirefighter499z192.Name = "CBFirefighter499z192";
+            this.CBFirefighter499z192.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z192.TabIndex = 25;
+            // 
+            // CBFirefighter499z191
+            // 
+            this.CBFirefighter499z191.FormattingEnabled = true;
+            this.CBFirefighter499z191.Location = new System.Drawing.Point(99, 79);
+            this.CBFirefighter499z191.Name = "CBFirefighter499z191";
+            this.CBFirefighter499z191.Size = new System.Drawing.Size(176, 21);
+            this.CBFirefighter499z191.TabIndex = 24;
+            // 
+            // CBCommander499z19
+            // 
+            this.CBCommander499z19.FormattingEnabled = true;
+            this.CBCommander499z19.Location = new System.Drawing.Point(99, 52);
+            this.CBCommander499z19.Name = "CBCommander499z19";
+            this.CBCommander499z19.Size = new System.Drawing.Size(176, 21);
+            this.CBCommander499z19.TabIndex = 23;
+            // 
+            // LFirefighter4499z19
+            // 
+            this.LFirefighter4499z19.AutoSize = true;
+            this.LFirefighter4499z19.Location = new System.Drawing.Point(3, 163);
+            this.LFirefighter4499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter4499z19.Name = "LFirefighter4499z19";
+            this.LFirefighter4499z19.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter4499z19.TabIndex = 21;
+            this.LFirefighter4499z19.Text = "Ratownik";
+            // 
+            // CBDriver499z19
+            // 
+            this.CBDriver499z19.FormattingEnabled = true;
+            this.CBDriver499z19.Location = new System.Drawing.Point(99, 25);
+            this.CBDriver499z19.Name = "CBDriver499z19";
+            this.CBDriver499z19.Size = new System.Drawing.Size(176, 21);
+            this.CBDriver499z19.TabIndex = 22;
+            // 
+            // LDriver499z19
+            // 
+            this.LDriver499z19.AutoSize = true;
+            this.LDriver499z19.Location = new System.Drawing.Point(3, 28);
+            this.LDriver499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LDriver499z19.Name = "LDriver499z19";
+            this.LDriver499z19.Size = new System.Drawing.Size(51, 13);
+            this.LDriver499z19.TabIndex = 16;
+            this.LDriver499z19.Text = "Kierowca";
+            // 
+            // LCommander499z19
+            // 
+            this.LCommander499z19.AutoSize = true;
+            this.LCommander499z19.Location = new System.Drawing.Point(3, 55);
+            this.LCommander499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LCommander499z19.Name = "LCommander499z19";
+            this.LCommander499z19.Size = new System.Drawing.Size(53, 13);
+            this.LCommander499z19.TabIndex = 17;
+            this.LCommander499z19.Text = "Dowódca";
+            // 
+            // LFirefighter3499z19
+            // 
+            this.LFirefighter3499z19.AutoSize = true;
+            this.LFirefighter3499z19.Location = new System.Drawing.Point(3, 136);
+            this.LFirefighter3499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter3499z19.Name = "LFirefighter3499z19";
+            this.LFirefighter3499z19.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter3499z19.TabIndex = 20;
+            this.LFirefighter3499z19.Text = "Ratownik";
+            // 
+            // LFirefighter1499z19
+            // 
+            this.LFirefighter1499z19.AutoSize = true;
+            this.LFirefighter1499z19.Location = new System.Drawing.Point(3, 82);
+            this.LFirefighter1499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter1499z19.Name = "LFirefighter1499z19";
+            this.LFirefighter1499z19.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter1499z19.TabIndex = 18;
+            this.LFirefighter1499z19.Text = "Ratownik";
+            // 
+            // LFirefighter2499z19
+            // 
+            this.LFirefighter2499z19.AutoSize = true;
+            this.LFirefighter2499z19.Location = new System.Drawing.Point(3, 109);
+            this.LFirefighter2499z19.Margin = new System.Windows.Forms.Padding(0);
+            this.LFirefighter2499z19.Name = "LFirefighter2499z19";
+            this.LFirefighter2499z19.Size = new System.Drawing.Size(52, 13);
+            this.LFirefighter2499z19.TabIndex = 19;
+            this.LFirefighter2499z19.Text = "Ratownik";
+            // 
+            // BPrint
+            // 
+            this.BPrint.Location = new System.Drawing.Point(841, 587);
+            this.BPrint.Name = "BPrint";
+            this.BPrint.Size = new System.Drawing.Size(75, 23);
+            this.BPrint.TabIndex = 29;
+            this.BPrint.Text = "Drukuj";
+            this.BPrint.UseVisualStyleBackColor = true;
             // 
             // DepartureCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 734);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.BPrint);
+            this.Controls.Add(this.GB499z19);
+            this.Controls.Add(this.GB499z18);
+            this.Controls.Add(this.GB499z15);
+            this.Controls.Add(this.GP499z01);
+            this.Controls.Add(this.GBIncident);
+            this.Controls.Add(this.GBPlace);
+            this.Controls.Add(this.GBPrimary);
+            this.Controls.Add(this.Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DepartureCard";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.DepartureCard_Load);
+            this.GBPrimary.ResumeLayout(false);
+            this.GBPrimary.PerformLayout();
+            this.GBPlace.ResumeLayout(false);
+            this.GBPlace.PerformLayout();
+            this.GBIncident.ResumeLayout(false);
+            this.GBIncident.PerformLayout();
+            this.GP499z01.ResumeLayout(false);
+            this.GP499z01.PerformLayout();
+            this.GB499z15.ResumeLayout(false);
+            this.GB499z15.PerformLayout();
+            this.GB499z18.ResumeLayout(false);
+            this.GB499z18.PerformLayout();
+            this.GB499z19.ResumeLayout(false);
+            this.GB499z19.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,6 +1193,92 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         #endregion
 
+        private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.GroupBox GBPrimary;
+        private System.Windows.Forms.Label LNextDepartureCard;
+        private System.Windows.Forms.TextBox TBNumberDepartureCard;
+        private System.Windows.Forms.Label LPreviousNumberDepartureCard;
+        private System.Windows.Forms.Label LPreviousDepartureCard;
+        private System.Windows.Forms.Label LHourArrival;
+        private System.Windows.Forms.Label LHourdeparture;
+        private System.Windows.Forms.ComboBox CBHourDeparture;
+        private System.Windows.Forms.ComboBox CBMinuteArrival;
+        private System.Windows.Forms.ComboBox CBHourArrival;
+        private System.Windows.Forms.ComboBox CBMinuteDeparture;
+        private System.Windows.Forms.Label LH1;
+        private System.Windows.Forms.Label LDateDepartureCard;
+        private System.Windows.Forms.DateTimePicker DTPDepartureCard;
+        private System.Windows.Forms.Label LMIN2;
+        private System.Windows.Forms.Label LMIN1;
+        private System.Windows.Forms.Label LH2;
+        private System.Windows.Forms.GroupBox GBPlace;
+        private System.Windows.Forms.Label LNewStreet;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TBStreet;
+        private System.Windows.Forms.TextBox TBCity;
+        private System.Windows.Forms.ComboBox CBStreet;
+        private System.Windows.Forms.ComboBox CBCity;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LCity;
+        private System.Windows.Forms.GroupBox GBIncident;
+        private System.Windows.Forms.Label LNewIncident;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label LTypeNewIncydent;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label LTypeIncident;
+        private System.Windows.Forms.Label LIncident;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.GroupBox GP499z01;
+        private System.Windows.Forms.ComboBox CBFirefighter499z014;
+        private System.Windows.Forms.ComboBox CBFirefighter499z013;
+        private System.Windows.Forms.ComboBox CBFirefighter499z012;
+        private System.Windows.Forms.ComboBox CBFirefighter499z011;
+        private System.Windows.Forms.ComboBox CBCommander499z01;
+        private System.Windows.Forms.Label LFirefighter4499z01;
+        private System.Windows.Forms.ComboBox CBDriver499z01;
+        private System.Windows.Forms.Label LDriver499z01;
+        private System.Windows.Forms.Label LCommander499z01;
+        private System.Windows.Forms.Label LFirefighter3499z01;
+        private System.Windows.Forms.Label LFirefighter1499z01;
+        private System.Windows.Forms.Label LFirefighter2499z01;
+        private System.Windows.Forms.GroupBox GB499z15;
+        private System.Windows.Forms.ComboBox CBFirefighter499z154;
+        private System.Windows.Forms.ComboBox CBDriver499z15;
+        private System.Windows.Forms.ComboBox CBFirefighter499z153;
+        private System.Windows.Forms.Label LFirefighter2499z15;
+        private System.Windows.Forms.ComboBox CBFirefighter499z152;
+        private System.Windows.Forms.Label LFirefighter1499z15;
+        private System.Windows.Forms.ComboBox CBFirefighter499z151;
+        private System.Windows.Forms.Label LFirefighter3499z15;
+        private System.Windows.Forms.ComboBox CBCommander499z15;
+        private System.Windows.Forms.Label LCommander499z15;
+        private System.Windows.Forms.Label LFirefighter4499z15;
+        private System.Windows.Forms.Label LDriver499z15;
+        private System.Windows.Forms.GroupBox GB499z18;
+        private System.Windows.Forms.Label LDriver499z18;
+        private System.Windows.Forms.ComboBox CBFirefighter499z183;
+        private System.Windows.Forms.Label LFirefighter2499z18;
+        private System.Windows.Forms.ComboBox CBFirefighter499z182;
+        private System.Windows.Forms.Label LFirefighter1499z18;
+        private System.Windows.Forms.ComboBox CBFirefighter499z181;
+        private System.Windows.Forms.Label LFirefighter3499z18;
+        private System.Windows.Forms.ComboBox CBCommander499z18;
+        private System.Windows.Forms.Label LCommander499z18;
+        private System.Windows.Forms.ComboBox CBDriver499z18;
+        private System.Windows.Forms.GroupBox GB499z19;
+        private System.Windows.Forms.ComboBox CBFirefighter499z194;
+        private System.Windows.Forms.ComboBox CBFirefighter499z193;
+        private System.Windows.Forms.ComboBox CBFirefighter499z192;
+        private System.Windows.Forms.ComboBox CBFirefighter499z191;
+        private System.Windows.Forms.ComboBox CBCommander499z19;
+        private System.Windows.Forms.Label LFirefighter4499z19;
+        private System.Windows.Forms.ComboBox CBDriver499z19;
+        private System.Windows.Forms.Label LDriver499z19;
+        private System.Windows.Forms.Label LCommander499z19;
+        private System.Windows.Forms.Label LFirefighter3499z19;
+        private System.Windows.Forms.Label LFirefighter1499z19;
+        private System.Windows.Forms.Label LFirefighter2499z19;
+        private System.Windows.Forms.Button BPrint;
     }
 }

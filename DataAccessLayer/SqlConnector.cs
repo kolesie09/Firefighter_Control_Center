@@ -24,14 +24,14 @@ namespace FirefighterControlCenter.DataAccessLayer
                     {
                         Firefighter_ranking firefighter = new Firefighter_ranking
                         {
-                            //Id = int.Parse(reader["id_departure_ranking"].ToString()),
-                            //Imie = reader["name"].ToString(),
-                            //Naziwsko = reader["last_name"].ToString(),
+                            /*Id = int.Parse(reader["id_departure_ranking"].ToString()),
+                            Imie = reader["name"].ToString(),
+                            Naziwsko = reader["last_name"].ToString(),
                             Nazwa_miasta = reader["Name_City"].ToString(),
                             Nazwa_ulicy = reader["Name_Street"].ToString(),
                             Rok = int.Parse(reader["Year"].ToString()),
                             Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
-
+                            */
                         };
                         list.Add(firefighter);
                     }
@@ -43,6 +43,37 @@ namespace FirefighterControlCenter.DataAccessLayer
                 Console.Write(e.Message);
             }
             return list;
+        }
+
+        public static int NumberDeparture()
+        {
+            int LastNumberDeparture = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                const string sqlquery = "SELECT MAX(Departure_number) FROM departure_card";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        LastNumberDeparture = int.Parse(reader["MAX(Departure_number)"].ToString());
+                    }
+                    
+                        
+                    
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                
+            }
+            return LastNumberDeparture;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace UserInterface
 {
     static class Program
@@ -18,7 +19,20 @@ namespace UserInterface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            try
+            { 
+                string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+                MySqlConnection cnn;
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                cnn.Close();
+                Application.Run(new MainForm());
+            }
+            catch
+            {
+                MessageBox.Show("Niestety baza danych nie odpowiada");
+            }
+            
         }
 
         
