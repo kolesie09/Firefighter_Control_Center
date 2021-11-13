@@ -183,6 +183,7 @@
     <Compile Include="Forms\Rankings\Rankings.Designer.cs">
       <DependentUpon>Rankings.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpersDepartureCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\DepartureCard.resx">

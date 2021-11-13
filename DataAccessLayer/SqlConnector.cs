@@ -109,10 +109,91 @@ namespace FirefighterControlCenter.DataAccessLayer
                         }
                     }
                 }
+                else if(TypeSelect == "TypeIncident")
+                {
+                    const string sqlquery = "SELECT Name FROM incident_type";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Name"].ToString());
+                        }
+                    }
+                }
+                else if(TypeSelect == "Incident")
+                {
+                    string sqlquery = ("SELECT incident.Name FROM incident_type, incident WHERE incident_type.ID=incident.ID_Incident_Type AND incident_type.Name='"+x+"'");
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Name"].ToString());
+                        }
+                    }
+                }
 
                 
                 cnn.Close();
                 
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
+
+        public static List<string> SelectFirefighterDepartureCard(string TypeSelect, string x)
+        {
+            var list = new List<string>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if (TypeSelect == "DriverC")
+                {
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_C=1;";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Nick"].ToString());
+                        }
+                    }
+                }
+                else if (TypeSelect == "DriverB")
+                {
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_B=1;";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Nick"].ToString());
+                        }
+                    }
+                }
+                else if (TypeSelect == "Firefighter")
+                {
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(reader["Nick"].ToString());
+                        }
+                    }
+                }
+
+
+                cnn.Close();
+
             }
             catch (Exception e)
             {
