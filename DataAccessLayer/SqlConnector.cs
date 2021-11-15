@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace FirefighterControlCenter.DataAccessLayer
@@ -59,10 +60,10 @@ namespace FirefighterControlCenter.DataAccessLayer
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
+                    reader.Read();
+                    
                         LastNumberDeparture = int.Parse(reader["MAX(Departure_number)"].ToString());
-                    }
+                    
                     
                         
                     
@@ -201,5 +202,141 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             return list;
         }
+
+        public static void InsertFirefighterToTruck(string number_operation, string driver, string commander, string firefighter1, string firefighter2, string firefighter3, string firefighter4)
+        {
+            
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if (number_operation == "499z01")
+                {
+                    sqlquery = "INSERT INTO `499z01_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                }
+                else if (number_operation == "499z15")
+                {
+                    sqlquery = "INSERT INTO `499z15_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                }
+                else if (number_operation == "499z18")
+                {
+                    sqlquery = "INSERT INTO `499z18_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "');";
+                   
+                }
+                else if (number_operation == "499z19")
+                {
+                    sqlquery = "INSERT INTO `499z19_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                    
+                }
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    
+                    
+                    
+                   
+
+                }
+
+                cnn.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+                
+            }
+            
+        }
+
+        public static int SelectIDTruck(string number_operation, string driver, string commander, string firefighter1, string firefighter2, string firefighter3, string firefighter4)
+        {
+            int IDTruck = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if (number_operation == "499z01")
+                {
+                    sqlquery = "SELECT MAX(ID) FROM 499z01_departure WHERE Nick_Driver = '"+driver+"' AND Nick_Commander = '"+commander+"' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '"+firefighter2+"' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+                }
+                else if (number_operation == "499z15")
+                {
+                    sqlquery = "SELECT MAX(ID) FROM 499z15_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+                }
+                else if (number_operation == "499z18")
+                {
+                    sqlquery = "SELECT MAX(ID) FROM 499z18_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "';";
+
+                }
+                else if (number_operation == "499z19")
+                {
+                    sqlquery = "SELECT MAX(ID) FROM 499z19_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+
+                }
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+
+                    reader.Read();
+                    
+                        IDTruck = int.Parse(reader["MAX(ID)"].ToString());
+                    
+                    
+                }
+
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+            }
+            return IDTruck;
+        }
+
+        public static void InsertDateDepartureCard(int departure_number, string departure_date, string Hour_departure, string Hour_arrival, int ID_place_departure, int ID_reason_departure, int ID_Departure_commander, int ID_499z01, int ID_499z15, int ID_499z18, int ID_499z19, int Year)
+        {
+            
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                
+                    sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "');";
+                
+                
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    
+                    
+                    
+                   
+
+                }
+
+                cnn.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+                
+            }
+            
+        }
     }
+    
 }

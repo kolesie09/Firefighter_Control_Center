@@ -116,6 +116,10 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter1499z19 = new System.Windows.Forms.Label();
             this.LFirefighter2499z19 = new System.Windows.Forms.Label();
             this.BPrint = new System.Windows.Forms.Button();
+            this.Btn499z01 = new System.Windows.Forms.Button();
+            this.Btn499z15 = new System.Windows.Forms.Button();
+            this.Btn499z18 = new System.Windows.Forms.Button();
+            this.Btn499z19 = new System.Windows.Forms.Button();
             this.GBPrimary.SuspendLayout();
             this.GBPlace.SuspendLayout();
             this.GBIncident.SuspendLayout();
@@ -655,6 +659,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GP499z01
             // 
+            this.GP499z01.Controls.Add(this.Btn499z01);
             this.GP499z01.Controls.Add(this.CBFirefighter499z014);
             this.GP499z01.Controls.Add(this.CBFirefighter499z013);
             this.GP499z01.Controls.Add(this.CBFirefighter499z012);
@@ -784,6 +789,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z15
             // 
+            this.GB499z15.Controls.Add(this.Btn499z15);
             this.GB499z15.Controls.Add(this.CBFirefighter499z154);
             this.GB499z15.Controls.Add(this.CBDriver499z15);
             this.GB499z15.Controls.Add(this.CBFirefighter499z153);
@@ -913,6 +919,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z18
             // 
+            this.GB499z18.Controls.Add(this.Btn499z18);
             this.GB499z18.Controls.Add(this.LDriver499z18);
             this.GB499z18.Controls.Add(this.CBFirefighter499z183);
             this.GB499z18.Controls.Add(this.LFirefighter2499z18);
@@ -923,7 +930,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GB499z18.Controls.Add(this.CBCommander499z18);
             this.GB499z18.Controls.Add(this.LCommander499z18);
             this.GB499z18.Controls.Add(this.CBDriver499z18);
-            this.GB499z18.Location = new System.Drawing.Point(841, 268);
+            this.GB499z18.Location = new System.Drawing.Point(841, 266);
             this.GB499z18.Name = "GB499z18";
             this.GB499z18.Size = new System.Drawing.Size(402, 206);
             this.GB499z18.TabIndex = 6;
@@ -1022,6 +1029,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z19
             // 
+            this.GB499z19.Controls.Add(this.Btn499z19);
             this.GB499z19.Controls.Add(this.CBFirefighter499z194);
             this.GB499z19.Controls.Add(this.CBFirefighter499z193);
             this.GB499z19.Controls.Add(this.CBFirefighter499z192);
@@ -1157,6 +1165,47 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.BPrint.TabIndex = 29;
             this.BPrint.Text = "Drukuj";
             this.BPrint.UseVisualStyleBackColor = true;
+            this.BPrint.Click += new System.EventHandler(this.BPrint_Click);
+            // 
+            // Btn499z01
+            // 
+            this.Btn499z01.Location = new System.Drawing.Point(313, 177);
+            this.Btn499z01.Name = "Btn499z01";
+            this.Btn499z01.Size = new System.Drawing.Size(75, 23);
+            this.Btn499z01.TabIndex = 28;
+            this.Btn499z01.Text = "Wyczyść";
+            this.Btn499z01.UseVisualStyleBackColor = true;
+            this.Btn499z01.Click += new System.EventHandler(this.Btn499z01_Click);
+            // 
+            // Btn499z15
+            // 
+            this.Btn499z15.Location = new System.Drawing.Point(318, 177);
+            this.Btn499z15.Name = "Btn499z15";
+            this.Btn499z15.Size = new System.Drawing.Size(75, 23);
+            this.Btn499z15.TabIndex = 29;
+            this.Btn499z15.Text = "Wyczyść";
+            this.Btn499z15.UseVisualStyleBackColor = true;
+            this.Btn499z15.Click += new System.EventHandler(this.Btn499z15_Click);
+            // 
+            // Btn499z18
+            // 
+            this.Btn499z18.Location = new System.Drawing.Point(321, 177);
+            this.Btn499z18.Name = "Btn499z18";
+            this.Btn499z18.Size = new System.Drawing.Size(75, 23);
+            this.Btn499z18.TabIndex = 30;
+            this.Btn499z18.Text = "Wyczyść";
+            this.Btn499z18.UseVisualStyleBackColor = true;
+            this.Btn499z18.Click += new System.EventHandler(this.Btn499z18_Click);
+            // 
+            // Btn499z19
+            // 
+            this.Btn499z19.Location = new System.Drawing.Point(313, 177);
+            this.Btn499z19.Name = "Btn499z19";
+            this.Btn499z19.Size = new System.Drawing.Size(75, 23);
+            this.Btn499z19.TabIndex = 31;
+            this.Btn499z19.Text = "Wyczyść";
+            this.Btn499z19.UseVisualStyleBackColor = true;
+            this.Btn499z19.Click += new System.EventHandler(this.Btn499z19_Click);
             // 
             // DepartureCard
             // 
@@ -1284,5 +1333,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Label LFirefighter1499z19;
         private System.Windows.Forms.Label LFirefighter2499z19;
         private System.Windows.Forms.Button BPrint;
+        private System.Windows.Forms.Button Btn499z01;
+        private System.Windows.Forms.Button Btn499z15;
+        private System.Windows.Forms.Button Btn499z18;
+        private System.Windows.Forms.Button Btn499z19;
     }
 }
