@@ -38,10 +38,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
             CBTypeNewIncident.SelectedItem = null;
             #endregion
             DTPDepartureCard.Value = DateTime.Now;
+            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+            MessageBox.Show(DTPDepartureCard.Text);
+            DTPDepartureCard.Format = DateTimePickerFormat.Long;
 
             #region Firefighter Driver
-                #region 499z01
-                CBDriver499z01.DataSource = null;
+            #region 499z01
+            CBDriver499z01.DataSource = null;
                 CBDriver499z01.DataSource = SqlConnector.SelectFirefighterDepartureCard("DriverC", "");
                 CBDriver499z01.SelectedItem = null;
                 #endregion
@@ -233,8 +236,33 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 }
             #endregion
 
-            #region ADD date to departure_card
+            #region ADD data to departure_card
+                #region Number departure card
+                    int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
+                #endregion
+                #region Data departure card
+                    DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
+                    DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                    string DateDepartureCard = DTPDepartureCard.Text;
+                    //Zapisywanie daty wyjazdu do zmiennej
+                    DTPDepartureCard.CustomFormat = "MM";
+                    DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                    string MountDepartureCard = DTPDepartureCard.Text;
+                    //Zapisywanie miesiąca wyjazdu do zmiennej
+                    DTPDepartureCard.CustomFormat = "yyyy";
+                    DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                    string YearDepartureCard = DTPDepartureCard.Text;
+                    //Zapisywanie roku wyjazdu do zmiennej
+                    DTPDepartureCard.Format = DateTimePickerFormat.Long;
+                #endregion
+                #region Hour departure card
+                    string HourDepartureCard = CBHourDeparture.Text + ":" + CBMinuteDeparture.Text;
+                    string HourArrivalCard = CBHourArrival.Text + ":" + CBMinuteArrival.Text;
+                    string TimeDeparture = HelpersDepartureCard.CalcTime(CBHourDeparture.Text, CBMinuteDeparture.Text, CBHourArrival.Text, CBMinuteArrival.Text);
+                #endregion
+                
 
+            //SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, );
             #endregion
 
         }
