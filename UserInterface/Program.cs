@@ -27,6 +27,7 @@ namespace UserInterface
                 cnn.Open();
                 cnn.Close();
                 Application.Run(new MainForm());
+                
             }
             catch
             {

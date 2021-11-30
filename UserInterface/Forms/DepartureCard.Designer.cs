@@ -120,6 +120,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter1499z19 = new System.Windows.Forms.Label();
             this.LFirefighter2499z19 = new System.Windows.Forms.Label();
             this.BPrint = new System.Windows.Forms.Button();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.GBPrimary.SuspendLayout();
             this.GBPlace.SuspendLayout();
             this.GBIncident.SuspendLayout();
@@ -1338,5 +1339,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button Btn499z18;
         private System.Windows.Forms.Button Btn499z19;
         private System.Windows.Forms.ComboBox CBDriver499z01;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

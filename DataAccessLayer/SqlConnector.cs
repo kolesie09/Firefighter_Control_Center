@@ -495,7 +495,7 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             catch (Exception e)
             {
-                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\r\r\n Błąd informacyjny dla administratora aplikacji:\r\r\r\r\n\r\n\r\n" + e);
 
             }
             return Zwracana;
