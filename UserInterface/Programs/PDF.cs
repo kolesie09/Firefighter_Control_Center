@@ -15,7 +15,7 @@ namespace FirefighterControlCenter.UserInterface
     class PDF
     {
      
-        public static void CreatePDF (int NumberDepartureCard, string DateDepartureCard, int MountDepartureCard, int YearDepartureCard, string HourDepartureCard, string HourArrivalCard, string TimeDeparture, string PCity, string PStreet, string Reason, string D499z01, string D499z15, string D499z18, string D499z19, string C499z01, string C499z15, string C499z18, string C499z19, string F499z011, string F499z012, string F499z013, string F499z014, string F499z151, string F499z152, string F499z153, string F499z154, string F499z181, string F499z182, string F499z183, string F499z191, string F499z192, string F499z193, string F499z194)
+        public static void CreatePDF (int NumberDepartureCard, string DateDepartureCard, int MountDepartureCard, int YearDepartureCard, string HourDepartureCard, string HourArrivalCard, string TimeDeparture, string PCity, string PStreet, string Reason, string CommanderD, string D499z01, string D499z15, string D499z18, string D499z19, string C499z01, string C499z15, string C499z18, string C499z19, string F499z011, string F499z012, string F499z013, string F499z014, string F499z151, string F499z152, string F499z153, string F499z154, string F499z181, string F499z182, string F499z183, string F499z191, string F499z192, string F499z193, string F499z194)
         {
             Font nameFont = FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1257, 7);
             Font nameFontT = FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1257, 7, Font.BOLD);
@@ -25,14 +25,31 @@ namespace FirefighterControlCenter.UserInterface
                 var pdfDoc = new Document(PageSize.LETTER, 40f, 40f, 60f, 60f);
                 try
                 {
-                    string path = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\"+NumberDepartureCard+"-"+YearDepartureCard+" - "+PCity + ", ul. " + PStreet + " - " + Reason+".pdf";
-                    PdfWriter.GetInstance(pdfDoc, new FileStream(path, FileMode.OpenOrCreate));
+                    string pathintake = "";
+                    if (PStreet == "")
+                    {
+                        pathintake = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + PCity + " - " + Reason + ".pdf";
+                    }
+                    else
+                    {
+                        pathintake = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + PCity + ", ul. " + PStreet + " - " + Reason + ".pdf";
+                    }
+                    PdfWriter.GetInstance(pdfDoc, new FileStream(pathintake, FileMode.OpenOrCreate));
                 }
                 catch
                 {
                     string path = @"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc";
                     System.IO.Directory.CreateDirectory(path);
-                    string pathintake = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + PCity + ", ul. " + PStreet + " - " + Reason + ".pdf";
+                    string pathintake = "";
+                    if (PStreet == "")
+                    {
+                        pathintake = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + PCity + " - " + Reason + ".pdf";
+                    }
+                    else
+                    {
+                        pathintake = $"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + Mount(MountDepartureCard) + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + PCity + ", ul. " + PStreet + " - " + Reason + ".pdf";
+                    }
+                    
                     PdfWriter.GetInstance(pdfDoc, new FileStream(pathintake, FileMode.OpenOrCreate));
                 }
 
@@ -491,7 +508,7 @@ namespace FirefighterControlCenter.UserInterface
                 
                 pdfDoc.Add(SummaryInformation);
                 pdfDoc.Add(spacer10);
-                var Commander = new Paragraph(C499z01+"                                            ", nameFont);
+                var Commander = new Paragraph(CommanderD+"                                            ", nameFont);
                 Commander.Alignment = Element.ALIGN_RIGHT;
                 Commander.Font.Size = 12;
                 Commander.Font.Color = BaseColor.GRAY;

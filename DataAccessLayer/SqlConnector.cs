@@ -46,7 +46,7 @@ namespace FirefighterControlCenter.DataAccessLayer
             return list;
         }
 
-        public static int SelectNumberDeparture()
+        public static int SelectNumberDeparture(int Year)
         {
             int LastNumberDeparture = 0;
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
@@ -56,7 +56,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
-                const string sqlquery = "SELECT MAX(Departure_number) FROM departure_card";
+                string sqlquery = "SELECT MAX(Departure_number) FROM departure_card WHERE departure_card.Year = '" + Year + "';";
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
@@ -64,7 +64,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                     
                         LastNumberDeparture = int.Parse(reader["MAX(Departure_number)"].ToString());
                     
-                    
+                        
                         
                     
                 }
@@ -418,7 +418,7 @@ namespace FirefighterControlCenter.DataAccessLayer
             
         }
 
-        public static int SelectIncident(string Incident)
+        public static int SelectIncident(string Incident, int TypeIncident, string NIncident)
         {
             int Zwracana = 0;
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
@@ -449,15 +449,151 @@ namespace FirefighterControlCenter.DataAccessLayer
                 cnn.Close();
                 
             }
-            catch (Exception e)
+            catch 
             {
-                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+                try
+                {
+                    string sqlquery = "";
 
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    sqlquery = "INSERT INTO `incident` (`ID_incident`, `ID_Incident_Type`, `Name`) VALUES (NULL, '"+TypeIncident+"', '"+NIncident+"');";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                    }
+                    cnn.Close();
+                    cnn.Open();
+                    sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + NIncident + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        Zwracana = int.Parse(reader["ID_incident"].ToString());
+                    }
+                    cnn.Close();
+                }
+                catch
+                {
+
+                }
             }
             return Zwracana;
         }
 
         public static int SelectPlace(string City, string Street)
+        {
+            int id_City = SelectCity(City);
+            int id_Street = SelectStreet(City, Street);
+            int Zwracana = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+
+                cnn = new MySqlConnection(connectionString);
+                if (Street != "")
+                {
+                    cnn.Open();
+                    sqlquery = "SELECT place.ID_place FROM place, city, street WHERE city.ID_city = '" + id_City + "' AND street.ID_street = '" + id_Street + "'";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        Zwracana = int.Parse(reader["ID_place"].ToString());
+
+                    }
+
+                    cnn.Close();
+                }
+                else
+                {
+                    cnn.Open();
+                    sqlquery = "SELECT place.ID_place FROM place, city WHERE city.ID_city = '" + id_City + "' AND place.ID_Street IS NULL";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        Zwracana = int.Parse(reader["ID_place"].ToString());
+
+                    }
+
+                    cnn.Close();
+                }
+            }
+            catch
+            {
+                
+                try
+                {
+                    string sqlquery = "";
+
+                    cnn = new MySqlConnection(connectionString);
+                    id_City = SelectCity(City);
+                    id_Street = SelectStreet(City, Street);
+                    cnn.Close();
+
+                    if (Street != "")
+                    {
+                        cnn.Open();
+                        sqlquery = "INSERT INTO `place` (`ID_place`, `ID_City`, `ID_Street`) VALUES (NULL, '" + id_City + "', '" + id_Street + "');";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+                        }
+                        cnn.Close();
+                        cnn.Open();
+                        sqlquery = "SELECT place.ID_place FROM place, city, street WHERE city.ID_city = '" + id_City + "' AND street.ID_street = '" + id_Street + "'";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            Zwracana = int.Parse(reader["ID_place"].ToString());
+
+                        }
+
+                        cnn.Close();
+                    }
+                    else
+                    {
+                        cnn.Open();
+                        sqlquery = "INSERT INTO `place` (`ID_place`, `ID_City`, `ID_Street`) VALUES (NULL, '" + id_City + "', NULL);";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+                        }
+                        cnn.Close();
+                        cnn.Open();
+                        sqlquery = "SELECT place.ID_place FROM place, city WHERE city.ID_city = '" + id_City + "' AND place.ID_Street IS NULL";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            Zwracana = int.Parse(reader["ID_place"].ToString());
+
+                        }
+
+                        cnn.Close();
+                    }
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\r\r\n Błąd informacyjny dla administratora aplikacji:\r\r\r\r\n\r\n\r\n" + x);
+                }
+               
+
+            }
+            return Zwracana;
+        }
+        public static int SelectCity(string City)
         {
             int Zwracana = 0;
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
@@ -468,35 +604,141 @@ namespace FirefighterControlCenter.DataAccessLayer
 
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
-                
-                
-                    sqlquery = "SELECT ID_Street FROM street, city WHERE city.Name_City = '" + City + "' AND street.Name_Street = '" + Street + "'";
-                
-                
-
-
-
-
+                sqlquery = "SELECT city.ID_city FROM city WHERE city.Name_City = '" + City + "';";
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
                     reader.Read();
                     
-                        Zwracana = int.Parse(reader["ID_Street"].ToString());
-                    
-
-                    
-
+                        Zwracana = int.Parse(reader["ID_city"].ToString());
 
                 }
 
                 cnn.Close();
 
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\r\r\n Błąd informacyjny dla administratora aplikacji:\r\r\r\r\n\r\n\r\n" + e);
+                try
+                {
+                    string sqlquery = "";
 
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    sqlquery = "INSERT INTO `city` (`ID_city`, `Name_City`) VALUES (NULL, '" + City + "');";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+
+
+                    }
+                    cnn.Close();
+                    cnn.Open();
+                    sqlquery = "SELECT city.ID_city FROM city WHERE city.Name_City = '" + City + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        Zwracana = int.Parse(reader["ID_city"].ToString());
+
+                    }
+
+                    cnn.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Coś poszło nie tak przy dodawaniu");
+                }
+            }
+            return Zwracana;
+        }
+        public static int SelectStreet(string City, string Street)
+        {
+            int id_city = SelectCity(City);
+            int id_street = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                sqlquery = "SELECT street.ID_street FROM city, street WHERE city.ID_city = '" + id_city + "' AND street.Name_Street = '"+Street+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    id_street = int.Parse(reader["ID_street"].ToString());
+                }
+                cnn.Close();
+                
+
+            }
+            catch
+            {
+                try
+                {
+                    string sqlquery = "";
+
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    sqlquery = "INSERT INTO `street` (`ID_street`, `ID_City`, `Name_Street`) VALUES (NULL, '" + id_city + "', '" + Street + "');";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                    }
+
+                    cnn.Close();
+                    cnn.Open();
+                    sqlquery = "SELECT street.ID_street FROM city, street WHERE city.ID_city = '" + id_city + "' AND street.Name_Street = '" + Street + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        id_street = int.Parse(reader["ID_street"].ToString());
+                    }
+                    cnn.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Coś poszło nie tak z dodawaniem ulicy");
+                }
+            }
+
+            return id_street;
+        }
+        public static int SelectIDCommander(string Commander)
+        {
+            int Zwracana = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                sqlquery = "SELECT firefighter.ID_firefighter FROM firefighter WHERE firefighter.Nick = '"+Commander+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    Zwracana = int.Parse(reader["ID_firefighter"].ToString());
+
+                }
+
+                cnn.Close();
+
+            }
+            catch
+            {
+                
             }
             return Zwracana;
         }

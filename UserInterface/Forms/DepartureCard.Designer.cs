@@ -121,6 +121,17 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter2499z19 = new System.Windows.Forms.Label();
             this.BPrint = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.btntest = new System.Windows.Forms.Button();
+            this.PBDepartureCard = new System.Windows.Forms.ProgressBar();
+            this.LPBDepartureCard = new System.Windows.Forms.Label();
+            this.CB1 = new System.Windows.Forms.CheckBox();
+            this.CB2 = new System.Windows.Forms.CheckBox();
+            this.CB3 = new System.Windows.Forms.CheckBox();
+            this.CB4 = new System.Windows.Forms.CheckBox();
+            this.CB6 = new System.Windows.Forms.CheckBox();
+            this.CB5 = new System.Windows.Forms.CheckBox();
+            this.CB7 = new System.Windows.Forms.CheckBox();
+            this.CB8 = new System.Windows.Forms.CheckBox();
             this.GBPrimary.SuspendLayout();
             this.GBPlace.SuspendLayout();
             this.GBIncident.SuspendLayout();
@@ -180,7 +191,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // DTPDepartureCard
             // 
             this.DTPDepartureCard.CustomFormat = "dd-MM-yyyy";
-            this.DTPDepartureCard.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DTPDepartureCard.Location = new System.Drawing.Point(159, 137);
             this.DTPDepartureCard.Name = "DTPDepartureCard";
             this.DTPDepartureCard.Size = new System.Drawing.Size(200, 20);
@@ -661,6 +671,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GP499z01
             // 
+            this.GP499z01.Controls.Add(this.CB2);
+            this.GP499z01.Controls.Add(this.CB1);
             this.GP499z01.Controls.Add(this.Btn499z01);
             this.GP499z01.Controls.Add(this.CBFirefighter499z014);
             this.GP499z01.Controls.Add(this.CBFirefighter499z013);
@@ -801,6 +813,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z15
             // 
+            this.GB499z15.Controls.Add(this.CB4);
+            this.GB499z15.Controls.Add(this.CB3);
             this.GB499z15.Controls.Add(this.Btn499z15);
             this.GB499z15.Controls.Add(this.CBFirefighter499z154);
             this.GB499z15.Controls.Add(this.CBDriver499z15);
@@ -941,6 +955,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z18
             // 
+            this.GB499z18.Controls.Add(this.CB5);
+            this.GB499z18.Controls.Add(this.CB6);
             this.GB499z18.Controls.Add(this.Btn499z18);
             this.GB499z18.Controls.Add(this.LDriver499z18);
             this.GB499z18.Controls.Add(this.CBFirefighter499z183);
@@ -1061,6 +1077,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // GB499z19
             // 
+            this.GB499z19.Controls.Add(this.CB8);
+            this.GB499z19.Controls.Add(this.CB7);
             this.GB499z19.Controls.Add(this.Btn499z19);
             this.GB499z19.Controls.Add(this.CBFirefighter499z194);
             this.GB499z19.Controls.Add(this.CBFirefighter499z193);
@@ -1209,11 +1227,112 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.BPrint.UseVisualStyleBackColor = true;
             this.BPrint.Click += new System.EventHandler(this.BPrint_Click);
             // 
+            // btntest
+            // 
+            this.btntest.Location = new System.Drawing.Point(606, 584);
+            this.btntest.Name = "btntest";
+            this.btntest.Size = new System.Drawing.Size(75, 23);
+            this.btntest.TabIndex = 30;
+            this.btntest.Text = "Drukuj";
+            this.btntest.UseVisualStyleBackColor = true;
+            this.btntest.Click += new System.EventHandler(this.btntest_Click);
+            // 
+            // PBDepartureCard
+            // 
+            this.PBDepartureCard.Location = new System.Drawing.Point(445, 712);
+            this.PBDepartureCard.Name = "PBDepartureCard";
+            this.PBDepartureCard.Size = new System.Drawing.Size(827, 10);
+            this.PBDepartureCard.TabIndex = 31;
+            // 
+            // LPBDepartureCard
+            // 
+            this.LPBDepartureCard.AutoSize = true;
+            this.LPBDepartureCard.Location = new System.Drawing.Point(816, 696);
+            this.LPBDepartureCard.Name = "LPBDepartureCard";
+            this.LPBDepartureCard.Size = new System.Drawing.Size(148, 13);
+            this.LPBDepartureCard.TabIndex = 32;
+            this.LPBDepartureCard.Text = "Nie wydrukowano dokumentu";
+            // 
+            // CB1
+            // 
+            this.CB1.AutoSize = true;
+            this.CB1.Location = new System.Drawing.Point(281, 28);
+            this.CB1.Name = "CB1";
+            this.CB1.Size = new System.Drawing.Size(15, 14);
+            this.CB1.TabIndex = 33;
+            this.CB1.UseVisualStyleBackColor = true;
+            // 
+            // CB2
+            // 
+            this.CB2.AutoSize = true;
+            this.CB2.Location = new System.Drawing.Point(281, 55);
+            this.CB2.Name = "CB2";
+            this.CB2.Size = new System.Drawing.Size(15, 14);
+            this.CB2.TabIndex = 34;
+            this.CB2.UseVisualStyleBackColor = true;
+            // 
+            // CB3
+            // 
+            this.CB3.AutoSize = true;
+            this.CB3.Location = new System.Drawing.Point(281, 28);
+            this.CB3.Name = "CB3";
+            this.CB3.Size = new System.Drawing.Size(15, 14);
+            this.CB3.TabIndex = 35;
+            this.CB3.UseVisualStyleBackColor = true;
+            // 
+            // CB4
+            // 
+            this.CB4.AutoSize = true;
+            this.CB4.Location = new System.Drawing.Point(281, 55);
+            this.CB4.Name = "CB4";
+            this.CB4.Size = new System.Drawing.Size(15, 14);
+            this.CB4.TabIndex = 40;
+            this.CB4.UseVisualStyleBackColor = true;
+            // 
+            // CB6
+            // 
+            this.CB6.AutoSize = true;
+            this.CB6.Location = new System.Drawing.Point(281, 53);
+            this.CB6.Name = "CB6";
+            this.CB6.Size = new System.Drawing.Size(15, 14);
+            this.CB6.TabIndex = 41;
+            this.CB6.UseVisualStyleBackColor = true;
+            // 
+            // CB5
+            // 
+            this.CB5.AutoSize = true;
+            this.CB5.Location = new System.Drawing.Point(281, 26);
+            this.CB5.Name = "CB5";
+            this.CB5.Size = new System.Drawing.Size(15, 14);
+            this.CB5.TabIndex = 42;
+            this.CB5.UseVisualStyleBackColor = true;
+            // 
+            // CB7
+            // 
+            this.CB7.AutoSize = true;
+            this.CB7.Location = new System.Drawing.Point(281, 28);
+            this.CB7.Name = "CB7";
+            this.CB7.Size = new System.Drawing.Size(15, 14);
+            this.CB7.TabIndex = 43;
+            this.CB7.UseVisualStyleBackColor = true;
+            // 
+            // CB8
+            // 
+            this.CB8.AutoSize = true;
+            this.CB8.Location = new System.Drawing.Point(281, 55);
+            this.CB8.Name = "CB8";
+            this.CB8.Size = new System.Drawing.Size(15, 14);
+            this.CB8.TabIndex = 44;
+            this.CB8.UseVisualStyleBackColor = true;
+            // 
             // DepartureCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 734);
+            this.Controls.Add(this.LPBDepartureCard);
+            this.Controls.Add(this.PBDepartureCard);
+            this.Controls.Add(this.btntest);
             this.Controls.Add(this.BPrint);
             this.Controls.Add(this.GB499z19);
             this.Controls.Add(this.GB499z18);
@@ -1340,5 +1459,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button Btn499z19;
         private System.Windows.Forms.ComboBox CBDriver499z01;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Button btntest;
+        private System.Windows.Forms.ProgressBar PBDepartureCard;
+        private System.Windows.Forms.Label LPBDepartureCard;
+        private System.Windows.Forms.CheckBox CB2;
+        private System.Windows.Forms.CheckBox CB1;
+        private System.Windows.Forms.CheckBox CB4;
+        private System.Windows.Forms.CheckBox CB3;
+        private System.Windows.Forms.CheckBox CB5;
+        private System.Windows.Forms.CheckBox CB6;
+        private System.Windows.Forms.CheckBox CB8;
+        private System.Windows.Forms.CheckBox CB7;
     }
 }
