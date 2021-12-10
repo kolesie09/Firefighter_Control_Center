@@ -511,18 +511,20 @@ namespace FirefighterControlCenter.DataAccessLayer
                 }
                 else
                 {
-                    cnn.Open();
-                    sqlquery = "SELECT place.ID_place FROM place, city WHERE city.ID_city = '" + id_City + "' AND place.ID_Street IS NULL";
-                    using (var command = new MySqlCommand(sqlquery, cnn))
-                    {
-                        var reader = command.ExecuteReader();
-                        reader.Read();
+                        cnn.Open();
+                        sqlquery = "SELECT place.ID_place FROM place, city WHERE place.ID_City = '" + id_City + "' AND place.ID_Street IS NULL";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
 
-                        Zwracana = int.Parse(reader["ID_place"].ToString());
+                            Zwracana = int.Parse(reader["ID_place"].ToString());
+                            
+                        }
 
-                    }
-
-                    cnn.Close();
+                        cnn.Close();
+                    
+                    
                 }
             }
             catch

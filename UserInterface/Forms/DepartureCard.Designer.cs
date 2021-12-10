@@ -66,6 +66,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBIncident = new System.Windows.Forms.ComboBox();
             this.CBTypeIncident = new System.Windows.Forms.ComboBox();
             this.GP499z01 = new System.Windows.Forms.GroupBox();
+            this.CB2 = new System.Windows.Forms.CheckBox();
+            this.CB1 = new System.Windows.Forms.CheckBox();
             this.Btn499z01 = new System.Windows.Forms.Button();
             this.CBFirefighter499z014 = new System.Windows.Forms.ComboBox();
             this.CBFirefighter499z013 = new System.Windows.Forms.ComboBox();
@@ -80,6 +82,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter1499z01 = new System.Windows.Forms.Label();
             this.LFirefighter2499z01 = new System.Windows.Forms.Label();
             this.GB499z15 = new System.Windows.Forms.GroupBox();
+            this.CB4 = new System.Windows.Forms.CheckBox();
+            this.CB3 = new System.Windows.Forms.CheckBox();
             this.Btn499z15 = new System.Windows.Forms.Button();
             this.CBFirefighter499z154 = new System.Windows.Forms.ComboBox();
             this.CBDriver499z15 = new System.Windows.Forms.ComboBox();
@@ -94,6 +98,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LFirefighter4499z15 = new System.Windows.Forms.Label();
             this.LDriver499z15 = new System.Windows.Forms.Label();
             this.GB499z18 = new System.Windows.Forms.GroupBox();
+            this.CB5 = new System.Windows.Forms.CheckBox();
+            this.CB6 = new System.Windows.Forms.CheckBox();
             this.Btn499z18 = new System.Windows.Forms.Button();
             this.LDriver499z18 = new System.Windows.Forms.Label();
             this.CBFirefighter499z183 = new System.Windows.Forms.ComboBox();
@@ -106,6 +112,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LCommander499z18 = new System.Windows.Forms.Label();
             this.CBDriver499z18 = new System.Windows.Forms.ComboBox();
             this.GB499z19 = new System.Windows.Forms.GroupBox();
+            this.CB8 = new System.Windows.Forms.CheckBox();
+            this.CB7 = new System.Windows.Forms.CheckBox();
             this.Btn499z19 = new System.Windows.Forms.Button();
             this.CBFirefighter499z194 = new System.Windows.Forms.ComboBox();
             this.CBFirefighter499z193 = new System.Windows.Forms.ComboBox();
@@ -124,14 +132,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btntest = new System.Windows.Forms.Button();
             this.PBDepartureCard = new System.Windows.Forms.ProgressBar();
             this.LPBDepartureCard = new System.Windows.Forms.Label();
-            this.CB1 = new System.Windows.Forms.CheckBox();
-            this.CB2 = new System.Windows.Forms.CheckBox();
-            this.CB3 = new System.Windows.Forms.CheckBox();
-            this.CB4 = new System.Windows.Forms.CheckBox();
-            this.CB6 = new System.Windows.Forms.CheckBox();
-            this.CB5 = new System.Windows.Forms.CheckBox();
-            this.CB7 = new System.Windows.Forms.CheckBox();
-            this.CB8 = new System.Windows.Forms.CheckBox();
             this.GBPrimary.SuspendLayout();
             this.GBPlace.SuspendLayout();
             this.GBIncident.SuspendLayout();
@@ -693,6 +693,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GP499z01.TabStop = false;
             this.GP499z01.Text = "Obsada 499z01";
             // 
+            // CB2
+            // 
+            this.CB2.AutoSize = true;
+            this.CB2.Location = new System.Drawing.Point(281, 55);
+            this.CB2.Name = "CB2";
+            this.CB2.Size = new System.Drawing.Size(15, 14);
+            this.CB2.TabIndex = 34;
+            this.CB2.UseVisualStyleBackColor = true;
+            // 
+            // CB1
+            // 
+            this.CB1.AutoSize = true;
+            this.CB1.Location = new System.Drawing.Point(281, 28);
+            this.CB1.Name = "CB1";
+            this.CB1.Size = new System.Drawing.Size(15, 14);
+            this.CB1.TabIndex = 33;
+            this.CB1.UseVisualStyleBackColor = true;
+            // 
             // Btn499z01
             // 
             this.Btn499z01.Location = new System.Drawing.Point(313, 177);
@@ -710,6 +728,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z014.Name = "CBFirefighter499z014";
             this.CBFirefighter499z014.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z014.TabIndex = 27;
+            this.CBFirefighter499z014.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z014_SelectedIndexChanged);
             // 
             // CBFirefighter499z013
             // 
@@ -718,6 +737,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z013.Name = "CBFirefighter499z013";
             this.CBFirefighter499z013.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z013.TabIndex = 26;
+            this.CBFirefighter499z013.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z013_SelectedIndexChanged);
             // 
             // CBFirefighter499z012
             // 
@@ -726,6 +746,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z012.Name = "CBFirefighter499z012";
             this.CBFirefighter499z012.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z012.TabIndex = 25;
+            this.CBFirefighter499z012.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z012_SelectedIndexChanged);
             // 
             // CBFirefighter499z011
             // 
@@ -734,6 +755,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z011.Name = "CBFirefighter499z011";
             this.CBFirefighter499z011.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z011.TabIndex = 24;
+            this.CBFirefighter499z011.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z011_SelectedIndexChanged);
             // 
             // CBCommander499z01
             // 
@@ -742,6 +764,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBCommander499z01.Name = "CBCommander499z01";
             this.CBCommander499z01.Size = new System.Drawing.Size(176, 21);
             this.CBCommander499z01.TabIndex = 23;
+            this.CBCommander499z01.SelectedIndexChanged += new System.EventHandler(this.CBCommander499z01_SelectedIndexChanged);
             // 
             // LFirefighter4499z01
             // 
@@ -760,6 +783,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBDriver499z01.Name = "CBDriver499z01";
             this.CBDriver499z01.Size = new System.Drawing.Size(176, 21);
             this.CBDriver499z01.TabIndex = 22;
+            this.CBDriver499z01.SelectedIndexChanged += new System.EventHandler(this.CBDriver499z01_SelectedIndexChanged);
             // 
             // LDriver499z01
             // 
@@ -835,6 +859,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GB499z15.TabStop = false;
             this.GB499z15.Text = "Obsada 499z15";
             // 
+            // CB4
+            // 
+            this.CB4.AutoSize = true;
+            this.CB4.Location = new System.Drawing.Point(281, 55);
+            this.CB4.Name = "CB4";
+            this.CB4.Size = new System.Drawing.Size(15, 14);
+            this.CB4.TabIndex = 40;
+            this.CB4.UseVisualStyleBackColor = true;
+            // 
+            // CB3
+            // 
+            this.CB3.AutoSize = true;
+            this.CB3.Location = new System.Drawing.Point(281, 28);
+            this.CB3.Name = "CB3";
+            this.CB3.Size = new System.Drawing.Size(15, 14);
+            this.CB3.TabIndex = 35;
+            this.CB3.UseVisualStyleBackColor = true;
+            // 
             // Btn499z15
             // 
             this.Btn499z15.Location = new System.Drawing.Point(318, 177);
@@ -852,6 +894,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z154.Name = "CBFirefighter499z154";
             this.CBFirefighter499z154.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z154.TabIndex = 39;
+            this.CBFirefighter499z154.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z154_SelectedIndexChanged);
             // 
             // CBDriver499z15
             // 
@@ -860,6 +903,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBDriver499z15.Name = "CBDriver499z15";
             this.CBDriver499z15.Size = new System.Drawing.Size(176, 21);
             this.CBDriver499z15.TabIndex = 34;
+            this.CBDriver499z15.SelectedIndexChanged += new System.EventHandler(this.CBDriver499z15_SelectedIndexChanged);
             // 
             // CBFirefighter499z153
             // 
@@ -868,6 +912,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z153.Name = "CBFirefighter499z153";
             this.CBFirefighter499z153.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z153.TabIndex = 38;
+            this.CBFirefighter499z153.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z153_SelectedIndexChanged);
             // 
             // LFirefighter2499z15
             // 
@@ -886,6 +931,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z152.Name = "CBFirefighter499z152";
             this.CBFirefighter499z152.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z152.TabIndex = 37;
+            this.CBFirefighter499z152.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z152_SelectedIndexChanged);
             // 
             // LFirefighter1499z15
             // 
@@ -904,6 +950,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z151.Name = "CBFirefighter499z151";
             this.CBFirefighter499z151.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z151.TabIndex = 36;
+            this.CBFirefighter499z151.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z151_SelectedIndexChanged);
             // 
             // LFirefighter3499z15
             // 
@@ -922,6 +969,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBCommander499z15.Name = "CBCommander499z15";
             this.CBCommander499z15.Size = new System.Drawing.Size(176, 21);
             this.CBCommander499z15.TabIndex = 35;
+            this.CBCommander499z15.SelectedIndexChanged += new System.EventHandler(this.CBCommander499z15_SelectedIndexChanged);
             // 
             // LCommander499z15
             // 
@@ -975,6 +1023,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GB499z18.TabStop = false;
             this.GB499z18.Text = "Obsada 499z18";
             // 
+            // CB5
+            // 
+            this.CB5.AutoSize = true;
+            this.CB5.Location = new System.Drawing.Point(281, 26);
+            this.CB5.Name = "CB5";
+            this.CB5.Size = new System.Drawing.Size(15, 14);
+            this.CB5.TabIndex = 42;
+            this.CB5.UseVisualStyleBackColor = true;
+            // 
+            // CB6
+            // 
+            this.CB6.AutoSize = true;
+            this.CB6.Location = new System.Drawing.Point(281, 53);
+            this.CB6.Name = "CB6";
+            this.CB6.Size = new System.Drawing.Size(15, 14);
+            this.CB6.TabIndex = 41;
+            this.CB6.UseVisualStyleBackColor = true;
+            // 
             // Btn499z18
             // 
             this.Btn499z18.Location = new System.Drawing.Point(321, 177);
@@ -1002,6 +1068,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z183.Name = "CBFirefighter499z183";
             this.CBFirefighter499z183.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z183.TabIndex = 38;
+            this.CBFirefighter499z183.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z183_SelectedIndexChanged);
             // 
             // LFirefighter2499z18
             // 
@@ -1020,6 +1087,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z182.Name = "CBFirefighter499z182";
             this.CBFirefighter499z182.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z182.TabIndex = 37;
+            this.CBFirefighter499z182.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z182_SelectedIndexChanged);
             // 
             // LFirefighter1499z18
             // 
@@ -1038,6 +1106,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z181.Name = "CBFirefighter499z181";
             this.CBFirefighter499z181.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z181.TabIndex = 36;
+            this.CBFirefighter499z181.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z181_SelectedIndexChanged);
             // 
             // LFirefighter3499z18
             // 
@@ -1056,6 +1125,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBCommander499z18.Name = "CBCommander499z18";
             this.CBCommander499z18.Size = new System.Drawing.Size(176, 21);
             this.CBCommander499z18.TabIndex = 35;
+            this.CBCommander499z18.SelectedIndexChanged += new System.EventHandler(this.CBCommander499z18_SelectedIndexChanged);
             // 
             // LCommander499z18
             // 
@@ -1074,6 +1144,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBDriver499z18.Name = "CBDriver499z18";
             this.CBDriver499z18.Size = new System.Drawing.Size(176, 21);
             this.CBDriver499z18.TabIndex = 34;
+            this.CBDriver499z18.SelectedIndexChanged += new System.EventHandler(this.CBDriver499z18_SelectedIndexChanged);
             // 
             // GB499z19
             // 
@@ -1099,6 +1170,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GB499z19.TabStop = false;
             this.GB499z19.Text = "Obsada 499z19";
             // 
+            // CB8
+            // 
+            this.CB8.AutoSize = true;
+            this.CB8.Location = new System.Drawing.Point(281, 55);
+            this.CB8.Name = "CB8";
+            this.CB8.Size = new System.Drawing.Size(15, 14);
+            this.CB8.TabIndex = 44;
+            this.CB8.UseVisualStyleBackColor = true;
+            // 
+            // CB7
+            // 
+            this.CB7.AutoSize = true;
+            this.CB7.Location = new System.Drawing.Point(281, 28);
+            this.CB7.Name = "CB7";
+            this.CB7.Size = new System.Drawing.Size(15, 14);
+            this.CB7.TabIndex = 43;
+            this.CB7.UseVisualStyleBackColor = true;
+            // 
             // Btn499z19
             // 
             this.Btn499z19.Location = new System.Drawing.Point(313, 177);
@@ -1116,6 +1205,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z194.Name = "CBFirefighter499z194";
             this.CBFirefighter499z194.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z194.TabIndex = 27;
+            this.CBFirefighter499z194.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z194_SelectedIndexChanged);
             // 
             // CBFirefighter499z193
             // 
@@ -1124,6 +1214,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z193.Name = "CBFirefighter499z193";
             this.CBFirefighter499z193.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z193.TabIndex = 26;
+            this.CBFirefighter499z193.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z193_SelectedIndexChanged);
             // 
             // CBFirefighter499z192
             // 
@@ -1132,6 +1223,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z192.Name = "CBFirefighter499z192";
             this.CBFirefighter499z192.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z192.TabIndex = 25;
+            this.CBFirefighter499z192.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z192_SelectedIndexChanged);
             // 
             // CBFirefighter499z191
             // 
@@ -1140,6 +1232,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBFirefighter499z191.Name = "CBFirefighter499z191";
             this.CBFirefighter499z191.Size = new System.Drawing.Size(176, 21);
             this.CBFirefighter499z191.TabIndex = 24;
+            this.CBFirefighter499z191.SelectedIndexChanged += new System.EventHandler(this.CBFirefighter499z191_SelectedIndexChanged);
             // 
             // CBCommander499z19
             // 
@@ -1148,6 +1241,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBCommander499z19.Name = "CBCommander499z19";
             this.CBCommander499z19.Size = new System.Drawing.Size(176, 21);
             this.CBCommander499z19.TabIndex = 23;
+            this.CBCommander499z19.SelectedIndexChanged += new System.EventHandler(this.CBCommander499z19_SelectedIndexChanged);
             // 
             // LFirefighter4499z19
             // 
@@ -1166,6 +1260,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CBDriver499z19.Name = "CBDriver499z19";
             this.CBDriver499z19.Size = new System.Drawing.Size(176, 21);
             this.CBDriver499z19.TabIndex = 22;
+            this.CBDriver499z19.SelectedIndexChanged += new System.EventHandler(this.CBDriver499z19_SelectedIndexChanged);
             // 
             // LDriver499z19
             // 
@@ -1252,78 +1347,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LPBDepartureCard.Size = new System.Drawing.Size(148, 13);
             this.LPBDepartureCard.TabIndex = 32;
             this.LPBDepartureCard.Text = "Nie wydrukowano dokumentu";
-            // 
-            // CB1
-            // 
-            this.CB1.AutoSize = true;
-            this.CB1.Location = new System.Drawing.Point(281, 28);
-            this.CB1.Name = "CB1";
-            this.CB1.Size = new System.Drawing.Size(15, 14);
-            this.CB1.TabIndex = 33;
-            this.CB1.UseVisualStyleBackColor = true;
-            // 
-            // CB2
-            // 
-            this.CB2.AutoSize = true;
-            this.CB2.Location = new System.Drawing.Point(281, 55);
-            this.CB2.Name = "CB2";
-            this.CB2.Size = new System.Drawing.Size(15, 14);
-            this.CB2.TabIndex = 34;
-            this.CB2.UseVisualStyleBackColor = true;
-            // 
-            // CB3
-            // 
-            this.CB3.AutoSize = true;
-            this.CB3.Location = new System.Drawing.Point(281, 28);
-            this.CB3.Name = "CB3";
-            this.CB3.Size = new System.Drawing.Size(15, 14);
-            this.CB3.TabIndex = 35;
-            this.CB3.UseVisualStyleBackColor = true;
-            // 
-            // CB4
-            // 
-            this.CB4.AutoSize = true;
-            this.CB4.Location = new System.Drawing.Point(281, 55);
-            this.CB4.Name = "CB4";
-            this.CB4.Size = new System.Drawing.Size(15, 14);
-            this.CB4.TabIndex = 40;
-            this.CB4.UseVisualStyleBackColor = true;
-            // 
-            // CB6
-            // 
-            this.CB6.AutoSize = true;
-            this.CB6.Location = new System.Drawing.Point(281, 53);
-            this.CB6.Name = "CB6";
-            this.CB6.Size = new System.Drawing.Size(15, 14);
-            this.CB6.TabIndex = 41;
-            this.CB6.UseVisualStyleBackColor = true;
-            // 
-            // CB5
-            // 
-            this.CB5.AutoSize = true;
-            this.CB5.Location = new System.Drawing.Point(281, 26);
-            this.CB5.Name = "CB5";
-            this.CB5.Size = new System.Drawing.Size(15, 14);
-            this.CB5.TabIndex = 42;
-            this.CB5.UseVisualStyleBackColor = true;
-            // 
-            // CB7
-            // 
-            this.CB7.AutoSize = true;
-            this.CB7.Location = new System.Drawing.Point(281, 28);
-            this.CB7.Name = "CB7";
-            this.CB7.Size = new System.Drawing.Size(15, 14);
-            this.CB7.TabIndex = 43;
-            this.CB7.UseVisualStyleBackColor = true;
-            // 
-            // CB8
-            // 
-            this.CB8.AutoSize = true;
-            this.CB8.Location = new System.Drawing.Point(281, 55);
-            this.CB8.Name = "CB8";
-            this.CB8.Size = new System.Drawing.Size(15, 14);
-            this.CB8.TabIndex = 44;
-            this.CB8.UseVisualStyleBackColor = true;
             // 
             // DepartureCard
             // 

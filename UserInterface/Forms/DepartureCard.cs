@@ -84,17 +84,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     #endregion
                     #region New Date Source
                         CBCommander499z01.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z011.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z012.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z013.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z014.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                    #endregion
-                    #region Clear Selected Item
-                        CBCommander499z01.SelectedItem = null;
+            CBCommander499z01.SelectedItem = null;
+            CBFirefighter499z011.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
                         CBFirefighter499z011.SelectedItem = null;
-                        CBFirefighter499z012.SelectedItem = null;
-                        CBFirefighter499z013.SelectedItem = null;
-                        CBFirefighter499z014.SelectedItem = null;
+                        CBFirefighter499z012.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z012.SelectedItem = null;
+                        CBFirefighter499z013.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z013.SelectedItem = null;
+            CBFirefighter499z014.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z014.SelectedItem = null;
+            #endregion
+            #region Clear Selected Item
+            
+                        
+                        
+                        
+                        
                     #endregion
                 #endregion
                 #region 499z15
@@ -107,17 +112,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     #endregion
                     #region New Date Source
                         CBCommander499z15.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z151.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z152.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z153.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z154.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                    #endregion
-                    #region Clear Selected Item
-                        CBCommander499z15.SelectedItem = null;
-                        CBFirefighter499z151.SelectedItem = null;
-                        CBFirefighter499z152.SelectedItem = null;
-                        CBFirefighter499z153.SelectedItem = null;
-                        CBFirefighter499z154.SelectedItem = null;
+            CBCommander499z15.SelectedItem = null;
+            CBFirefighter499z151.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z151.SelectedItem = null;
+            CBFirefighter499z152.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z152.SelectedItem = null;
+            CBFirefighter499z153.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z153.SelectedItem = null;
+            CBFirefighter499z154.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z154.SelectedItem = null;
+            #endregion
+            #region Clear Selected Item
+           
+                        
+                        
+                        
+                        
                     #endregion
                 #endregion
                 #region 499z18
@@ -129,20 +139,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     #endregion
                     #region New Date Source
                         CBCommander499z18.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z181.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z182.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z183.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                    #endregion
-                    #region Clear Selected Item
-                        CBCommander499z18.SelectedItem = null;
-                        CBFirefighter499z181.SelectedItem = null;
-                        CBFirefighter499z182.SelectedItem = null;
-                        CBFirefighter499z183.SelectedItem = null;
-                    #endregion 
-                #endregion
-                #region 499z19
-                    #region Clear Data Source
-                        CBCommander499z19.DataSource = null;
+            CBCommander499z18.SelectedItem = null;
+            CBFirefighter499z181.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z181.SelectedItem = null;
+            CBFirefighter499z182.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z182.SelectedItem = null;
+            CBFirefighter499z183.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z183.SelectedItem = null;
+            #endregion
+            #region Clear Selected Item
+
+
+
+
+            #endregion
+            #endregion
+            #region 499z19
+            #region Clear Data Source
+            CBCommander499z19.DataSource = null;
                         CBFirefighter499z191.DataSource = null;
                         CBFirefighter499z192.DataSource = null;
                         CBFirefighter499z193.DataSource = null;
@@ -150,20 +164,25 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     #endregion
                     #region New Date Source
                         CBCommander499z19.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z191.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z192.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z193.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                        CBFirefighter499z194.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
-                    #endregion
-                    #region Clear Selected Item
-                        CBCommander499z19.SelectedItem = null;
-                        CBFirefighter499z191.SelectedItem = null;
-                        CBFirefighter499z192.SelectedItem = null;
-                        CBFirefighter499z193.SelectedItem = null;
-                        CBFirefighter499z194.SelectedItem = null;
-                    #endregion
-                #endregion
-                //Trzeba zrobić sprawdzenie dla jednego dowódcy 
+            CBCommander499z19.SelectedItem = null;
+            CBFirefighter499z191.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z191.SelectedItem = null;
+            CBFirefighter499z192.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z192.SelectedItem = null;
+            CBFirefighter499z193.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z193.SelectedItem = null;
+            CBFirefighter499z194.DataSource = SqlConnector.SelectFirefighterDepartureCard("Firefighter", "");
+            CBFirefighter499z194.SelectedItem = null;
+            #endregion
+            #region Clear Selected Item
+
+
+
+
+
+            #endregion
+            #endregion
+            //Trzeba zrobić sprawdzenie dla jednego dowódcy 
             #endregion
 
         }
@@ -257,7 +276,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
             #endregion
             #region Data departure card
-            Progress("Zapisywanie daty",17);
+            Progress("Zapisywanie daty", 17);
             DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
             DTPDepartureCard.Format = DateTimePickerFormat.Custom;
             string DateDepartureCard = DTPDepartureCard.Text;
@@ -265,6 +284,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             DTPDepartureCard.CustomFormat = "MM";
             DTPDepartureCard.Format = DateTimePickerFormat.Custom;
             int MountDepartureCard = int.Parse(DTPDepartureCard.Text);
+            string MountName = PDF.Mount(MountDepartureCard);
             //Zapisywanie miesiąca wyjazdu do zmiennej
             DTPDepartureCard.CustomFormat = "yyyy";
             DTPDepartureCard.Format = DateTimePickerFormat.Custom;
@@ -281,16 +301,50 @@ namespace FirefighterControlCenter.UserInterface.Forms
             #endregion
             Progress("Zapisywanie miejsca wyjazdu", 30);
             #region Place departure card
-            string PCity = CBCity.Text;
-            string PStreet = CBStreet.Text;
+
+            string PCity = "";
+            if (CBCity.Text == "")
+            {
+                PCity = TBCity.Text;
+            }
+            else
+            {
+                PCity = CBCity.Text;
+            }
+            string PStreet = "";
+            if (CBStreet.Text == "")
+            {
+                PStreet = TBStreet.Text;
+            }
+            else
+            {
+                PStreet = CBStreet.Text;
+            }
             int ID_Place = VerificationPlace();
+            string place = "";
+            if (PStreet != "")
+            {
+                place = PCity + ", ul. " + PStreet;
+            }
+            else
+            {
+                place = PCity;
+            }
             #endregion
             #region Incident departure card
 
 
             Progress("Zapisywanie powodu wyjazdu", 25);
-            int ID_Reason = SqlConnector.SelectIncident(CBIncident.Text, CBTypeNewIncident.SelectedIndex+1, TBNewIncident.Text);
-
+            int ID_Reason = SqlConnector.SelectIncident(CBIncident.Text, CBTypeNewIncident.SelectedIndex + 1, TBNewIncident.Text);
+            string Reason = "";
+            if (CBIncident.Text == "")
+            {
+                Reason = TBNewIncident.Text;
+            }
+            else
+            {
+                Reason = CBIncident.Text;
+            }
             int ID_Commander = SqlConnector.SelectIDCommander(Commander());
 
             #endregion
@@ -299,7 +353,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, HourDepartureCard, HourArrivalCard, ID_Place, ID_Reason, ID_Commander, ID_FF499z01, ID_FF499z15, ID_FF499z18, ID_FF499z19, YearDepartureCard, MountDepartureCard, TimeDeparture);
             #endregion
             Progress("Tworzenie pliku pdf", 50);
-            PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, CBIncident.Text, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+            PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
             Progress("Drukowanie pliku pdf", 75);
             try
             {
@@ -308,7 +362,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 {
                     CreateNoWindow = true,
                     Verb = "print",
-                    FileName = @"C:\OSP\Wyjazdy\2021 Rok\Listopad Miesiąc\3-2021 - Barlinek, ul. Długa - Pożar sadzy w kominie.pdf"
+                    FileName = @"C:\\OSP\\Wyjazdy\\2021 Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
                 };
                 p.Start();
             }
@@ -406,6 +460,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             return ID_Place;
         }
         #endregion
+        
 
         private void btntest_Click(object sender, EventArgs e)
         {
@@ -457,7 +512,330 @@ namespace FirefighterControlCenter.UserInterface.Forms
             }
             return Commander;
         }
+        private bool VerificationFireFighter(string firefigter)
+        {
+            int Search = 0;
+            bool status = true;
+            if (firefigter != "")
+            {
+                //Kierowcy
+                if (CBDriver499z01.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBDriver499z15.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBDriver499z18.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBDriver499z19.Text == firefigter)
+                {
+                    Search++;
+                }
+                //Dowódcy
+                if (CBCommander499z01.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBCommander499z15.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBCommander499z18.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBCommander499z19.Text == firefigter)
+                {
+                    Search++;
+                }
+                //Strażacy 499z01
+                if (CBFirefighter499z011.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z012.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z013.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z014.Text == firefigter)
+                {
+                    Search++;
+                }
+                //Strażacy 499z15
+                if (CBFirefighter499z151.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z152.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z153.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z154.Text == firefigter)
+                {
+                    Search++;
+                }
+                //Strażacy 499z18
+                if (CBFirefighter499z181.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z182.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z183.Text == firefigter)
+                {
+                    Search++;
+                }
+                //Strażacy 499z19
+                if (CBFirefighter499z191.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z192.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z193.Text == firefigter)
+                {
+                    Search++;
+                }
+                if (CBFirefighter499z194.Text == firefigter)
+                {
+                    Search++;
+                }
+            }
+            
+            
 
-        
+            if(Search > 1)
+            {
+                return status = false;
+            }
+            else
+            {
+                return status = true;
+            }
+
+        }
+
+
+        private void CBDriver499z15_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBDriver499z15.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBDriver499z15.SelectedIndex = -1;
+            }
+        }
+
+        private void CBCommander499z15_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBCommander499z15.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBCommander499z15.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z151_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z151.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z151.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z152_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z152.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z152.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z153_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z153.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z153.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z154_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z154.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z154.SelectedIndex = -1;
+            }
+        }
+
+        private void CBDriver499z18_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBDriver499z18.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBDriver499z18.SelectedIndex = -1;
+            }
+        }
+
+        private void CBCommander499z18_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBCommander499z18.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBCommander499z18.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z181_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z181.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z181.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z182_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z182.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z182.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z183_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z183.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z183.SelectedIndex = -1;
+            }
+        }
+
+        private void CBDriver499z19_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBDriver499z19.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBDriver499z19.SelectedIndex = -1;
+            }
+        }
+
+        private void CBCommander499z19_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBCommander499z19.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBCommander499z19.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z191_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z191.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z191.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z192_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z192.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z192.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z193_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z193.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z193.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z194_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z194.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z194.SelectedIndex = -1;
+            }
+        }
+        private void CBDriver499z01_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBDriver499z01.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBDriver499z01.SelectedIndex = -1;
+            }
+        }
+
+        private void CBCommander499z01_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBCommander499z01.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBCommander499z01.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z011_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z011.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z011.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z012_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z012.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z012.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z013_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z013.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z013.SelectedIndex = -1;
+            }
+        }
+
+        private void CBFirefighter499z014_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VerificationFireFighter(CBFirefighter499z014.Text) == false)
+            {
+                MessageBox.Show("Taki strażak już istnieje");
+                CBFirefighter499z014.SelectedIndex = -1;
+            }
+        }
     }
 }

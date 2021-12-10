@@ -55,7 +55,7 @@ namespace FirefighterControlCenter.UserInterface
 
                 pdfDoc.Open();
 
-                var imagepath = @"D:\Programowanie\logo.png";
+                var imagepath = @"C:\OSP\logo.png";
                 using (FileStream fs = new FileStream(imagepath, FileMode.Open))
                 {
                     var png = Image.GetInstance(System.Drawing.Image.FromStream(fs), ImageFormat.Png);
@@ -104,6 +104,15 @@ namespace FirefighterControlCenter.UserInterface
                 pdfDoc.Add(BasicInformation);
 
                 var PlaceandReasonInformation = new Paragraph(PCity + ", ul. " + PStreet + " - " + Reason, nameFontT);
+                if (PStreet == "")
+                {
+                    PlaceandReasonInformation = new Paragraph(PCity + " - " + Reason, nameFontT);
+                }
+                else
+                {
+                    PlaceandReasonInformation = new Paragraph(PCity + ", ul. " + PStreet + " - " + Reason, nameFontT);
+                }
+                
                 PlaceandReasonInformation.Alignment = Element.ALIGN_CENTER;
                 PlaceandReasonInformation.Font.Size = 12;
                 pdfDoc.Add(PlaceandReasonInformation);
@@ -135,13 +144,83 @@ namespace FirefighterControlCenter.UserInterface
                 cell.PaddingBottom = 7;
                 table.AddCell(cell);
 
+                int NumberFF = 0;
+                int NumberC = 0;
+                int HeightTime()
+                {
+                    int i = 0;
+                    
+                    if(D499z01 != "")
+                    {
+                        if (D499z15 != "")
+                        {
+                            if (D499z18 != "")
+                            {
+                                if (D499z19 != "")
+                                {
+                                    i = 210;
+                                }
+                                else
+                                {
+                                    i = 155;
+                                }
+                                
+                            }
+                            else
+                            {
+                                i = 100;
+                            }
+                            
+                        }
+                        else
+                        {
+                            i = 45;
+                        }
+                        
+                    }
+                    else if(D499z15 != "")
+                    {
+                        if (D499z18 != "")
+                        {
+                            if (D499z19 != "")
+                            {
+                                i = 155;
+                            }
+                            else
+                            {
+                                i = 100;
+                            }
 
-                int czas1 = 45;
-                int czas2 = 50;
-                int czas3 = 135;
-                int czas4 = 190;
+                        }
+                        else
+                        {
+                            i = 45;
+                        }
+                    }
+                    else if(D499z18 != "")
+                    {
+                        if (D499z19 != "")
+                        {
+                            i = 100;
+                        }
+                        else
+                        {
+                            i = 45;
+                        };
+                    }
+                    else if(D499z19 != "")
+                    {
+                        i = 45;
+                    }
+                    
+                    return i;
+                }
+                // 1 = 45 2 = 100 3=155 4 = 210
+                int Time = 0;
                 int HowManyPepole = 0;
                 #region 499z01
+                if(D499z01 != "")
+                {
                     HowManyPepole++;
                     cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -159,12 +238,18 @@ namespace FirefighterControlCenter.UserInterface
                     cell = new PdfPCell(new Phrase(D499z01, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
+                    NumberC++;
                     table.AddCell(cell);
-                    cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    cell.PaddingTop = czas4;
-                    cell.Rowspan = 24;
-                    table.AddCell(cell);
+                    if(Time == 0)
+                    {
+                        cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.PaddingTop = HeightTime();
+                        cell.Rowspan = 24;
+                        table.AddCell(cell);
+                        Time++;
+                    }
+                    
 
                     HowManyPepole++;
                     cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
@@ -235,273 +320,311 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
+                }
+                    
                 #endregion
                 #region 499z15
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                if(D499z15 != "")
+                {
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("499z15", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.Rowspan = 6;
-                cell.PaddingTop = 45;
-                table.AddCell(cell);
+                    cell.PaddingTop = 45;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("K", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(D499z15, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    if (Time == 0)
+                    {
+                        cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.PaddingTop = HeightTime();
+                        cell.Rowspan = 24;
+                        table.AddCell(cell);
+                        Time++;
+                    }
 
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("D", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(C499z15, nameFont));
-                cell.PaddingBottom = 4;
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("R", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(F499z151, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("R", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(F499z152, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("R", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(F499z153, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase("R", nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
                     cell = new PdfPCell(new Phrase(F499z154, nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                }
+                
                 #endregion
                 #region 499z18
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("499z18", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.Rowspan = 5;
-                cell.PaddingTop = 35;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("K", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(D499z18, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                if(D499z18 != "")
+                {
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("499z18", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.Rowspan = 5;
+                    cell.PaddingTop = 35;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("K", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(D499z18, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    if (Time == 0)
+                    {
+                        cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.PaddingTop = HeightTime();
+                        cell.Rowspan = 24;
+                        table.AddCell(cell);
+                        Time++;
+                    }
 
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("D", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(C499z18, nameFont));
-                cell.PaddingBottom = 4;
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("D", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(C499z18, nameFont));
+                    cell.PaddingBottom = 4;
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z181, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z181, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z182, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z182, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z183, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z183, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                }
 
                 #endregion
                 #region 499z19
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("499z19", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.Rowspan = 6;
-                cell.PaddingTop = 45;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("K", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(D499z19, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                if(D499z19 != "")
+                {
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("499z19", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.Rowspan = 6;
+                    cell.PaddingTop = 45;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("K", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(D499z19, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    if (Time == 0)
+                    {
+                        cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        cell.PaddingTop = HeightTime();
+                        cell.Rowspan = 24;
+                        table.AddCell(cell);
+                        Time++;
+                    }
 
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("D", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(C499z19, nameFont));
-                cell.PaddingBottom = 4;
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("D", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(C499z19, nameFont));
+                    cell.PaddingBottom = 4;
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z191, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 3;
-                cell.PaddingTop = -1;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z191, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 3;
+                    cell.PaddingTop = -1;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z192, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z192, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z193, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z193, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
 
-                HowManyPepole++;
-                cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase("R", nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
-                cell = new PdfPCell(new Phrase(F499z194, nameFont));
-                cell.HorizontalAlignment = Element.ALIGN_CENTER;
-                cell.PaddingBottom = 4;
-                table.AddCell(cell);
+                    HowManyPepole++;
+                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase("R", nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                    cell = new PdfPCell(new Phrase(F499z194, nameFont));
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.PaddingBottom = 4;
+                    table.AddCell(cell);
+                }
                 #endregion
 
                 pdfDoc.Add(table);
 
-                var SummaryInformation = new Paragraph("Liczba pojazdów ratowniczych : 4          Liczba ratoników : " + HowManyPepole, nameFont);
+                var SummaryInformation = new Paragraph("Liczba pojazdów ratowniczych : "+NumberC+"         Liczba ratoników : "+ HowManyPepole, nameFont);
                 SummaryInformation.Alignment = Element.ALIGN_CENTER;
                 SummaryInformation.Font.Size = 12;
                 SummaryInformation.SpacingBefore = 10;
@@ -523,19 +646,7 @@ namespace FirefighterControlCenter.UserInterface
 
                 pdfDoc.Add(CommanderInfo);
 
-                //SummaryInformation.Alignment = 0;
-
-                //var headerTable = new PdfPTable()
-                //{
-                //    HorizontalAlignment = 1,
-                //    WidthPercentage = 75,
-                //    DefaultCell = { MinimumHeight = 22f },
-                //    Rotation = 90
-                //};
-                //headerTable.AddCell("LP");
-                //headerTable.AddCell("Podmiot");
-                //headerTable.AddCell("Osoby uczestniczące");
-                //headerTable.AddCell("Czas udziału w działaniach ratowniczych");
+                
                 HowManyPepole = 0;
                 
                 
@@ -547,6 +658,13 @@ namespace FirefighterControlCenter.UserInterface
                 MessageBox.Show("Coś poszło nie tak");
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private int HeightTime()
+        {
+            int i = 0;
+
+            return i;
         }
 
         public static string Mount(int Mount)
