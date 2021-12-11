@@ -348,7 +348,45 @@ namespace FirefighterControlCenter.UserInterface.Forms
             int ID_Commander = SqlConnector.SelectIDCommander(Commander());
 
             #endregion
-
+            SqlConnector.AddToRanking("incident", ID_Reason, YearDepartureCard);
+            SqlConnector.AddToRanking("city", SqlConnector.IDWhatWhere("city", PCity), YearDepartureCard);
+            SqlConnector.AddToRanking("street", SqlConnector.IDWhatWhere("street", PStreet), YearDepartureCard);
+            if(ID_FF499z01 != 0)
+            {
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z01.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z01.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z011.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z012.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z013.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z014.Text), YearDepartureCard);
+            }
+            if(ID_FF499z15 != 0)
+            {
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z15.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z15.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z151.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z152.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z153.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z154.Text), YearDepartureCard);
+            }
+            if(ID_FF499z18 != 0)
+            {
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z18.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z18.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z181.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z182.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z183.Text), YearDepartureCard);
+            }
+            if(ID_FF499z19 != 0)
+            {
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z19.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z19.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z191.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z192.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z193.Text), YearDepartureCard);
+                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z194.Text), YearDepartureCard);
+            }
+            
             Progress("Dodawanie wszystkich informacji do bazy danych", 30);
             SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, HourDepartureCard, HourArrivalCard, ID_Place, ID_Reason, ID_Commander, ID_FF499z01, ID_FF499z15, ID_FF499z18, ID_FF499z19, YearDepartureCard, MountDepartureCard, TimeDeparture);
             #endregion

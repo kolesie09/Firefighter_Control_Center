@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Date_departure_card.cs" />
+    <Compile Include="Ranking.cs" />
     <Compile Include="SqlConnector.cs" />
     <Compile Include="EntityModel.cs" />
     <Compile Include="Firefighter_ranking.cs" />

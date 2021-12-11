@@ -8,36 +8,104 @@ namespace FirefighterControlCenter.DataAccessLayer
 {
     public class SqlConnector
     {
-        public static List<Firefighter_ranking> Ranking()
+        public static List<Firefighter_ranking> RankingFirefighter(string Year)
         {
             var list = new List<Firefighter_ranking>();
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
             MySqlConnection cnn;
             try
             {
-                cnn = new MySqlConnection(connectionString);
-                cnn.Open();
-                const string sqlquery = "SELECT city.Name_City, street.Name_Street, street_ranking.Year, street_ranking.Number_departures FROM city, street, street_ranking WHERE city.ID=street.ID AND street.ID=street_ranking.ID_Street";
-                using (var command = new MySqlCommand(sqlquery, cnn))
-                {
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+               
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter_ranking.Number_departures, firefighter_ranking.Year FROM firefighter, firefighter_ranking WHERE firefighter.ID_firefighter = firefighter_ranking.ID_firefighter AND firefighter_ranking.Year = " + Year+";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
                     {
-                        Firefighter_ranking firefighter = new Firefighter_ranking
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
                         {
-                            //Id = int.Parse(reader["id_departure_ranking"].ToString()),
-                            Imie = reader["name"].ToString(),
-                            Naziwsko = reader["last_name"].ToString(),
-                            Nazwa_miasta = reader["Name_City"].ToString(),
-                            Nazwa_ulicy = reader["Name_Street"].ToString(),
-                            Rok = int.Parse(reader["Year"].ToString()),
-                            Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
-                            
-                        };
-                        list.Add(firefighter);
+                            Firefighter_ranking firefighter = new Firefighter_ranking
+                            {
+                                
+                                Imie = reader["name"].ToString(),
+                                Naziwsko = reader["last_name"].ToString(),
+                                Rok = int.Parse(reader["Year"].ToString()),
+                                Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
+
+                            };
+                            list.Add(firefighter);
+                        }
                     }
+                    cnn.Close();
+                
+                
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
+        public static List<Ranking> Ranking(string type, string Year)
+        {
+            var list = new List<Ranking>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                if(type == "city" || type == "street")
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT " + type + ".Name_" + type + ", " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Ranking ranking = new Ranking
+                            {
+
+
+                                Name = reader["Name_"+type].ToString(),
+
+                                Year = int.Parse(reader["Year"].ToString()),
+                                Number_departures = int.Parse(reader["Number_departures"].ToString())
+
+                            };
+                            list.Add(ranking);
+                        }
+                    }
+                    cnn.Close();
                 }
-                cnn.Close();
+                else
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT " + type + ".Name, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Ranking ranking = new Ranking
+                            {
+
+
+                                Name = reader["Name"].ToString(),
+
+                                Year = int.Parse(reader["Year"].ToString()),
+                                Number_departures = int.Parse(reader["Number_departures"].ToString())
+
+                            };
+                            list.Add(ranking);
+                        }
+                    }
+                    cnn.Close();
+                }
+                    
+                
+                
             }
             catch (Exception e)
             {
@@ -244,6 +312,7 @@ namespace FirefighterControlCenter.DataAccessLayer
 
                 cnn.Close();
 
+
             }
             catch (Exception e)
             {
@@ -429,23 +498,13 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
-                
-                    sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + Incident + "';";
-                
-                
-
-
+                sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + Incident + "';";
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
                     reader.Read();
-
-
                     Zwracana = int.Parse(reader["ID_incident"].ToString()); ;
-
-
                 }
-
                 cnn.Close();
                 
             }
@@ -743,6 +802,122 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
             }
             return Zwracana;
+        }
+        public static int IDWhatWhere(string What, string Where)
+        {
+            int ID = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                if (Where != "")
+                {
+                    if (What == "firefighter")
+                    {
+                    
+                            string sqlquery = "";
+                            cnn = new MySqlConnection(connectionString);
+
+
+
+                            cnn.Open();
+                            sqlquery = "SELECT " + What + ".ID_" + What + " FROM " + What + " WHERE " + What + ".Nick = '" + Where + "';";
+                            using (var command = new MySqlCommand(sqlquery, cnn))
+                            {
+                                var reader = command.ExecuteReader();
+                                reader.Read();
+                                ID = int.Parse(reader["ID_" + What].ToString());
+                            }
+                            cnn.Close();
+                        
+                    
+                    }
+                    else
+                    {
+                        string sqlquery = "";
+                        cnn = new MySqlConnection(connectionString);
+
+
+
+                        cnn.Open();
+                        sqlquery = "SELECT " + What + ".ID_" + What + " FROM " + What + " WHERE " + What + ".Name_" + What + " = '" + Where + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+                            ID = int.Parse(reader["ID_" + What].ToString());
+                        }
+                        cnn.Close();
+                    }
+                }
+                else if (Where == "")
+                {
+                    ID = 0;
+                }
+
+            }
+            catch
+            {
+
+            }
+            return ID;
+         }
+        public static void AddToRanking(string type, int ID_What, int Year)
+        {
+            
+            int IDRanking = 0;
+            int RankingNumber = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                
+                if(ID_What != 0)
+                {
+                    cnn.Open();
+                    sqlquery = "SELECT " + type + "_ranking.ID_" + type + "_ranking, " + type + "_ranking.Number_departures FROM " + type + "_ranking WHERE " + type + "_ranking.ID_" + type + " = " + ID_What + " AND " + type + "_ranking.Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        IDRanking = int.Parse(reader["ID_" + type + "_ranking"].ToString());
+                        RankingNumber = int.Parse(reader["Number_departures"].ToString());
+                    }
+                    cnn.Close();
+
+                    RankingNumber++;
+                    cnn.Open();
+                    sqlquery = "UPDATE " + type + "_ranking SET Number_departures = " + RankingNumber + " WHERE ID_" + type + "_ranking = " + IDRanking + " AND Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                    }
+                    cnn.Close();
+                }
+ 
+            }
+            catch
+            {
+                string sqlquery = "";
+                RankingNumber = 1;
+                cnn = new MySqlConnection(connectionString);
+                
+                    cnn.Open();
+                    sqlquery = "INSERT INTO `" + type + "_ranking` (`ID_" + type + "_ranking`, `ID_" + type + "`, `Year`, `Number_departures`) VALUES(NULL, '" + ID_What+ "', '" + Year + "', '" + RankingNumber + "');";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                    }
+                    cnn.Close();
+                    
+                
+            }
         }
     }
     

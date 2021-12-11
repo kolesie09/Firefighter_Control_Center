@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
 {
@@ -15,6 +16,14 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
         public Firefighter()
         {
             InitializeComponent();
+        }
+
+        private void Firefighter_Load(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            string Year = dt.ToString("yyyy");
+
+            dataGridView1.DataSource = SqlConnector.RankingFirefighter(Year);
         }
     }
 }
