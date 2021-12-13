@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
@@ -15,6 +16,11 @@ namespace FirefighterControlCenter.UserInterface.Forms
         public History()
         {
             InitializeComponent();
+        }
+
+        private void History_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = SqlConnector.History_departure_cards();
         }
     }
 }

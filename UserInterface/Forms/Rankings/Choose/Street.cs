@@ -23,7 +23,7 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
             DateTime dt = DateTime.Now;
             string Year = dt.ToString("yyyy");
             //Przyda się miasto do ulic 
-            dataGridView1.DataSource = SqlConnector.Ranking("street", Year);
+            dataGridView1.DataSource = SqlConnector.RankingStreet("street", Year);
         }
     }
 }

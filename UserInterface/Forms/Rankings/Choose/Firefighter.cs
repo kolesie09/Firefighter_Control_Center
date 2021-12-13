@@ -24,6 +24,12 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
             string Year = dt.ToString("yyyy");
 
             dataGridView1.DataSource = SqlConnector.RankingFirefighter(Year);
+           
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

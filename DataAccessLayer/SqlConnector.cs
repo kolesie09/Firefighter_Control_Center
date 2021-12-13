@@ -18,7 +18,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
-                    string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter_ranking.Number_departures, firefighter_ranking.Year FROM firefighter, firefighter_ranking WHERE firefighter.ID_firefighter = firefighter_ranking.ID_firefighter AND firefighter_ranking.Year = " + Year+";";
+                    string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter_ranking.Number_departures, firefighter_ranking.Year FROM firefighter, firefighter_ranking WHERE firefighter.ID_firefighter = firefighter_ranking.ID_firefighter AND firefighter_ranking.Year = "+Year+" ORDER BY firefighter_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -53,11 +53,11 @@ namespace FirefighterControlCenter.DataAccessLayer
             MySqlConnection cnn;
             try
             {
-                if(type == "city" || type == "street")
+                if(type == "city")
                 {
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
-                    string sqlquery = "SELECT " + type + ".Name_" + type + ", " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + ";";
+                    string sqlquery = "SELECT " + type + ".Name_" + type + ", " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + " ORDER BY " + type + "_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -67,10 +67,9 @@ namespace FirefighterControlCenter.DataAccessLayer
                             {
 
 
-                                Name = reader["Name_"+type].ToString(),
-
-                                Year = int.Parse(reader["Year"].ToString()),
-                                Number_departures = int.Parse(reader["Number_departures"].ToString())
+                                Nazwa = reader["Name_"+type].ToString(),
+                                Rok = int.Parse(reader["Year"].ToString()),
+                                Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
 
                             };
                             list.Add(ranking);
@@ -82,7 +81,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 {
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
-                    string sqlquery = "SELECT " + type + ".Name, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + ";";
+                    string sqlquery = "SELECT " + type + ".Name, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + " ORDER BY " + type + "_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -90,19 +89,132 @@ namespace FirefighterControlCenter.DataAccessLayer
                         {
                             Ranking ranking = new Ranking
                             {
-
-
-                                Name = reader["Name"].ToString(),
-
-                                Year = int.Parse(reader["Year"].ToString()),
-                                Number_departures = int.Parse(reader["Number_departures"].ToString())
-
+                                Nazwa = reader["Name"].ToString(),
+                                Rok = int.Parse(reader["Year"].ToString()),
+                                Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
                             };
                             list.Add(ranking);
                         }
                     }
                     cnn.Close();
                 }
+                    
+                
+                
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
+        public static List<Ranking_City> RankingStreet(string type, string Year)
+        {
+            var list = new List<Ranking_City>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT " + type + ".Name_" + type + ", city.Name_city, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking, city WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND city.ID_city = " + type + ".ID_City AND " + type + "_ranking.Year = " + Year + " ORDER BY " + type + "_ranking.Number_departures DESC;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                      var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+
+                            Ranking_City ranking = new Ranking_City
+                            {
+
+
+                                Nazwa_miasta = reader["Name_city"].ToString(),
+                                Nazwa_ulicy = reader["Name_" + type].ToString(),
+                                Rok = int.Parse(reader["Year"].ToString()),
+                                Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
+
+                            };
+                            list.Add(ranking);
+                        }
+                    
+                    
+                }
+                cnn.Close();
+                
+                    
+                
+                
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
+        public static List<History_departure_cards> History_departure_cards()
+        {
+            var list = new List<History_departure_cards>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT departure_card.Departure_number, departure_card.Departure_date, departure_card.Hour_departure, departure_card.Hour_arrival, city.Name_city, street.Name_street, incident.Name, firefighter.Nick, 499z01_departure.Nick_Driver_01, 499z01_departure.Nick_Commander_01, 499z01_departure.Nick_Firefighter_01_1, 499z01_departure.Nick_Firefighter_01_2, 499z01_departure.Nick_Firefighter_01_3, 499z01_departure.Nick_Firefighter_01_4, 499z15_departure.Nick_Driver_15, 499z15_departure.Nick_Commander_15, 499z15_departure.Nick_Firefighter_15_1, 499z15_departure.Nick_Firefighter_15_2, 499z15_departure.Nick_Firefighter_15_3, 499z15_departure.Nick_Firefighter_15_4, 499z18_departure.Nick_Driver_18, 499z18_departure.Nick_Commander_18, 499z18_departure.Nick_Firefighter_18_1, 499z18_departure.Nick_Firefighter_18_2, 499z18_departure.Nick_Firefighter_18_3, 499z19_departure.Nick_Driver_19, 499z19_departure.Nick_Commander_19, 499z19_departure.Nick_Firefighter_19_1, 499z19_departure.Nick_Firefighter_19_2, 499z19_departure.Nick_Firefighter_19_3, 499z19_departure.Nick_Firefighter_19_4, departure_card.Hour FROM departure_card, firefighter, place, city, street, incident, 499z01_departure, 499z15_departure, 499z18_departure, 499z19_departure WHERE departure_card.ID_499z01 = 499z01_departure.ID AND departure_card.ID_499z15 = 499z15_departure.ID AND departure_card.ID_499z18 = 499z18_departure.ID AND departure_card.ID_499z19 = 499z19_departure.ID AND departure_card.ID_place_departure = place.ID_place AND place.ID_City = city.ID_city AND place.ID_Street = street.ID_street AND departure_card.ID_reason_departure = incident.ID_incident AND departure_card.ID_Departure_commander = firefighter.ID_firefighter ORDER BY departure_card.Year DESC, departure_card.Departure_number DESC;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                      var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+
+                            History_departure_cards History = new History_departure_cards
+                            {
+
+                                Numer = int.Parse(reader["Departure_number"].ToString()),
+                                Data = reader["Departure_date"].ToString(),
+                                Wyjazd = reader["Hour_departure"].ToString(),
+                                Przyjazd = reader["Hour_arrival"].ToString(),
+                                Miasto = reader["Name_city"].ToString(),
+                                Ulica = reader["Name_street"].ToString(),
+                                Powod = reader["Name"].ToString(),
+                                Dowodca = reader["Nick"].ToString(),
+                                Kierowca_01 = reader["Nick_Driver_01"].ToString(),
+                                Dowodca_01 = reader["Nick_Commander_01"].ToString(),
+                                Strazak_01_1 = reader["Nick_Firefighter_01_1"].ToString(),
+                                Strazak_01_2 = reader["Nick_Firefighter_01_2"].ToString(),
+                                Strazak_01_3 = reader["Nick_Firefighter_01_3"].ToString(),
+                                Strazak_01_4 = reader["Nick_Firefighter_01_4"].ToString(),
+                                Kierowca_15 = reader["Nick_Driver_15"].ToString(),
+                                Dowodca_15 = reader["Nick_Commander_15"].ToString(),
+                                Strazak_15_1 = reader["Nick_Firefighter_15_1"].ToString(),
+                                Strazak_15_2 = reader["Nick_Firefighter_15_2"].ToString(),
+                                Strazak_15_3 = reader["Nick_Firefighter_15_3"].ToString(),
+                                Strazak_15_4 = reader["Nick_Firefighter_15_4"].ToString(),
+                                Kierowca_18 = reader["Nick_Driver_18"].ToString(),
+                                Dowodca_18 = reader["Nick_Commander_18"].ToString(),
+                                Strazak_18_1 = reader["Nick_Firefighter_18_1"].ToString(),
+                                Strazak_18_2 = reader["Nick_Firefighter_18_2"].ToString(),
+                                Strazak_18_3 = reader["Nick_Firefighter_18_3"].ToString(),
+                                Kierowca_19 = reader["Nick_Driver_19"].ToString(),
+                                Dowodca_19 = reader["Nick_Commander_19"].ToString(),
+                                Strazak_19_1 = reader["Nick_Firefighter_19_1"].ToString(),
+                                Strazak_19_2 = reader["Nick_Firefighter_19_1"].ToString(),
+                                Strazak_19_3 = reader["Nick_Firefighter_19_1"].ToString(),
+                                Strazak_19_4 = reader["Nick_Firefighter_19_1"].ToString(),
+                                Godziny = reader["Hour"].ToString()
+
+
+
+                            };
+                            list.Add(History);
+                        }
+                    
+                    
+                }
+                cnn.Close();
+                
                     
                 
                 
@@ -174,7 +286,8 @@ namespace FirefighterControlCenter.DataAccessLayer
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            list.Add(reader["Name_Street"].ToString());
+                            if(reader["Name_Street"].ToString() != "")
+                                list.Add(reader["Name_Street"].ToString());
                         }
                     }
                 }
@@ -283,20 +396,20 @@ namespace FirefighterControlCenter.DataAccessLayer
                 cnn.Open();
                 if (number_operation == "499z01")
                 {
-                    sqlquery = "INSERT INTO `499z01_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                    sqlquery = "INSERT INTO `499z01_departure` (`ID`, `Nick_Driver_01`, `Nick_Commander_01`, `Nick_Firefighter_01_1`, `Nick_Firefighter_01_2`, `Nick_Firefighter_01_3`, `Nick_Firefighter_01_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
                 }
                 else if (number_operation == "499z15")
                 {
-                    sqlquery = "INSERT INTO `499z15_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                    sqlquery = "INSERT INTO `499z15_departure` (`ID`, `Nick_Driver_15`, `Nick_Commander_15`, `Nick_Firefighter_15_1`, `Nick_Firefighter_15_2`, `Nick_Firefighter_15_3`, `Nick_Firefighter_15_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
                 }
                 else if (number_operation == "499z18")
                 {
-                    sqlquery = "INSERT INTO `499z18_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "');";
+                    sqlquery = "INSERT INTO `499z18_departure` (`ID`, `Nick_Driver_18`, `Nick_Commander_18`, `Nick_Firefighter_18_1`, `Nick_Firefighter_18_2`, `Nick_Firefighter_18_3`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "');";
                    
                 }
                 else if (number_operation == "499z19")
                 {
-                    sqlquery = "INSERT INTO `499z19_departure` (`ID`, `Nick_Driver`, `Nick_Commander`, `Nick_Firefighter_1`, `Nick_Firefighter_2`, `Nick_Firefighter_3`, `Nick_Firefighter_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
+                    sqlquery = "INSERT INTO `499z19_departure` (`ID`, `Nick_Driver_19`, `Nick_Commander_19`, `Nick_Firefighter_19_1`, `Nick_Firefighter_19_2`, `Nick_Firefighter_19_3`, `Nick_Firefighter_19_4`) VALUES (NULL, '" + driver + "', '" + commander + "', '" + firefighter1 + "', '" + firefighter2 + "', '" + firefighter3 + "', '" + firefighter4 + "');";
                     
                 }
                 using (var command = new MySqlCommand(sqlquery, cnn))
@@ -394,36 +507,36 @@ namespace FirefighterControlCenter.DataAccessLayer
                             }
                             else
                             {
-                                sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', '" + ID_499z18 + "', NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                                sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', '" + ID_499z18 + "', 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                             }
                         }
                         else if (ID_499z19 != 0)
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', NULL , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', 1 , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                         else
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', NULL , NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', '" + ID_499z15 + "', 1 , 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                     }
                     else if (ID_499z18 != 0)
                     {
                         if (ID_499z19 != 0)
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', NULL , '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', 1 , '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                         else
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', NULL , '" + ID_499z18 + "', NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', 1 , '" + ID_499z18 + "', 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                     }
                     else if (ID_499z19 != 0)
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', NULL , NULL , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', 1 , 1 , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                     else
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', NULL , NULL , NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', 1 , 1 , 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }    
                 }
                 else if(ID_499z15 != 0)
@@ -432,36 +545,36 @@ namespace FirefighterControlCenter.DataAccessLayer
                     {
                         if (ID_499z19 != 0)
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , '" + ID_499z15 + "', '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , '" + ID_499z15 + "', '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                         else
                         {
-                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , '" + ID_499z15 + "', '" + ID_499z18 + "', NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                            sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , '" + ID_499z15 + "', '" + ID_499z18 + "', 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                         }
                     }
                     else if (ID_499z19 != 0)
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , '" + ID_499z15 + "', NULL , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , '" + ID_499z15 + "', 1 , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                     else
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , '" + ID_499z15 + "', NULL , NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , '" + ID_499z15 + "', 1 , 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                 }
                 else if(ID_499z18 != 0)
                 {
                     if (ID_499z19 != 0)
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , NULL , '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , 1 , '" + ID_499z18 + "', '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                     else
                     {
-                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , NULL , '" + ID_499z18 + "', NULL , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                        sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , 1 , '" + ID_499z18 + "', 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                 }
                 else if(ID_499z19 != 0)
                 {
-                    sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', NULL , NULL , NULL , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
+                    sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , 1 , 1 , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                 } 
                 
                 
@@ -553,10 +666,9 @@ namespace FirefighterControlCenter.DataAccessLayer
                 string sqlquery = "";
 
                 cnn = new MySqlConnection(connectionString);
-                if (Street != "")
-                {
+                
                     cnn.Open();
-                    sqlquery = "SELECT place.ID_place FROM place, city, street WHERE city.ID_city = '" + id_City + "' AND street.ID_street = '" + id_Street + "'";
+                    sqlquery = "SELECT place.ID_place FROM place WHERE place.ID_City = '" + id_City + "' AND place.ID_Street = '" + id_Street + "'";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -567,24 +679,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                     }
 
                     cnn.Close();
-                }
-                else
-                {
-                        cnn.Open();
-                        sqlquery = "SELECT place.ID_place FROM place, city WHERE place.ID_City = '" + id_City + "' AND place.ID_Street IS NULL";
-                        using (var command = new MySqlCommand(sqlquery, cnn))
-                        {
-                            var reader = command.ExecuteReader();
-                            reader.Read();
-
-                            Zwracana = int.Parse(reader["ID_place"].ToString());
-                            
-                        }
-
-                        cnn.Close();
-                    
-                    
-                }
+                
             }
             catch
             {
@@ -598,8 +693,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                     id_Street = SelectStreet(City, Street);
                     cnn.Close();
 
-                    if (Street != "")
-                    {
+                    
                         cnn.Open();
                         sqlquery = "INSERT INTO `place` (`ID_place`, `ID_City`, `ID_Street`) VALUES (NULL, '" + id_City + "', '" + id_Street + "');";
                         using (var command = new MySqlCommand(sqlquery, cnn))
@@ -609,7 +703,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                         }
                         cnn.Close();
                         cnn.Open();
-                        sqlquery = "SELECT place.ID_place FROM place, city, street WHERE city.ID_city = '" + id_City + "' AND street.ID_street = '" + id_Street + "'";
+                        sqlquery = "SELECT place.ID_place FROM place WHERE place.ID_City = '" + id_City + "' AND place.ID_Street = '" + id_Street + "'";
                         using (var command = new MySqlCommand(sqlquery, cnn))
                         {
                             var reader = command.ExecuteReader();
@@ -620,30 +714,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                         }
 
                         cnn.Close();
-                    }
-                    else
-                    {
-                        cnn.Open();
-                        sqlquery = "INSERT INTO `place` (`ID_place`, `ID_City`, `ID_Street`) VALUES (NULL, '" + id_City + "', NULL);";
-                        using (var command = new MySqlCommand(sqlquery, cnn))
-                        {
-                            var reader = command.ExecuteReader();
-                            reader.Read();
-                        }
-                        cnn.Close();
-                        cnn.Open();
-                        sqlquery = "SELECT place.ID_place FROM place, city WHERE city.ID_city = '" + id_City + "' AND place.ID_Street IS NULL";
-                        using (var command = new MySqlCommand(sqlquery, cnn))
-                        {
-                            var reader = command.ExecuteReader();
-                            reader.Read();
-
-                            Zwracana = int.Parse(reader["ID_place"].ToString());
-
-                        }
-
-                        cnn.Close();
-                    }
+                    
                 }
                 catch (Exception x)
                 {
@@ -728,7 +799,7 @@ namespace FirefighterControlCenter.DataAccessLayer
 
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
-                sqlquery = "SELECT street.ID_street FROM city, street WHERE city.ID_city = '" + id_city + "' AND street.Name_Street = '"+Street+"';";
+                sqlquery = "SELECT street.ID_street FROM street WHERE street.ID_city = '" + id_city + "' AND street.Name_Street = '"+Street+"';";
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
