@@ -82,6 +82,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_head_panel
             // 
+            this.btn_head_panel.Enabled = false;
             this.btn_head_panel.Location = new System.Drawing.Point(800, 12);
             this.btn_head_panel.Name = "btn_head_panel";
             this.btn_head_panel.Size = new System.Drawing.Size(146, 37);
@@ -102,6 +103,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_garage
             // 
+            this.btn_garage.Enabled = false;
             this.btn_garage.Location = new System.Drawing.Point(648, 12);
             this.btn_garage.Name = "btn_garage";
             this.btn_garage.Size = new System.Drawing.Size(146, 37);
@@ -112,6 +114,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_meetings
             // 
+            this.btn_meetings.Enabled = false;
             this.btn_meetings.Location = new System.Drawing.Point(952, 12);
             this.btn_meetings.Name = "btn_meetings";
             this.btn_meetings.Size = new System.Drawing.Size(146, 37);
@@ -122,6 +125,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_info_panel
             // 
+            this.btn_info_panel.Enabled = false;
             this.btn_info_panel.Location = new System.Drawing.Point(1104, 12);
             this.btn_info_panel.Name = "btn_info_panel";
             this.btn_info_panel.Size = new System.Drawing.Size(146, 37);
@@ -141,6 +145,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_exercises
             // 
+            this.btn_exercises.Enabled = false;
             this.btn_exercises.Location = new System.Drawing.Point(192, 12);
             this.btn_exercises.Name = "btn_exercises";
             this.btn_exercises.Size = new System.Drawing.Size(146, 37);

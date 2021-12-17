@@ -22,5 +22,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             dataGridView1.DataSource = SqlConnector.History_departure_cards();
         }
+
     }
 }

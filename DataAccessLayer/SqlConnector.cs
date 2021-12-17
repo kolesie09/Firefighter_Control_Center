@@ -200,9 +200,9 @@ namespace FirefighterControlCenter.DataAccessLayer
                                 Kierowca_19 = reader["Nick_Driver_19"].ToString(),
                                 Dowodca_19 = reader["Nick_Commander_19"].ToString(),
                                 Strazak_19_1 = reader["Nick_Firefighter_19_1"].ToString(),
-                                Strazak_19_2 = reader["Nick_Firefighter_19_1"].ToString(),
-                                Strazak_19_3 = reader["Nick_Firefighter_19_1"].ToString(),
-                                Strazak_19_4 = reader["Nick_Firefighter_19_1"].ToString(),
+                                Strazak_19_2 = reader["Nick_Firefighter_19_2"].ToString(),
+                                Strazak_19_3 = reader["Nick_Firefighter_19_3"].ToString(),
+                                Strazak_19_4 = reader["Nick_Firefighter_19_4"].ToString(),
                                 Godziny = reader["Hour"].ToString()
 
 
@@ -338,7 +338,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 cnn.Open();
                 if (TypeSelect == "DriverC")
                 {
-                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_C=1;";
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_C=1 ORDER BY nick ASC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -350,7 +350,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 }
                 else if (TypeSelect == "DriverB")
                 {
-                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_B=1;";
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' AND firefighter.Kat_B=1 ORDER BY nick ASC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -362,7 +362,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 }
                 else if (TypeSelect == "Firefighter")
                 {
-                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny';";
+                    const string sqlquery = "SELECT nick FROM firefighter, firefighter_status WHERE firefighter.ID_Status=firefighter_status.ID_firefighter_status AND firefighter_status.Name='Czynny' ORDER BY nick ASC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -448,20 +448,20 @@ namespace FirefighterControlCenter.DataAccessLayer
                 cnn.Open();
                 if (number_operation == "499z01")
                 {
-                    sqlquery = "SELECT MAX(ID) FROM 499z01_departure WHERE Nick_Driver = '"+driver+"' AND Nick_Commander = '"+commander+"' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '"+firefighter2+"' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+                    sqlquery = "SELECT MAX(ID) FROM 499z01_departure WHERE Nick_Driver_01 = '" + driver+ "' AND Nick_Commander_01 = '" + commander+ "' AND Nick_Firefighter_01_1 = '" + firefighter1 + "' AND Nick_Firefighter_01_2 = '" + firefighter2+ "' AND Nick_Firefighter_01_3 = '" + firefighter3 + "' AND Nick_Firefighter_01_4 = '" + firefighter4 + "';";
                 }
                 else if (number_operation == "499z15")
                 {
-                    sqlquery = "SELECT MAX(ID) FROM 499z15_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+                    sqlquery = "SELECT MAX(ID) FROM 499z15_departure WHERE Nick_Driver_15 = '" + driver + "' AND Nick_Commander_15 = '" + commander + "' AND Nick_Firefighter_15_1 = '" + firefighter1 + "' AND Nick_Firefighter_15_2 = '" + firefighter2 + "' AND Nick_Firefighter_15_3 = '" + firefighter3 + "' AND Nick_Firefighter_15_4 = '" + firefighter4 + "';";
                 }
                 else if (number_operation == "499z18")
                 {
-                    sqlquery = "SELECT MAX(ID) FROM 499z18_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "';";
+                    sqlquery = "SELECT MAX(ID) FROM 499z18_departure WHERE Nick_Driver_18 = '" + driver + "' AND Nick_Commander_18 = '" + commander + "' AND Nick_Firefighter_18_1 = '" + firefighter1 + "' AND Nick_Firefighter_18_2 = '" + firefighter2 + "' AND Nick_Firefighter_18_3 = '" + firefighter3 + "';";
 
                 }
                 else if (number_operation == "499z19")
                 {
-                    sqlquery = "SELECT MAX(ID) FROM 499z19_departure WHERE Nick_Driver = '" + driver + "' AND Nick_Commander = '" + commander + "' AND Nick_Firefighter_1 = '" + firefighter1 + "' AND Nick_Firefighter_2 = '" + firefighter2 + "' AND Nick_Firefighter_3 = '" + firefighter3 + "' AND Nick_Firefighter_4 = '" + firefighter4 + "';";
+                    sqlquery = "SELECT MAX(ID) FROM 499z19_departure WHERE Nick_Driver_19 = '" + driver + "' AND Nick_Commander_19 = '" + commander + "' AND Nick_Firefighter_19_1 = '" + firefighter1 + "' AND Nick_Firefighter_19_2 = '" + firefighter2 + "' AND Nick_Firefighter_19_3 = '" + firefighter3 + "' AND Nick_Firefighter_19_4 = '" + firefighter4 + "';";
 
                 }
                 using (var command = new MySqlCommand(sqlquery, cnn))

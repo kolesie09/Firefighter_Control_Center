@@ -16,5 +16,10 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             InitializeComponent();
         }
+
+        private void TitleGarage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

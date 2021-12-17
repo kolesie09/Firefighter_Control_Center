@@ -224,194 +224,200 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void BPrint_Click(object sender, EventArgs e)
         {
-            int ID_FF499z01 = 0;
-            int ID_FF499z15 = 0;
-            int ID_FF499z18 = 0;
-            int ID_FF499z19 = 0;
-            LPBDepartureCard.Show();
-            PBDepartureCard.Show();
-            Progress("Dodawanie zastępów z akcji do bazy danych", 5);
-            #region ADD Firefighter to Truck
-            //Sprawdzanie spróbuj zrobić za pomocą listy. Dodaje wartość za każdym razem gdy użyjemy combo boxa o instant sprawdzi czy jest czy nie
-            if (CBDriver499z01.SelectedItem != null)
-            {
-                SqlConnector.InsertFirefighterToTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
-            }
-            if (CBDriver499z15.SelectedItem != null)
-            {
-                SqlConnector.InsertFirefighterToTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
-            }
-            if (CBDriver499z18.SelectedItem != null)
-            {
-                SqlConnector.InsertFirefighterToTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
-            }
-            if (CBDriver499z19.SelectedItem != null)
-            {
-                SqlConnector.InsertFirefighterToTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
-            }
-            #endregion
-            Progress("Zapisywanie ID jednostek z wyjazdu", 10);
-            #region Pick id with cast list
-            if (CBDriver499z01.SelectedItem != null)
-            {
-                ID_FF499z01 = SqlConnector.SelectIDTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
-            }
-            if (CBDriver499z15.SelectedItem != null)
-            {
-                ID_FF499z15 = SqlConnector.SelectIDTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
-            }
-            if (CBDriver499z18.SelectedItem != null)
-            {
-                ID_FF499z18 = SqlConnector.SelectIDTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
-            }
-            if (CBDriver499z19.SelectedItem != null)
-            {
-                ID_FF499z19 = SqlConnector.SelectIDTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
-            }
-            #endregion
 
-            #region ADD data to departure_card
-            Progress("Zapisywanie numeru wyjazdu", 15);
-            #region Number departure card
-            int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
-            #endregion
-            #region Data departure card
-            Progress("Zapisywanie daty", 17);
-            DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
-            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
-            string DateDepartureCard = DTPDepartureCard.Text;
-            //Zapisywanie daty wyjazdu do zmiennej
-            DTPDepartureCard.CustomFormat = "MM";
-            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
-            int MountDepartureCard = int.Parse(DTPDepartureCard.Text);
-            string MountName = PDF.Mount(MountDepartureCard);
-            //Zapisywanie miesiąca wyjazdu do zmiennej
-            DTPDepartureCard.CustomFormat = "yyyy";
-            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
-            int YearDepartureCard = int.Parse(DTPDepartureCard.Text);
-            //Zapisywanie roku wyjazdu do zmiennej
-            DTPDepartureCard.Format = DateTimePickerFormat.Long;
-            #endregion
-            Progress("Zapisywanie godziny do bazy danych", 20);
-            #region Hour departure card
-            string HourDepartureCard = CBHourDeparture.Text + ":" + CBMinuteDeparture.Text;
-            string HourArrivalCard = CBHourArrival.Text + ":" + CBMinuteArrival.Text;
-            Progress("Obliczanie ilości godzin spędzonych na akcji", 22);
-            string TimeDeparture = HelpersDepartureCard.CalcTime(CBHourDeparture.Text, CBMinuteDeparture.Text, CBHourArrival.Text, CBMinuteArrival.Text);
-            #endregion
-            Progress("Zapisywanie miejsca wyjazdu", 30);
-            #region Place departure card
-
-            string PCity = "";
-            if (CBCity.Text == "")
+            if(VerificationInfo() == true)
             {
-                PCity = TBCity.Text;
-            }
-            else
-            {
-                PCity = CBCity.Text;
-            }
-            string PStreet = "";
-            if (CBStreet.Text == "")
-            {
-                PStreet = TBStreet.Text;
-            }
-            else
-            {
-                PStreet = CBStreet.Text;
-            }
-            int ID_Place = VerificationPlace();
-            string place = "";
-            if (PStreet != "")
-            {
-                place = PCity + ", ul. " + PStreet;
-            }
-            else
-            {
-                place = PCity;
-            }
-            #endregion
-            #region Incident departure card
-
-
-            Progress("Zapisywanie powodu wyjazdu", 25);
-            int ID_Reason = SqlConnector.SelectIncident(CBIncident.Text, CBTypeNewIncident.SelectedIndex + 1, TBNewIncident.Text);
-            string Reason = "";
-            if (CBIncident.Text == "")
-            {
-                Reason = TBNewIncident.Text;
-            }
-            else
-            {
-                Reason = CBIncident.Text;
-            }
-            int ID_Commander = SqlConnector.SelectIDCommander(Commander());
-
-            #endregion
-            SqlConnector.AddToRanking("incident", ID_Reason, YearDepartureCard);
-            SqlConnector.AddToRanking("city", SqlConnector.IDWhatWhere("city", PCity), YearDepartureCard);
-            SqlConnector.AddToRanking("street", SqlConnector.IDWhatWhere("street", PStreet), YearDepartureCard);
-            if(ID_FF499z01 != 0)
-            {
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z01.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z01.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z011.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z012.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z013.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z014.Text), YearDepartureCard);
-            }
-            
-            if(ID_FF499z15 != 0)
-            {
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z15.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z15.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z151.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z152.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z153.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z154.Text), YearDepartureCard);
-            }
-            if(ID_FF499z18 != 0)
-            {
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z18.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z18.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z181.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z182.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z183.Text), YearDepartureCard);
-            }
-            if(ID_FF499z19 != 0)
-            {
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z19.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z19.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z191.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z192.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z193.Text), YearDepartureCard);
-                SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z194.Text), YearDepartureCard);
-            }
-            
-            Progress("Dodawanie wszystkich informacji do bazy danych", 30);
-            SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, HourDepartureCard, HourArrivalCard, ID_Place, ID_Reason, ID_Commander, ID_FF499z01, ID_FF499z15, ID_FF499z18, ID_FF499z19, YearDepartureCard, MountDepartureCard, TimeDeparture);
-            #endregion
-            Progress("Tworzenie pliku pdf", 50);
-            PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
-            Progress("Drukowanie pliku pdf", 75);
-            try
-            {
-                Process p = new Process();
-                p.StartInfo = new ProcessStartInfo()
+                int ID_FF499z01 = 0;
+                int ID_FF499z15 = 0;
+                int ID_FF499z18 = 0;
+                int ID_FF499z19 = 0;
+                LPBDepartureCard.Show();
+                PBDepartureCard.Show();
+                Progress("Dodawanie zastępów z akcji do bazy danych", 5);
+                #region ADD Firefighter to Truck
+                //Sprawdzanie spróbuj zrobić za pomocą listy. Dodaje wartość za każdym razem gdy użyjemy combo boxa o instant sprawdzi czy jest czy nie
+                if (CBDriver499z01.SelectedItem != null)
                 {
-                    CreateNoWindow = true,
-                    Verb = "print",
-                    FileName = @"C:\\OSP\\Wyjazdy\\2021 Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
-                };
-                p.Start();
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Coś poszło nie tak z drukowaniem");
-                MessageBox.Show(x.ToString());
-            }
+                    SqlConnector.InsertFirefighterToTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+                }
+                if (CBDriver499z15.SelectedItem != null)
+                {
+                    SqlConnector.InsertFirefighterToTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+                }
+                if (CBDriver499z18.SelectedItem != null)
+                {
+                    SqlConnector.InsertFirefighterToTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+                }
+                if (CBDriver499z19.SelectedItem != null)
+                {
+                    SqlConnector.InsertFirefighterToTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+                }
+                #endregion
+                Progress("Zapisywanie ID jednostek z wyjazdu", 10);
+                #region Pick id with cast list
+                if (CBDriver499z01.SelectedItem != null)
+                {
+                    ID_FF499z01 = SqlConnector.SelectIDTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+                }
+                if (CBDriver499z15.SelectedItem != null)
+                {
+                    ID_FF499z15 = SqlConnector.SelectIDTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+                }
+                if (CBDriver499z18.SelectedItem != null)
+                {
+                    ID_FF499z18 = SqlConnector.SelectIDTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+                }
+                if (CBDriver499z19.SelectedItem != null)
+                {
+                    ID_FF499z19 = SqlConnector.SelectIDTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+                }
+                #endregion
 
-            Progress("Zakończenie procesu", 100);
+                #region ADD data to departure_card
+                Progress("Zapisywanie numeru wyjazdu", 15);
+                #region Number departure card
+                int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
+                #endregion
+                #region Data departure card
+                Progress("Zapisywanie daty", 17);
+                DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
+                DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                string DateDepartureCard = DTPDepartureCard.Text;
+                //Zapisywanie daty wyjazdu do zmiennej
+                DTPDepartureCard.CustomFormat = "MM";
+                DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                int MountDepartureCard = int.Parse(DTPDepartureCard.Text);
+                string MountName = PDF.Mount(MountDepartureCard);
+                //Zapisywanie miesiąca wyjazdu do zmiennej
+                DTPDepartureCard.CustomFormat = "yyyy";
+                DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                int YearDepartureCard = int.Parse(DTPDepartureCard.Text);
+                //Zapisywanie roku wyjazdu do zmiennej
+                DTPDepartureCard.Format = DateTimePickerFormat.Long;
+                #endregion
+                Progress("Zapisywanie godziny do bazy danych", 20);
+                #region Hour departure card
+                string HourDepartureCard = CBHourDeparture.Text + ":" + CBMinuteDeparture.Text;
+                string HourArrivalCard = CBHourArrival.Text + ":" + CBMinuteArrival.Text;
+                Progress("Obliczanie ilości godzin spędzonych na akcji", 22);
+                string TimeDeparture = HelpersDepartureCard.CalcTime(CBHourDeparture.Text, CBMinuteDeparture.Text, CBHourArrival.Text, CBMinuteArrival.Text);
+                #endregion
+                Progress("Zapisywanie miejsca wyjazdu", 30);
+                #region Place departure card
+
+                string PCity = "";
+                if (CBCity.Text == "")
+                {
+                    PCity = TBCity.Text;
+                }
+                else
+                {
+                    PCity = CBCity.Text;
+                }
+                string PStreet = "";
+                if (CBStreet.Text == "")
+                {
+                    PStreet = TBStreet.Text;
+                }
+                else
+                {
+                    PStreet = CBStreet.Text;
+                }
+                int ID_Place = VerificationPlace();
+                string place = "";
+                if (PStreet != "")
+                {
+                    place = PCity + ", ul. " + PStreet;
+                }
+                else
+                {
+                    place = PCity;
+                }
+                #endregion
+                #region Incident departure card
+
+
+                Progress("Zapisywanie powodu wyjazdu", 25);
+                int ID_Reason = SqlConnector.SelectIncident(CBIncident.Text, CBTypeNewIncident.SelectedIndex + 1, TBNewIncident.Text);
+                string Reason = "";
+                if (CBIncident.Text == "")
+                {
+                    Reason = TBNewIncident.Text;
+                }
+                else
+                {
+                    Reason = CBIncident.Text;
+                }
+                int ID_Commander = SqlConnector.SelectIDCommander(Commander());
+
+                #endregion
+                SqlConnector.AddToRanking("incident", ID_Reason, YearDepartureCard);
+                SqlConnector.AddToRanking("city", SqlConnector.IDWhatWhere("city", PCity), YearDepartureCard);
+                SqlConnector.AddToRanking("street", SqlConnector.IDWhatWhere("street", PStreet), YearDepartureCard);
+                if (ID_FF499z01 != 0)
+                {
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z01.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z01.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z011.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z012.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z013.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z014.Text), YearDepartureCard);
+                }
+                if (ID_FF499z15 != 0)
+                {
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z15.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z15.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z151.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z152.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z153.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z154.Text), YearDepartureCard);
+                }
+                if (ID_FF499z18 != 0)
+                {
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z18.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z18.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z181.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z182.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z183.Text), YearDepartureCard);
+                }
+                if (ID_FF499z19 != 0)
+                {
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z19.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z19.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z191.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z192.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z193.Text), YearDepartureCard);
+                    SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBFirefighter499z194.Text), YearDepartureCard);
+                }
+
+                Progress("Dodawanie wszystkich informacji do bazy danych", 30);
+                SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, HourDepartureCard, HourArrivalCard, ID_Place, ID_Reason, ID_Commander, ID_FF499z01, ID_FF499z15, ID_FF499z18, ID_FF499z19, YearDepartureCard, MountDepartureCard, TimeDeparture);
+                #endregion
+                Progress("Tworzenie pliku pdf", 50);
+                PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+                Progress("Drukowanie pliku pdf", 65);
+                try
+                {
+                    Process p = new Process();
+                    p.StartInfo = new ProcessStartInfo()
+                    {
+                        CreateNoWindow = true,
+                        Verb = "print",
+                        FileName = @"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
+                    };
+                    p.Start();
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("Coś poszło nie tak z drukowaniem");
+                    MessageBox.Show(x.ToString());
+                }
+                Progress("Wysyłanie maila", 85);
+                HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+                Progress("Zakończenie procesu", 100);
+            }
+            
+            
         }
         #region Buttons clear 
         private void Btn499z01_Click(object sender, EventArgs e)
@@ -503,16 +509,15 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btntest_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show( VerificationPlace().ToString());
+            VerificationInfo();
+            // MessageBox.Show( VerificationPlace().ToString());
+            //HelpersDepartureCard.email_send("test",  NumberDepartureCard + " - " + YearDepartureCard + " - " + place + " - " + Reason);
         }
-
         private void Progress(string info, int progress)
         {
             LPBDepartureCard.Text = info;
             PBDepartureCard.Value = progress;
         }
-
         private string Commander()
         {
             
@@ -668,6 +673,145 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 return status = true;
             }
 
+        }
+        private bool VerificationInfo()
+        {
+            int pkt = 0;
+            if(TBNumberDepartureCard.Text == "")
+            {
+                MessageBox.Show("Nie wypisałeś numeru wyjazdu");
+            }
+            else
+            {
+                pkt++;
+            }
+
+            if(CBHourDeparture.Text == "" && CBMinuteDeparture.Text == "")
+            {
+                MessageBox.Show("Nie wypisałeś godziny wyjazdu");
+            }
+            else
+            {
+                pkt++;
+            }
+
+            if(CBHourArrival.Text == "" && CBMinuteArrival.Text == "")
+            {
+                MessageBox.Show("Nie wypisałeś godziny przyjazdu");
+            }
+            else
+            {
+                pkt++;
+            }
+
+            if(CBCity.Text == "" && TBCity.Text == "")
+            {
+                MessageBox.Show("Nie wypisałeś miejsca wyjazdu");
+            }
+            else
+            {
+                pkt++;
+            }
+
+            if(CBCity.Text != "")
+            {
+                if (CBStreet.Text == "" && TBStreet.Text == "")
+                {
+                    int i;
+                    i = CBStreet.SelectedIndex;
+                    try
+                    {
+                        CBStreet.SelectedIndex = 0;
+                        CBStreet.SelectedIndex = i;
+                        MessageBox.Show("Nie wypisałeś ulicy wyjazdu");
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    pkt++;
+                }
+                
+            }
+
+            
+
+            if(CBIncident.Text == "" && TBNewIncident.Text == "")
+            {
+                MessageBox.Show("Nie wypisałeś powodu wyjazdu");
+            }
+            else
+            {
+                if (TBNewIncident.Text != "")
+                {
+                    if (CBTypeNewIncident.Text == "")
+                    {
+                        MessageBox.Show("Nie wypisałeś typu nowego powodu wyjazdu");
+                    }
+                    else
+                    {
+                        pkt++;
+                    }
+                }
+                else if(CBIncident.Text !="")
+                {
+                    pkt++;
+                }
+                
+            }
+
+            if(CBDriver499z01.Text == "")
+            {
+                if (CBDriver499z15.Text == "")
+                {
+                    if (CBDriver499z18.Text == "")
+                    {
+                        if (CBDriver499z19.Text == "")
+                        {
+                            MessageBox.Show("Nie wypisałeś żadnego wozu wyjazdowego");
+                        }
+                        else
+                        {
+                            pkt++;
+                        }
+                    }
+                    else
+                    {
+                        pkt++;
+                    }
+                }
+                else
+                {
+                    pkt++;
+                }
+            }
+            else
+            {
+                pkt++;
+            }
+
+            
+
+            
+
+            
+            
+            
+           
+            bool inf;
+            if(pkt>=6)
+            {
+                inf = true;
+            }
+            else
+            {
+                inf = false;
+            }
+
+            return inf;
         }
 
 

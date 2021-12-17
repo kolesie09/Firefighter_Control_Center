@@ -92,6 +92,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_nonstandard
             // 
+            this.btn_nonstandard.Enabled = false;
             this.btn_nonstandard.Location = new System.Drawing.Point(712, 59);
             this.btn_nonstandard.Name = "btn_nonstandard";
             this.btn_nonstandard.Size = new System.Drawing.Size(99, 23);
