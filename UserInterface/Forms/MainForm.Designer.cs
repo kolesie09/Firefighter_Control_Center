@@ -72,7 +72,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_ranking
             // 
-            this.btn_ranking.Location = new System.Drawing.Point(344, 12);
+            this.btn_ranking.Location = new System.Drawing.Point(192, 12);
             this.btn_ranking.Name = "btn_ranking";
             this.btn_ranking.Size = new System.Drawing.Size(146, 37);
             this.btn_ranking.TabIndex = 2;
@@ -93,7 +93,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_history
             // 
-            this.btn_history.Location = new System.Drawing.Point(496, 12);
+            this.btn_history.Location = new System.Drawing.Point(344, 12);
             this.btn_history.Name = "btn_history";
             this.btn_history.Size = new System.Drawing.Size(146, 37);
             this.btn_history.TabIndex = 4;
@@ -103,8 +103,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_garage
             // 
-            this.btn_garage.Enabled = false;
-            this.btn_garage.Location = new System.Drawing.Point(648, 12);
+            this.btn_garage.Location = new System.Drawing.Point(496, 12);
             this.btn_garage.Name = "btn_garage";
             this.btn_garage.Size = new System.Drawing.Size(146, 37);
             this.btn_garage.TabIndex = 5;
@@ -146,11 +145,11 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // btn_exercises
             // 
             this.btn_exercises.Enabled = false;
-            this.btn_exercises.Location = new System.Drawing.Point(192, 12);
+            this.btn_exercises.Location = new System.Drawing.Point(648, 12);
             this.btn_exercises.Name = "btn_exercises";
             this.btn_exercises.Size = new System.Drawing.Size(146, 37);
             this.btn_exercises.TabIndex = 9;
-            this.btn_exercises.Text = "Ćwiczenia";
+            this.btn_exercises.Text = "Butle";
             this.btn_exercises.UseVisualStyleBackColor = true;
             this.btn_exercises.Click += new System.EventHandler(this.btn_exercises_Click);
             // 

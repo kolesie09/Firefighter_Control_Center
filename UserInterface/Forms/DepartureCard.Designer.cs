@@ -59,8 +59,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.GBIncident = new System.Windows.Forms.GroupBox();
             this.LNewIncident = new System.Windows.Forms.Label();
             this.TBNewIncident = new System.Windows.Forms.TextBox();
-            this.LTypeNewIncydent = new System.Windows.Forms.Label();
-            this.CBTypeNewIncident = new System.Windows.Forms.ComboBox();
             this.LTypeIncident = new System.Windows.Forms.Label();
             this.LIncident = new System.Windows.Forms.Label();
             this.CBIncident = new System.Windows.Forms.ComboBox();
@@ -586,8 +584,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             this.GBIncident.Controls.Add(this.LNewIncident);
             this.GBIncident.Controls.Add(this.TBNewIncident);
-            this.GBIncident.Controls.Add(this.LTypeNewIncydent);
-            this.GBIncident.Controls.Add(this.CBTypeNewIncident);
             this.GBIncident.Controls.Add(this.LTypeIncident);
             this.GBIncident.Controls.Add(this.LIncident);
             this.GBIncident.Controls.Add(this.CBIncident);
@@ -602,7 +598,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // LNewIncident
             // 
             this.LNewIncident.AutoSize = true;
-            this.LNewIncident.Location = new System.Drawing.Point(6, 111);
+            this.LNewIncident.Location = new System.Drawing.Point(6, 81);
             this.LNewIncident.Name = "LNewIncident";
             this.LNewIncident.Size = new System.Drawing.Size(119, 13);
             this.LNewIncident.TabIndex = 22;
@@ -610,29 +606,11 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // TBNewIncident
             // 
-            this.TBNewIncident.Location = new System.Drawing.Point(170, 108);
+            this.TBNewIncident.Location = new System.Drawing.Point(170, 78);
             this.TBNewIncident.Margin = new System.Windows.Forms.Padding(0);
             this.TBNewIncident.Name = "TBNewIncident";
             this.TBNewIncident.Size = new System.Drawing.Size(176, 20);
             this.TBNewIncident.TabIndex = 21;
-            // 
-            // LTypeNewIncydent
-            // 
-            this.LTypeNewIncydent.AutoSize = true;
-            this.LTypeNewIncydent.Location = new System.Drawing.Point(6, 83);
-            this.LTypeNewIncydent.Name = "LTypeNewIncydent";
-            this.LTypeNewIncydent.Size = new System.Drawing.Size(116, 13);
-            this.LTypeNewIncydent.TabIndex = 26;
-            this.LTypeNewIncydent.Text = "Typ nowego powodu : ";
-            // 
-            // CBTypeNewIncident
-            // 
-            this.CBTypeNewIncident.FormattingEnabled = true;
-            this.CBTypeNewIncident.Location = new System.Drawing.Point(170, 80);
-            this.CBTypeNewIncident.Name = "CBTypeNewIncident";
-            this.CBTypeNewIncident.Size = new System.Drawing.Size(176, 21);
-            this.CBTypeNewIncident.TabIndex = 27;
-            this.CBTypeNewIncident.SelectedValueChanged += new System.EventHandler(this.CBTypeNewIncident_SelectedValueChanged);
             // 
             // LTypeIncident
             // 
@@ -1420,8 +1398,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.GroupBox GBIncident;
         private System.Windows.Forms.Label LNewIncident;
         private System.Windows.Forms.TextBox TBNewIncident;
-        private System.Windows.Forms.Label LTypeNewIncydent;
-        private System.Windows.Forms.ComboBox CBTypeNewIncident;
         private System.Windows.Forms.Label LTypeIncident;
         private System.Windows.Forms.Label LIncident;
         private System.Windows.Forms.ComboBox CBIncident;

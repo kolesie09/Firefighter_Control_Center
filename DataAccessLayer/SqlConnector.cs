@@ -18,19 +18,21 @@ namespace FirefighterControlCenter.DataAccessLayer
                
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
-                    string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter_ranking.Number_departures, firefighter_ranking.Year FROM firefighter, firefighter_ranking WHERE firefighter.ID_firefighter = firefighter_ranking.ID_firefighter AND firefighter_ranking.Year = "+Year+" ORDER BY firefighter_ranking.Number_departures DESC;";
+                    string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter_ranking.Number_departures, firefighter_ranking.Year FROM firefighter, firefighter_ranking WHERE firefighter.ID_firefighter = firefighter_ranking.ID_firefighter AND firefighter_ranking.Year ="+Year+" ORDER BY firefighter_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            Firefighter_ranking firefighter = new Firefighter_ranking
-                            {
-                                
-                                Imie = reader["name"].ToString(),
-                                Naziwsko = reader["last_name"].ToString(),
-                                Rok = int.Parse(reader["Year"].ToString()),
-                                Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
+                        Firefighter_ranking firefighter = new Firefighter_ranking
+                        {
+
+                            Imie = reader["name"].ToString(),
+                            Naziwsko = reader["last_name"].ToString(),
+                            Rok = int.Parse(reader["Year"].ToString()),
+                            Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString()),
+                            Procentowo = Math.Round(double.Parse(reader["Number_departures"].ToString()) / SelectNumberDeparture(int.Parse(reader["Year"].ToString())) * 100,2).ToString()+"%"
+
 
                             };
                             list.Add(firefighter);
@@ -608,17 +610,36 @@ namespace FirefighterControlCenter.DataAccessLayer
             try
             {
                 string sqlquery = "";
-                
+
                 cnn = new MySqlConnection(connectionString);
-                cnn.Open();
-                sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + Incident + "';";
-                using (var command = new MySqlCommand(sqlquery, cnn))
+                if (Incident == "")
                 {
-                    var reader = command.ExecuteReader();
-                    reader.Read();
-                    Zwracana = int.Parse(reader["ID_incident"].ToString()); ;
+                    
+                    cnn.Open();
+                    sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + NIncident + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        Zwracana = int.Parse(reader["ID_incident"].ToString()); ;
+                    }
+                    cnn.Close();
                 }
-                cnn.Close();
+                else
+                {
+                    cnn.Open();
+                    sqlquery = "SELECT ID_incident FROM incident WHERE incident.Name = '" + Incident + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        Zwracana = int.Parse(reader["ID_incident"].ToString()); ;
+                    }
+                    cnn.Close();
+                }
+                
+                
+                
                 
             }
             catch 
@@ -990,6 +1011,106 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
             }
         }
+        public static string OverviewTruck(string operationalNumber)
+        {
+            string OverView = "";
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT garage.Car_review FROM garage WHERE garage.Car_operational_number = '"+operationalNumber+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    OverView = reader["Car_review"].ToString();
+                }
+                cnn.Close();
+            }
+            catch
+            {
+
+            }
+            return OverView;
+        }
+        public static int Air(string nameTruck, string inTruck, int numberCylinder)
+        {
+            int Air = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT cylinder.Amount_air FROM cylinder, garage, status_breathing_apparatus WHERE cylinder.ID_Truck = garage.ID_garage AND garage.Car_operational_number = '" + nameTruck+ "' AND cylinder.ID_Status = status_breathing_apparatus.ID_status AND status_breathing_apparatus.Name = '" + inTruck+"' AND cylinder.Number = '"+numberCylinder+"'";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    Air = int.Parse(reader["Amount_air"].ToString());
+                }
+                cnn.Close();
+            }
+            catch
+            {
+
+            }
+            return Air;
+        }
+        public static int EmailPlace()
+        {
+            int Status = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT email_place.Status FROM email_place";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    Status = int.Parse(reader["Status"].ToString());
+                }
+                cnn.Close();
+            }
+            catch
+            {
+
+            }
+            return Status;
+        }
+        //public static string Overview(string type, )
+        //{
+        //    string OverView = "";
+        //    string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+        //    MySqlConnection cnn;
+        //    try
+        //    {
+
+        //        cnn = new MySqlConnection(connectionString);
+        //        cnn.Open();
+        //        string sqlquery = "SELECT garage.Car_review FROM garage WHERE garage.Car_operational_number = '';";
+        //        using (var command = new MySqlCommand(sqlquery, cnn))
+        //        {
+        //            var reader = command.ExecuteReader();
+        //            reader.Read();
+        //            OverView = reader["Car_review"].ToString();
+        //        }
+        //        cnn.Close();
+        //    }
+        //    catch
+        //    {
+
+        //    }
+        //    return OverView;
+        //}
     }
     
 }

@@ -56,7 +56,7 @@ namespace FirefighterControlCenter.UserInterface
                 mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
                 if(type == "osp")
                 {
-                    mail.To.Add("damian.dobrzeniecki@outlook.com");
+                    mail.To.Add("gcr@barlinek.pl");
                 }
                 else if(type == "test")
                 {
