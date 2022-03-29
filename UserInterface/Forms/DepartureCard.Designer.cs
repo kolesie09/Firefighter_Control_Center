@@ -472,6 +472,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.TBNumberDepartureCard.Name = "TBNumberDepartureCard";
             this.TBNumberDepartureCard.Size = new System.Drawing.Size(32, 20);
             this.TBNumberDepartureCard.TabIndex = 2;
+            this.TBNumberDepartureCard.TextChanged += new System.EventHandler(this.TBNumberDepartureCard_TextChanged);
             // 
             // LPreviousNumberDepartureCard
             // 

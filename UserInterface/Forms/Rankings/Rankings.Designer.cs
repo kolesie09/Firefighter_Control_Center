@@ -138,8 +138,5 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_incident;
         private System.Windows.Forms.Button btn_nonstandard;
         private System.Windows.Forms.Panel pRanking;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
     }
 }

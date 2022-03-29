@@ -138,5 +138,23 @@ namespace FirefighterControlCenter.UserInterface
             
             
         }
+
+        public static string ReadTime(string what,string Time)
+        {
+            char a;
+            char b;
+            if(what == "Hour")
+            {
+                a = Time[0];
+                b = Time[1];
+            }
+            else
+            {
+                a = Time[3];
+                b = Time[4];
+            }
+            
+            return a.ToString() + b.ToString();
+        }
     }
 }

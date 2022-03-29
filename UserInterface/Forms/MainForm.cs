@@ -101,7 +101,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InfoPanel frm = new InfoPanel();
+            DepartureCard frm = new DepartureCard();
             Show(frm);
         }
 

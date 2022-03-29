@@ -254,7 +254,7 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             catch (Exception e)
             {
-                
+                Console.Write(e.Message);
             }
             return LastNumberDeparture;
         }
@@ -270,7 +270,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 cnn.Open();
                 if (TypeSelect == "City")
                 {
-                    const string sqlquery = "SELECT Name_City FROM city";
+                    const string sqlquery = "SELECT Name_City FROM city ORDER BY Name_City ASC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -282,7 +282,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 }
                 else if(TypeSelect == "Street")
                 {
-                    string sqlquery =("SELECT Name_Street FROM street, city WHERE city.ID_city=street.ID_City AND city.Name_City='" + x + "'");
+                    string sqlquery =("SELECT Name_Street FROM street, city WHERE city.ID_city=street.ID_City AND city.Name_City='" + x + "' ORDER BY Name_Street ASC;");
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -307,7 +307,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 }
                 else if(TypeSelect == "Incident")
                 {
-                    string sqlquery = ("SELECT incident.Name FROM incident_type, incident WHERE incident_type.ID=incident.ID_Incident_Type AND incident_type.Name='"+x+"'");
+                    string sqlquery = ("SELECT incident.Name FROM incident_type, incident WHERE incident_type.ID=incident.ID_Incident_Type AND incident_type.Name='"+x+ "' ORDER BY incident.Name ASC;");
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
                         var reader = command.ExecuteReader();
@@ -1086,6 +1086,480 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             return Status;
         }
+
+        #region To Loading Previous Departure Card
+        public static string SelectPreviousDepartureCard(int Year, int NumberDepartureCard, string What)
+        {
+            string result = "";
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT departure_card." + What + " FROM `departure_card` WHERE Departure_number = '" + NumberDepartureCard + "' AND Year = '" + Year + "';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    result = reader[What].ToString();
+
+
+
+
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return result;
+        }
+
+        public static string Loading(string ID, string What, int Number)
+        {
+            string result = "";
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                if(What == "City")
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT city.Name_city FROM city, place WHERE place.ID_City = city.ID_city AND place.ID_place = '" + ID + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        result = reader["Name_city"].ToString();
+
+                    }
+                    cnn.Close();
+                }
+                else if(What == "Street")
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT street.Name_street FROM street, place WHERE place.ID_street = street.ID_street AND place.ID_place = '" + ID + "';";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        result = reader["Name_street"].ToString();
+
+                    }
+                    cnn.Close();
+                }
+                else if(What == "TypeIncident")
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT incident.ID_Incident_Type FROM incident, departure_card WHERE departure_card.ID_reason_departure = '"+ID+"' AND departure_card.ID_reason_departure = incident.ID_incident;";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        result = reader["ID_Incident_Type"].ToString();
+
+                    }
+                    cnn.Close();
+                }
+                else if(What == "Incident")
+                {
+                    cnn = new MySqlConnection(connectionString);
+                    cnn.Open();
+                    string sqlquery = "SELECT incident.Name FROM incident, departure_card WHERE departure_card.ID_reason_departure = '" + ID + "' AND departure_card.ID_reason_departure = incident.ID_incident;";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                        result = reader["Name"].ToString();
+
+                    }
+                    cnn.Close();
+                }
+                else if(What == "499z01")
+                {
+                    if(Number == 1)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Driver_01` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Driver_01"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if(Number == 2)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Commander_01` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Commander_01"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if(Number == 3)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Firefighter_01_1` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_01_1"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if(Number == 4)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Firefighter_01_2` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_01_2"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if(Number == 5)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Firefighter_01_3` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_01_3"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if(Number == 6)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z01_departure`.`Nick_Firefighter_01_4` FROM `499z01_departure` WHERE `499z01_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_01_4"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    
+                }
+                else if(What == "499z15")
+                {
+                    if (Number == 1)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Driver_15` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Driver_15"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 2)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Commander_15` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Commander_15"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 3)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Firefighter_15_1` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_15_1"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 4)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Firefighter_15_2` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_15_2"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 5)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Firefighter_15_3` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_15_3"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 6)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z15_departure`.`Nick_Firefighter_15_4` FROM `499z15_departure` WHERE `499z15_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_15_4"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                }
+                else if(What == "499z18")
+                {
+                    if (Number == 1)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z18_departure`.`Nick_Driver_18` FROM `499z18_departure` WHERE `499z18_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Driver_18"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 2)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z18_departure`.`Nick_Commander_18` FROM `499z18_departure` WHERE `499z18_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Commander_18"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 3)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z18_departure`.`Nick_Firefighter_18_1` FROM `499z18_departure` WHERE `499z18_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_18_1"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 4)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z18_departure`.`Nick_Firefighter_18_2` FROM `499z18_departure` WHERE `499z18_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_18_2"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 5)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z18_departure`.`Nick_Firefighter_18_3` FROM `499z18_departure` WHERE `499z18_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_18_3"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                }
+                else if(What == "499z19")
+                {
+                    if (Number == 1)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Driver_19` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Driver_19"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 2)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Commander_19` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Commander_19"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 3)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Firefighter_19_1` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_19_1"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 4)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Firefighter_19_2` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_19_2"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 5)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Firefighter_19_3` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_19_3"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                    else if (Number == 6)
+                    {
+                        cnn = new MySqlConnection(connectionString);
+                        cnn.Open();
+                        string sqlquery = "SELECT `499z19_departure`.`Nick_Firefighter_19_4` FROM `499z19_departure` WHERE `499z19_departure`.`ID` = '" + ID + "';";
+                        using (var command = new MySqlCommand(sqlquery, cnn))
+                        {
+                            var reader = command.ExecuteReader();
+                            reader.Read();
+
+                            result = reader["Nick_Firefighter_19_4"].ToString();
+
+                        }
+                        cnn.Close();
+                    }
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return result;
+            
+        }
+        #endregion
+
+
+
+
+
+
         //public static string Overview(string type, )
         //{
         //    string OverView = "";
