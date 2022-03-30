@@ -488,7 +488,7 @@ namespace FirefighterControlCenter.DataAccessLayer
 
         public static void InsertDateDepartureCard(int departure_number, string departure_date, string Hour_departure, string Hour_arrival, int ID_place_departure, int ID_reason_departure, int ID_Departure_commander, int ID_499z01, int ID_499z15, int ID_499z18, int ID_499z19, int Year, int Mounth, string Hour)
         {
-            
+
             string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
             MySqlConnection cnn;
             try
@@ -496,8 +496,8 @@ namespace FirefighterControlCenter.DataAccessLayer
                 string sqlquery = "";
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
-                
-                if(ID_499z01 != 0)
+
+                if (ID_499z01 != 0)
                 {
                     if (ID_499z15 != 0)
                     {
@@ -539,9 +539,9 @@ namespace FirefighterControlCenter.DataAccessLayer
                     else
                     {
                         sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', '" + ID_499z01 + "', 1 , 1 , 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
-                    }    
+                    }
                 }
-                else if(ID_499z15 != 0)
+                else if (ID_499z15 != 0)
                 {
                     if (ID_499z18 != 0)
                     {
@@ -563,7 +563,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                         sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , '" + ID_499z15 + "', 1 , 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                 }
-                else if(ID_499z18 != 0)
+                else if (ID_499z18 != 0)
                 {
                     if (ID_499z19 != 0)
                     {
@@ -574,20 +574,20 @@ namespace FirefighterControlCenter.DataAccessLayer
                         sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , 1 , '" + ID_499z18 + "', 1 , '" + Year + "', '" + Mounth + "', '" + Hour + "');";
                     }
                 }
-                else if(ID_499z19 != 0)
+                else if (ID_499z19 != 0)
                 {
                     sqlquery = "INSERT INTO `departure_card` (`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`) VALUES (NULL, '" + departure_number + "', '" + departure_date + "', '" + Hour_departure + "', '" + Hour_arrival + "', '" + ID_place_departure + "', '" + ID_reason_departure + "', '" + ID_Departure_commander + "', 1 , 1 , 1 , '" + ID_499z19 + "', '" + Year + "', '" + Mounth + "', '" + Hour + "');";
-                } 
-                
-                
+                }
+
+
                 using (var command = new MySqlCommand(sqlquery, cnn))
                 {
                     var reader = command.ExecuteReader();
                     reader.Read();
-                    
-                    
-                    
-                   
+
+
+
+
 
                 }
 
@@ -597,9 +597,56 @@ namespace FirefighterControlCenter.DataAccessLayer
             catch (Exception e)
             {
                 MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
-                
+
             }
-            
+
+        }
+        public static void UpdateDateDepartureCard(int departure_number, string departure_date, string Hour_departure, string Hour_arrival, int ID_place_departure, int ID_reason_departure, int ID_Departure_commander, int ID_499z01, int ID_499z15, int ID_499z18, int ID_499z19, int Year, int Mounth, string Hour)
+        {
+
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if(ID_499z01 == 0)
+                {
+                    ID_499z01++;
+                }
+                if(ID_499z15 == 0)
+                {
+                    ID_499z15++;
+                }
+                if(ID_499z18 == 0)
+                {
+                    ID_499z18++;
+                }
+                if(ID_499z19 == 0)
+                {
+                    ID_499z19++;
+                }
+                
+                sqlquery = "UPDATE `departure_card` SET `Departure_date`='"+departure_date+ "',`Hour_departure`='"+Hour_departure+ "',`Hour_arrival`='"+Hour_arrival+ "',`ID_place_departure`='"+ID_place_departure+ "',`ID_reason_departure`='"+ID_reason_departure+ "',`ID_Departure_commander`='"+ID_Departure_commander+ "',`ID_499z01`='"+ID_499z01+ "',`ID_499z15`='"+ID_499z15+ "',`ID_499z18`='"+ID_499z18+ "',`ID_499z19`='"+ID_499z19+ "',`Mounth`='"+Mounth+ "',`Hour`='"+Hour+ "' WHERE `Departure_number` = '"+departure_number+ "' AND `Year` = '"+Year+"';";
+                           
+
+
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                }
+
+                cnn.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Coś poszło nie tak z zapisywaniem danych obsady\r\n Błąd informacyjny dla administratora aplikacji:\r\n\r\n\r\n" + e);
+
+            }
+
         }
 
         public static int SelectIncident(string Incident, int TypeIncident, string NIncident)
@@ -1011,6 +1058,63 @@ namespace FirefighterControlCenter.DataAccessLayer
                 
             }
         }
+        public static void DelToRanking(string type, int ID_What, int Year)
+        {
+            
+            int IDRanking = 0;
+            int RankingNumber = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                
+                if(ID_What != 0)
+                {
+                    cnn.Open();
+                    sqlquery = "SELECT " + type + "_ranking.ID_" + type + "_ranking, " + type + "_ranking.Number_departures FROM " + type + "_ranking WHERE " + type + "_ranking.ID_" + type + " = " + ID_What + " AND " + type + "_ranking.Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+                        IDRanking = int.Parse(reader["ID_" + type + "_ranking"].ToString());
+                        RankingNumber = int.Parse(reader["Number_departures"].ToString());
+                    }
+                    cnn.Close();
+
+                    RankingNumber--;
+                    cnn.Open();
+                    sqlquery = "UPDATE " + type + "_ranking SET Number_departures = " + RankingNumber + " WHERE ID_" + type + "_ranking = " + IDRanking + " AND Year = " + Year + ";";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                    }
+                    cnn.Close();
+                }
+ 
+            }
+            catch
+            {
+                string sqlquery = "";
+                RankingNumber = 1;
+                cnn = new MySqlConnection(connectionString);
+                
+                    cnn.Open();
+                    sqlquery = "INSERT INTO `" + type + "_ranking` (`ID_" + type + "_ranking`, `ID_" + type + "`, `Year`, `Number_departures`) VALUES(NULL, '" + ID_What+ "', '" + Year + "', '" + RankingNumber + "');";
+                    using (var command = new MySqlCommand(sqlquery, cnn))
+                    {
+                        var reader = command.ExecuteReader();
+                        reader.Read();
+
+                    }
+                    cnn.Close();
+                    
+                
+            }
+        }
         public static string OverviewTruck(string operationalNumber)
         {
             string OverView = "";
@@ -1086,6 +1190,8 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             return Status;
         }
+
+
 
         #region To Loading Previous Departure Card
         public static string SelectPreviousDepartureCard(int Year, int NumberDepartureCard, string What)

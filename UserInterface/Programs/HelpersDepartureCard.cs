@@ -84,6 +84,43 @@ namespace FirefighterControlCenter.UserInterface
 
         }
 
+        public static void email_send_again(string type, string Name, string Mount, int Year)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
+                if (type == "osp")
+                {
+                    mail.To.Add("gcr@barlinek.pl");
+                }
+                else if (type == "test")
+                {
+                    mail.To.Add("damian.dobrzeniecki@outlook.com");
+                }
+                //mail.To.Add("damian.dobrzeniecki@outlook.com");
+                mail.Subject = "Poprawa wyjazdu "+Name;
+                mail.Body = "";
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment("c:/OSP/Wyjazdy/" + Year + " Rok/" + Mount + " Miesiąc/" + Name + ".pdf");
+                mail.Attachments.Add(attachment);
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "5PffHvp7Gl");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Coś poszło nie tak z mailem");
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
         private static string FullTimeFromMinute(int minute)
         {
             int add = 0;

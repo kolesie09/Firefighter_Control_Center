@@ -652,6 +652,7 @@ namespace FirefighterControlCenter.UserInterface
                 
                 
                 pdfDoc.Close();
+                
             }
             catch (Exception e)
             {
