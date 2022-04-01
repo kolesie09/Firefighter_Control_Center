@@ -131,11 +131,11 @@
     <Compile Include="Forms\DepartureCard.Designer.cs">
       <DependentUpon>DepartureCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Exercises.cs">
+    <Compile Include="Forms\Cylinder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Exercises.Designer.cs">
-      <DependentUpon>Exercises.cs</DependentUpon>
+    <Compile Include="Forms\Cylinder.Designer.cs">
+      <DependentUpon>Cylinder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Garage.cs">
       <SubType>Form</SubType>
@@ -216,8 +216,8 @@
     <EmbeddedResource Include="Forms\DepartureCard.resx">
       <DependentUpon>DepartureCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Exercises.resx">
-      <DependentUpon>Exercises.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cylinder.resx">
+      <DependentUpon>Cylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Garage.resx">
       <DependentUpon>Garage.cs</DependentUpon>

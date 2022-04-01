@@ -40,7 +40,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btn_meetings = new System.Windows.Forms.Button();
             this.btn_info_panel = new System.Windows.Forms.Button();
             this.pMain = new System.Windows.Forms.Panel();
-            this.btn_exercises = new System.Windows.Forms.Button();
+            this.btn_cylinder = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_garage
             // 
+            this.btn_garage.Enabled = false;
             this.btn_garage.Location = new System.Drawing.Point(496, 12);
             this.btn_garage.Name = "btn_garage";
             this.btn_garage.Size = new System.Drawing.Size(146, 37);
@@ -142,23 +143,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.pMain.Size = new System.Drawing.Size(1284, 734);
             this.pMain.TabIndex = 8;
             // 
-            // btn_exercises
+            // btn_cylinder
             // 
-            this.btn_exercises.Enabled = false;
-            this.btn_exercises.Location = new System.Drawing.Point(648, 12);
-            this.btn_exercises.Name = "btn_exercises";
-            this.btn_exercises.Size = new System.Drawing.Size(146, 37);
-            this.btn_exercises.TabIndex = 9;
-            this.btn_exercises.Text = "Butle";
-            this.btn_exercises.UseVisualStyleBackColor = true;
-            this.btn_exercises.Click += new System.EventHandler(this.btn_exercises_Click);
+            this.btn_cylinder.Location = new System.Drawing.Point(648, 12);
+            this.btn_cylinder.Name = "btn_cylinder";
+            this.btn_cylinder.Size = new System.Drawing.Size(146, 37);
+            this.btn_cylinder.TabIndex = 9;
+            this.btn_cylinder.Text = "Butle";
+            this.btn_cylinder.UseVisualStyleBackColor = true;
+            this.btn_cylinder.Click += new System.EventHandler(this.btn_cylinder_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 811);
-            this.Controls.Add(this.btn_exercises);
+            this.Controls.Add(this.btn_cylinder);
             this.Controls.Add(this.pMain);
             this.Controls.Add(this.btn_info_panel);
             this.Controls.Add(this.btn_meetings);
@@ -193,6 +193,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_meetings;
         private System.Windows.Forms.Button btn_info_panel;
         private System.Windows.Forms.Panel pMain;
-        private System.Windows.Forms.Button btn_exercises;
+        private System.Windows.Forms.Button btn_cylinder;
     }
 }

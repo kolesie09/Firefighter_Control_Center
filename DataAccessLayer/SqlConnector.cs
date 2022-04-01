@@ -1190,8 +1190,72 @@ namespace FirefighterControlCenter.DataAccessLayer
             }
             return Status;
         }
+        public static List<Cylinder> Cylinder(string FireTruck)
+        {
+            var list = new List<Cylinder>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
 
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT `cylinder`.`Number`, `cylinder`.`Amount_air` FROM cylinder, garage WHERE cylinder.ID_Truck = garage.ID_garage AND cylinder.ID_Status = 1 AND garage.Car_operational_number = '" + FireTruck+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cylinder History = new Cylinder
+                        {
+                            Number = int.Parse(reader["Number"].ToString()),
+                            Air = int.Parse(reader["Amount_air"].ToString())
+                        };
+                        list.Add(History);
+                    }
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
+        public static List<Cylinder> CylinderGarage()
+        {
+            var list = new List<Cylinder>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
 
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT cylinder.Number, cylinder.Amount_air, garage.Car_operational_number, status_breathing_apparatus.Name FROM cylinder, garage, status_breathing_apparatus WHERE cylinder.ID_Status = status_breathing_apparatus.ID_status AND cylinder.ID_Truck = garage.ID_garage ORDER BY cylinder.Number ASC;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cylinder History = new Cylinder
+                        {
+                            Number = int.Parse(reader["Number"].ToString()),
+                            Firetruck = reader["Car_operational_number"].ToString(),
+                            Status = reader["Name"].ToString(),
+                            Air = int.Parse(reader["Amount_air"].ToString())
+                        };
+                        list.Add(History);
+                    }
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
 
         #region To Loading Previous Departure Card
         public static string SelectPreviousDepartureCard(int Year, int NumberDepartureCard, string What)

@@ -68,10 +68,10 @@ namespace FirefighterControlCenter.UserInterface.Forms
             InfoPanel frm = new InfoPanel();
             Show(frm);
         }
-        private void btn_exercises_Click(object sender, EventArgs e)
+        private void btn_cylinder_Click(object sender, EventArgs e)
         {
             CloseForm();
-            Exercises frm = new Exercises();
+            Cylinder frm = new Cylinder();
             Show(frm);
         }
         #endregion

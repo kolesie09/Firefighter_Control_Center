@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cylinder.cs" />
     <Compile Include="Date_departure_card.cs" />
     <Compile Include="History_departure_cards.cs" />
     <Compile Include="Ranking.cs" />
