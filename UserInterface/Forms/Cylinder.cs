@@ -123,74 +123,79 @@ namespace FirefighterControlCenter.UserInterface.Forms
             LGarageA1.Text = CylinderGarageAir(0);
             PBGarage1.Value = int.Parse(LGarageA1.Text);
 
-            LGarageC2.Text = CylinderGarageStatus(0);
-            LGarageA2.Text = CylinderGarageAir(0);
+            LGarageC2.Text = CylinderGarageStatus(1);
+            LGarageA2.Text = CylinderGarageAir(1);
             PBGarage2.Value = int.Parse(LGarageA2.Text);
 
-            LGarageC3.Text = CylinderGarageStatus(0);
-            LGarageA3.Text = CylinderGarageAir(0);
+            LGarageC3.Text = CylinderGarageStatus(2);
+            LGarageA3.Text = CylinderGarageAir(2);
             PBGarage3.Value = int.Parse(LGarageA3.Text);
 
-            LGarageC4.Text = CylinderGarageStatus(0);
-            LGarageA4.Text = CylinderGarageAir(0);
+            LGarageC4.Text = CylinderGarageStatus(3);
+            LGarageA4.Text = CylinderGarageAir(3);
             PBGarage4.Value = int.Parse(LGarageA4.Text);
 
-            LGarageC5.Text = CylinderGarageStatus(0);
-            LGarageA5.Text = CylinderGarageAir(0);
+            LGarageC5.Text = CylinderGarageStatus(4);
+            LGarageA5.Text = CylinderGarageAir(4);
             PBGarage5.Value = int.Parse(LGarageA5.Text);
 
-            LGarageC6.Text = CylinderGarageStatus(0);
-            LGarageA6.Text = CylinderGarageAir(0);
+            LGarageC6.Text = CylinderGarageStatus(5);
+            LGarageA6.Text = CylinderGarageAir(5);
             PBGarage6.Value = int.Parse(LGarageA6.Text);
 
-            LGarageC7.Text = CylinderGarageStatus(0);
-            LGarageA7.Text = CylinderGarageAir(0);
+            LGarageC7.Text = CylinderGarageStatus(6);
+            LGarageA7.Text = CylinderGarageAir(6);
             PBGarage7.Value = int.Parse(LGarageA7.Text);
 
-            LGarageC8.Text = CylinderGarageStatus(0);
-            LGarageA8.Text = CylinderGarageAir(0);
+            LGarageC8.Text = CylinderGarageStatus(7);
+            LGarageA8.Text = CylinderGarageAir(7);
             PBGarage8.Value = int.Parse(LGarageA8.Text);
 
-            LGarageC9.Text = CylinderGarageStatus(0);
-            LGarageA9.Text = CylinderGarageAir(0);
+            LGarageC9.Text = CylinderGarageStatus(8);
+            LGarageA9.Text = CylinderGarageAir(8);
             PBGarage9.Value = int.Parse(LGarageA9.Text);
 
-            LGarageC10.Text = CylinderGarageStatus(0);
-            LGarageA10.Text = CylinderGarageAir(0);
+            LGarageC10.Text = CylinderGarageStatus(9);
+            LGarageA10.Text = CylinderGarageAir(9);
             PBGarage10.Value = int.Parse(LGarageA10.Text);
 
-            LGarageC11.Text = CylinderGarageStatus(0);
-            LGarageA11.Text = CylinderGarageAir(0);
+            LGarageC11.Text = CylinderGarageStatus(10);
+            LGarageA11.Text = CylinderGarageAir(10);
             PBGarage11.Value = int.Parse(LGarageA11.Text);
 
-            LGarageC12.Text = CylinderGarageStatus(0);
-            LGarageA12.Text = CylinderGarageAir(0);
+            LGarageC12.Text = CylinderGarageStatus(11);
+            LGarageA12.Text = CylinderGarageAir(11);
             PBGarage12.Value = int.Parse(LGarageA12.Text);
 
-            LGarageC13.Text = CylinderGarageStatus(0);
-            LGarageA13.Text = CylinderGarageAir(0);
+            LGarageC13.Text = CylinderGarageStatus(12);
+            LGarageA13.Text = CylinderGarageAir(12);
             PBGarage13.Value = int.Parse(LGarageA13.Text);
 
-            LGarageC14.Text = CylinderGarageStatus(0);
-            LGarageA14.Text = CylinderGarageAir(0);
+            LGarageC14.Text = CylinderGarageStatus(13);
+            LGarageA14.Text = CylinderGarageAir(13);
             PBGarage14.Value = int.Parse(LGarageA14.Text);
 
-            LGarageC15.Text = CylinderGarageStatus(0);
-            LGarageA15.Text = CylinderGarageAir(0);
+            LGarageC15.Text = CylinderGarageStatus(14);
+            LGarageA15.Text = CylinderGarageAir(14);
             PBGarage15.Value = int.Parse(LGarageA15.Text);
 
-            LGarageC16.Text = CylinderGarageStatus(0);
-            LGarageA16.Text = CylinderGarageAir(0);
+            LGarageC16.Text = CylinderGarageStatus(15);
+            LGarageA16.Text = CylinderGarageAir(15);
             PBGarage16.Value = int.Parse(LGarageA16.Text);
 
-            LGarageC17.Text = CylinderGarageStatus(0);
-            LGarageA17.Text = CylinderGarageAir(0);
+            LGarageC17.Text = CylinderGarageStatus(16);
+            LGarageA17.Text = CylinderGarageAir(16);
             PBGarage17.Value = int.Parse(LGarageA17.Text);
 
-            LGarageC18.Text = CylinderGarageStatus(0);
-            LGarageA18.Text = CylinderGarageAir(0);
+            LGarageC18.Text = CylinderGarageStatus(17);
+            LGarageA18.Text = CylinderGarageAir(17);
             PBGarage18.Value = int.Parse(LGarageA18.Text);
             #endregion
+
+            CBChangeLocation.Enabled = false;
+            CBChangeStatus.Enabled = false;
+            TBChangeAir.Enabled = false;
+
         }
 
         private string CylinderAir(int Number, string FireTruck)
@@ -224,23 +229,73 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private string CylinderGarageAir(int Number)
         {
             List<DataAccessLayer.Cylinder> lista = SqlConnector.CylinderGarage();
-            
+            try
+            {
                 return lista[Number].Air.ToString();
+            }
+            catch
+            {
+                return "0";
+            }
+                
             
            
         }
         private string CylinderGarageStatus(int Number)
         {
             List<DataAccessLayer.Cylinder> lista = SqlConnector.CylinderGarage();
-            if(lista[Number].Status.ToString()=="Na wozie")
+            try
             {
-                return "Butla nr "+ (Number + 1) +" ( "+lista[Number].Firetruck.ToString()+" )";
+                if (lista[Number].Status.ToString() == "Na wozie")
+                {
+                    return "Butla nr " + (Number + 1) + " ( " + lista[Number].Firetruck.ToString() + " )";
+                }
+                else
+                {
+                    return "Butla nr " + (Number + 1) + " ( " + lista[Number].Status.ToString() + " )"; ;
+                }
+            }
+            catch
+            {
+                return "";
+            }
+            
+           
+        }
+
+        private void CBNrCylinder_TextChanged(object sender, EventArgs e)
+        {
+            if(CBNrCylinder.Text != "")
+            {
+                CBChangeLocation.Enabled = true;
+                CBChangeStatus.Enabled = true;
+                TBChangeAir.Enabled = true;
             }
             else
             {
-                return "Butla nr " + (Number + 1) + " ( " + lista[Number].Status.ToString() + " )"; ;
+                CBChangeLocation.Enabled = false;
+                CBChangeStatus.Enabled = false;
+                TBChangeAir.Enabled = false;
             }
-           
+        }
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            int NumberCylinder = int.Parse(CBNrCylinder.Text);
+            if(CBChangeLocation.Text != "")
+            {
+                SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana lokalizacji", CBChangeLocation.Text);
+            }
+            if(CBChangeStatus.Text != "")
+            {
+                SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana statusu", CBChangeStatus.Text);
+            }
+            if(TBChangeAir.Text != "")
+            {
+                SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana napełnienia", TBChangeAir.Text);
+            }
+            
+
         }
     }
 }

@@ -31,9 +31,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             this.PB499z011 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.L499z15C1 = new System.Windows.Forms.Label();
             this.PB499z151 = new System.Windows.Forms.ProgressBar();
@@ -54,6 +51,57 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LGarageC1 = new System.Windows.Forms.Label();
             this.PBGarage1 = new System.Windows.Forms.ProgressBar();
             this.LGarageA1 = new System.Windows.Forms.Label();
+            this.LGarageC2 = new System.Windows.Forms.Label();
+            this.PBGarage2 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA2 = new System.Windows.Forms.Label();
+            this.LGarageC3 = new System.Windows.Forms.Label();
+            this.PBGarage3 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA3 = new System.Windows.Forms.Label();
+            this.LGarageC4 = new System.Windows.Forms.Label();
+            this.PBGarage4 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA4 = new System.Windows.Forms.Label();
+            this.LGarageC5 = new System.Windows.Forms.Label();
+            this.PBGarage5 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA5 = new System.Windows.Forms.Label();
+            this.LGarageC6 = new System.Windows.Forms.Label();
+            this.PBGarage6 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA6 = new System.Windows.Forms.Label();
+            this.LGarageC7 = new System.Windows.Forms.Label();
+            this.PBGarage7 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA7 = new System.Windows.Forms.Label();
+            this.LGarageC8 = new System.Windows.Forms.Label();
+            this.PBGarage8 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA8 = new System.Windows.Forms.Label();
+            this.LGarageC9 = new System.Windows.Forms.Label();
+            this.PBGarage9 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA9 = new System.Windows.Forms.Label();
+            this.LGarageC10 = new System.Windows.Forms.Label();
+            this.PBGarage10 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA10 = new System.Windows.Forms.Label();
+            this.LGarageC11 = new System.Windows.Forms.Label();
+            this.PBGarage11 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA11 = new System.Windows.Forms.Label();
+            this.LGarageC12 = new System.Windows.Forms.Label();
+            this.PBGarage12 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA12 = new System.Windows.Forms.Label();
+            this.LGarageC13 = new System.Windows.Forms.Label();
+            this.PBGarage13 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA13 = new System.Windows.Forms.Label();
+            this.LGarageC14 = new System.Windows.Forms.Label();
+            this.PBGarage14 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA14 = new System.Windows.Forms.Label();
+            this.LGarageC15 = new System.Windows.Forms.Label();
+            this.PBGarage15 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA15 = new System.Windows.Forms.Label();
+            this.LGarageC16 = new System.Windows.Forms.Label();
+            this.PBGarage16 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA16 = new System.Windows.Forms.Label();
+            this.LGarageC17 = new System.Windows.Forms.Label();
+            this.PBGarage17 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA17 = new System.Windows.Forms.Label();
+            this.LGarageC18 = new System.Windows.Forms.Label();
+            this.PBGarage18 = new System.Windows.Forms.ProgressBar();
+            this.LGarageA18 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.L499z19C1 = new System.Windows.Forms.Label();
             this.PB499z191 = new System.Windows.Forms.ProgressBar();
@@ -107,61 +155,24 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.PB499z015 = new System.Windows.Forms.ProgressBar();
             this.L499z01A5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.LGarageC2 = new System.Windows.Forms.Label();
-            this.PBGarage2 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA2 = new System.Windows.Forms.Label();
-            this.LGarageC3 = new System.Windows.Forms.Label();
-            this.PBGarage3 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA3 = new System.Windows.Forms.Label();
-            this.LGarageC4 = new System.Windows.Forms.Label();
-            this.PBGarage4 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA4 = new System.Windows.Forms.Label();
-            this.LGarageC5 = new System.Windows.Forms.Label();
-            this.PBGarage5 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA5 = new System.Windows.Forms.Label();
-            this.LGarageC6 = new System.Windows.Forms.Label();
-            this.PBGarage6 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA6 = new System.Windows.Forms.Label();
-            this.LGarageC7 = new System.Windows.Forms.Label();
-            this.PBGarage7 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA7 = new System.Windows.Forms.Label();
-            this.LGarageC8 = new System.Windows.Forms.Label();
-            this.PBGarage8 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA8 = new System.Windows.Forms.Label();
-            this.LGarageC9 = new System.Windows.Forms.Label();
-            this.PBGarage9 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA9 = new System.Windows.Forms.Label();
-            this.LGarageC10 = new System.Windows.Forms.Label();
-            this.PBGarage10 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA10 = new System.Windows.Forms.Label();
-            this.LGarageC11 = new System.Windows.Forms.Label();
-            this.PBGarage11 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA11 = new System.Windows.Forms.Label();
-            this.LGarageC12 = new System.Windows.Forms.Label();
-            this.PBGarage12 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA12 = new System.Windows.Forms.Label();
-            this.LGarageC13 = new System.Windows.Forms.Label();
-            this.PBGarage13 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA13 = new System.Windows.Forms.Label();
-            this.LGarageC14 = new System.Windows.Forms.Label();
-            this.PBGarage14 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA14 = new System.Windows.Forms.Label();
-            this.LGarageC15 = new System.Windows.Forms.Label();
-            this.PBGarage15 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA15 = new System.Windows.Forms.Label();
-            this.LGarageC16 = new System.Windows.Forms.Label();
-            this.PBGarage16 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA16 = new System.Windows.Forms.Label();
-            this.LGarageC17 = new System.Windows.Forms.Label();
-            this.PBGarage17 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA17 = new System.Windows.Forms.Label();
-            this.LGarageC18 = new System.Windows.Forms.Label();
-            this.PBGarage18 = new System.Windows.Forms.ProgressBar();
-            this.LGarageA18 = new System.Windows.Forms.Label();
+            this.LNrCylinder = new System.Windows.Forms.Label();
+            this.CBNrCylinder = new System.Windows.Forms.ComboBox();
+            this.LChangeLocation = new System.Windows.Forms.Label();
+            this.CBChangeLocation = new System.Windows.Forms.ComboBox();
+            this.LChangeStatus = new System.Windows.Forms.Label();
+            this.CBChangeStatus = new System.Windows.Forms.ComboBox();
+            this.LChangeAir = new System.Windows.Forms.Label();
+            this.TBChangeAir = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnConfirm = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PB499z011
@@ -178,39 +189,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 81);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(30, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(241, 27);
             this.label1.TabIndex = 6;
             this.label1.Text = "499z01";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(376, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "499z15";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(867, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "499z19";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1110, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Garaż";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1
             // 
@@ -501,6 +486,584 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.LGarageA1.TabIndex = 50;
             this.LGarageA1.Text = "278";
             this.LGarageA1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC2
+            // 
+            this.LGarageC2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC2.Location = new System.Drawing.Point(0, 57);
+            this.LGarageC2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC2.Name = "LGarageC2";
+            this.LGarageC2.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC2.TabIndex = 52;
+            this.LGarageC2.Text = "Butla nr 2";
+            this.LGarageC2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage2
+            // 
+            this.PBGarage2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage2.Location = new System.Drawing.Point(10, 75);
+            this.PBGarage2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage2.Maximum = 300;
+            this.PBGarage2.Name = "PBGarage2";
+            this.PBGarage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage2.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage2.TabIndex = 51;
+            this.PBGarage2.Value = 50;
+            // 
+            // LGarageA2
+            // 
+            this.LGarageA2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA2.Location = new System.Drawing.Point(0, 91);
+            this.LGarageA2.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA2.Name = "LGarageA2";
+            this.LGarageA2.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA2.TabIndex = 53;
+            this.LGarageA2.Text = "278";
+            this.LGarageA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC3
+            // 
+            this.LGarageC3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC3.Location = new System.Drawing.Point(0, 109);
+            this.LGarageC3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC3.Name = "LGarageC3";
+            this.LGarageC3.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC3.TabIndex = 55;
+            this.LGarageC3.Text = "Butla nr 3";
+            this.LGarageC3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage3
+            // 
+            this.PBGarage3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage3.Location = new System.Drawing.Point(10, 127);
+            this.PBGarage3.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage3.Maximum = 300;
+            this.PBGarage3.Name = "PBGarage3";
+            this.PBGarage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage3.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage3.TabIndex = 54;
+            this.PBGarage3.Value = 50;
+            // 
+            // LGarageA3
+            // 
+            this.LGarageA3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA3.Location = new System.Drawing.Point(0, 143);
+            this.LGarageA3.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA3.Name = "LGarageA3";
+            this.LGarageA3.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA3.TabIndex = 56;
+            this.LGarageA3.Text = "278";
+            this.LGarageA3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC4
+            // 
+            this.LGarageC4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC4.Location = new System.Drawing.Point(0, 161);
+            this.LGarageC4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC4.Name = "LGarageC4";
+            this.LGarageC4.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC4.TabIndex = 58;
+            this.LGarageC4.Text = "Butla nr 4";
+            this.LGarageC4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage4
+            // 
+            this.PBGarage4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage4.Location = new System.Drawing.Point(10, 179);
+            this.PBGarage4.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage4.Maximum = 300;
+            this.PBGarage4.Name = "PBGarage4";
+            this.PBGarage4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage4.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage4.TabIndex = 57;
+            this.PBGarage4.Value = 50;
+            // 
+            // LGarageA4
+            // 
+            this.LGarageA4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA4.Location = new System.Drawing.Point(0, 195);
+            this.LGarageA4.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA4.Name = "LGarageA4";
+            this.LGarageA4.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA4.TabIndex = 59;
+            this.LGarageA4.Text = "278";
+            this.LGarageA4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC5
+            // 
+            this.LGarageC5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC5.Location = new System.Drawing.Point(0, 213);
+            this.LGarageC5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC5.Name = "LGarageC5";
+            this.LGarageC5.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC5.TabIndex = 61;
+            this.LGarageC5.Text = "Butla nr 5";
+            this.LGarageC5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage5
+            // 
+            this.PBGarage5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage5.Location = new System.Drawing.Point(10, 231);
+            this.PBGarage5.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage5.Maximum = 300;
+            this.PBGarage5.Name = "PBGarage5";
+            this.PBGarage5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage5.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage5.TabIndex = 60;
+            this.PBGarage5.Value = 50;
+            // 
+            // LGarageA5
+            // 
+            this.LGarageA5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA5.Location = new System.Drawing.Point(0, 247);
+            this.LGarageA5.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA5.Name = "LGarageA5";
+            this.LGarageA5.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA5.TabIndex = 62;
+            this.LGarageA5.Text = "278";
+            this.LGarageA5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC6
+            // 
+            this.LGarageC6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC6.Location = new System.Drawing.Point(0, 265);
+            this.LGarageC6.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC6.Name = "LGarageC6";
+            this.LGarageC6.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC6.TabIndex = 64;
+            this.LGarageC6.Text = "Butla nr 6";
+            this.LGarageC6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage6
+            // 
+            this.PBGarage6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage6.Location = new System.Drawing.Point(10, 283);
+            this.PBGarage6.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage6.Maximum = 300;
+            this.PBGarage6.Name = "PBGarage6";
+            this.PBGarage6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage6.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage6.TabIndex = 63;
+            this.PBGarage6.Value = 50;
+            // 
+            // LGarageA6
+            // 
+            this.LGarageA6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA6.Location = new System.Drawing.Point(0, 299);
+            this.LGarageA6.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA6.Name = "LGarageA6";
+            this.LGarageA6.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA6.TabIndex = 65;
+            this.LGarageA6.Text = "278";
+            this.LGarageA6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC7
+            // 
+            this.LGarageC7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC7.Location = new System.Drawing.Point(0, 317);
+            this.LGarageC7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC7.Name = "LGarageC7";
+            this.LGarageC7.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC7.TabIndex = 67;
+            this.LGarageC7.Text = "Butla nr 7";
+            this.LGarageC7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage7
+            // 
+            this.PBGarage7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage7.Location = new System.Drawing.Point(10, 335);
+            this.PBGarage7.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage7.Maximum = 300;
+            this.PBGarage7.Name = "PBGarage7";
+            this.PBGarage7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage7.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage7.TabIndex = 66;
+            this.PBGarage7.Value = 50;
+            // 
+            // LGarageA7
+            // 
+            this.LGarageA7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA7.Location = new System.Drawing.Point(0, 351);
+            this.LGarageA7.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA7.Name = "LGarageA7";
+            this.LGarageA7.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA7.TabIndex = 68;
+            this.LGarageA7.Text = "278";
+            this.LGarageA7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC8
+            // 
+            this.LGarageC8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC8.Location = new System.Drawing.Point(0, 369);
+            this.LGarageC8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC8.Name = "LGarageC8";
+            this.LGarageC8.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC8.TabIndex = 70;
+            this.LGarageC8.Text = "Butla nr 8";
+            this.LGarageC8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage8
+            // 
+            this.PBGarage8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage8.Location = new System.Drawing.Point(10, 387);
+            this.PBGarage8.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage8.Maximum = 300;
+            this.PBGarage8.Name = "PBGarage8";
+            this.PBGarage8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage8.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage8.TabIndex = 69;
+            this.PBGarage8.Value = 50;
+            // 
+            // LGarageA8
+            // 
+            this.LGarageA8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA8.Location = new System.Drawing.Point(0, 403);
+            this.LGarageA8.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA8.Name = "LGarageA8";
+            this.LGarageA8.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA8.TabIndex = 71;
+            this.LGarageA8.Text = "278";
+            this.LGarageA8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC9
+            // 
+            this.LGarageC9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC9.Location = new System.Drawing.Point(0, 421);
+            this.LGarageC9.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC9.Name = "LGarageC9";
+            this.LGarageC9.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC9.TabIndex = 73;
+            this.LGarageC9.Text = "Butla nr 9";
+            this.LGarageC9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage9
+            // 
+            this.PBGarage9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage9.Location = new System.Drawing.Point(10, 439);
+            this.PBGarage9.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage9.Maximum = 300;
+            this.PBGarage9.Name = "PBGarage9";
+            this.PBGarage9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage9.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage9.TabIndex = 72;
+            this.PBGarage9.Value = 50;
+            // 
+            // LGarageA9
+            // 
+            this.LGarageA9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA9.Location = new System.Drawing.Point(0, 455);
+            this.LGarageA9.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA9.Name = "LGarageA9";
+            this.LGarageA9.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA9.TabIndex = 74;
+            this.LGarageA9.Text = "278";
+            this.LGarageA9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC10
+            // 
+            this.LGarageC10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC10.Location = new System.Drawing.Point(0, 473);
+            this.LGarageC10.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC10.Name = "LGarageC10";
+            this.LGarageC10.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC10.TabIndex = 76;
+            this.LGarageC10.Text = "Butla nr 10";
+            this.LGarageC10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage10
+            // 
+            this.PBGarage10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage10.Location = new System.Drawing.Point(10, 491);
+            this.PBGarage10.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage10.Maximum = 300;
+            this.PBGarage10.Name = "PBGarage10";
+            this.PBGarage10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage10.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage10.TabIndex = 75;
+            this.PBGarage10.Value = 50;
+            // 
+            // LGarageA10
+            // 
+            this.LGarageA10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA10.Location = new System.Drawing.Point(0, 507);
+            this.LGarageA10.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA10.Name = "LGarageA10";
+            this.LGarageA10.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA10.TabIndex = 77;
+            this.LGarageA10.Text = "278";
+            this.LGarageA10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC11
+            // 
+            this.LGarageC11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC11.Location = new System.Drawing.Point(0, 525);
+            this.LGarageC11.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC11.Name = "LGarageC11";
+            this.LGarageC11.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC11.TabIndex = 79;
+            this.LGarageC11.Text = "Butla nr 11";
+            this.LGarageC11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage11
+            // 
+            this.PBGarage11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage11.Location = new System.Drawing.Point(10, 543);
+            this.PBGarage11.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage11.Maximum = 300;
+            this.PBGarage11.Name = "PBGarage11";
+            this.PBGarage11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage11.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage11.TabIndex = 78;
+            this.PBGarage11.Value = 50;
+            // 
+            // LGarageA11
+            // 
+            this.LGarageA11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA11.Location = new System.Drawing.Point(0, 559);
+            this.LGarageA11.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA11.Name = "LGarageA11";
+            this.LGarageA11.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA11.TabIndex = 80;
+            this.LGarageA11.Text = "278";
+            this.LGarageA11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC12
+            // 
+            this.LGarageC12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC12.Location = new System.Drawing.Point(0, 577);
+            this.LGarageC12.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC12.Name = "LGarageC12";
+            this.LGarageC12.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC12.TabIndex = 82;
+            this.LGarageC12.Text = "Butla nr 12";
+            this.LGarageC12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage12
+            // 
+            this.PBGarage12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage12.Location = new System.Drawing.Point(10, 595);
+            this.PBGarage12.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage12.Maximum = 300;
+            this.PBGarage12.Name = "PBGarage12";
+            this.PBGarage12.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage12.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage12.TabIndex = 81;
+            this.PBGarage12.Value = 50;
+            // 
+            // LGarageA12
+            // 
+            this.LGarageA12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA12.Location = new System.Drawing.Point(0, 611);
+            this.LGarageA12.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA12.Name = "LGarageA12";
+            this.LGarageA12.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA12.TabIndex = 83;
+            this.LGarageA12.Text = "278";
+            this.LGarageA12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC13
+            // 
+            this.LGarageC13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC13.Location = new System.Drawing.Point(0, 629);
+            this.LGarageC13.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC13.Name = "LGarageC13";
+            this.LGarageC13.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC13.TabIndex = 85;
+            this.LGarageC13.Text = "Butla nr 13";
+            this.LGarageC13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage13
+            // 
+            this.PBGarage13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage13.Location = new System.Drawing.Point(10, 647);
+            this.PBGarage13.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage13.Maximum = 300;
+            this.PBGarage13.Name = "PBGarage13";
+            this.PBGarage13.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage13.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage13.TabIndex = 84;
+            this.PBGarage13.Value = 50;
+            // 
+            // LGarageA13
+            // 
+            this.LGarageA13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA13.Location = new System.Drawing.Point(0, 663);
+            this.LGarageA13.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA13.Name = "LGarageA13";
+            this.LGarageA13.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA13.TabIndex = 86;
+            this.LGarageA13.Text = "278";
+            this.LGarageA13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC14
+            // 
+            this.LGarageC14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC14.Location = new System.Drawing.Point(0, 681);
+            this.LGarageC14.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC14.Name = "LGarageC14";
+            this.LGarageC14.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC14.TabIndex = 88;
+            this.LGarageC14.Text = "Butla nr 14";
+            this.LGarageC14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage14
+            // 
+            this.PBGarage14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage14.Location = new System.Drawing.Point(10, 699);
+            this.PBGarage14.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage14.Maximum = 300;
+            this.PBGarage14.Name = "PBGarage14";
+            this.PBGarage14.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage14.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage14.TabIndex = 87;
+            this.PBGarage14.Value = 50;
+            // 
+            // LGarageA14
+            // 
+            this.LGarageA14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA14.Location = new System.Drawing.Point(0, 715);
+            this.LGarageA14.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA14.Name = "LGarageA14";
+            this.LGarageA14.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA14.TabIndex = 89;
+            this.LGarageA14.Text = "278";
+            this.LGarageA14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC15
+            // 
+            this.LGarageC15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC15.Location = new System.Drawing.Point(0, 733);
+            this.LGarageC15.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC15.Name = "LGarageC15";
+            this.LGarageC15.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC15.TabIndex = 91;
+            this.LGarageC15.Text = "Butla nr 15";
+            this.LGarageC15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage15
+            // 
+            this.PBGarage15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage15.Location = new System.Drawing.Point(10, 751);
+            this.PBGarage15.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage15.Maximum = 300;
+            this.PBGarage15.Name = "PBGarage15";
+            this.PBGarage15.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage15.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage15.TabIndex = 90;
+            this.PBGarage15.Value = 50;
+            // 
+            // LGarageA15
+            // 
+            this.LGarageA15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA15.Location = new System.Drawing.Point(0, 767);
+            this.LGarageA15.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA15.Name = "LGarageA15";
+            this.LGarageA15.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA15.TabIndex = 92;
+            this.LGarageA15.Text = "278";
+            this.LGarageA15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC16
+            // 
+            this.LGarageC16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC16.Location = new System.Drawing.Point(0, 785);
+            this.LGarageC16.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC16.Name = "LGarageC16";
+            this.LGarageC16.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC16.TabIndex = 94;
+            this.LGarageC16.Text = "Butla nr 16";
+            this.LGarageC16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage16
+            // 
+            this.PBGarage16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage16.Location = new System.Drawing.Point(10, 803);
+            this.PBGarage16.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage16.Maximum = 300;
+            this.PBGarage16.Name = "PBGarage16";
+            this.PBGarage16.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage16.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage16.TabIndex = 93;
+            this.PBGarage16.Value = 50;
+            // 
+            // LGarageA16
+            // 
+            this.LGarageA16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA16.Location = new System.Drawing.Point(0, 819);
+            this.LGarageA16.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA16.Name = "LGarageA16";
+            this.LGarageA16.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA16.TabIndex = 95;
+            this.LGarageA16.Text = "278";
+            this.LGarageA16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC17
+            // 
+            this.LGarageC17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC17.Location = new System.Drawing.Point(0, 837);
+            this.LGarageC17.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC17.Name = "LGarageC17";
+            this.LGarageC17.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC17.TabIndex = 97;
+            this.LGarageC17.Text = "Butla nr 17";
+            this.LGarageC17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage17
+            // 
+            this.PBGarage17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage17.Location = new System.Drawing.Point(10, 855);
+            this.PBGarage17.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage17.Maximum = 300;
+            this.PBGarage17.Name = "PBGarage17";
+            this.PBGarage17.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage17.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage17.TabIndex = 96;
+            this.PBGarage17.Value = 50;
+            // 
+            // LGarageA17
+            // 
+            this.LGarageA17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA17.Location = new System.Drawing.Point(0, 871);
+            this.LGarageA17.Margin = new System.Windows.Forms.Padding(0);
+            this.LGarageA17.Name = "LGarageA17";
+            this.LGarageA17.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA17.TabIndex = 98;
+            this.LGarageA17.Text = "278";
+            this.LGarageA17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LGarageC18
+            // 
+            this.LGarageC18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageC18.Location = new System.Drawing.Point(0, 889);
+            this.LGarageC18.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LGarageC18.Name = "LGarageC18";
+            this.LGarageC18.Size = new System.Drawing.Size(220, 13);
+            this.LGarageC18.TabIndex = 100;
+            this.LGarageC18.Text = "Butla nr 18";
+            this.LGarageC18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PBGarage18
+            // 
+            this.PBGarage18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PBGarage18.Location = new System.Drawing.Point(10, 907);
+            this.PBGarage18.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.PBGarage18.Maximum = 300;
+            this.PBGarage18.Name = "PBGarage18";
+            this.PBGarage18.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PBGarage18.Size = new System.Drawing.Size(200, 16);
+            this.PBGarage18.TabIndex = 99;
+            this.PBGarage18.Value = 50;
+            // 
+            // LGarageA18
+            // 
+            this.LGarageA18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LGarageA18.Location = new System.Drawing.Point(0, 923);
+            this.LGarageA18.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.LGarageA18.Name = "LGarageA18";
+            this.LGarageA18.Size = new System.Drawing.Size(220, 13);
+            this.LGarageA18.TabIndex = 101;
+            this.LGarageA18.Text = "278";
+            this.LGarageA18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel3
             // 
@@ -1139,588 +1702,196 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel5.Controls.Add(this.LNrCylinder);
+            this.flowLayoutPanel5.Controls.Add(this.CBNrCylinder);
+            this.flowLayoutPanel5.Controls.Add(this.LChangeLocation);
+            this.flowLayoutPanel5.Controls.Add(this.CBChangeLocation);
+            this.flowLayoutPanel5.Controls.Add(this.LChangeStatus);
+            this.flowLayoutPanel5.Controls.Add(this.CBChangeStatus);
+            this.flowLayoutPanel5.Controls.Add(this.LChangeAir);
+            this.flowLayoutPanel5.Controls.Add(this.TBChangeAir);
+            this.flowLayoutPanel5.Controls.Add(this.BtnConfirm);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(523, 184);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(240, 538);
             this.flowLayoutPanel5.TabIndex = 15;
             // 
-            // LGarageC2
-            // 
-            this.LGarageC2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC2.Location = new System.Drawing.Point(0, 57);
-            this.LGarageC2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC2.Name = "LGarageC2";
-            this.LGarageC2.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC2.TabIndex = 52;
-            this.LGarageC2.Text = "Butla nr 2";
-            this.LGarageC2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage2
-            // 
-            this.PBGarage2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage2.Location = new System.Drawing.Point(10, 75);
-            this.PBGarage2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage2.Maximum = 300;
-            this.PBGarage2.Name = "PBGarage2";
-            this.PBGarage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage2.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage2.TabIndex = 51;
-            this.PBGarage2.Value = 50;
-            // 
-            // LGarageA2
-            // 
-            this.LGarageA2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA2.Location = new System.Drawing.Point(0, 91);
-            this.LGarageA2.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA2.Name = "LGarageA2";
-            this.LGarageA2.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA2.TabIndex = 53;
-            this.LGarageA2.Text = "278";
-            this.LGarageA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC3
-            // 
-            this.LGarageC3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC3.Location = new System.Drawing.Point(0, 109);
-            this.LGarageC3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC3.Name = "LGarageC3";
-            this.LGarageC3.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC3.TabIndex = 55;
-            this.LGarageC3.Text = "Butla nr 3";
-            this.LGarageC3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage3
-            // 
-            this.PBGarage3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage3.Location = new System.Drawing.Point(10, 127);
-            this.PBGarage3.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage3.Maximum = 300;
-            this.PBGarage3.Name = "PBGarage3";
-            this.PBGarage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage3.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage3.TabIndex = 54;
-            this.PBGarage3.Value = 50;
-            // 
-            // LGarageA3
-            // 
-            this.LGarageA3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA3.Location = new System.Drawing.Point(0, 143);
-            this.LGarageA3.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA3.Name = "LGarageA3";
-            this.LGarageA3.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA3.TabIndex = 56;
-            this.LGarageA3.Text = "278";
-            this.LGarageA3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC4
-            // 
-            this.LGarageC4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC4.Location = new System.Drawing.Point(0, 161);
-            this.LGarageC4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC4.Name = "LGarageC4";
-            this.LGarageC4.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC4.TabIndex = 58;
-            this.LGarageC4.Text = "Butla nr 4";
-            this.LGarageC4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage4
-            // 
-            this.PBGarage4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage4.Location = new System.Drawing.Point(10, 179);
-            this.PBGarage4.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage4.Maximum = 300;
-            this.PBGarage4.Name = "PBGarage4";
-            this.PBGarage4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage4.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage4.TabIndex = 57;
-            this.PBGarage4.Value = 50;
-            // 
-            // LGarageA4
-            // 
-            this.LGarageA4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA4.Location = new System.Drawing.Point(0, 195);
-            this.LGarageA4.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA4.Name = "LGarageA4";
-            this.LGarageA4.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA4.TabIndex = 59;
-            this.LGarageA4.Text = "278";
-            this.LGarageA4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC5
-            // 
-            this.LGarageC5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC5.Location = new System.Drawing.Point(0, 213);
-            this.LGarageC5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC5.Name = "LGarageC5";
-            this.LGarageC5.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC5.TabIndex = 61;
-            this.LGarageC5.Text = "Butla nr 5";
-            this.LGarageC5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage5
-            // 
-            this.PBGarage5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage5.Location = new System.Drawing.Point(10, 231);
-            this.PBGarage5.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage5.Maximum = 300;
-            this.PBGarage5.Name = "PBGarage5";
-            this.PBGarage5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage5.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage5.TabIndex = 60;
-            this.PBGarage5.Value = 50;
-            // 
-            // LGarageA5
-            // 
-            this.LGarageA5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA5.Location = new System.Drawing.Point(0, 247);
-            this.LGarageA5.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA5.Name = "LGarageA5";
-            this.LGarageA5.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA5.TabIndex = 62;
-            this.LGarageA5.Text = "278";
-            this.LGarageA5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC6
-            // 
-            this.LGarageC6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC6.Location = new System.Drawing.Point(0, 265);
-            this.LGarageC6.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC6.Name = "LGarageC6";
-            this.LGarageC6.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC6.TabIndex = 64;
-            this.LGarageC6.Text = "Butla nr 6";
-            this.LGarageC6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage6
-            // 
-            this.PBGarage6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage6.Location = new System.Drawing.Point(10, 283);
-            this.PBGarage6.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage6.Maximum = 300;
-            this.PBGarage6.Name = "PBGarage6";
-            this.PBGarage6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage6.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage6.TabIndex = 63;
-            this.PBGarage6.Value = 50;
-            // 
-            // LGarageA6
-            // 
-            this.LGarageA6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA6.Location = new System.Drawing.Point(0, 299);
-            this.LGarageA6.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA6.Name = "LGarageA6";
-            this.LGarageA6.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA6.TabIndex = 65;
-            this.LGarageA6.Text = "278";
-            this.LGarageA6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC7
-            // 
-            this.LGarageC7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC7.Location = new System.Drawing.Point(0, 317);
-            this.LGarageC7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC7.Name = "LGarageC7";
-            this.LGarageC7.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC7.TabIndex = 67;
-            this.LGarageC7.Text = "Butla nr 7";
-            this.LGarageC7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage7
-            // 
-            this.PBGarage7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage7.Location = new System.Drawing.Point(10, 335);
-            this.PBGarage7.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage7.Maximum = 300;
-            this.PBGarage7.Name = "PBGarage7";
-            this.PBGarage7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage7.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage7.TabIndex = 66;
-            this.PBGarage7.Value = 50;
-            // 
-            // LGarageA7
-            // 
-            this.LGarageA7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA7.Location = new System.Drawing.Point(0, 351);
-            this.LGarageA7.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA7.Name = "LGarageA7";
-            this.LGarageA7.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA7.TabIndex = 68;
-            this.LGarageA7.Text = "278";
-            this.LGarageA7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC8
-            // 
-            this.LGarageC8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC8.Location = new System.Drawing.Point(0, 369);
-            this.LGarageC8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC8.Name = "LGarageC8";
-            this.LGarageC8.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC8.TabIndex = 70;
-            this.LGarageC8.Text = "Butla nr 8";
-            this.LGarageC8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage8
-            // 
-            this.PBGarage8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage8.Location = new System.Drawing.Point(10, 387);
-            this.PBGarage8.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage8.Maximum = 300;
-            this.PBGarage8.Name = "PBGarage8";
-            this.PBGarage8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage8.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage8.TabIndex = 69;
-            this.PBGarage8.Value = 50;
-            // 
-            // LGarageA8
-            // 
-            this.LGarageA8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA8.Location = new System.Drawing.Point(0, 403);
-            this.LGarageA8.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA8.Name = "LGarageA8";
-            this.LGarageA8.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA8.TabIndex = 71;
-            this.LGarageA8.Text = "278";
-            this.LGarageA8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC9
-            // 
-            this.LGarageC9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC9.Location = new System.Drawing.Point(0, 421);
-            this.LGarageC9.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC9.Name = "LGarageC9";
-            this.LGarageC9.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC9.TabIndex = 73;
-            this.LGarageC9.Text = "Butla nr 9";
-            this.LGarageC9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage9
-            // 
-            this.PBGarage9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage9.Location = new System.Drawing.Point(10, 439);
-            this.PBGarage9.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage9.Maximum = 300;
-            this.PBGarage9.Name = "PBGarage9";
-            this.PBGarage9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage9.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage9.TabIndex = 72;
-            this.PBGarage9.Value = 50;
-            // 
-            // LGarageA9
-            // 
-            this.LGarageA9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA9.Location = new System.Drawing.Point(0, 455);
-            this.LGarageA9.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA9.Name = "LGarageA9";
-            this.LGarageA9.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA9.TabIndex = 74;
-            this.LGarageA9.Text = "278";
-            this.LGarageA9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC10
-            // 
-            this.LGarageC10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC10.Location = new System.Drawing.Point(0, 473);
-            this.LGarageC10.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC10.Name = "LGarageC10";
-            this.LGarageC10.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC10.TabIndex = 76;
-            this.LGarageC10.Text = "Butla nr 10";
-            this.LGarageC10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage10
-            // 
-            this.PBGarage10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage10.Location = new System.Drawing.Point(10, 491);
-            this.PBGarage10.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage10.Maximum = 300;
-            this.PBGarage10.Name = "PBGarage10";
-            this.PBGarage10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage10.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage10.TabIndex = 75;
-            this.PBGarage10.Value = 50;
-            // 
-            // LGarageA10
-            // 
-            this.LGarageA10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA10.Location = new System.Drawing.Point(0, 507);
-            this.LGarageA10.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA10.Name = "LGarageA10";
-            this.LGarageA10.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA10.TabIndex = 77;
-            this.LGarageA10.Text = "278";
-            this.LGarageA10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC11
-            // 
-            this.LGarageC11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC11.Location = new System.Drawing.Point(0, 525);
-            this.LGarageC11.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC11.Name = "LGarageC11";
-            this.LGarageC11.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC11.TabIndex = 79;
-            this.LGarageC11.Text = "Butla nr 11";
-            this.LGarageC11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage11
-            // 
-            this.PBGarage11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage11.Location = new System.Drawing.Point(10, 543);
-            this.PBGarage11.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage11.Maximum = 300;
-            this.PBGarage11.Name = "PBGarage11";
-            this.PBGarage11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage11.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage11.TabIndex = 78;
-            this.PBGarage11.Value = 50;
-            // 
-            // LGarageA11
-            // 
-            this.LGarageA11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA11.Location = new System.Drawing.Point(0, 559);
-            this.LGarageA11.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA11.Name = "LGarageA11";
-            this.LGarageA11.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA11.TabIndex = 80;
-            this.LGarageA11.Text = "278";
-            this.LGarageA11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC12
-            // 
-            this.LGarageC12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC12.Location = new System.Drawing.Point(0, 577);
-            this.LGarageC12.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC12.Name = "LGarageC12";
-            this.LGarageC12.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC12.TabIndex = 82;
-            this.LGarageC12.Text = "Butla nr 12";
-            this.LGarageC12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage12
-            // 
-            this.PBGarage12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage12.Location = new System.Drawing.Point(10, 595);
-            this.PBGarage12.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage12.Maximum = 300;
-            this.PBGarage12.Name = "PBGarage12";
-            this.PBGarage12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage12.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage12.TabIndex = 81;
-            this.PBGarage12.Value = 50;
-            // 
-            // LGarageA12
-            // 
-            this.LGarageA12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA12.Location = new System.Drawing.Point(0, 611);
-            this.LGarageA12.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA12.Name = "LGarageA12";
-            this.LGarageA12.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA12.TabIndex = 83;
-            this.LGarageA12.Text = "278";
-            this.LGarageA12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC13
-            // 
-            this.LGarageC13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC13.Location = new System.Drawing.Point(0, 629);
-            this.LGarageC13.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC13.Name = "LGarageC13";
-            this.LGarageC13.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC13.TabIndex = 85;
-            this.LGarageC13.Text = "Butla nr 13";
-            this.LGarageC13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage13
-            // 
-            this.PBGarage13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage13.Location = new System.Drawing.Point(10, 647);
-            this.PBGarage13.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage13.Maximum = 300;
-            this.PBGarage13.Name = "PBGarage13";
-            this.PBGarage13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage13.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage13.TabIndex = 84;
-            this.PBGarage13.Value = 50;
-            // 
-            // LGarageA13
-            // 
-            this.LGarageA13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA13.Location = new System.Drawing.Point(0, 663);
-            this.LGarageA13.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA13.Name = "LGarageA13";
-            this.LGarageA13.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA13.TabIndex = 86;
-            this.LGarageA13.Text = "278";
-            this.LGarageA13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC14
-            // 
-            this.LGarageC14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC14.Location = new System.Drawing.Point(0, 681);
-            this.LGarageC14.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC14.Name = "LGarageC14";
-            this.LGarageC14.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC14.TabIndex = 88;
-            this.LGarageC14.Text = "Butla nr 14";
-            this.LGarageC14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage14
-            // 
-            this.PBGarage14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage14.Location = new System.Drawing.Point(10, 699);
-            this.PBGarage14.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage14.Maximum = 300;
-            this.PBGarage14.Name = "PBGarage14";
-            this.PBGarage14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage14.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage14.TabIndex = 87;
-            this.PBGarage14.Value = 50;
-            // 
-            // LGarageA14
-            // 
-            this.LGarageA14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA14.Location = new System.Drawing.Point(0, 715);
-            this.LGarageA14.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA14.Name = "LGarageA14";
-            this.LGarageA14.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA14.TabIndex = 89;
-            this.LGarageA14.Text = "278";
-            this.LGarageA14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC15
-            // 
-            this.LGarageC15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC15.Location = new System.Drawing.Point(0, 733);
-            this.LGarageC15.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC15.Name = "LGarageC15";
-            this.LGarageC15.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC15.TabIndex = 91;
-            this.LGarageC15.Text = "Butla nr 15";
-            this.LGarageC15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage15
-            // 
-            this.PBGarage15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage15.Location = new System.Drawing.Point(10, 751);
-            this.PBGarage15.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage15.Maximum = 300;
-            this.PBGarage15.Name = "PBGarage15";
-            this.PBGarage15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage15.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage15.TabIndex = 90;
-            this.PBGarage15.Value = 50;
-            // 
-            // LGarageA15
-            // 
-            this.LGarageA15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA15.Location = new System.Drawing.Point(0, 767);
-            this.LGarageA15.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA15.Name = "LGarageA15";
-            this.LGarageA15.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA15.TabIndex = 92;
-            this.LGarageA15.Text = "278";
-            this.LGarageA15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC16
-            // 
-            this.LGarageC16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC16.Location = new System.Drawing.Point(0, 785);
-            this.LGarageC16.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC16.Name = "LGarageC16";
-            this.LGarageC16.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC16.TabIndex = 94;
-            this.LGarageC16.Text = "Butla nr 16";
-            this.LGarageC16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage16
-            // 
-            this.PBGarage16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage16.Location = new System.Drawing.Point(10, 803);
-            this.PBGarage16.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage16.Maximum = 300;
-            this.PBGarage16.Name = "PBGarage16";
-            this.PBGarage16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage16.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage16.TabIndex = 93;
-            this.PBGarage16.Value = 50;
-            // 
-            // LGarageA16
-            // 
-            this.LGarageA16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA16.Location = new System.Drawing.Point(0, 819);
-            this.LGarageA16.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA16.Name = "LGarageA16";
-            this.LGarageA16.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA16.TabIndex = 95;
-            this.LGarageA16.Text = "278";
-            this.LGarageA16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC17
-            // 
-            this.LGarageC17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC17.Location = new System.Drawing.Point(0, 837);
-            this.LGarageC17.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC17.Name = "LGarageC17";
-            this.LGarageC17.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC17.TabIndex = 97;
-            this.LGarageC17.Text = "Butla nr 17";
-            this.LGarageC17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage17
-            // 
-            this.PBGarage17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage17.Location = new System.Drawing.Point(10, 855);
-            this.PBGarage17.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage17.Maximum = 300;
-            this.PBGarage17.Name = "PBGarage17";
-            this.PBGarage17.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage17.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage17.TabIndex = 96;
-            this.PBGarage17.Value = 50;
-            // 
-            // LGarageA17
-            // 
-            this.LGarageA17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA17.Location = new System.Drawing.Point(0, 871);
-            this.LGarageA17.Margin = new System.Windows.Forms.Padding(0);
-            this.LGarageA17.Name = "LGarageA17";
-            this.LGarageA17.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA17.TabIndex = 98;
-            this.LGarageA17.Text = "278";
-            this.LGarageA17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LGarageC18
-            // 
-            this.LGarageC18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageC18.Location = new System.Drawing.Point(0, 889);
-            this.LGarageC18.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.LGarageC18.Name = "LGarageC18";
-            this.LGarageC18.Size = new System.Drawing.Size(220, 13);
-            this.LGarageC18.TabIndex = 100;
-            this.LGarageC18.Text = "Butla nr 18";
-            this.LGarageC18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PBGarage18
-            // 
-            this.PBGarage18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PBGarage18.Location = new System.Drawing.Point(10, 907);
-            this.PBGarage18.Margin = new System.Windows.Forms.Padding(10, 5, 10, 0);
-            this.PBGarage18.Maximum = 300;
-            this.PBGarage18.Name = "PBGarage18";
-            this.PBGarage18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PBGarage18.Size = new System.Drawing.Size(200, 16);
-            this.PBGarage18.TabIndex = 99;
-            this.PBGarage18.Value = 50;
-            // 
-            // LGarageA18
-            // 
-            this.LGarageA18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LGarageA18.Location = new System.Drawing.Point(0, 923);
-            this.LGarageA18.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.LGarageA18.Name = "LGarageA18";
-            this.LGarageA18.Size = new System.Drawing.Size(220, 13);
-            this.LGarageA18.TabIndex = 101;
-            this.LGarageA18.Text = "278";
-            this.LGarageA18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // LNrCylinder
+            // 
+            this.LNrCylinder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LNrCylinder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LNrCylinder.Location = new System.Drawing.Point(0, 5);
+            this.LNrCylinder.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LNrCylinder.Name = "LNrCylinder";
+            this.LNrCylinder.Size = new System.Drawing.Size(240, 22);
+            this.LNrCylinder.TabIndex = 0;
+            this.LNrCylinder.Text = "Nr butli:";
+            this.LNrCylinder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CBNrCylinder
+            // 
+            this.CBNrCylinder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CBNrCylinder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CBNrCylinder.FormattingEnabled = true;
+            this.CBNrCylinder.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
+            this.CBNrCylinder.Location = new System.Drawing.Point(0, 32);
+            this.CBNrCylinder.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.CBNrCylinder.Name = "CBNrCylinder";
+            this.CBNrCylinder.Size = new System.Drawing.Size(238, 24);
+            this.CBNrCylinder.TabIndex = 1;
+            this.CBNrCylinder.TextChanged += new System.EventHandler(this.CBNrCylinder_TextChanged);
+            // 
+            // LChangeLocation
+            // 
+            this.LChangeLocation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LChangeLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LChangeLocation.Location = new System.Drawing.Point(0, 61);
+            this.LChangeLocation.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LChangeLocation.Name = "LChangeLocation";
+            this.LChangeLocation.Size = new System.Drawing.Size(240, 22);
+            this.LChangeLocation.TabIndex = 18;
+            this.LChangeLocation.Text = "Zmiana lokalizacji:";
+            this.LChangeLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CBChangeLocation
+            // 
+            this.CBChangeLocation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CBChangeLocation.Enabled = false;
+            this.CBChangeLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CBChangeLocation.FormattingEnabled = true;
+            this.CBChangeLocation.Items.AddRange(new object[] {
+            "499z01",
+            "499z15",
+            "499z19"});
+            this.CBChangeLocation.Location = new System.Drawing.Point(0, 88);
+            this.CBChangeLocation.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.CBChangeLocation.Name = "CBChangeLocation";
+            this.CBChangeLocation.Size = new System.Drawing.Size(238, 24);
+            this.CBChangeLocation.Sorted = true;
+            this.CBChangeLocation.TabIndex = 19;
+            // 
+            // LChangeStatus
+            // 
+            this.LChangeStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LChangeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LChangeStatus.Location = new System.Drawing.Point(0, 117);
+            this.LChangeStatus.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LChangeStatus.Name = "LChangeStatus";
+            this.LChangeStatus.Size = new System.Drawing.Size(240, 22);
+            this.LChangeStatus.TabIndex = 24;
+            this.LChangeStatus.Text = "Zmiana statusu:";
+            this.LChangeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CBChangeStatus
+            // 
+            this.CBChangeStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CBChangeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CBChangeStatus.FormattingEnabled = true;
+            this.CBChangeStatus.Items.AddRange(new object[] {
+            "Bez przeglądu",
+            "Na napełnianiu",
+            "Na wozie",
+            "Nie znaleziono",
+            "W garażu"});
+            this.CBChangeStatus.Location = new System.Drawing.Point(0, 144);
+            this.CBChangeStatus.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.CBChangeStatus.Name = "CBChangeStatus";
+            this.CBChangeStatus.Size = new System.Drawing.Size(238, 24);
+            this.CBChangeStatus.Sorted = true;
+            this.CBChangeStatus.TabIndex = 25;
+            // 
+            // LChangeAir
+            // 
+            this.LChangeAir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LChangeAir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LChangeAir.Location = new System.Drawing.Point(0, 173);
+            this.LChangeAir.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.LChangeAir.Name = "LChangeAir";
+            this.LChangeAir.Size = new System.Drawing.Size(240, 22);
+            this.LChangeAir.TabIndex = 28;
+            this.LChangeAir.Text = "Zmiana napełnienia:";
+            this.LChangeAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TBChangeAir
+            // 
+            this.TBChangeAir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TBChangeAir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TBChangeAir.Location = new System.Drawing.Point(0, 200);
+            this.TBChangeAir.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.TBChangeAir.Name = "TBChangeAir";
+            this.TBChangeAir.Size = new System.Drawing.Size(238, 23);
+            this.TBChangeAir.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(276, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(241, 27);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "499z15";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(768, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(241, 27);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "499z19";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(1014, 154);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(241, 27);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Garaż";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1284, 154);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "BUTLE";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnConfirm
+            // 
+            this.BtnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnConfirm.Location = new System.Drawing.Point(150, 238);
+            this.BtnConfirm.Margin = new System.Windows.Forms.Padding(150, 15, 3, 3);
+            this.BtnConfirm.Name = "BtnConfirm";
+            this.BtnConfirm.Size = new System.Drawing.Size(78, 22);
+            this.BtnConfirm.TabIndex = 30;
+            this.BtnConfirm.Text = "Zatwierdź";
+            this.BtnConfirm.UseVisualStyleBackColor = true;
+            this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // Cylinder
             // 
@@ -1728,9 +1899,10 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 734);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.flowLayoutPanel5);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -1744,17 +1916,15 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.ProgressBar PB499z011;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -1879,5 +2049,18 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Label LGarageC18;
         private System.Windows.Forms.ProgressBar PBGarage18;
         private System.Windows.Forms.Label LGarageA18;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LNrCylinder;
+        private System.Windows.Forms.ComboBox CBNrCylinder;
+        private System.Windows.Forms.Label LChangeLocation;
+        private System.Windows.Forms.ComboBox CBChangeLocation;
+        private System.Windows.Forms.Label LChangeStatus;
+        private System.Windows.Forms.ComboBox CBChangeStatus;
+        private System.Windows.Forms.Label LChangeAir;
+        private System.Windows.Forms.TextBox TBChangeAir;
+        private System.Windows.Forms.Button BtnConfirm;
     }
 }

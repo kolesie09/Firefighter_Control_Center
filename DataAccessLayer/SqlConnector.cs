@@ -245,10 +245,6 @@ namespace FirefighterControlCenter.DataAccessLayer
                     reader.Read();
                     
                         LastNumberDeparture = int.Parse(reader["MAX(Departure_number)"].ToString());
-                    
-                        
-                        
-                    
                 }
                 cnn.Close();
             }
@@ -1255,6 +1251,81 @@ namespace FirefighterControlCenter.DataAccessLayer
                 Console.Write(e.Message);
             }
             return list;
+        }
+        public static void ChangeInCylinder(int Cylinder, string What, string New)
+        {
+            
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery;
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                if(What == "Zmiana lokalizacji")
+                {
+                    sqlquery = "UPDATE `cylinder` SET `ID_Truck` = '"+SelectTruckToCylinder("Truck",New)+"' WHERE `cylinder`.`Number` = "+Cylinder+";";
+                }
+                else if(What == "Zmiana statusu")
+                {
+                    sqlquery = "UPDATE `cylinder` SET `ID_Status` = '" + SelectTruckToCylinder("Status", New) + "' WHERE `cylinder`.`Number` = " + Cylinder + ";";
+                }
+                else
+                {
+                    sqlquery = "UPDATE `cylinder` SET `Amount_air` = '"+New+"' WHERE `cylinder`.`Number` = " + Cylinder + ";";
+                }
+                
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    
+                }
+                cnn.Close();
+            }
+            catch
+            {
+
+            }
+            
+        }
+        public static int SelectTruckToCylinder(string What, string text)
+        {
+            int ID;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            
+            if(What == "Truck")
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "Select garage.ID_garage FROM garage WHERE garage.Car_operational_number = '" + text + "';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    ID = int.Parse(reader["ID_garage"].ToString());
+                }
+                cnn.Close();
+            }
+            else
+            {
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT status_breathing_apparatus.ID_status FROM status_breathing_apparatus WHERE status_breathing_apparatus.Name = '"+text+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    ID = int.Parse(reader["ID_status"].ToString());
+                }
+                cnn.Close();
+            }
+            
+            return ID;
         }
 
         #region To Loading Previous Departure Card

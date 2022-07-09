@@ -25,7 +25,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void Garage_Load(object sender, EventArgs e)
         {
-            LDateOverview499z01.Text = SqlConnector.OverviewTruck("499z01");
+            
            
             
         }

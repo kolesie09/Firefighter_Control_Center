@@ -54,11 +54,11 @@ namespace FirefighterControlCenter.UserInterface
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
-                if(type == "osp")
+                if (type == "osp")
                 {
                     mail.To.Add("gcr@barlinek.pl");
                 }
-                else if(type == "test")
+                else if (type == "test")
                 {
                     mail.To.Add("damian.dobrzeniecki@outlook.com");
                 }
@@ -67,16 +67,16 @@ namespace FirefighterControlCenter.UserInterface
                 mail.Body = "";
 
                 System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("c:/OSP/Wyjazdy/"+Year+" Rok/"+Mount+" Miesiąc/"+Name+".pdf");
+                attachment = new System.Net.Mail.Attachment("c:/OSP/Wyjazdy/" + Year + " Rok/" + Mount + " Miesiąc/" + Name + ".pdf");
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "5PffHvp7Gl");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "pxumpdywjlcteycn");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Coś poszło nie tak z mailem");
                 MessageBox.Show(e.ToString());
@@ -100,7 +100,7 @@ namespace FirefighterControlCenter.UserInterface
                     mail.To.Add("damian.dobrzeniecki@outlook.com");
                 }
                 //mail.To.Add("damian.dobrzeniecki@outlook.com");
-                mail.Subject = "Poprawa wyjazdu "+Name;
+                mail.Subject = "Poprawa wyjazdu " + Name;
                 mail.Body = "";
 
                 System.Net.Mail.Attachment attachment;
@@ -108,7 +108,7 @@ namespace FirefighterControlCenter.UserInterface
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "5PffHvp7Gl");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "pxumpdywjlcteycn");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

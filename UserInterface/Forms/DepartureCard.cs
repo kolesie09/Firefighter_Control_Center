@@ -259,7 +259,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             int PreviousNumberDepartureCard = int.Parse(LPreviousNumberDepartureCard.Text);
             int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
-            if (PreviousNumberDepartureCard<NumberDepartureCard)
+            if (PreviousNumberDepartureCard<NumberDepartureCard )
             {
                 if (NumberDepartureCard == 74320)
                 {
@@ -272,16 +272,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
                         CreateNewDepartureCard();
                     }
                 }
-
+                
                 
             }
-            else if(NumberDepartureCard<=PreviousNumberDepartureCard)
+            else if(NumberDepartureCard<=PreviousNumberDepartureCard && NumberDepartureCard > 0)
             {
                 UpdateDepartureCard();
             }
             else if(NumberDepartureCard == 0)
             {
-
+                CreateNewTriningCard();
             }
            
 
@@ -1453,6 +1453,159 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 Console.WriteLine(e.Message);
             }
         }
+        private void CreateNewTriningCard()
+        {
+            
+            #region Number
+            int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
+            #endregion
+            #region Data
+            DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
+            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+            string DateDepartureCard = DTPDepartureCard.Text;
+            //Zapisywanie daty wyjazdu do zmiennej
+
+
+            DTPDepartureCard.CustomFormat = "MM";
+            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+            int MountDepartureCard = int.Parse(DTPDepartureCard.Text);
+            string MountName = PDF.Mount(MountDepartureCard);
+            //Zapisywanie miesiąca wyjazdu do zmiennej
+
+
+            DTPDepartureCard.CustomFormat = "yyyy";
+            DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+            int YearDepartureCard = int.Parse(DTPDepartureCard.Text);
+            //Zapisywanie roku wyjazdu do zmiennej
+
+
+            DTPDepartureCard.Format = DateTimePickerFormat.Long;
+            #endregion
+            #region Hour
+            string HourDepartureCard = CBHourDeparture.Text + ":" + CBMinuteDeparture.Text;
+            string HourArrivalCard = CBHourArrival.Text + ":" + CBMinuteArrival.Text;
+            string TimeDeparture = HelpersDepartureCard.CalcTime(CBHourDeparture.Text, CBMinuteDeparture.Text, CBHourArrival.Text, CBMinuteArrival.Text);
+            #endregion
+            #region Place
+            string PCity = "";
+            if (CBCity.Text == "")
+            {
+                PCity = TBCity.Text;
+            }
+            else
+            {
+                PCity = CBCity.Text;
+            }
+            string PStreet = "";
+            if (CBStreet.Text == "")
+            {
+                PStreet = TBStreet.Text;
+            }
+            else
+            {
+                PStreet = CBStreet.Text;
+            }
+            int ID_Place = VerificationPlace();
+            string place = "";
+            if (PStreet != "")
+            {
+                place = PCity + ", ul. " + PStreet;
+            }
+            else
+            {
+                place = PCity;
+            }
+            #endregion
+            #region Reason
+            int ID_Reason = SqlConnector.SelectIncident(CBIncident.Text, CBTypeIncident.SelectedIndex + 1, TBNewIncident.Text);
+            string Reason = "";
+            if (CBIncident.Text == "")
+            {
+                Reason = TBNewIncident.Text;
+            }
+            else
+            {
+                Reason = CBIncident.Text;
+            }
+            #endregion
+            int ID_FF499z01 = 0;
+            int ID_FF499z15 = 0;
+            int ID_FF499z18 = 0;
+            int ID_FF499z19 = 0;
+            LPBDepartureCard.Show();
+            PBDepartureCard.Show();
+            #region ADD Firefighter to Truck
+
+            if (CBDriver499z01.SelectedItem != null)
+            {
+                SqlConnector.InsertFirefighterToTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+            }
+            if (CBDriver499z15.SelectedItem != null)
+            {
+                SqlConnector.InsertFirefighterToTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+            }
+            if (CBDriver499z18.SelectedItem != null)
+            {
+                SqlConnector.InsertFirefighterToTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+            }
+            if (CBDriver499z19.SelectedItem != null)
+            {
+                SqlConnector.InsertFirefighterToTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+            }
+            #endregion
+            #region Pick id with cast list
+            if (CBDriver499z01.SelectedItem != null)
+            {
+                ID_FF499z01 = SqlConnector.SelectIDTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+            }
+            if (CBDriver499z15.SelectedItem != null)
+            {
+                ID_FF499z15 = SqlConnector.SelectIDTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+            }
+            if (CBDriver499z18.SelectedItem != null)
+            {
+                ID_FF499z18 = SqlConnector.SelectIDTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+            }
+            if (CBDriver499z19.SelectedItem != null)
+            {
+                ID_FF499z19 = SqlConnector.SelectIDTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+            }
+            #endregion
+            int ID_Commander = SqlConnector.SelectIDCommander(Commander());
+            Progress("Zapisywanie wszystkich danych", 30);
+            SqlConnector.InsertDateDepartureCard(NumberDepartureCard, DateDepartureCard, HourDepartureCard, HourArrivalCard, ID_Place, ID_Reason, ID_Commander, ID_FF499z01, ID_FF499z15, ID_FF499z18, ID_FF499z19, YearDepartureCard, MountDepartureCard, TimeDeparture);
+
+            Progress("Tworzenie pliku pdf", 50);
+            PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+            Progress("Drukowanie pliku pdf", 65);
+            try
+            {
+                Process p = new Process();
+                p.StartInfo = new ProcessStartInfo()
+                {
+                    CreateNoWindow = true,
+                    Verb = "print",
+                    FileName = @"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
+                };
+                p.Start();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Coś poszło nie tak z drukowaniem");
+                MessageBox.Show(x.ToString());
+            }
+            Progress("Wysyłanie maila", 85);
+            if (SqlConnector.EmailPlace() == 1)
+            {
+                HelpersDepartureCard.email_send("osp", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+                HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+            }
+            else
+            {
+                HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+            }
+            Progress("Zakończenie procesu", 100);
+        }
         private void CreateNewDepartureCard()
         {
             
@@ -1552,62 +1705,62 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 }
                 else
                 {
-                int ID_FF499z01 = 0;
-                int ID_FF499z15 = 0;
-                int ID_FF499z18 = 0;
-                int ID_FF499z19 = 0;
-                LPBDepartureCard.Show();
-                PBDepartureCard.Show();
-                #region ADD Firefighter to Truck
+                    int ID_FF499z01 = 0;
+                    int ID_FF499z15 = 0;
+                    int ID_FF499z18 = 0;
+                    int ID_FF499z19 = 0;
+                    LPBDepartureCard.Show();
+                    PBDepartureCard.Show();
+                    #region ADD Firefighter to Truck
                
-                if (CBDriver499z01.SelectedItem != null)
-                {
-                    SqlConnector.InsertFirefighterToTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
-                }
-                if (CBDriver499z15.SelectedItem != null)
-                {
-                    SqlConnector.InsertFirefighterToTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
-                }
-                if (CBDriver499z18.SelectedItem != null)
-                {
-                    SqlConnector.InsertFirefighterToTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
-                }
-                if (CBDriver499z19.SelectedItem != null)
-                {
-                    SqlConnector.InsertFirefighterToTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
-                }
-                #endregion
-                #region Pick id with cast list
-                if (CBDriver499z01.SelectedItem != null)
-                {
-                    ID_FF499z01 = SqlConnector.SelectIDTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
-                }
-                if (CBDriver499z15.SelectedItem != null)
-                {
-                    ID_FF499z15 = SqlConnector.SelectIDTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
-                }
-                if (CBDriver499z18.SelectedItem != null)
-                {
-                    ID_FF499z18 = SqlConnector.SelectIDTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
-                }
-                if (CBDriver499z19.SelectedItem != null)
-                {
-                    ID_FF499z19 = SqlConnector.SelectIDTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
-                }
-                #endregion
+                    if (CBDriver499z01.SelectedItem != null)
+                    {
+                        SqlConnector.InsertFirefighterToTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+                    }
+                    if (CBDriver499z15.SelectedItem != null)
+                    {
+                        SqlConnector.InsertFirefighterToTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+                    }
+                    if (CBDriver499z18.SelectedItem != null)
+                    {
+                        SqlConnector.InsertFirefighterToTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+                    }
+                    if (CBDriver499z19.SelectedItem != null)
+                    {
+                        SqlConnector.InsertFirefighterToTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+                    }
+                    #endregion
+                    #region Pick id with cast list
+                    if (CBDriver499z01.SelectedItem != null)
+                    {
+                        ID_FF499z01 = SqlConnector.SelectIDTruck("499z01", CBDriver499z01.Text, CBCommander499z01.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text);
+                    }
+                    if (CBDriver499z15.SelectedItem != null)
+                    {
+                        ID_FF499z15 = SqlConnector.SelectIDTruck("499z15", CBDriver499z15.Text, CBCommander499z15.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text);
+                    }
+                    if (CBDriver499z18.SelectedItem != null)
+                    {
+                        ID_FF499z18 = SqlConnector.SelectIDTruck("499z18", CBDriver499z18.Text, CBCommander499z18.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, "");
+                    }
+                    if (CBDriver499z19.SelectedItem != null)
+                    {
+                        ID_FF499z19 = SqlConnector.SelectIDTruck("499z19", CBDriver499z19.Text, CBCommander499z19.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
+                    }
+                    #endregion
                     
 
 
 
-                int ID_Commander = SqlConnector.SelectIDCommander(Commander());
-                #region Ranking
-                SqlConnector.AddToRanking("incident", ID_Reason, YearDepartureCard);
-                SqlConnector.AddToRanking("city", SqlConnector.IDWhatWhere("city", PCity), YearDepartureCard);
-                SqlConnector.AddToRanking("street", SqlConnector.IDWhatWhere("street", PStreet), YearDepartureCard);
-                #endregion
+                    int ID_Commander = SqlConnector.SelectIDCommander(Commander());
+                    #region Ranking
+                    SqlConnector.AddToRanking("incident", ID_Reason, YearDepartureCard);
+                    SqlConnector.AddToRanking("city", SqlConnector.IDWhatWhere("city", PCity), YearDepartureCard);
+                    SqlConnector.AddToRanking("street", SqlConnector.IDWhatWhere("street", PStreet), YearDepartureCard);
+                    #endregion
 
 
-                if (ID_FF499z01 != 0)
+                    if (ID_FF499z01 != 0)
                     {
                         SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBDriver499z01.Text), YearDepartureCard);
                         SqlConnector.AddToRanking("firefighter", SqlConnector.IDWhatWhere("firefighter", CBCommander499z01.Text), YearDepartureCard);
@@ -1649,41 +1802,42 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     Progress("Tworzenie pliku pdf", 50);
                     PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
                     Progress("Drukowanie pliku pdf", 65);
-                try
-                {
-                    Process p = new Process();
-                    p.StartInfo = new ProcessStartInfo()
+                    try
                     {
-                        CreateNoWindow = true,
-                        Verb = "print",
-                        FileName = @"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
-                    };
-                    p.Start();
-                }
-                catch (Exception x)
-                {
-                    MessageBox.Show("Coś poszło nie tak z drukowaniem");
-                    MessageBox.Show(x.ToString());
-                }
-                Progress("Wysyłanie maila", 85);
-                if (SqlConnector.EmailPlace() == 1)
-                {
-                    HelpersDepartureCard.email_send("osp", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
-                    HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
-                }
-                else
-                {
-                    HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
-                }
-                Progress("Zakończenie procesu", 100);
+                        Process p = new Process();
+                        p.StartInfo = new ProcessStartInfo()
+                        {
+                            CreateNoWindow = true,
+                            Verb = "print",
+                            FileName = @"C:\\OSP\\Wyjazdy\\" + YearDepartureCard + " Rok\\" + MountName + " Miesiąc\\" + NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason + ".pdf"
+                        };
+                        p.Start();
+                    }
+                    catch (Exception x)
+                    {
+                        MessageBox.Show("Coś poszło nie tak z drukowaniem");
+                        MessageBox.Show(x.ToString());
+                    }
+                    Progress("Wysyłanie maila", 85);
+                    if (SqlConnector.EmailPlace() == 1)
+                    {
+                        HelpersDepartureCard.email_send("osp", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+                        HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+                    }
+                    else
+                    {
+                        HelpersDepartureCard.email_send("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
+                    }
+                    Progress("Zakończenie procesu", 100);
                 }
             #endregion
         }
 
         private void TBNumberDepartureCard_TextChanged(object sender, EventArgs e)
         {
-            if (TBNumberDepartureCard.Text != "" && int.Parse(TBNumberDepartureCard.Text) <= int.Parse(LPreviousNumberDepartureCard.Text))
+            if (TBNumberDepartureCard.Text != "" && int.Parse(TBNumberDepartureCard.Text) <= int.Parse(LPreviousNumberDepartureCard.Text) && 0 < int.Parse(TBNumberDepartureCard.Text))
             {
+                
                 #region Clear data
                 PeCity = "";
                 PeStreet= "";
@@ -1843,6 +1997,81 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     PFirefighter499z194 = CBFirefighter499z194.Text;
                 }
                 #endregion
+                #endregion
+            }
+            else
+            {
+                CBCity.Text = "";
+                CBStreet.Text = "";
+                CBIncident.Text = "";
+                CBTypeIncident.Text = "";
+                TBCity.Text = "";
+                TBStreet.Text = "";
+                TBNewIncident.Text = "";
+                DTPDepartureCard.Value = DateTime.Today;
+                CBMinuteArrival.Text = "";
+                CBMinuteDeparture.Text = "";
+                CBHourArrival.Text = "";
+                CBHourDeparture.Text = "";
+                #region Clear data
+                PeCity = "";
+                PeStreet = "";
+                PIncident = "";
+
+                PDriver499z01 = "";
+                PCommander499z01 = "";
+                PFirefighter499z011 = "";
+                PFirefighter499z012 = "";
+                PFirefighter499z013 = "";
+                PFirefighter499z014 = "";
+
+                PDriver499z15 = "";
+                PCommander499z15 = "";
+                PFirefighter499z151 = "";
+                PFirefighter499z152 = "";
+                PFirefighter499z153 = "";
+                PFirefighter499z154 = "";
+
+                PDriver499z18 = "";
+                PCommander499z18 = "";
+                PFirefighter499z181 = "";
+                PFirefighter499z182 = "";
+                PFirefighter499z183 = "";
+
+                PDriver499z19 = "";
+                PCommander499z19 = "";
+                PFirefighter499z191 = "";
+                PFirefighter499z192 = "";
+                PFirefighter499z193 = "";
+                PFirefighter499z194 = "";
+                #endregion
+                #region Clear Combo Box with Firefighters
+                CBDriver499z01.Text = "";
+                CBCommander499z01.Text = "";
+                CBFirefighter499z011.Text = "";
+                CBFirefighter499z012.Text = "";
+                CBFirefighter499z013.Text = "";
+                CBFirefighter499z014.Text = "";
+
+                CBDriver499z15.Text = "";
+                CBCommander499z15.Text = "";
+                CBFirefighter499z151.Text = "";
+                CBFirefighter499z152.Text = "";
+                CBFirefighter499z153.Text = "";
+                CBFirefighter499z154.Text = "";
+
+                CBDriver499z18.Text = "";
+                CBCommander499z18.Text = "";
+                CBFirefighter499z181.Text = "";
+                CBFirefighter499z182.Text = "";
+                CBFirefighter499z183.Text = "";
+
+                CBDriver499z19.Text = "";
+                CBCommander499z19.Text = "";
+                CBFirefighter499z191.Text = "";
+                CBFirefighter499z192.Text = "";
+                CBFirefighter499z193.Text = "";
+                CBFirefighter499z194.Text = "";
                 #endregion
             }
 
