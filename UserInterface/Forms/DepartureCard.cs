@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirefighterControlCenter.DataAccessLayer;
@@ -269,7 +270,27 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 {
                     if (VerificationInfo() == true)
                     {
-                        CreateNewDepartureCard();
+                        if(CBTypeIncident.Text == "Patrole")
+                        {
+                            CreateNewTriningCard();
+                        }
+                        else if(CBTypeIncident.Text == "Zabezpieczenie rejonu")
+                        {
+                            CreateNewTriningCard();
+                        }
+                        else if(CBTypeIncident.Text == "Wyjazdy gospodarcze")
+                        {
+                            CreateNewTriningCard();
+                        }
+                        else if(CBTypeIncident.Text == "Ćwiczenia")
+                        {
+                            CreateNewTriningCard();
+                        }
+                        else
+                        {
+                            CreateNewDepartureCard();
+                        }
+                       
                     }
                 }
                 
@@ -277,7 +298,30 @@ namespace FirefighterControlCenter.UserInterface.Forms
             }
             else if(NumberDepartureCard<=PreviousNumberDepartureCard && NumberDepartureCard > 0)
             {
-                UpdateDepartureCard();
+                if (VerificationInfo() == true)
+                {
+
+                    if (CBTypeIncident.Text == "Patrole")
+                    {
+                        CreateNewTriningCard();
+                    }
+                    else if (CBTypeIncident.Text == "Zabezpieczenie rejonu")
+                    {
+                        CreateNewTriningCard();
+                    }
+                    else if (CBTypeIncident.Text == "Wyjazdy gospodarcze")
+                    {
+                        CreateNewTriningCard();
+                    }
+                    else if (CBTypeIncident.Text == "Ćwiczenia")
+                    {
+                        CreateNewTriningCard();
+                    }
+                    else
+                    {
+                        UpdateDepartureCard();
+                    }
+                }
             }
             else if(NumberDepartureCard == 0)
             {
@@ -877,6 +921,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         }
         private bool VerificationInfo()
         {
+            string comm = Commander();
             int pkt = 0;
             if(TBNumberDepartureCard.Text == "")
             {
@@ -958,6 +1003,12 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     
                 }
                 
+            }
+
+            if (comm == "")
+            {
+                MessageBox.Show("Nie wybrano dowódcy wyjazdu");
+                pkt--;
             }
            
             bool inf;
@@ -1182,6 +1233,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         #endregion
 
 
+        [Obsolete]
         private void UpdateDepartureCard()
         {
             #region Number
@@ -1406,9 +1458,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
             {
 
             }
-                
 
-            
+
+
             PDF.CreatePDF(NumberDepartureCard, DateDepartureCard, MountDepartureCard, YearDepartureCard, HourDepartureCard, HourArrivalCard, TimeDeparture, PCity, PStreet, Reason, Commander(), CBDriver499z01.Text, CBDriver499z15.Text, CBDriver499z18.Text, CBDriver499z19.Text, CBCommander499z01.Text, CBCommander499z15.Text, CBCommander499z18.Text, CBCommander499z19.Text, CBFirefighter499z011.Text, CBFirefighter499z012.Text, CBFirefighter499z013.Text, CBFirefighter499z014.Text, CBFirefighter499z151.Text, CBFirefighter499z152.Text, CBFirefighter499z153.Text, CBFirefighter499z154.Text, CBFirefighter499z181.Text, CBFirefighter499z182.Text, CBFirefighter499z183.Text, CBFirefighter499z191.Text, CBFirefighter499z192.Text, CBFirefighter499z193.Text, CBFirefighter499z194.Text);
             Progress("Drukowanie pliku pdf", 65);
             try
@@ -1438,26 +1490,27 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 HelpersDepartureCard.email_send_again("test", NumberDepartureCard + "-" + YearDepartureCard + " - " + place + " - " + Reason, MountName, YearDepartureCard);
             }
             Progress("Zakończenie procesu", 100);
-            try
-            {
-                Process myProcess;
-                myProcess = Process.Start(@"C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe");
+               try
+               {
+                    Process myProcess;
+                    myProcess = Process.Start("Acrobat.exe");
 
-                myProcess.CloseMainWindow();
-                myProcess.Close();
+                    myProcess.CloseMainWindow();
+                    myProcess.Close();
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The following exception was raised: ");
-                Console.WriteLine(e.Message);
-            }
+               }
+               catch (Exception e)
+               {
+                    Console.WriteLine("The following exception was raised: ");
+                    Console.WriteLine(e.Message);
+               }
+           
         }
         private void CreateNewTriningCard()
         {
             
             #region Number
-            int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
+            int NumberDepartureCard = 0;
             #endregion
             #region Data
             DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
@@ -1698,7 +1751,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     }
                     catch (Exception x)
                     {
-                        MessageBox.Show("Coś poszło nie tak z drukowaniem");
+                        MessageBox.Show("<b>Coś poszło nie tak z drukowaniem<b>");
                         MessageBox.Show(x.ToString());
                     }
                     Progress("Wydrukowano ponownie wyjazd", 100);
@@ -1815,7 +1868,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     }
                     catch (Exception x)
                     {
-                        MessageBox.Show("Coś poszło nie tak z drukowaniem");
+                        MessageBox.Show("<b>Coś poszło nie tak z drukowaniem<b>");
                         MessageBox.Show(x.ToString());
                     }
                     Progress("Wysyłanie maila", 85);
@@ -1833,11 +1886,18 @@ namespace FirefighterControlCenter.UserInterface.Forms
             #endregion
         }
 
+
+
         private void TBNumberDepartureCard_TextChanged(object sender, EventArgs e)
         {
             if (TBNumberDepartureCard.Text != "" && int.Parse(TBNumberDepartureCard.Text) <= int.Parse(LPreviousNumberDepartureCard.Text) && 0 < int.Parse(TBNumberDepartureCard.Text))
             {
-                
+
+                DTPDepartureCard.Value = DateTime.Now;
+                DTPDepartureCard.CustomFormat = "yyyy";
+                DTPDepartureCard.Format = DateTimePickerFormat.Custom;
+                int YearDepartureCard = int.Parse(DTPDepartureCard.Text);
+
                 #region Clear data
                 PeCity = "";
                 PeStreet= "";
@@ -1902,7 +1962,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 #region Previous date
                 DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
                     DTPDepartureCard.Format = DateTimePickerFormat.Custom;
-                    DTPDepartureCard.Text = SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "Departure_date");
+                    DTPDepartureCard.Text = SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "Departure_date");
                    
                 DTPDepartureCard.CustomFormat = "MM";
                 DTPDepartureCard.Format = DateTimePickerFormat.Custom;
@@ -1910,34 +1970,34 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 DTPDepartureCard.Format = DateTimePickerFormat.Long;
                 #endregion
                 #region Time
-                string TimeDeparture = SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "Hour_departure");
+                string TimeDeparture = SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "Hour_departure");
                     CBHourDeparture.Text = HelpersDepartureCard.ReadTime("Hour", TimeDeparture);
                     CBMinuteDeparture.Text = HelpersDepartureCard.ReadTime("Minute", TimeDeparture);
 
-                    TimeDeparture = SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "Hour_arrival");
+                    TimeDeparture = SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "Hour_arrival");
                     CBHourArrival.Text = HelpersDepartureCard.ReadTime("Hour", TimeDeparture);
                     CBMinuteArrival.Text = HelpersDepartureCard.ReadTime("Minute", TimeDeparture);
                 #endregion
                 #region Place
-                CBCity.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_place_departure"), "City", 0);
+                CBCity.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_place_departure"), "City", 0);
                 PeCity = CBCity.Text;
-                CBStreet.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_place_departure"), "Street", 0);
+                CBStreet.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_place_departure"), "Street", 0);
                 PeStreet = CBStreet.Text;
                 #endregion
                 #region Incident
-                CBTypeIncident.SelectedIndex = int.Parse(SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_reason_departure"), "TypeIncident", 0)) - 1;
-                CBIncident.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_reason_departure"), "Incident", 0);
+                CBTypeIncident.SelectedIndex = int.Parse(SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_reason_departure"), "TypeIncident", 0)) - 1;
+                CBIncident.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_reason_departure"), "Incident", 0);
                 PIncident = CBIncident.Text;
                 #endregion
                 #region Firefighters
-                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01")) != 1)
+                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01")) != 1)
                 {
-                    CBDriver499z01.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 1);
-                    CBCommander499z01.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 2);
-                    CBFirefighter499z011.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 3);
-                    CBFirefighter499z012.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 4);
-                    CBFirefighter499z013.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 5);
-                    CBFirefighter499z014.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 6);
+                    CBDriver499z01.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 1);
+                    CBCommander499z01.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 2);
+                    CBFirefighter499z011.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 3);
+                    CBFirefighter499z012.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 4);
+                    CBFirefighter499z013.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 5);
+                    CBFirefighter499z014.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z01"), "499z01", 6);
 
                     PDriver499z01 = CBDriver499z01.Text;
                     PCommander499z01 = CBCommander499z01.Text;
@@ -1947,14 +2007,14 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     PFirefighter499z014 = CBFirefighter499z014.Text;
                 }
 
-                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15")) != 1)
+                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15")) != 1)
                 {
-                    CBDriver499z15.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 1);
-                    CBCommander499z15.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 2);
-                    CBFirefighter499z151.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 3);
-                    CBFirefighter499z152.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 4);
-                    CBFirefighter499z153.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 5);
-                    CBFirefighter499z154.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 6);
+                    CBDriver499z15.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 1);
+                    CBCommander499z15.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 2);
+                    CBFirefighter499z151.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 3);
+                    CBFirefighter499z152.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 4);
+                    CBFirefighter499z153.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 5);
+                    CBFirefighter499z154.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z15"), "499z15", 6);
 
                     PDriver499z15 = CBDriver499z15.Text;
                     PCommander499z15 = CBCommander499z15.Text;
@@ -1964,13 +2024,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     PFirefighter499z154 = CBFirefighter499z154.Text;
                 }
 
-                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18")) != 1)
+                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18")) != 1)
                 {
-                    CBDriver499z18.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 1);
-                    CBCommander499z18.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 2);
-                    CBFirefighter499z181.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 3);
-                    CBFirefighter499z182.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 4);
-                    CBFirefighter499z183.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 5);
+                    CBDriver499z18.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 1);
+                    CBCommander499z18.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 2);
+                    CBFirefighter499z181.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 3);
+                    CBFirefighter499z182.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 4);
+                    CBFirefighter499z183.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z18"), "499z18", 5);
 
                     PDriver499z18 = CBDriver499z18.Text;
                     PCommander499z18 = CBCommander499z18.Text;
@@ -1980,14 +2040,14 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     
                 }
 
-                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19")) != 1)
+                if (int.Parse(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19")) != 1)
                 {
-                    CBDriver499z19.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 1);
-                    CBCommander499z19.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 2);
-                    CBFirefighter499z191.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 3);
-                    CBFirefighter499z192.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 4);
-                    CBFirefighter499z193.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 5);
-                    CBFirefighter499z194.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(2022, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 6);
+                    CBDriver499z19.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 1);
+                    CBCommander499z19.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 2);
+                    CBFirefighter499z191.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 3);
+                    CBFirefighter499z192.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 4);
+                    CBFirefighter499z193.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 5);
+                    CBFirefighter499z194.Text = SqlConnector.Loading(SqlConnector.SelectPreviousDepartureCard(YearDepartureCard, int.Parse(TBNumberDepartureCard.Text), "ID_499z19"), "499z19", 6);
 
                     PDriver499z19 = CBDriver499z19.Text;
                     PCommander499z19 = CBCommander499z19.Text;
@@ -2076,5 +2136,94 @@ namespace FirefighterControlCenter.UserInterface.Forms
             }
 
         }
+        #region CheckBox
+        private void CB1_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB2_Click(object sender, EventArgs e)
+        {
+            CB1.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB3_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB1.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB4_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB1.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB5_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB1.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB6_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB1.Checked = false;
+            CB7.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB7_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB1.Checked = false;
+            CB8.Checked = false;
+        }
+
+        private void CB8_Click(object sender, EventArgs e)
+        {
+            CB2.Checked = false;
+            CB3.Checked = false;
+            CB4.Checked = false;
+            CB5.Checked = false;
+            CB6.Checked = false;
+            CB7.Checked = false;
+            CB1.Checked = false;
+        }
+        #endregion
     }
 }

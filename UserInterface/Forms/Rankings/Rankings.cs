@@ -12,34 +12,86 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using FirefighterControlCenter.DataAccessLayer;
+using System.Security.Cryptography.X509Certificates;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
     public partial class Rankings : Form
     {
         
+
+        public string Year;
+        public string Choose;
         public Rankings()
         {
             InitializeComponent();
+            Firefighter kutas = new Firefighter(changeYear.Text);
         }
+        
+        
 
         #region Region dla voidow
-        private void Show(Form frm)
+        private void Show(string choose)
         {
-            frm.Size = pRanking.Size;
-            frm.TopLevel = false;
-            frm.Visible = true;
-            frm.FormBorderStyle = FormBorderStyle.None;
             
-            frm.Dock = DockStyle.Fill;
-            pRanking.Controls.Add(frm);
+            
+            if(choose == "Firefighter")
+            { 
+                Firefighter frm = new Firefighter(changeYear.Text);
+                frm.Size = pRanking.Size;
+                frm.TopLevel = false;
+                frm.Visible = true;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pRanking.Controls.Add(frm);
+            }
+            else if (choose == "Street")
+            {
+                Street frm = new Street(changeYear.Text);
+                frm.Size = pRanking.Size;
+                frm.TopLevel = false;
+                frm.Visible = true;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pRanking.Controls.Add(frm);
+            }
+            else if(choose == "Incident")
+            {
+                Incident frm = new Incident(changeYear.Text);
+                frm.Size = pRanking.Size;
+                frm.TopLevel = false;
+                frm.Visible = true;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pRanking.Controls.Add(frm);
+            }
+            else if (choose == "City")
+            {
+                City frm = new City(changeYear.Text);
+                frm.Size = pRanking.Size;
+                frm.TopLevel = false;
+                frm.Visible = true;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pRanking.Controls.Add(frm);
+            }
         }
 
         private void CloseForm()
         {
             pRanking.Controls.Clear();
         }
+        private void AddYear()
+        {
 
+            int x = SqlConnector.FirstYear();
+            while (x <= DateTime.Now.Year)
+            {
+                changeYear.Items.Add(x);
+                x += 1;
+            }
+
+        }
 
 
         #endregion
@@ -48,22 +100,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             
             CloseForm();
-            Firefighter frm = new Firefighter();
-            Show(frm);
+            Choose = "Firefighter";
+            Show(Choose);
         }
 
         private void btn_street_Click(object sender, EventArgs e)
         {
             CloseForm();
-            Street frm = new Street();
-            Show(frm);
+            Choose = "Street";
+            Show(Choose);
         }
 
         private void btn_incident_Click(object sender, EventArgs e)
         {
             CloseForm();
-            Incident frm = new Incident();
-            Show(frm);
+            Choose = "Incident";
+            Show(Choose);
         }
 
         private void btn_nonstandard_Click(object sender, EventArgs e)
@@ -76,8 +128,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private void btn_city_Click(object sender, EventArgs e)
         {
             CloseForm();
-            City frm = new City();
-            Show(frm);
+            Choose = "City";
+            Show(Choose);
+        }
+
+        private void Rankings_Load(object sender, EventArgs e)
+        {
+            AddYear();
+            Year = DateTime.Now.Year.ToString();
+            changeYear.Text = Year;
+            
+        }
+
+        private void changeYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CloseForm();
+            Show(Choose);
         }
     }
 }

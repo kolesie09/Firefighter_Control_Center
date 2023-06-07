@@ -83,6 +83,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 {
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
+                    string test = "";
                     string sqlquery = "SELECT " + type + ".Name, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + " ORDER BY " + type + "_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
@@ -95,7 +96,12 @@ namespace FirefighterControlCenter.DataAccessLayer
                                 Rok = int.Parse(reader["Year"].ToString()),
                                 Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
                             };
-                            list.Add(ranking);
+                            test = reader["Name"].ToString();
+                            
+                                list.Add(ranking);
+                            
+
+                            
                         }
                     }
                     cnn.Close();
@@ -228,6 +234,33 @@ namespace FirefighterControlCenter.DataAccessLayer
             return list;
         }
 
+        public static int FirstYear()
+        {
+
+            int First = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT MIN(Year) FROM departure_card;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    First = int.Parse(reader["MIN(Year)"].ToString());
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return First;
+        }
         public static int SelectNumberDeparture(int Year)
         {
             int LastNumberDeparture = 0;
@@ -309,7 +342,11 @@ namespace FirefighterControlCenter.DataAccessLayer
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            list.Add(reader["Name"].ToString());
+                            if (reader["Name"].ToString() != "")
+                            {
+                                list.Add(reader["Name"].ToString());
+                            }
+                            
                         }
                     }
                 }

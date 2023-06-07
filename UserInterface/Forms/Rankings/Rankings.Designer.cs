@@ -36,6 +36,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btn_incident = new System.Windows.Forms.Button();
             this.btn_nonstandard = new System.Windows.Forms.Button();
             this.pRanking = new System.Windows.Forms.Panel();
+            this.changeYear = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -109,11 +110,21 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.pRanking.Size = new System.Drawing.Size(1284, 646);
             this.pRanking.TabIndex = 6;
             // 
+            // changeYear
+            // 
+            this.changeYear.FormattingEnabled = true;
+            this.changeYear.Location = new System.Drawing.Point(983, 59);
+            this.changeYear.Name = "changeYear";
+            this.changeYear.Size = new System.Drawing.Size(182, 21);
+            this.changeYear.TabIndex = 7;
+            this.changeYear.SelectedIndexChanged += new System.EventHandler(this.changeYear_SelectedIndexChanged);
+            // 
             // Rankings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 734);
+            this.Controls.Add(this.changeYear);
             this.Controls.Add(this.pRanking);
             this.Controls.Add(this.btn_nonstandard);
             this.Controls.Add(this.btn_incident);
@@ -124,6 +135,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rankings";
             this.Text = "Ranking";
+            this.Load += new System.EventHandler(this.Rankings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +150,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_incident;
         private System.Windows.Forms.Button btn_nonstandard;
         private System.Windows.Forms.Panel pRanking;
+        private System.Windows.Forms.ComboBox changeYear;
     }
 }

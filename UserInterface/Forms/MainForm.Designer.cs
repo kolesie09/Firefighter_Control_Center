@@ -82,7 +82,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_head_panel
             // 
-            this.btn_head_panel.Enabled = false;
             this.btn_head_panel.Location = new System.Drawing.Point(800, 12);
             this.btn_head_panel.Name = "btn_head_panel";
             this.btn_head_panel.Size = new System.Drawing.Size(146, 37);
@@ -192,7 +191,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_garage;
         private System.Windows.Forms.Button btn_meetings;
         private System.Windows.Forms.Button btn_info_panel;
-        private System.Windows.Forms.Panel pMain;
         private System.Windows.Forms.Button btn_cylinder;
+        public System.Windows.Forms.Panel pMain;
     }
 }

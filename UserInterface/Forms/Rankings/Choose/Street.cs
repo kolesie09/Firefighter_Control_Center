@@ -13,16 +13,16 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
 {
     public partial class Street : Form
     {
-        public Street()
+        public string Year;
+        public Street(string year)
         {
             InitializeComponent();
+            Year = year;
         }
 
         private void Street_Load(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            string Year = dt.ToString("yyyy");
-            //Przyda się miasto do ulic 
+
             dataGridView1.DataSource = SqlConnector.RankingStreet("street", Year);
         }
     }
