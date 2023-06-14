@@ -33,7 +33,7 @@ namespace FirefighterControlCenter.UserInterface
             this.TBPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.signIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBLogin
@@ -42,6 +42,7 @@ namespace FirefighterControlCenter.UserInterface
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(254, 20);
             this.TBLogin.TabIndex = 0;
+            this.TBLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLogin_KeyPress);
             // 
             // TBPassword
             // 
@@ -49,6 +50,7 @@ namespace FirefighterControlCenter.UserInterface
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.Size = new System.Drawing.Size(254, 20);
             this.TBPassword.TabIndex = 1;
+            this.TBPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBPassword_KeyPress);
             // 
             // label1
             // 
@@ -70,22 +72,22 @@ namespace FirefighterControlCenter.UserInterface
             this.label2.TabIndex = 3;
             this.label2.Text = "Hasło";
             // 
-            // button1
+            // signIn
             // 
-            this.button1.Location = new System.Drawing.Point(166, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 42);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Zaloguj";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.signIn.Location = new System.Drawing.Point(166, 219);
+            this.signIn.Name = "signIn";
+            this.signIn.Size = new System.Drawing.Size(163, 42);
+            this.signIn.TabIndex = 4;
+            this.signIn.Text = "Zaloguj";
+            this.signIn.UseVisualStyleBackColor = true;
+            this.signIn.Click += new System.EventHandler(this.signIn_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 311);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.signIn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBPassword);
@@ -105,6 +107,6 @@ namespace FirefighterControlCenter.UserInterface
         private System.Windows.Forms.TextBox TBPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button signIn;
     }
 }

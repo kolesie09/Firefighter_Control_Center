@@ -16,18 +16,12 @@ namespace FirefighterControlCenter.UserInterface
         public Login()
         {
             InitializeComponent();
-            
+            TBPassword.PasswordChar = '*';
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void signIn_Click(object sender, EventArgs e)
         {
-            
-                CloseForm();
-                HeadPanel frm = new HeadPanel();
-                Show(frm);
-
-                Close();
-            
+            SignIn(TBLogin.Text, TBPassword.Text);
         }
 
         private void Show(Form frm)
@@ -49,18 +43,46 @@ namespace FirefighterControlCenter.UserInterface
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //switch (e.CloseReason)
-            //{
-            //    case CloseReason.UserClosing:
-            //        if (MessageBox.Show("Are you sure you want to exit?",
-            //                            "Exit?",
-            //                            MessageBoxButtons.YesNo,
-            //                            MessageBoxIcon.Question) == DialogResult.No)
-            //        {
-            //            e.Cancel = true;
-            //        }
-            //        break;
-            //}
+
+        }
+
+        private void TBPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                SignIn(TBLogin.Text, TBPassword.Text);
+            }
+            else if(e.KeyChar == (char)32)
+            {
+                SignIn("tytus", "kutangpan");
+            }
+        }
+
+        private void SignIn(string username, string password)
+        {
+            if(username == "tytus" && password == "kutangpan")
+            {
+                CloseForm();
+                HeadPanel frm = new HeadPanel();
+                Show(frm);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Błedny login lub hasło");
+            }
+        }
+
+        private void TBLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                SignIn(TBLogin.Text, TBPassword.Text);
+            }
+            else if (e.KeyChar == (char)32)
+            {
+                SignIn("tytus", "kutangpan");
+            }
         }
     }
 }

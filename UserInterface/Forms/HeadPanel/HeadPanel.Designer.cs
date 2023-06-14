@@ -30,7 +30,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private void InitializeComponent()
         {
             this.HP = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddUser = new System.Windows.Forms.Button();
             this.HP.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,22 +38,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             this.HP.AutoScroll = true;
             this.HP.AutoSize = true;
-            this.HP.Controls.Add(this.button1);
+            this.HP.Controls.Add(this.AddUser);
             this.HP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HP.Location = new System.Drawing.Point(0, 0);
             this.HP.Name = "HP";
             this.HP.Size = new System.Drawing.Size(1284, 734);
             this.HP.TabIndex = 1;
             // 
-            // button1
+            // AddUser
             // 
-            this.button1.Location = new System.Drawing.Point(57, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Użytkownicy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddUser.Location = new System.Drawing.Point(57, 56);
+            this.AddUser.Name = "AddUser";
+            this.AddUser.Size = new System.Drawing.Size(154, 49);
+            this.AddUser.TabIndex = 0;
+            this.AddUser.Text = "Dodaj użytkownika";
+            this.AddUser.UseVisualStyleBackColor = true;
+            this.AddUser.Click += new System.EventHandler(this.AddUser_Click);
             // 
             // HeadPanel
             // 
@@ -73,6 +73,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         #endregion
 
         private System.Windows.Forms.Panel HP;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddUser;
     }
 }
