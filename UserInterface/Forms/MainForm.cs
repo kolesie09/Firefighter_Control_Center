@@ -47,9 +47,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
         }
         private void btn_head_panel_Click(object sender, EventArgs e)
         {
-            CloseForm();
-            HeadPanel frm = new HeadPanel();
-            Show(frm);
+            
+            Login login = new Login();
+            login.Show();
         }
 
         private void btn_meetings_Click(object sender, EventArgs e)

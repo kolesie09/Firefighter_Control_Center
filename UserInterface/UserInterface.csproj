@@ -124,6 +124,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\HeadPanel\AddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HeadPanel\AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HeadPanel\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HeadPanel\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Programs\HelpPrograms.cs" />
     <Compile Include="Programs\PDF.cs" />
     <Compile Include="Forms\DepartureCard.cs">
       <SubType>Form</SubType>
@@ -143,10 +156,10 @@
     <Compile Include="Forms\Garage.Designer.cs">
       <DependentUpon>Garage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HeadPanel.cs">
+    <Compile Include="Forms\HeadPanel\HeadPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HeadPanel.Designer.cs">
+    <Compile Include="Forms\HeadPanel\HeadPanel.Designer.cs">
       <DependentUpon>HeadPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\History.cs">
@@ -222,7 +235,10 @@
     <EmbeddedResource Include="Forms\Garage.resx">
       <DependentUpon>Garage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HeadPanel.resx">
+    <EmbeddedResource Include="Forms\HeadPanel\AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HeadPanel\HeadPanel.resx">
       <DependentUpon>HeadPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\History.resx">
@@ -230,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InfoPanel.resx">
       <DependentUpon>InfoPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HeadPanel\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

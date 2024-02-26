@@ -57,6 +57,7 @@ namespace FirefighterControlCenter.UserInterface
                 if (type == "osp")
                 {
                     mail.To.Add("gcr@barlinek.pl");
+                    mail.To.Add("nguyenoliwia+TaCzarnaMalpa@hotmail.com");
                 }
                 else if (type == "test")
                 {
@@ -94,6 +95,7 @@ namespace FirefighterControlCenter.UserInterface
                 if (type == "osp")
                 {
                     mail.To.Add("gcr@barlinek.pl");
+                    mail.To.Add("nguyenoliwia+TaCzarnaMalpa@hotmail.com");
                 }
                 else if (type == "test")
                 {

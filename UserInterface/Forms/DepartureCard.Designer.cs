@@ -680,6 +680,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB2.Size = new System.Drawing.Size(15, 14);
             this.CB2.TabIndex = 34;
             this.CB2.UseVisualStyleBackColor = true;
+            this.CB2.Click += new System.EventHandler(this.CB2_Click);
             // 
             // CB1
             // 
@@ -689,6 +690,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB1.Size = new System.Drawing.Size(15, 14);
             this.CB1.TabIndex = 33;
             this.CB1.UseVisualStyleBackColor = true;
+            this.CB1.Click += new System.EventHandler(this.CB1_Click);
             // 
             // Btn499z01
             // 
@@ -846,6 +848,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB4.Size = new System.Drawing.Size(15, 14);
             this.CB4.TabIndex = 40;
             this.CB4.UseVisualStyleBackColor = true;
+            this.CB4.Click += new System.EventHandler(this.CB4_Click);
             // 
             // CB3
             // 
@@ -855,6 +858,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB3.Size = new System.Drawing.Size(15, 14);
             this.CB3.TabIndex = 35;
             this.CB3.UseVisualStyleBackColor = true;
+            this.CB3.Click += new System.EventHandler(this.CB3_Click);
             // 
             // Btn499z15
             // 
@@ -1010,6 +1014,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB5.Size = new System.Drawing.Size(15, 14);
             this.CB5.TabIndex = 42;
             this.CB5.UseVisualStyleBackColor = true;
+            this.CB5.Click += new System.EventHandler(this.CB5_Click);
             // 
             // CB6
             // 
@@ -1019,6 +1024,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB6.Size = new System.Drawing.Size(15, 14);
             this.CB6.TabIndex = 41;
             this.CB6.UseVisualStyleBackColor = true;
+            this.CB6.Click += new System.EventHandler(this.CB6_Click);
             // 
             // Btn499z18
             // 
@@ -1157,6 +1163,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB8.Size = new System.Drawing.Size(15, 14);
             this.CB8.TabIndex = 44;
             this.CB8.UseVisualStyleBackColor = true;
+            this.CB8.Click += new System.EventHandler(this.CB8_Click);
             // 
             // CB7
             // 
@@ -1166,6 +1173,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.CB7.Size = new System.Drawing.Size(15, 14);
             this.CB7.TabIndex = 43;
             this.CB7.UseVisualStyleBackColor = true;
+            this.CB7.Click += new System.EventHandler(this.CB7_Click);
             // 
             // Btn499z19
             // 

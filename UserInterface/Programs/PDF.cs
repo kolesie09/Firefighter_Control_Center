@@ -218,11 +218,13 @@ namespace FirefighterControlCenter.UserInterface
                 // 1 = 45 2 = 100 3=155 4 = 210
                 int Time = 0;
                 int HowManyPepole = 0;
+
                 #region 499z01
                 if(D499z01 != "")
                 {
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+
+                    if (D499z01 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(D499z01, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -249,10 +251,10 @@ namespace FirefighterControlCenter.UserInterface
                         table.AddCell(cell);
                         Time++;
                     }
-                    
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+
+                    if (C499z01 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(C499z01, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -265,8 +267,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z011 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z011, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -279,8 +281,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z012 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z012, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -293,8 +295,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z013 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z013, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -307,8 +309,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z014 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z014, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -326,8 +328,8 @@ namespace FirefighterControlCenter.UserInterface
                 #region 499z15
                 if(D499z15 != "")
                 {
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (D499z15 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(D499z15, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -344,6 +346,7 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
+                    NumberC++;
                     if (Time == 0)
                     {
                         cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
@@ -355,8 +358,8 @@ namespace FirefighterControlCenter.UserInterface
                     }
 
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (C499z15 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(C499z15, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -369,8 +372,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z151 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z151, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -383,8 +386,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z152 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z152, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -397,8 +400,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z153 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z153, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -411,8 +414,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z154 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z154, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -430,8 +433,8 @@ namespace FirefighterControlCenter.UserInterface
                 #region 499z18
                 if(D499z18 != "")
                 {
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (D499z18 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(D499z18, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -448,6 +451,7 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
+                    NumberC++;
                     if (Time == 0)
                     {
                         cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
@@ -459,8 +463,8 @@ namespace FirefighterControlCenter.UserInterface
                     }
 
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (C499z18 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(C499z18, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -473,8 +477,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z181 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z181, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -487,8 +491,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z182 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z182, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -501,8 +505,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z183 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z183, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -520,8 +524,8 @@ namespace FirefighterControlCenter.UserInterface
                 #region 499z19
                 if(D499z19 != "")
                 {
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (D499z19 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(D499z19, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -538,6 +542,7 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
+                    NumberC++;
                     if (Time == 0)
                     {
                         cell = new PdfPCell(new Phrase(TimeDeparture + " h", nameFont));
@@ -549,8 +554,8 @@ namespace FirefighterControlCenter.UserInterface
                     }
 
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (C499z19 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(C499z19, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -563,8 +568,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z191 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z191, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -578,8 +583,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingTop = -1;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z192 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z192, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -592,8 +597,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z193 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z193, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -606,8 +611,8 @@ namespace FirefighterControlCenter.UserInterface
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
 
-                    HowManyPepole++;
-                    cell = new PdfPCell(new Phrase(HowManyPepole.ToString(), nameFont));
+                    if (F499z194 != "") { HowManyPepole++; }
+                    cell = new PdfPCell(new Phrase(NoFirefighter(F499z194, HowManyPepole), nameFont));
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
                     cell.PaddingBottom = 4;
                     table.AddCell(cell);
@@ -652,12 +657,13 @@ namespace FirefighterControlCenter.UserInterface
                 
                 
                 pdfDoc.Close();
+
                 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Coś poszło nie tak");
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Coś poszło nie tak z aplikacją. Zalezany jest restart aplikacji.");
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -668,6 +674,18 @@ namespace FirefighterControlCenter.UserInterface
             return i;
         }
 
+        private static string NoFirefighter(string firefighter, int Number)
+        {
+            string a = "";
+            if( firefighter == "")
+            {
+                return a;
+            }
+            else
+            {
+                return Number.ToString();
+            }
+        }
         public static string Mount(int Mount)
         {
             if(Mount == 1)

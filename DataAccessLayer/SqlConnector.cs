@@ -83,6 +83,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 {
                     cnn = new MySqlConnection(connectionString);
                     cnn.Open();
+                    string test = "";
                     string sqlquery = "SELECT " + type + ".Name, " + type + "_ranking.Year, " + type + "_ranking.Number_departures FROM " + type + ", " + type + "_ranking WHERE " + type + ".ID_" + type + " = " + type + "_ranking.ID_" + type + " AND " + type + "_ranking.Year = " + Year + " ORDER BY " + type + "_ranking.Number_departures DESC;";
                     using (var command = new MySqlCommand(sqlquery, cnn))
                     {
@@ -95,7 +96,12 @@ namespace FirefighterControlCenter.DataAccessLayer
                                 Rok = int.Parse(reader["Year"].ToString()),
                                 Ilosc_wyjazdow = int.Parse(reader["Number_departures"].ToString())
                             };
-                            list.Add(ranking);
+                            test = reader["Name"].ToString();
+                            
+                                list.Add(ranking);
+                            
+
+                            
                         }
                     }
                     cnn.Close();
@@ -228,6 +234,33 @@ namespace FirefighterControlCenter.DataAccessLayer
             return list;
         }
 
+        public static int FirstYear()
+        {
+
+            int First = 0;
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT MIN(Year) FROM departure_card;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    First = int.Parse(reader["MIN(Year)"].ToString());
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return First;
+        }
         public static int SelectNumberDeparture(int Year)
         {
             int LastNumberDeparture = 0;
@@ -309,7 +342,11 @@ namespace FirefighterControlCenter.DataAccessLayer
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            list.Add(reader["Name"].ToString());
+                            if (reader["Name"].ToString() != "")
+                            {
+                                list.Add(reader["Name"].ToString());
+                            }
+                            
                         }
                     }
                 }
@@ -1327,6 +1364,40 @@ namespace FirefighterControlCenter.DataAccessLayer
             
             return ID;
         }
+
+
+
+        public static void InsertAddNewFirefighter(List<string> newFirefighter)
+        {
+
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+                string sqlquery = "";
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                
+                    sqlquery = "INSERT INTO `firefighter`(`ID_firefighter`, `Nick`, `name`, `last_name`, `Date_birth`, `Date_admission`, `Date_training`, `Medical_exams_done`, `Next_medical_exams`, `Chamber_exams_done`, `Next_chamber_exams`, `ID_Status`, `Kat_B`, `Kat_C`, `Helmsman`, `First_aid_course`, `First_aid_course_done`, `Next_first_aid_course`, `Technical_rescue`, `Water_rescue`, `chemical_ecological`, `Commander`, `Head`, `Altitude_rescue`, `air_ambulance_service`) VALUES ('','"+ newFirefighter[0] +"','" + newFirefighter[1] + "','" + newFirefighter[2] + "','" + newFirefighter[3] + "','" + newFirefighter[4] + "','" + newFirefighter[5] + "','" + newFirefighter[6] + "','" + newFirefighter[7] + "','" + newFirefighter[8] + "','" + newFirefighter[9] + "','1','" + newFirefighter[11] + "','" + newFirefighter[12] + "','" + newFirefighter[13] + "','" + newFirefighter[14] + "','','','" + newFirefighter[15] + "','" + newFirefighter[16] + "','" + newFirefighter[17] + "','" + newFirefighter[18] + "','" + newFirefighter[19] + "','" + newFirefighter[20] + "','" + newFirefighter[21] + "')";
+                
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                }
+
+                cnn.Close();
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd przy dodawaniu strażaka. Sprawdź czy zostało uzupelnione wszystko co najwazniejsze");
+
+            }
+
+        }
+
 
         #region To Loading Previous Departure Card
         public static string SelectPreviousDepartureCard(int Year, int NumberDepartureCard, string What)

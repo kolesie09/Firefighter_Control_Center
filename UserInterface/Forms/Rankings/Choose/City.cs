@@ -13,15 +13,16 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
 {
     public partial class City : Form
     {
-        public City()
+        public string Year;
+        public City(string year)
         {
             InitializeComponent();
+            Year = year;
         }
 
         private void City_Load(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            string Year = dt.ToString("yyyy");
+            
 
             dataGridView1.DataSource = SqlConnector.Ranking("city", Year);
         }
