@@ -9,7 +9,12 @@ namespace FirefighterControlCenter.UserInterface.Programs
 {
     public class HelpPrograms
     {
-        
+        public static string CreateNick(string name, string lastname)
+        {
+            string nick = lastname + " " + name.Substring(0, 1);
+
+            return nick;
+        }
 
         public static string NextExams(string Exams, int Year)
         {

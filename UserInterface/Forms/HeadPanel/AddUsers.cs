@@ -16,34 +16,6 @@ namespace FirefighterControlCenter.UserInterface.Forms.HeadPanels
 {
     public partial class AddUsers : Form
     {
-
-        
-
-        string Nick;
-        string Name;
-        string LastName;
-        string DateBirth;
-        string DateAdmission;
-        string DateTraining;
-        string DateMedicalExamsDone;
-        string NextMedicalExams;
-        string ChamberExams;
-        string NextChamberExams;
-        string Status;
-        string FirstAidCourse;
-        string KatB;
-        string KatC;
-        string TechnicalRescue;
-        string WaterRescue;
-        string ChemicalEcological;
-        string Commander;
-        string Head;
-        string AltitudeRescue;
-        string AirAmbulanceService;
-
-
-
-
         public AddUsers()
         {
             InitializeComponent();
