@@ -25,7 +25,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         public Rankings()
         {
             InitializeComponent();
-            Firefighter kutas = new Firefighter(changeYear.Text);
+           
         }
         
         

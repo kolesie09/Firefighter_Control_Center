@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace FirefighterControlCenter.UserInterface
 {
-    public class HelpersDepartureCard
+    public class HelpersDepartureCard : Form
     {
+        
 
         public static string CalcTime(string hourdeparture, string minutedeparture, string hourarrival, string minutearrival)
         {
@@ -194,6 +195,12 @@ namespace FirefighterControlCenter.UserInterface
             }
             
             return a.ToString() + b.ToString();
+        }
+
+        public static void UpdateDC()
+        {
+            
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirefighterControlCenter.DataAccessLayer;
+using FirefighterControlCenter.UserInterface.Forms.Head;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {

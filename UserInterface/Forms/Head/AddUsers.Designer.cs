@@ -1,4 +1,4 @@
-﻿namespace FirefighterControlCenter.UserInterface.Forms.HeadPanels
+﻿namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
     partial class AddUsers
     {

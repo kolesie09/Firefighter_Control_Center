@@ -12,7 +12,7 @@ using FirefighterControlCenter.DataAccessLayer;
 using FirefighterControlCenter.UserInterface.Programs;
 using UserInterface;
 
-namespace FirefighterControlCenter.UserInterface.Forms.HeadPanels
+namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
     public partial class AddUsers : Form
     {
@@ -31,21 +31,21 @@ namespace FirefighterControlCenter.UserInterface.Forms.HeadPanels
                     data.Add(TBLastName.Text + " " + TBName.Text.Substring(0, 1)); // 0 - Dodawanie Nicku
                     data.Add(TBName.Text); // 1 - Dodawanie Imienia
                     data.Add(TBLastName.Text); // 2 - Dodawanie nazwiska
-            DTPBirth.Format = DateTimePickerFormat.Custom;
-            DTPBirth.CustomFormat = "yyyy-MM-dd";
+                    DTPBirth.Format = DateTimePickerFormat.Custom;
+                    DTPBirth.CustomFormat = "yyyy-MM-dd";
                     data.Add(DTPBirth.Text); // 3 - Dodawanie daty urodzin
-            DTPAdmission.Format = DateTimePickerFormat.Custom;
-            DTPAdmission.CustomFormat = "yyyy-MM-dd";
+                    DTPAdmission.Format = DateTimePickerFormat.Custom;
+                    DTPAdmission.CustomFormat = "yyyy-MM-dd";
                     data.Add(DTPAdmission.Text); // 4 - Dodawanie daty wstąpienia
-            DTPTraining.Format = DateTimePickerFormat.Custom;
-            DTPTraining.CustomFormat = "yyyy-MM-dd";
+                    DTPTraining.Format = DateTimePickerFormat.Custom;
+                    DTPTraining.CustomFormat = "yyyy-MM-dd";
                     data.Add(DTPTraining.Text); // 5 - Dodawanie daty szkoleń
-            DTPMedicalExamsDone.Format = DateTimePickerFormat.Custom;
-            DTPMedicalExamsDone.CustomFormat = "yyyy-MM-dd";
+                    DTPMedicalExamsDone.Format = DateTimePickerFormat.Custom;
+                    DTPMedicalExamsDone.CustomFormat = "yyyy-MM-dd";
                     data.Add(DTPMedicalExamsDone.Text); // 6 - Dodawanie daty badania lekarskiego
                     data.Add(HelpPrograms.NextExams(DTPMedicalExamsDone.Text, 3)); // 7 - Dodawanie daty następnego badania lekarskiego
-            DTPChamberExams.Format = DateTimePickerFormat.Custom;
-            DTPChamberExams.CustomFormat = "yyyy-MM-dd";
+                    DTPChamberExams.Format = DateTimePickerFormat.Custom;
+                    DTPChamberExams.CustomFormat = "yyyy-MM-dd";
                     data.Add(DTPChamberExams.Text); // 8 - Dodawanie daty zaliczenia komory
                     data.Add(HelpPrograms.NextExams(DTPChamberExams.Text, 5)); // 9 - Dodawanie daty następnego zaliczenia komory
                     data.Add(CBStatus.Text); // 10 - Dodawanie statusu strażaka
@@ -65,6 +65,7 @@ namespace FirefighterControlCenter.UserInterface.Forms.HeadPanels
                     try
                     {
                         SqlConnector.InsertAddNewFirefighter(data);
+                        MessageBox.Show("Prawidłowo zapisano nowego użytkownika");
                     }
                     catch
                     {

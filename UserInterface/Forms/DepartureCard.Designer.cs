@@ -1380,7 +1380,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.GroupBox GBPrimary;
         private System.Windows.Forms.Label LNextDepartureCard;
-        private System.Windows.Forms.TextBox TBNumberDepartureCard;
         private System.Windows.Forms.Label LPreviousNumberDepartureCard;
         private System.Windows.Forms.Label LPreviousDepartureCard;
         private System.Windows.Forms.Label LHourArrival;
@@ -1478,5 +1477,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.CheckBox CB6;
         private System.Windows.Forms.CheckBox CB8;
         private System.Windows.Forms.CheckBox CB7;
+        public System.Windows.Forms.TextBox TBNumberDepartureCard;
     }
 }

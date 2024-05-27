@@ -1,5 +1,5 @@
 ﻿
-namespace FirefighterControlCenter.UserInterface
+namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
     partial class Login
     {
@@ -42,7 +42,7 @@ namespace FirefighterControlCenter.UserInterface
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(254, 20);
             this.TBLogin.TabIndex = 0;
-            this.TBLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLogin_KeyPress);
+            this.TBLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBLogin_KeyDown);
             // 
             // TBPassword
             // 
@@ -50,7 +50,7 @@ namespace FirefighterControlCenter.UserInterface
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.Size = new System.Drawing.Size(254, 20);
             this.TBPassword.TabIndex = 1;
-            this.TBPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBPassword_KeyPress);
+            this.TBPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBPassword_KeyDown);
             // 
             // label1
             // 

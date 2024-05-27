@@ -1365,7 +1365,40 @@ namespace FirefighterControlCenter.DataAccessLayer
             return ID;
         }
 
+        public static List<Cylinder> CylinderGaragea()
+        {
+            var list = new List<Cylinder>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
 
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT cylinder.Number, cylinder.Amount_air, garage.Car_operational_number, status_breathing_apparatus.Name FROM cylinder, garage, status_breathing_apparatus WHERE cylinder.ID_Status = status_breathing_apparatus.ID_status AND cylinder.ID_Truck = garage.ID_garage ORDER BY cylinder.Number ASC;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cylinder History = new Cylinder
+                        {
+                            Number = int.Parse(reader["Number"].ToString()),
+                            Firetruck = reader["Car_operational_number"].ToString(),
+                            Status = reader["Name"].ToString(),
+                            Air = int.Parse(reader["Amount_air"].ToString())
+                        };
+                        list.Add(History);
+                    }
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return list;
+        }
 
         public static void InsertAddNewFirefighter(List<string> newFirefighter)
         {
@@ -1396,6 +1429,67 @@ namespace FirefighterControlCenter.DataAccessLayer
 
             }
 
+        }
+
+        public static List<string> ReadFirefighters(string Nick)
+        {
+            var list = new List<string>();
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT firefighter.name, firefighter.last_name, firefighter.Date_birth, firefighter.Date_admission, training.Date_training, firefighter.Medical_exams_done, training.Chamber_exams_done, firefighter_status.Name, firefighter.Kat_B, firefighter.Kat_C, training.Commander, training.Head, training.First_aid_course, training.air_ambulance_service, training.Technical_rescue, training.Water_rescue, training.Chemical_ecological, training.Altitude_rescue, training.Helsman FROM firefighter, training, firefighter_status where firefighter.Nick = '"+Nick+"' AND firefighter.ID_firefighter = training.ID_firefighter AND firefighter.ID_Status = firefighter_status.ID_firefighter_status;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+
+
+                        list.Add(reader["name"].ToString());
+                        list.Add(reader["last_name"].ToString());
+                        list.Add(reader["Date_birth"].ToString());
+                        list.Add(reader["Date_admission"].ToString());
+                        list.Add(reader["Date_training"].ToString());
+                        list.Add(reader["Medical_exams_done"].ToString());
+                        list.Add(reader["Chamber_exams_done"].ToString());
+                        list.Add(reader["Name"].ToString());
+                        list.Add(reader["Kat_B"].ToString());
+                        list.Add(reader["Kat_C"].ToString());
+                        list.Add(reader["Commander"].ToString());
+                        list.Add(reader["Head"].ToString());
+                        list.Add(reader["First_aid_course"].ToString());
+                        list.Add(reader["air_ambulance_service"].ToString());
+                        list.Add(reader["Technical_rescue"].ToString());
+                        list.Add(reader["Water_rescue"].ToString());
+                        list.Add(reader["Chemical_ecological"].ToString());
+                        list.Add(reader["Altitude_rescue"].ToString());
+                        list.Add(reader["Helsman"].ToString());
+                       
+                            
+
+
+
+                        
+                    }
+
+
+                }
+                cnn.Close();
+
+
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Brak informacji o wybranej osobie");
+            }
+            return list;
         }
 
 
@@ -1867,7 +1961,32 @@ namespace FirefighterControlCenter.DataAccessLayer
         }
         #endregion
 
+        public static string SelectPassword(string Login)
+        {
+            string Password = "";
+            string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+            MySqlConnection cnn;
+            try
+            {
 
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT Password  FROM `users` WHERE `Login` LIKE '"+Login+"'";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    Password = reader["Password"].ToString();
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return Password;
+        }
 
 
 

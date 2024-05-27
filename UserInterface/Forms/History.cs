@@ -20,7 +20,11 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void History_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = SqlConnector.History_departure_cards();
+            if(dataGridView1.DataSource == null)
+            {
+                dataGridView1.DataSource = SqlConnector.History_departure_cards();
+            }
+            
         }
 
     }

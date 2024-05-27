@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirefighterControlCenter.UserInterface.Forms;
+using FirefighterControlCenter.UserInterface.Programs;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace FirefighterControlCenter.UserInterface
+namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
     public partial class Login : Form
     {
+        
         public Login()
         {
             InitializeComponent();
             TBPassword.PasswordChar = '*';
+            //TBPassword.KeyDown += new KeyEventHandler(TBPassword_KeyDown);
         }
 
         private void signIn_Click(object sender, EventArgs e)
@@ -46,21 +52,11 @@ namespace FirefighterControlCenter.UserInterface
 
         }
 
-        private void TBPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)13)
-            {
-                SignIn(TBLogin.Text, TBPassword.Text);
-            }
-            else if(e.KeyChar == (char)32)
-            {
-                SignIn("tytus", "kutangpan");
-            }
-        }
+        
 
         private void SignIn(string username, string password)
         {
-            if(username == "tytus" && password == "kutangpan")
+            if (HelpPrograms.CheckPassword(username, password) == true)
             {
                 CloseForm();
                 HeadPanel frm = new HeadPanel();
@@ -73,16 +69,16 @@ namespace FirefighterControlCenter.UserInterface
             }
         }
 
-        private void TBLogin_KeyPress(object sender, KeyPressEventArgs e)
+        private void TBPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == (char)13)
-            {
-                SignIn(TBLogin.Text, TBPassword.Text);
-            }
-            else if (e.KeyChar == (char)32)
-            {
-                SignIn("tytus", "kutangpan");
-            }
+            if (e.KeyCode == Keys.Enter) 
+                { SignIn(TBLogin.Text, TBPassword.Text); e.Handled = true; e.SuppressKeyPress = true; }
+        }
+
+        private void TBLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            { SignIn(TBLogin.Text, TBPassword.Text); e.Handled = true; e.SuppressKeyPress = true; }
         }
     }
 }
