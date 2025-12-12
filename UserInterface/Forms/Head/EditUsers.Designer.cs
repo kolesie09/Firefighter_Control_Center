@@ -39,7 +39,6 @@
             this.DTPChamberExams = new System.Windows.Forms.DateTimePicker();
             this.LChamberExamsDone = new System.Windows.Forms.Label();
             this.LStatus = new System.Windows.Forms.Label();
-            this.CBStatus = new System.Windows.Forms.ComboBox();
             this.LKatC = new System.Windows.Forms.Label();
             this.CBKatC = new System.Windows.Forms.CheckBox();
             this.CBKatB = new System.Windows.Forms.CheckBox();
@@ -69,6 +68,7 @@
             this.LLastName = new System.Windows.Forms.Label();
             this.TBName = new System.Windows.Forms.TextBox();
             this.LName = new System.Windows.Forms.Label();
+            this.CBStatus = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LDateBirth
@@ -171,20 +171,6 @@
             this.LStatus.TabIndex = 14;
             this.LStatus.Text = "Status";
             this.LStatus.UseWaitCursor = true;
-            // 
-            // CBStatus
-            // 
-            this.CBStatus.FormattingEnabled = true;
-            this.CBStatus.Items.AddRange(new object[] {
-            "Czynny",
-            "Honorowy",
-            "Młodzieżowa Drużyna Pożarnicza",
-            "Wspierający"});
-            this.CBStatus.Location = new System.Drawing.Point(160, 300);
-            this.CBStatus.Name = "CBStatus";
-            this.CBStatus.Size = new System.Drawing.Size(200, 21);
-            this.CBStatus.Sorted = true;
-            this.CBStatus.TabIndex = 15;
             // 
             // LKatC
             // 
@@ -412,8 +398,9 @@
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(290, 59);
             this.Add.TabIndex = 38;
-            this.Add.Text = "Edytuj użytkownika";
+            this.Add.Text = "Edytuj strażaka";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // CBNick
             // 
@@ -471,11 +458,20 @@
             this.LName.Text = "Imie";
             this.LName.UseWaitCursor = true;
             // 
+            // CBStatus
+            // 
+            this.CBStatus.FormattingEnabled = true;
+            this.CBStatus.Location = new System.Drawing.Point(160, 299);
+            this.CBStatus.Name = "CBStatus";
+            this.CBStatus.Size = new System.Drawing.Size(199, 21);
+            this.CBStatus.TabIndex = 46;
+            // 
             // EditUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 652);
+            this.Controls.Add(this.CBStatus);
             this.Controls.Add(this.TBLastName);
             this.Controls.Add(this.LLastName);
             this.Controls.Add(this.TBName);
@@ -505,7 +501,6 @@
             this.Controls.Add(this.LKatB);
             this.Controls.Add(this.CBKatC);
             this.Controls.Add(this.LKatC);
-            this.Controls.Add(this.CBStatus);
             this.Controls.Add(this.LStatus);
             this.Controls.Add(this.DTPChamberExams);
             this.Controls.Add(this.LChamberExamsDone);
@@ -538,7 +533,6 @@
         private System.Windows.Forms.DateTimePicker DTPChamberExams;
         private System.Windows.Forms.Label LChamberExamsDone;
         private System.Windows.Forms.Label LStatus;
-        private System.Windows.Forms.ComboBox CBStatus;
         private System.Windows.Forms.Label LKatC;
         private System.Windows.Forms.CheckBox CBKatC;
         private System.Windows.Forms.CheckBox CBKatB;
@@ -568,6 +562,7 @@
         private System.Windows.Forms.Label LLastName;
         private System.Windows.Forms.TextBox TBName;
         private System.Windows.Forms.Label LName;
+        private System.Windows.Forms.ComboBox CBStatus;
     }
 
 }

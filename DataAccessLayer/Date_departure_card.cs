@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FirefighterControlCenter.DataAccessLayer
+﻿namespace FirefighterControlCenter.DataAccessLayer
 {
     public class Date_departure_card
     {
@@ -18,6 +12,6 @@ namespace FirefighterControlCenter.DataAccessLayer
         public string TimeDeparture { get; set; }
         public string PCity { get; set; }
         public string PStreet { get; set; }
-        
+
     }
 }

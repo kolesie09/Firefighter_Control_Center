@@ -144,6 +144,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             // 
             // btn_cylinder
             // 
+            this.btn_cylinder.Enabled = false;
             this.btn_cylinder.Location = new System.Drawing.Point(648, 12);
             this.btn_cylinder.Name = "btn_cylinder";
             this.btn_cylinder.Size = new System.Drawing.Size(146, 37);

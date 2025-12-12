@@ -93,6 +93,7 @@ namespace FirefighterControlCenter.UserInterface.Forms.Head
             this.Controls.Add(this.TBPassword);
             this.Controls.Add(this.TBLogin);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hasło";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);

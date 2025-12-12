@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-
-
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FirefighterControlCenter.UserInterface.Forms;
-using FirefighterControlCenter.UserInterface.Forms.Head;
 
 namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
@@ -30,6 +19,30 @@ namespace FirefighterControlCenter.UserInterface.Forms.Head
         private void EditUser_Click(object sender, EventArgs e)
         {
             EditUsers frm = new EditUsers();
+            frm.Show();
+        }
+
+        private void btn_vehicle_Click(object sender, EventArgs e)
+        {
+            CarManagement frm = new CarManagement();
+            frm.Show();
+        }
+
+        private void BtnRateManagement_Click(object sender, EventArgs e)
+        {
+            RateManagement frm = new RateManagement();
+            frm.Show();
+        }
+
+        private void BtnEmailManagement_Click(object sender, EventArgs e)
+        {
+            EmailManagement frm = new EmailManagement();
+            frm.Show();
+        }
+
+        private void BtnEquivalent_Click(object sender, EventArgs e)
+        {
+            Equivalent frm = new Equivalent();
             frm.Show();
         }
     }

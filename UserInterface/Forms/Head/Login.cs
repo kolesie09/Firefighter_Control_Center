@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
+﻿using FirefighterControlCenter.UserInterface.Programs;
+using System;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FirefighterControlCenter.UserInterface.Forms;
-using FirefighterControlCenter.UserInterface.Programs;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FirefighterControlCenter.UserInterface.Forms.Head
 {
     public partial class Login : Form
     {
-        
+
         public Login()
         {
             InitializeComponent();
             TBPassword.PasswordChar = '*';
-            //TBPassword.KeyDown += new KeyEventHandler(TBPassword_KeyDown);
+
         }
 
         private void signIn_Click(object sender, EventArgs e)
@@ -52,7 +42,7 @@ namespace FirefighterControlCenter.UserInterface.Forms.Head
 
         }
 
-        
+
 
         private void SignIn(string username, string password)
         {
@@ -71,8 +61,8 @@ namespace FirefighterControlCenter.UserInterface.Forms.Head
 
         private void TBPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
-                { SignIn(TBLogin.Text, TBPassword.Text); e.Handled = true; e.SuppressKeyPress = true; }
+            if (e.KeyCode == Keys.Enter)
+            { SignIn(TBLogin.Text, TBPassword.Text); e.Handled = true; e.SuppressKeyPress = true; }
         }
 
         private void TBLogin_KeyDown(object sender, KeyEventArgs e)
