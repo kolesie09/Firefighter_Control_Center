@@ -2,6 +2,7 @@
 using FirefighterControlCenter.UserInterface.Programs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FirefighterControlCenter.UserInterface.Forms
@@ -35,7 +36,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private ProgramsDepartureCard programs;
 
 
-        MonitorZasobow monitor = new MonitorZasobow();
+      
 
 
         public DepartureCardv2()
@@ -563,6 +564,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     #endregion
                     #region Place Departure
                     PlaceInformation.Add(CBCity.Text);
+
+                    if (CBStreet.Text.Contains('/') || CBStreet.Text.Contains('\u005C'))
+                    {
+                        error++;
+                        MessageBox.Show("Sprawdź czy prawidłowo wpisałeś ulicę wyjazdu \n Ulica NIE POWINNA zawierać numeru bloku/domu i numeru mieszkania\n Przykład:\nNIEPRAWIDŁOWE: ul. Gorzowska 4/1\nPRAWIDŁOWE: ul. Gorzowska");
+                    }
+                    else
+                    {
+                        PlaceInformation.Add(CBStreet.Text);
+                    }
                     PlaceInformation.Add(CBStreet.Text);
                     PlaceInformation.Add(CBTrip.Text);
 
@@ -628,7 +639,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
                         if (programs.PrintPreviousDepartureCard(DepartureCard_BasicInformation, DepartureCard_PlaceDeparture, PreviousDepartureCard_PlaceDeparture, DepartureCard_ReasonDeparture, PreviousDepartureCard_ReasonDeprature, DepartureCard_Vehicle, PreviousDepartureCard_Vehicle, Commander))
                         {
-                            programs.PlaySoundButton_Click();
+                            
                             MessageBox.Show("Wszystko wykonane!\nPlik już się drukuje\nMail już wysłany\nRanking uzupełniony :)");
                         }
                         else
@@ -650,7 +661,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
                         if (programs.PrintNewDepartureCard(DepartureCard_BasicInformation, DepartureCard_PlaceDeparture, DepartureCard_ReasonDeparture, DepartureCard_Vehicle, Commander))
                         {
-                            programs.PlaySoundButton_Click();
+                            
                             MessageBox.Show("Wszystko wykonane!\nPlik już się drukuje\nMail już wysłany\nRanking uzupełniony :)");
 
                             int ID_Reason = SqlConnectorv2.SelectReason(CBTypeIncident.Text, CBIncident.Text);

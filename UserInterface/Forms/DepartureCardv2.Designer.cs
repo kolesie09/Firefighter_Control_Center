@@ -62,7 +62,6 @@
             this.Print = new System.Windows.Forms.Button();
             this.CBCommander = new System.Windows.Forms.ComboBox();
             this.LCommander = new System.Windows.Forms.Label();
-            this.btnTest30x = new System.Windows.Forms.Button();
             this.GBIncident.SuspendLayout();
             this.GBPlace.SuspendLayout();
             this.GBPrimary.SuspendLayout();
@@ -604,23 +603,12 @@
             this.LCommander.TabIndex = 26;
             this.LCommander.Text = "Dowódca :";
             // 
-            // btnTest30x
-            // 
-            this.btnTest30x.Location = new System.Drawing.Point(982, 66);
-            this.btnTest30x.Name = "btnTest30x";
-            this.btnTest30x.Size = new System.Drawing.Size(62, 27);
-            this.btnTest30x.TabIndex = 27;
-            this.btnTest30x.Text = "btnTest30x";
-            this.btnTest30x.UseVisualStyleBackColor = true;
-            this.btnTest30x.Click += new System.EventHandler(this.btnTest30x_Click);
-            // 
             // DepartureCardv2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1268, 695);
-            this.Controls.Add(this.btnTest30x);
             this.Controls.Add(this.LCommander);
             this.Controls.Add(this.CBCommander);
             this.Controls.Add(this.Print);
@@ -679,6 +667,5 @@
         private System.Windows.Forms.Button Print;
         private System.Windows.Forms.ComboBox CBCommander;
         private System.Windows.Forms.Label LCommander;
-        private System.Windows.Forms.Button btnTest30x;
     }
 }

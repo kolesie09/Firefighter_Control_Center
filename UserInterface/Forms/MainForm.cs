@@ -65,9 +65,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_info_panel_Click(object sender, EventArgs e)
         {
-            CloseForm();
-            DepartureCard frm = new DepartureCard();
-            Show(frm);
+            //CloseForm();
+            //DepartureCard frm = new DepartureCard();
+            //Show(frm);
         }
         private void btn_cylinder_Click(object sender, EventArgs e)
         {

@@ -10,7 +10,39 @@ namespace FirefighterControlCenter.DataAccessLayer
 {
     public class SqlConnectorv2
     {
-        private const string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+        private const string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
+
+        public static string SelectPasswordEmail()
+        {
+
+            string Password;
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT PASSWORD FROM `password_to_email` WHERE `ID` = 1;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    Password = reader["PASSWORD"].ToString();
+                }
+                cnn.Close();
+
+                return Password;
+            }
+            catch
+            {
+                return "0";
+            }
+            
+
+        }
+
+
 
         #region Departure Card - Basic Information
         public static string SelectLastNumberDeparture(int Year)
@@ -937,7 +969,7 @@ namespace FirefighterControlCenter.DataAccessLayer
                 {
                     var reader = command.ExecuteReader();
                     reader.Read();
-                    reader.GetString("DepartureCard_ID");
+                    reader.GetInt32("DepartureCard_ID");
                 }
                 cnn.Close();
             }

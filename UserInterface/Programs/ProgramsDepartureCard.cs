@@ -24,8 +24,6 @@ namespace FirefighterControlCenter.UserInterface.Programs
         }
 
 
-        public string PrintAdress;
-
 
         
         public void Email_send(string Title, string Address)
@@ -52,7 +50,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "pxumpdywjlcteycn");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", SqlConnectorv2.SelectPasswordEmail());
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
@@ -90,7 +88,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", "pxumpdywjlcteycn");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", SqlConnectorv2.SelectPasswordEmail());
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
@@ -269,6 +267,10 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 #endregion
 
                 #region Vehicle
+
+
+
+
                 ID_Vehicle_New = SelectedFirefighterFromTruck(Vehicle_New);
                 ID_Vehicle_Old = SelectedFirefighterFromTruck(Vehicle_Old);
                 ID_Commander = SqlConnectorv2.SelectIdFireFighter(Commander);
@@ -287,11 +289,11 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 }
                 catch { MessageBox.Show("Wystąpił problem z drukowaniem.\n Sprawdź:\n1.Czy drukarka jest włączona?\n2.Czy jest ustawiona jako domyślna?\n3.Czy ma toner/tusz?"); }
                 test++;
-                UpdatePC(ID_Vehicle_New, ID_Vehicle_Old, ID_Reason_New, ID_Reason_Old, Year, Month, Time);
-                test++;
+               
+                
                 #endregion
 
-                SqlConnectorv2.SQLVoid($"UPDATE `departure_card` SET `Departure_date`= '{NewBasic[5]}',`Hour_departure`= '{NewBasic[1]}:{NewBasic[2]}',`Hour_arrival`='{NewBasic[3]}:{NewBasic[4]}',`ID_place_departure`= {ID_Place_New},`ID_reason_departure`= {ID_Reason_New},`ID_Departure_commander`= {ID_Commander},`ID_499z01`= 1,`ID_499z15`= 1,`ID_499z18`= 1,`ID_499z19`= 1,`Year`= {Year},`Mounth`= {Month} ,`Hour`= {Time},`Trip`= {NewPlace[2]} WHERE departure_card.ID_departure_card = {ID_Departure_card}");
+                SqlConnectorv2.SQLVoid($"UPDATE `departure_card` SET `Departure_date`= '{NewBasic[5]}',`Hour_departure`= '{NewBasic[1]}:{NewBasic[2]}',`Hour_arrival`='{NewBasic[3]}:{NewBasic[4]}',`ID_place_departure`= {ID_Place_New},`ID_reason_departure`= {ID_Reason_New},`ID_Departure_commander`= {ID_Commander},`ID_499z01`= 1,`ID_499z15`= 1,`ID_499z18`= 1,`ID_499z19`= 1,`Year`= {Year},`Mounth`= {Month} ,`Hour`= {Time},`Trip`= {NewPlace[3]} WHERE departure_card.ID_departure_card = {ID_Departure_card}");
                 test++;
                 test++;
                 AddVehicleToDepartureCard(ID_Vehicle_New, ID_Departure_card, Year);
@@ -429,63 +431,6 @@ namespace FirefighterControlCenter.UserInterface.Programs
         #endregion
         #region Ranking
      
-      
-       
-
-        private void UpdatePC(List<int> ID_Vehicle_New, List<int> ID_Vehicle_Old, int ID_Reason_New, int ID_Reason_Old, int Year, int Month, int Time)
-        {
-            if (ID_Vehicle_New.Count >= ID_Vehicle_Old.Count)
-            {
-                while (ID_Vehicle_Old.Count < ID_Vehicle_New.Count) { ID_Vehicle_Old.Add(0); }
-                for (int i = 0; i < ID_Vehicle_New.Count; i++)
-                {
-
-                    if (ID_Vehicle_New[i] != ID_Vehicle_Old[i] && ID_Vehicle_Old[i] != 0)
-                    {
-
-
-                        UpdatePayCheck(ID_Vehicle_Old, Year, Month, Time, ID_Reason_Old, false);
-                        UpdatePayCheck(ID_Vehicle_New, Year, Month, Time, ID_Reason_New, true);
-                    }
-                    else if (ID_Vehicle_New[i] == ID_Vehicle_Old[i])
-                    {
-                        continue;
-                    }
-                    else
-                    {
-
-                        UpdatePayCheck(ID_Vehicle_New, Year, Month, Time, ID_Reason_New, true);
-                    }
-                }
-            }
-            else
-            {
-                while (ID_Vehicle_Old.Count < ID_Vehicle_New.Count) { ID_Vehicle_New.Add(0); }
-                for (int i = 0; i < ID_Vehicle_Old.Count; i++)
-                {
-
-                    if (ID_Vehicle_New[i] != ID_Vehicle_Old[i] && ID_Vehicle_New[i] != 0)
-                    {
-
-
-                        UpdatePayCheck(ID_Vehicle_Old, Year, Month, Time, ID_Reason_Old, false);
-                        UpdatePayCheck(ID_Vehicle_New, Year, Month, Time, ID_Reason_New, true);
-                    }
-                    else if (ID_Vehicle_New[i] == ID_Vehicle_Old[i])
-                    {
-                        continue;
-                    }
-                    else
-                    {
-
-                        UpdatePayCheck(ID_Vehicle_Old, Year, Month, Time, ID_Reason_Old, false);
-                    }
-                }
-            }
-        }
-
-
-
         #endregion
 
 
@@ -529,30 +474,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
             }
         }
 
-        private void UpdatePayCheck(List<int> ID_Vehicle, int Year, int Month, int Time, int ID_Reason, bool plusminus)
-        {
-            for (int i = 0; i < ID_Vehicle.Count; i++)
-            {
-                List<string> Firefighters = new List<string>();
-
-                Firefighters = SqlConnectorv2.GetFirefighter(ID_Vehicle[i]);
-
-                CustomHashSet customHashSet = new CustomHashSet();
-
-                foreach (var element in Firefighters)
-                {
-                    customHashSet.Add(element);
-                }
-
-                Firefighters = new List<string>(customHashSet);
-
-
-                for (int j = 0; j < customHashSet.Count; j++)
-                {
-                    SqlConnectorv2.UpdatePayCheck(SqlConnectorv2.SelectIdFireFighter(Firefighters[j]), Year, Month, Time, ID_Reason, plusminus);
-                }
-            }
-        }
+        
        
 
         #endregion
@@ -699,8 +621,8 @@ public class Testy
         ID_Vehicle_Old.Add(547);
         ID_Vehicle_Old.Add(548);
 
-        int NumberDepartureCard = 76;
-        int Year = 2024;
+        //int NumberDepartureCard = 76;
+        //int Year = 2024;
 
 
 

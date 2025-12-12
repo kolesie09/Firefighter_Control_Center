@@ -341,7 +341,6 @@
     </Compile>
     <Compile Include="Programs\Passwords.cs" />
     <Compile Include="Programs\CustomHashSet.cs" />
-    <Compile Include="Programs\MonitorZasobów.cs" />
     <Compile Include="Programs\PDF.cs" />
     <Compile Include="Forms\Cylinder.cs">
       <SubType>Form</SubType>
@@ -522,7 +521,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hymel.wav" />
     <Content Include="logo.ico" />
     <None Include="Resources\strażak idący z wężem.gif" />
   </ItemGroup>

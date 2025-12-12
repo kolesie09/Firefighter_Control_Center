@@ -20,7 +20,7 @@ namespace UserInterface
 
             try
             {
-                string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+                string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
                 MySqlConnection cnn;
                 cnn = new MySqlConnection(connectionString);
                 cnn.Open();
