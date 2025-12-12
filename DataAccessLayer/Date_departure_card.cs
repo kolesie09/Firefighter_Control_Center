@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FirefighterControlCenter.DataAccessLayer
+﻿namespace FirefighterControlCenter.DataAccessLayer
 {
     public class Date_departure_card
     {
-        //public string Imie { get; set; }
-        public string Miejscowosc { get; set; }
-        //public string Ulica { get; set; }
-        //public string Typ_powodu { get; set; }
-        //public string Powod { get; set; }
-        //public string Naziwsko { get; set; }
+        public int NumberDepartureCards { get; set; }
+        public string DateDepartureCard { get; set; }
+        public int MountDepartureCard { get; set; }
+        public string MountName { get; set; }
+        public int YearDepartureCard { get; set; }
+        public string HourDepartureCard { get; set; }
+        public string HourArrivalCard { get; set; }
+        public string TimeDeparture { get; set; }
+        public string PCity { get; set; }
+        public string PStreet { get; set; }
+
     }
 }

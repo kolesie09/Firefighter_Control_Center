@@ -1,28 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FirefighterControlCenter.UserInterface.Forms.Head;
+using FirefighterControlCenter.UserInterface.Programs;
+using System;
 using System.Windows.Forms;
-using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
+
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
+
+            // Pobieranie numeru wersji
+            var version = "1.0.25.4";
+
+
+            // Jeśli chcesz wyświetlić wersję w Label
+            tsslVersion.Text = "Wersja: " + version;
         }
 
         #region Region btn
         private void btn_departure_card_Click(object sender, EventArgs e)
         {
             CloseForm();
-            DepartureCard frm = new DepartureCard();
+            DepartureCardv2 frm = new DepartureCardv2();
             Show(frm);
         }
 
@@ -47,7 +50,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
         }
         private void btn_head_panel_Click(object sender, EventArgs e)
         {
-            
+
             Login login = new Login();
             login.Show();
         }
@@ -59,11 +62,12 @@ namespace FirefighterControlCenter.UserInterface.Forms
             Show(frm);
         }
 
+
         private void btn_info_panel_Click(object sender, EventArgs e)
         {
-            CloseForm();
-            InfoPanel frm = new InfoPanel();
-            Show(frm);
+            //CloseForm();
+            //DepartureCard frm = new DepartureCard();
+            //Show(frm);
         }
         private void btn_cylinder_Click(object sender, EventArgs e)
         {
@@ -78,11 +82,11 @@ namespace FirefighterControlCenter.UserInterface.Forms
         #region Region dla voidow
         private void Show(Form frm)
         {
-            
+
             frm.TopLevel = false;
             frm.Visible = true;
             frm.FormBorderStyle = FormBorderStyle.None;
-            
+
             frm.Dock = DockStyle.Fill;
             pMain.Controls.Add(frm);
         }
@@ -98,10 +102,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DepartureCard frm = new DepartureCard();
+            DepartureCardv2 frm = new DepartureCardv2();
             Show(frm);
+
+            HelpPrograms help = new HelpPrograms();
+            help.CheckReview();
         }
 
-        
+
     }
 }

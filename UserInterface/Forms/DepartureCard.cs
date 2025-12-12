@@ -59,6 +59,8 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void DepartureCard_Load(object sender, EventArgs e)
         {
+            
+
 
             DTPDepartureCard.Value = DateTime.Now;
             DTPDepartureCard.CustomFormat = "yyyy";
@@ -237,6 +239,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private void TBStreet_TextChanged(object sender, EventArgs e)
         {
             CBStreet.Text = "";
+            
+            if(TBStreet.Text != "")
+            {
+                if(TBStreet.Text[TBStreet.Text.Length - 1] == '/' || TBStreet.Text[TBStreet.Text.Length - 1] == '\\')
+                {
+                    TBStreet.Text = TBStreet.Text.Remove(TBStreet.Text.Length - 1);
+                    MessageBox.Show("Nie podajemy numeru mieszkania !!!!\nNie używamy takich znaków jak '/' i '\\'");
+                }
+            }
+            
         }
 
         
@@ -1289,6 +1301,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             string place = "";
             if (PStreet != "")
             {
+
                 place = PCity + ", ul. " + PStreet;
             }
             else
@@ -1661,11 +1674,20 @@ namespace FirefighterControlCenter.UserInterface.Forms
         }
         private void CreateNewDepartureCard()
         {
-            
+            //Date_departure_card date = new Date_departure_card
+            //{
+            //    NumberDepartureCards = int.Parse(TBNumberDepartureCard.Text),
+            //    DateDepartureCard = DTPDepartureCard.Text,
+            //    MountDepartureCard = int.Parse(DTPDepartureCard.Text),
+            //    MountName = "",
+            //    YearDepartureCard = int.Parse(DTPDepartureCard.Text),
+
+
+
+            //};
+
             #region ADD data to departure_card
-            #region Number
-                int NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
-            #endregion
+                int  NumberDepartureCard = int.Parse(TBNumberDepartureCard.Text);
             #region Data
                 DTPDepartureCard.CustomFormat = "dd.MM.yyyy";
                 DTPDepartureCard.Format = DateTimePickerFormat.Custom;

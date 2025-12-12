@@ -1,42 +1,31 @@
-﻿using FirefighterControlCenter.UserInterface.Forms.Ranking.Choose;
+﻿using FirefighterControlCenter.DataAccessLayer;
+using FirefighterControlCenter.UserInterface.Forms.Ranking.Choose;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime;
 using System.Windows.Forms;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-using FirefighterControlCenter.DataAccessLayer;
-using System.Security.Cryptography.X509Certificates;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
     public partial class Rankings : Form
     {
-        
+
 
         public string Year;
         public string Choose;
         public Rankings()
         {
             InitializeComponent();
-            Firefighter kutas = new Firefighter(changeYear.Text);
+
         }
-        
-        
+
+
 
         #region Region dla voidow
         private void Show(string choose)
         {
-            
-            
-            if(choose == "Firefighter")
-            { 
+
+
+            if (choose == "Firefighter")
+            {
                 Firefighter frm = new Firefighter(changeYear.Text);
                 frm.Size = pRanking.Size;
                 frm.TopLevel = false;
@@ -55,7 +44,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 frm.Dock = DockStyle.Fill;
                 pRanking.Controls.Add(frm);
             }
-            else if(choose == "Incident")
+            else if (choose == "Incident")
             {
                 Incident frm = new Incident(changeYear.Text);
                 frm.Size = pRanking.Size;
@@ -98,7 +87,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_firefighter_Click(object sender, EventArgs e)
         {
-            
+
             CloseForm();
             Choose = "Firefighter";
             Show(Choose);
@@ -137,7 +126,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             AddYear();
             Year = DateTime.Now.Year.ToString();
             changeYear.Text = Year;
-            
+
         }
 
         private void changeYear_SelectedIndexChanged(object sender, EventArgs e)

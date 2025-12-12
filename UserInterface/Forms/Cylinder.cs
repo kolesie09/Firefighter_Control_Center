@@ -1,13 +1,7 @@
-﻿using System;
+﻿using FirefighterControlCenter.DataAccessLayer;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
@@ -237,9 +231,9 @@ namespace FirefighterControlCenter.UserInterface.Forms
             {
                 return "0";
             }
-                
-            
-           
+
+
+
         }
         private string CylinderGarageStatus(int Number)
         {
@@ -259,13 +253,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
             {
                 return "";
             }
-            
-           
+
+
         }
 
         private void CBNrCylinder_TextChanged(object sender, EventArgs e)
         {
-            if(CBNrCylinder.Text != "")
+            if (CBNrCylinder.Text != "")
             {
                 CBChangeLocation.Enabled = true;
                 CBChangeStatus.Enabled = true;
@@ -282,19 +276,19 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             int NumberCylinder = int.Parse(CBNrCylinder.Text);
-            if(CBChangeLocation.Text != "")
+            if (CBChangeLocation.Text != "")
             {
                 SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana lokalizacji", CBChangeLocation.Text);
             }
-            if(CBChangeStatus.Text != "")
+            if (CBChangeStatus.Text != "")
             {
                 SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana statusu", CBChangeStatus.Text);
             }
-            if(TBChangeAir.Text != "")
+            if (TBChangeAir.Text != "")
             {
                 SqlConnector.ChangeInCylinder(NumberCylinder, "Zmiana napełnienia", TBChangeAir.Text);
             }
-            
+
 
         }
     }

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FirefighterControlCenter.DataAccessLayer;
+using System;
 using System.Windows.Forms;
-using FirefighterControlCenter.DataAccessLayer;
 
 namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
 {
@@ -21,8 +14,8 @@ namespace FirefighterControlCenter.UserInterface.Forms.Ranking.Choose
         }
 
         private void Incident_Load(object sender, EventArgs e)
-        { 
-            dataGridView1.DataSource = SqlConnector.Ranking("incident",Year);
+        {
+            dataGridView1.DataSource = SqlConnector.Ranking("incident", Year);
         }
     }
 }
