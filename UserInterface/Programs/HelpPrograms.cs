@@ -16,6 +16,9 @@ namespace FirefighterControlCenter.UserInterface.Programs
 
         public void CheckReview()
         {
+           
+
+
             string[,] firefighter = SqlConnectorv2.CheckFirefighter();
             List<string> Information = new List<string>();
 

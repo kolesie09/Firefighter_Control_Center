@@ -22,7 +22,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>C:\Users\asti0\OneDrive\Pulpit\PROGRAM\Instalki\1.0.1.23 - Do virtual boxa\</PublishUrl>
+    <PublishUrl>C:\OSP\Instalki\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -33,7 +33,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationRevision>46</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -210,6 +210,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.4\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Pipelines, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.9.0.4\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -423,6 +424,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Programs\HelpPrograms.cs" />
     <Compile Include="Programs\ProgramsDepartureCard.cs" />
+    <Compile Include="Programs\VersionHelper.cs" />
+    <Compile Include="Programs\WebUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Update.cs" />
     <EmbeddedResource Include="Forms\CardDeparture.resx">

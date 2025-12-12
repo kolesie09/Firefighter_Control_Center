@@ -1,7 +1,9 @@
 ﻿using FirefighterControlCenter.UserInterface.Forms.Head;
 using FirefighterControlCenter.UserInterface.Programs;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
+using UserInterface;
 
 namespace FirefighterControlCenter.UserInterface.Forms
 {
@@ -13,12 +15,10 @@ namespace FirefighterControlCenter.UserInterface.Forms
         {
             InitializeComponent();
 
-            // Pobieranie numeru wersji
-            var version = "1.0.25.4";
 
 
             // Jeśli chcesz wyświetlić wersję w Label
-            tsslVersion.Text = "Wersja: " + version;
+            tsslVersion.Text = "Wersja: " + VersionHelper.GetCurrentVersion().ToString();
         }
 
         #region Region btn
@@ -31,9 +31,14 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_ranking_Click(object sender, EventArgs e)
         {
-            CloseForm();
-            Rankings frm = new Rankings();
-            Show(frm);
+            //CloseForm();
+            //Rankings frm = new Rankings();
+            //Show(frm);
+
+
+
+            MessageBox.Show(VersionHelper.GetCurrentVersion().ToString());
+
         }
         private void btn_history_Click(object sender, EventArgs e)
         {
@@ -100,11 +105,12 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         #endregion
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             DepartureCardv2 frm = new DepartureCardv2();
             Show(frm);
 
+            await WebUpdater.CheckForUpdateAsync(this);
             HelpPrograms help = new HelpPrograms();
             help.CheckReview();
         }
