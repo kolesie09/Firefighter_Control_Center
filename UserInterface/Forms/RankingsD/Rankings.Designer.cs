@@ -1,5 +1,5 @@
 ﻿
-namespace FirefighterControlCenter.UserInterface.Forms
+namespace FirefighterControlCenter.UserInterface.Forms.RankingsD
 {
     partial class Rankings
     {
@@ -37,6 +37,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.btn_nonstandard = new System.Windows.Forms.Button();
             this.pRanking = new System.Windows.Forms.Panel();
             this.changeYear = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -119,11 +120,22 @@ namespace FirefighterControlCenter.UserInterface.Forms
             this.changeYear.TabIndex = 7;
             this.changeYear.SelectedIndexChanged += new System.EventHandler(this.changeYear_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1171, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "                      ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Rankings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 734);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.changeYear);
             this.Controls.Add(this.pRanking);
             this.Controls.Add(this.btn_nonstandard);
@@ -151,5 +163,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private System.Windows.Forms.Button btn_nonstandard;
         private System.Windows.Forms.Panel pRanking;
         private System.Windows.Forms.ComboBox changeYear;
+        private System.Windows.Forms.Label label2;
     }
 }

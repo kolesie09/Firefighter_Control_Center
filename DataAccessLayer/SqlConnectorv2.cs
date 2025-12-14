@@ -1,9 +1,11 @@
 ﻿using FirefighterControlCenter.DataAccessLayer;
+using FirefighterControlCenter.DataAccessLayer.Statistics;
 using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace FirefighterControlCenter.DataAccessLayer
@@ -42,6 +44,69 @@ namespace FirefighterControlCenter.DataAccessLayer
 
         }
 
+        #region Statistics
+
+        public List<TripsDividedIntoMonths> TripsDividedIntoMonths(int From, int To)
+        {
+            var list = new List<TripsDividedIntoMonths>();
+            MySqlConnection cnn;
+            try
+            {
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT MONTHNAME(STR_TO_DATE(departure_card.Departure_date, '%d.%m.%Y')) AS miesiac, COUNT(*) AS liczba_wyjazdow FROM departure_card JOIN incident ON departure_card.ID_reason_departure = incident.ID_incident JOIN incident_type ON incident.ID_Incident_Type = incident_type.ID WHERE Year >= " + From + " AND Year <= " + To + " AND incident_type.ID_Rate = 1 GROUP BY miesiac ORDER BY liczba_wyjazdow DESC;";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var trip = new TripsDividedIntoMonths
+                        {
+                            miesiac = reader["Miesiac"].ToString(),
+                            liczba_wyjazdow = int.Parse(reader["Liczba_wyjazdow"].ToString())
+                        };
+                        list.Add(trip);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Problem z pobraniem danych statystycznych - Wyjazdy podzielone na miesiące");
+            }
+            return list;
+        }
+
+        public List<TripsDividedIntoDays> TripsDividedIntoDays(int From, int To)
+        {
+            var list = new List<TripsDividedIntoDays>();
+            MySqlConnection cnn;
+            try
+            {
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT DAY(STR_TO_DATE(departure_card.Departure_date, '%d.%m.%Y')) AS dzien, COUNT(*) AS liczba_wyjazdow FROM departure_card JOIN incident ON departure_card.ID_reason_departure = incident.ID_incident JOIN incident_type ON incident.ID_Incident_Type = incident_type.ID WHERE Year >= " + From + " AND Year <= " + To + " AND incident_type.ID_Rate = 1 GROUP BY dzien ORDER BY liczba_wyjazdow DESC; ";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var trip = new TripsDividedIntoDays
+                        {
+                            dzien = reader["Dzien"].ToString(),
+                            liczba_wyjazdow = int.Parse(reader["Liczba_wyjazdow"].ToString())
+                        };
+                        list.Add(trip);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Problem z pobraniem danych statystycznych - Wyjazdy podzielone na dni");
+            }
+            return list;
+        }
+
+        #endregion
 
 
         #region Departure Card - Basic Information

@@ -14,7 +14,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>FirefighterControlCenter.UserInterface</RootNamespace>
     <AssemblyName>Firefighter Control Center</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>46</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -80,11 +80,8 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
-      <HintPath>..\packages\BouncyCastle.Cryptography.2.5.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.30.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.30.2\lib\net45\Google.Protobuf.dll</HintPath>
@@ -340,6 +337,18 @@
     <Compile Include="Forms\Head\RateManagement.Designer.cs">
       <DependentUpon>RateManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RankingsD\Choose\AdvancedStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RankingsD\Choose\AdvancedStatistics.Designer.cs">
+      <DependentUpon>AdvancedStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RankingsD\Choose\AdvancedStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RankingsD\Choose\AdvancedStatisticsForm.Designer.cs">
+      <DependentUpon>AdvancedStatisticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Programs\Passwords.cs" />
     <Compile Include="Programs\CustomHashSet.cs" />
     <Compile Include="Programs\PDF.cs" />
@@ -385,40 +394,40 @@
     <Compile Include="Forms\Meetings.Designer.cs">
       <DependentUpon>Meetings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\City.cs">
+    <Compile Include="Forms\RankingsD\Choose\City.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\City.Designer.cs">
+    <Compile Include="Forms\RankingsD\Choose\City.Designer.cs">
       <DependentUpon>City.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Firefighter.cs">
+    <Compile Include="Forms\RankingsD\Choose\Firefighter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Firefighter.Designer.cs">
+    <Compile Include="Forms\RankingsD\Choose\Firefighter.Designer.cs">
       <DependentUpon>Firefighter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Incident.cs">
+    <Compile Include="Forms\RankingsD\Choose\Incident.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Incident.Designer.cs">
+    <Compile Include="Forms\RankingsD\Choose\Incident.Designer.cs">
       <DependentUpon>Incident.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Nonstandard.cs">
+    <Compile Include="Forms\RankingsD\Choose\Nonstandard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Nonstandard.Designer.cs">
+    <Compile Include="Forms\RankingsD\Choose\Nonstandard.Designer.cs">
       <DependentUpon>Nonstandard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Street.cs">
+    <Compile Include="Forms\RankingsD\Choose\Street.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Choose\Street.Designer.cs">
+    <Compile Include="Forms\RankingsD\Choose\Street.Designer.cs">
       <DependentUpon>Street.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Rankings\Rankings.cs">
+    <Compile Include="Forms\RankingsD\Rankings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Rankings\Rankings.Designer.cs">
+    <Compile Include="Forms\RankingsD\Rankings.Designer.cs">
       <DependentUpon>Rankings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -476,22 +485,28 @@
     <EmbeddedResource Include="Forms\Meetings.resx">
       <DependentUpon>Meetings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Choose\City.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Choose\AdvancedStatistics.resx">
+      <DependentUpon>AdvancedStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RankingsD\Choose\AdvancedStatisticsForm.resx">
+      <DependentUpon>AdvancedStatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RankingsD\Choose\City.resx">
       <DependentUpon>City.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Choose\Firefighter.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Choose\Firefighter.resx">
       <DependentUpon>Firefighter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Choose\Incident.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Choose\Incident.resx">
       <DependentUpon>Incident.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Choose\Nonstandard.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Choose\Nonstandard.resx">
       <DependentUpon>Nonstandard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Choose\Street.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Choose\Street.resx">
       <DependentUpon>Street.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Rankings\Rankings.resx">
+    <EmbeddedResource Include="Forms\RankingsD\Rankings.resx">
       <DependentUpon>Rankings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -559,7 +574,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.NetCore.CoreRuntime.9.0.x86">
       <Visible>False</Visible>
-      <ProductName>Środowisko uruchomieniowe platformy .NET 9.0.1 %28x86%29</ProductName>
+      <ProductName>Środowisko uruchomieniowe platformy .NET 9.0.11 %28x86%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.NetCore.DesktopRuntime.3.1.x86">
@@ -569,7 +584,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.NetCore.DesktopRuntime.9.0.x86">
       <Visible>False</Visible>
-      <ProductName>Klasyczne środowisko uruchomieniowe platformy .NET 9.0.1 %28x86%29</ProductName>
+      <ProductName>Klasyczne środowisko uruchomieniowe platformy .NET 9.0.11 %28x86%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.15.0">

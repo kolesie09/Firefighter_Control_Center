@@ -1,9 +1,10 @@
 ﻿using FirefighterControlCenter.DataAccessLayer;
 using FirefighterControlCenter.UserInterface.Forms.Ranking.Choose;
+using FirefighterControlCenter.UserInterface.Forms.Rankings.Choose;
 using System;
 using System.Windows.Forms;
 
-namespace FirefighterControlCenter.UserInterface.Forms
+namespace FirefighterControlCenter.UserInterface.Forms.RankingsD
 {
     public partial class Rankings : Form
     {
@@ -64,13 +65,23 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 frm.Dock = DockStyle.Fill;
                 pRanking.Controls.Add(frm);
             }
+            else if (choose == "AdvancedStatistics")
+            {
+                AdvancedStatistics frm = new AdvancedStatistics();
+                frm.Size = pRanking.Size;
+                frm.TopLevel = false;
+                frm.Visible = true;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pRanking.Controls.Add(frm);
+            }
         }
 
         private void CloseForm()
         {
             pRanking.Controls.Clear();
         }
-        private void AddYear()
+        public void AddYear()
         {
 
             int x = SqlConnector.FirstYear();
@@ -132,6 +143,13 @@ namespace FirefighterControlCenter.UserInterface.Forms
         private void changeYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             CloseForm();
+            Show(Choose);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            CloseForm();
+            Choose= "AdvancedStatistics";
             Show(Choose);
         }
     }

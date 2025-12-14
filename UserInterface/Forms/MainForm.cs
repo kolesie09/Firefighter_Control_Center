@@ -1,4 +1,5 @@
 ﻿using FirefighterControlCenter.UserInterface.Forms.Head;
+using FirefighterControlCenter.UserInterface.Forms.RankingsD;
 using FirefighterControlCenter.UserInterface.Programs;
 using System;
 using System.Reflection;
@@ -31,13 +32,16 @@ namespace FirefighterControlCenter.UserInterface.Forms
 
         private void btn_ranking_Click(object sender, EventArgs e)
         {
-            //CloseForm();
-            //Rankings frm = new Rankings();
-            //Show(frm);
+
+
+            
+            CloseForm();
+            RankingsD.Rankings frm = new RankingsD.Rankings();
+            Show(frm);
 
 
 
-            MessageBox.Show(VersionHelper.GetCurrentVersion().ToString());
+
 
         }
         private void btn_history_Click(object sender, EventArgs e)
