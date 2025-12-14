@@ -636,9 +636,19 @@ public class Testy
     }
 
 
+    [Test]
+    public void TestLogin()
+    {
+        
 
+       
+            var resualt = HelpPrograms.CheckPassword("admin", "kutangpan");
+        
+        
 
+        Assert.That(resualt, Is.EqualTo(true));
 
+    }
     [Test]
     public void TestCalcTime()
     {

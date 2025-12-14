@@ -147,7 +147,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
 
         public static bool CheckPassword(string login, string password)
         {
-            var stored = SqlConnector.SelectPassword(login);
+            var stored = SqlConnectorv2.SelectPassword(login);
             if (string.IsNullOrWhiteSpace(stored)) return false;
 
            
@@ -254,4 +254,8 @@ public class HelpTest
 
         
     }
+
+
+    
+
 }

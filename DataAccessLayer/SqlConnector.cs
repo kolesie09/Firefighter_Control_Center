@@ -5,12 +5,16 @@ using System.Windows.Forms;
 
 namespace FirefighterControlCenter.DataAccessLayer
 {
+
+
     public class SqlConnector
     {
+
+        private const string connectionString = "server=localhost;uid=root;pwd=;database=osp_barlinek";
         public static List<Firefighter_ranking> RankingFirefighter(string Year)
         {
             var list = new List<Firefighter_ranking>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -52,7 +56,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<Ranking> Ranking(string type, string Year)
         {
             var list = new List<Ranking>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -120,7 +124,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<Ranking_City> RankingStreet(string type, string Year)
         {
             var list = new List<Ranking_City>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -166,7 +170,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         {
 
             int First = 0;
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -192,7 +196,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static int SelectNumberDeparture(int Year)
         {
             int LastNumberDeparture = 0;
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -219,7 +223,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<string> SelectFirefighterDepartureCard(string TypeSelect, string x)
         {
             var list = new List<string>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -291,7 +295,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static int SelectIDCommander(string Commander)
         {
             int Zwracana = 0;
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -322,7 +326,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<Cylinder> Cylinder(string FireTruck)
         {
             var list = new List<Cylinder>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -354,7 +358,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<Cylinder> CylinderGarage()
         {
             var list = new List<Cylinder>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -388,7 +392,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static void ChangeInCylinder(int Cylinder, string What, string New)
         {
 
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -425,7 +429,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static int SelectTruckToCylinder(string What, string text)
         {
             int ID;
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
 
             if (What == "Truck")
@@ -466,7 +470,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static void InsertAddNewFirefighter(List<string> newFirefighter)
         {
 
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -508,7 +512,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<string> ReadFirefighters(string Nick)
         {
             var list = new List<string>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -579,7 +583,7 @@ namespace FirefighterControlCenter.DataAccessLayer
         public static List<string> ReadStatus()
         {
             var list = new List<string>();
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
             try
             {
@@ -612,37 +616,12 @@ namespace FirefighterControlCenter.DataAccessLayer
 
       
 
-        public static string SelectPassword(string Login)
-        {
-            string Password = "";
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
-            MySqlConnection cnn;
-            try
-            {
-
-                cnn = new MySqlConnection(connectionString);
-                cnn.Open();
-                string sqlquery = "SELECT Password  FROM `users` WHERE `Login` LIKE '" + Login + "'";
-                using (var command = new MySqlCommand(sqlquery, cnn))
-                {
-                    var reader = command.ExecuteReader();
-                    reader.Read();
-
-                    Password = reader["Password"].ToString();
-                }
-                cnn.Close();
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
-            return Password;
-        }
+        
 
         public static void UpdateFirefighter(List<string> list)
         {
 
-            string connectionString = "server=localhost;uid=****;pwd=****;database=osp_barlinek";
+           
             MySqlConnection cnn;
 
 

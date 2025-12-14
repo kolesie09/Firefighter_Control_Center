@@ -1391,6 +1391,33 @@ namespace FirefighterControlCenter.DataAccessLayer
             cmd.ExecuteNonQuery();
         }
 
+        public static string SelectPassword(string Login)
+        {
+            string Password = "";
+           
+            MySqlConnection cnn;
+            try
+            {
+
+                cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                string sqlquery = "SELECT Password  FROM `users` WHERE `Login` LIKE '" + Login + "'";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+
+                    Password = reader["Password"].ToString();
+                }
+                cnn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            return Password;
+        }
+
         public static string[,] CheckFirefighter()
         {
             string query = "SELECT firefighter.Nick, firefighter.Next_medical_exams FROM firefighter WHERE firefighter.ID_Status = 1 ORDER by firefighter.Nick ASC;";
@@ -2272,3 +2299,5 @@ public class Test
     }
 
 }
+
+
