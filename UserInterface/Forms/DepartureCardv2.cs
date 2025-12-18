@@ -1,5 +1,6 @@
 ﻿using FirefighterControlCenter.DataAccessLayer;
 using FirefighterControlCenter.UserInterface.Programs;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -256,18 +257,43 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     }
                 }
 
+                
+
                 //Dodawanie do listy dowódców  
                 if (comboBox.Name == "Dowódca" && comboBox.Text != "" && comboBox.Text.Length > 4)
                 {
-                    CBCommandery.Add(comboBox.Text);
-                    List<string> list = new List<string>(new HashSet<string>(CBCommandery));
-                    CBCommander.DataSource = null;
-                    CBCommander.DataSource = list;
-                    CBCommander.SelectedIndex = -1;
+                    if (SqlConnectorv2.CheckFiremanExist(comboBox.Text) == true)
+                    {
+                        CBCommandery.Add(comboBox.Text);
+                        List<string> list = new List<string>(new HashSet<string>(CBCommandery));
+                        CBCommander.DataSource = null;
+                        CBCommander.DataSource = list;
+                        CBCommander.SelectedIndex = -1;
+                    }
+
+
+
                 }
 
-            }
+                if (comboBox.Name == "Kierowca" && comboBox.Text != "" && comboBox.Text.Length > 4)
+                {
 
+                    if (SqlConnectorv2.CheckCommanderExist(comboBox.Text) == true)
+                    {
+
+                        CBCommandery.Add(comboBox.Text);
+                        List<string> list = new List<string>(new HashSet<string>(CBCommandery));
+                        CBCommander.DataSource = null;
+                        CBCommander.DataSource = list;
+                        CBCommander.SelectedIndex = -1;
+                    }
+
+                }
+
+
+
+
+            }
         }
 
 
@@ -574,7 +600,6 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     {
                         PlaceInformation.Add(CBStreet.Text);
                     }
-                    PlaceInformation.Add(CBStreet.Text);
                     PlaceInformation.Add(CBTrip.Text);
 
                     #endregion
@@ -656,7 +681,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
                 else
                 {
 
-                    if (CBCommander.Text != "" && DepartureCard_BasicInformation.Count == 6 && DepartureCard_PlaceDeparture.Count == 3 && DepartureCard_ReasonDeparture.Count == 2)
+                    if (Commander != "" && DepartureCard_BasicInformation.Count == 6 && DepartureCard_PlaceDeparture.Count == 3 && DepartureCard_ReasonDeparture.Count == 2)
                     {
 
                         if (programs.PrintNewDepartureCard(DepartureCard_BasicInformation, DepartureCard_PlaceDeparture, DepartureCard_ReasonDeparture, DepartureCard_Vehicle, Commander))
@@ -685,9 +710,26 @@ namespace FirefighterControlCenter.UserInterface.Forms
                     }
                     else
                     {
+                        if(Commander == "")
+                        {
+                            MessageBox.Show("Nie wybrano dowódcy\nProszę o wybranie dowódcy\nLista z dowódcami jest koło przycisku drukuj\nJeśli lista jest puste to znaczy, że nie wybraleś dowódcy na wozie");
+                            
+                        }
+                        else if( DepartureCard_BasicInformation.Count != 6)
+                        {
+                            MessageBox.Show("Brak wystarczających danych do wystawienia wyjazdu w podstawowych informacjach");
 
 
-                        MessageBox.Show("Nie wybrano dowódcy\nProszę o wybranie dowódcy\nLista z dowódcami jest koło przycisku drukuj\nJeśli lista jest puste to znaczy, że nie wybraleś dowódcy na wozie");
+                        }
+                        else if(DepartureCard_PlaceDeparture.Count != 3)
+                        {
+                            MessageBox.Show("Brak wystarczających danych do wystawienia wyjazdu w informacjach o miejscu");
+
+                        }
+                        else if(DepartureCard_ReasonDeparture.Count != 2)
+                        {
+                            MessageBox.Show("Brak wystarczających danych do wystawienia wyjazdu w informacjach o zdarzeniu");
+                        }
 
                     }
                 }

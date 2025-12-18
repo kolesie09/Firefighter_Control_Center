@@ -1838,6 +1838,58 @@ namespace FirefighterControlCenter.DataAccessLayer
             return status;
         }
 
+        public static bool CheckFiremanExist(string FireNick)
+        {
+            bool status;
+            MySqlConnection cnn;
+            cnn = new MySqlConnection(connectionString);
+            try
+            {
+                cnn.Open();
+                string sqlquery = $"SELECT ID_firefighter from firefighter where firefighter.Nick = '"+FireNick+"';";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    reader.GetInt16("ID_firefighter");
+                    status = true;
+                }
+                cnn.Close();
+            }
+            catch
+            {
+                cnn.Close();
+                status = false;
+            }
+            return status;
+        }
+
+        public static bool CheckCommanderExist(string FireNick)
+        {
+            bool status;
+            MySqlConnection cnn;
+            cnn = new MySqlConnection(connectionString);
+            try
+            {
+                cnn.Open();
+                string sqlquery = $"SELECT f.ID_firefighter FROM firefighter f JOIN training t ON f.ID_firefighter = t.ID_firefighter WHERE f.Nick LIKE '"+FireNick+"' AND (t.Commander = 1 OR t.Head = 1);";
+                using (var command = new MySqlCommand(sqlquery, cnn))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Read();
+                    reader.GetInt16("ID_firefighter");
+                    status = true;
+                }
+                cnn.Close();
+            }
+            catch
+            {
+                cnn.Close();
+                status = false;
+            }
+            return status;
+        }
+
         public static void UpdatePayCheck(int ID_Firefighter, int Year, int Month, int Time, int ID_Reason, bool plusminus)
         {
             int ID_Paycheck;
@@ -2329,6 +2381,17 @@ namespace FirefighterControlCenter.DataAccessLayer
 public class Test
 {
     [Test]
+    public void TestFirefighterID()
+    {
+        var result = SqlConnectorv2.CheckCommanderExist("Krzepiński Ł");
+            
+        Assert.That(result, Is.EqualTo(true));
+    }
+
+
+
+
+        [Test]
     public void TestID_Place()
     {
 
