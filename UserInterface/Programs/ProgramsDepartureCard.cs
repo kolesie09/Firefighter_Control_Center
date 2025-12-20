@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Media;
 using System.Net.Mail;
 using System.Threading;
@@ -25,80 +26,98 @@ namespace FirefighterControlCenter.UserInterface.Programs
 
 
 
-        
-        public void Email_send(string Title, string Address)
+
+        public void Email_send(string title, string filePath)
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
+                var password = SqlConnectorv2.SelectPasswordEmail();
+                var emailAddresses = SqlConnectorv2.SelectEmail();
 
-                List<string> EmailAddresses = SqlConnectorv2.SelectEmail();
-
-                foreach (string EmailAddress in EmailAddresses)
+                using (var smtpServer = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    mail.To.Add(EmailAddress);
+                    smtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", password);
+                    smtpServer.EnableSsl = true;
+
+                    using (var mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
+                        mail.Subject = title;
+                        mail.Body = "W załączniku przesyłamy dokumentację wyjazdu."; // Warto dodać choć krótką treść
+
+                        // Dodawanie odbiorców
+                        foreach (var address in emailAddresses)
+                        {
+                            mail.To.Add(address);
+                        }
+
+                        // Bezpieczne dodawanie załącznika
+                        if (File.Exists(filePath))
+                        {
+                            using (var attachment = new Attachment(filePath))
+                            {
+                                mail.Attachments.Add(attachment);
+                                smtpServer.Send(mail);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nie znaleziono pliku załącznika pod adresem: " + filePath);
+                        }
+                    }
                 }
-
-                //mail.To.Add("damian.dobrzeniecki@outlook.com");
-                mail.Subject = Title;
-                mail.Body = "";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(Address);
-                mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", SqlConnectorv2.SelectPasswordEmail());
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-
-
             }
             catch (Exception e)
             {
-                MessageBox.Show("Coś poszło nie tak z mailem");
-                MessageBox.Show(e.ToString());
+                MessageBox.Show($"Błąd wysyłania e-maila: {e.Message}");
             }
-
         }
-        public void Email_send(string Title, string Address, int ID_Departure)
+        public void Email_send(string title, string filePath, int ID_Departure)
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
+                var password = SqlConnectorv2.SelectPasswordEmail();
+                var emailAddresses = SqlConnectorv2.SelectEmail();
 
-                List<string> EmailAddresses = SqlConnectorv2.SelectEmail();
-
-                foreach (string EmailAddress in EmailAddresses)
+                using (var smtpServer = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    mail.To.Add(EmailAddress);
+                    smtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", password);
+                    smtpServer.EnableSsl = true;
+
+                    using (var mail = new MailMessage())
+                    {
+                        mail.From = new MailAddress("wyjazdyospbarlinek@gmail.com");
+                        mail.Subject = title;
+                        mail.Body = "W załączniku przesyłamy dokumentację wyjazdu."; // Warto dodać choć krótką treść
+
+                        // Dodawanie odbiorców
+                        foreach (var address in emailAddresses)
+                        {
+                            mail.To.Add(address);
+                        }
+
+                        // Bezpieczne dodawanie załącznika
+                        if (File.Exists(filePath))
+                        {
+                            using (var attachment = new Attachment(filePath))
+                            {
+                                mail.Attachments.Add(attachment);
+                                smtpServer.Send(mail);
+                                SQL.UpdateStatusEmail(ID_Departure);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nie znaleziono pliku załącznika pod adresem: " + filePath);
+                        }
+                    }
                 }
 
-                //mail.To.Add("damian.dobrzeniecki@outlook.com");
-                mail.Subject = Title;
-                mail.Body = "";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(Address);
-                mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("wyjazdyospbarlinek@gmail.com", SqlConnectorv2.SelectPasswordEmail());
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-
-                SQL.UpdateStatusEmail(ID_Departure);
+                
             }
             catch (Exception e)
             {
-                MessageBox.Show("Coś poszło nie tak z mailem");
-                MessageBox.Show(e.ToString());
+                MessageBox.Show($"Błąd wysyłania e-maila: {e.Message}");
             }
 
         }

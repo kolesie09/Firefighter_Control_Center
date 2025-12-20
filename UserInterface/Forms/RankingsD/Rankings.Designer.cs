@@ -125,9 +125,9 @@ namespace FirefighterControlCenter.UserInterface.Forms.RankingsD
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1171, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "                      ";
+            this.label2.Text = "                                 ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Rankings

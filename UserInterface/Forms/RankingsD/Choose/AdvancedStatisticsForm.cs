@@ -31,17 +31,51 @@ namespace FirefighterControlCenter.UserInterface.Forms.RankingsD.Choose
 
         private void AdvancedStatisticsForm_Load(object sender, EventArgs e)
         {
-            if (_choose == "Ilość wyjazdów - podzielona na miesiące")
+            switch (_choose)
             {
-                dataGridView1.DataSource = _sql.TripsDividedIntoMonths(_from, _to);
+                case "Ilość wyjazdów - podzielona na miesiące":
+                    dataGridView1.DataSource = _sql.TripsDividedIntoMonths(_from, _to);
+                    break;
+                case "Ilość wyjazdów - podzielona na dni":
+                    dataGridView1.DataSource = _sql.TripsDividedIntoDays(_from, _to);
+                    break;
+                case "Najbardziej wyjazdowy dzień":
+                    dataGridView1.DataSource = _sql.TheBestDays(_from, _to);
+                    break;
+                case "Najbardziej wyjazdowa godzina":
+                    dataGridView1.DataSource = _sql.TheBestHour(_from, _to);
+                    break;
+                case "Najczęstrza długość wyjazdów":
+                    dataGridView1.DataSource = _sql.DurationOfRescueOperations(_from, _to);
+                    break;
+                case "Najlepszy strażak":
+                    dataGridView1.DataSource = _sql.TheBestFirefighter(_from, _to);
+                    break;
+                case "Najlepszy kierowca":
+                    dataGridView1.DataSource = _sql.TheBestDriver(_from, _to);
+                    break;
+                case "Najniebezpieczniejszy dzień miesiąca":
+                    dataGridView1.DataSource = _sql.TheMostDangerousDayOfMonth(_from, _to);
+                    break;
+                case "Najniebezpieczniejszy dzień tygodnia":
+                    dataGridView1.DataSource = _sql.TheMostDangerousDayOfWeek(_from, _to);
+                    break;
+                case "Najczęściej wyjeżdżający pojazd":
+                    dataGridView1.DataSource = _sql.TheMostFrequentVehicle(_from, _to);
+                    break;
+                case "Liczba wyjazdów":
+                    dataGridView1.DataSource = _sql.NumberOfTrips(_from, _to);
+                    break;
+                case "Najdłuższa przerwa między wyjazdami":
+                    dataGridView1.DataSource = _sql.LongestBreakBetweenTrips(_from, _to);
+                    break;
+                case "Najdłuższy okres wyjazdów pod rząd":
+                    dataGridView1.DataSource = _sql.LongestPeriodOfTripsInARow(_from, _to);
+                    break;
+                default:
+                    MessageBox.Show("Nie rozpoznano typu statystyk.");
+                    break;
             }
-            else if (_choose == "Ilość wyjazdów - podzielona na dni")
-            {
-                dataGridView1.DataSource = _sql.TripsDividedIntoDays(_from, _to);
-            }
-
-
-
         }
     }
 

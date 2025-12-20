@@ -1,10 +1,12 @@
-﻿using FirefighterControlCenter.DataAccessLayer;
+﻿using Dapper;
+using FirefighterControlCenter.DataAccessLayer;
 using FirefighterControlCenter.DataAccessLayer.Statistics;
 using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 
@@ -76,36 +78,588 @@ namespace FirefighterControlCenter.DataAccessLayer
             return list;
         }
 
-        public List<TripsDividedIntoDays> TripsDividedIntoDays(int From, int To)
+        public List<TripsDividedIntoDays> TripsDividedIntoDays(int from, int to)
         {
-            var list = new List<TripsDividedIntoDays>();
-            MySqlConnection cnn;
-            try
+            using (var cnn = new MySqlConnection(connectionString))
             {
-                cnn = new MySqlConnection(connectionString);
-                cnn.Open();
-                string sqlquery = "SELECT DAY(STR_TO_DATE(departure_card.Departure_date, '%d.%m.%Y')) AS dzien, COUNT(*) AS liczba_wyjazdow FROM departure_card JOIN incident ON departure_card.ID_reason_departure = incident.ID_incident JOIN incident_type ON incident.ID_Incident_Type = incident_type.ID WHERE Year >= " + From + " AND Year <= " + To + " AND incident_type.ID_Rate = 1 GROUP BY dzien ORDER BY liczba_wyjazdow DESC; ";
-                using (var command = new MySqlCommand(sqlquery, cnn))
+                string sqlquery = @"
+                SELECT 
+                    DAY(STR_TO_DATE(dc.Departure_date, '%d.%m.%Y')) AS dzien, 
+                    COUNT(*) AS liczba_wyjazdow 
+                FROM departure_card dc
+                JOIN incident i ON dc.ID_reason_departure = i.ID_incident 
+                JOIN incident_type it ON i.ID_Incident_Type = it.ID 
+                WHERE Year BETWEEN @From AND @To 
+                  AND it.ID_Rate = 1 
+                GROUP BY dzien 
+                ORDER BY liczba_wyjazdow DESC";
+
+                try
                 {
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        var trip = new TripsDividedIntoDays
-                        {
-                            dzien = reader["Dzien"].ToString(),
-                            liczba_wyjazdow = int.Parse(reader["Liczba_wyjazdow"].ToString())
-                        };
-                        list.Add(trip);
-                    }
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TripsDividedIntoDays>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TripsDividedIntoDays>();
                 }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Problem z pobraniem danych statystycznych - Wyjazdy podzielone na dni");
-            }
-            return list;
         }
 
+        public List<TheBestDay> TheBestDays(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                SELECT 
+                    DATE_FORMAT(STR_TO_DATE(Departure_date, '%d.%m.%Y'), '%d.%m.%Y') AS dzien, 
+                    COUNT(*) AS liczba_wyjazdow 
+                FROM departure_card dc
+                JOIN incident i ON dc.ID_reason_departure = i.ID_incident 
+                JOIN incident_type it ON i.ID_Incident_Type = it.ID
+                WHERE Year BETWEEN @From AND @To
+                    AND it.ID_Rate = 1  
+                GROUP BY Departure_date 
+                ORDER BY liczba_wyjazdow DESC
+
+
+
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheBestDay>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheBestDay>();
+                }
+            }
+        }
+
+        public List<TheBestHour> TheBestHour(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                SELECT 
+                hour_group as godzina, 
+                COUNT(*) AS liczba_wyjazdow 
+                FROM
+                (SELECT
+                 LEFT(Hour_departure, 2) AS hour_group 
+                  FROM departure_card dc
+                JOIN incident i ON dc.ID_reason_departure = i.ID_incident 
+                JOIN incident_type it ON i.ID_Incident_Type = it.ID
+                WHERE Year BETWEEN @From AND @To
+                    AND it.ID_Rate = 1   ) AS subquery 
+                 GROUP BY godzina ORDER BY liczba_wyjazdow DESC
+
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheBestHour>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheBestHour>();
+                }
+            }
+        }
+
+        public List<DurationOfRescueOperations> DurationOfRescueOperations(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                SELECT 
+                    dc.Hour as dlugosc_dzialan, 
+                    COUNT(*) AS liczba_wyjazdow 
+                FROM departure_card dc
+                JOIN incident i ON dc.ID_reason_departure = i.ID_incident 
+                JOIN incident_type it ON i.ID_Incident_Type = it.ID
+                WHERE Year BETWEEN @From AND @To
+                    AND it.ID_Rate = 1 
+                GROUP BY dc.Hour 
+                ORDER BY liczba_wyjazdow DESC;
+
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<DurationOfRescueOperations>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<DurationOfRescueOperations>();
+                }
+            }
+        }
+
+        public List<TheBestFirefighter> TheBestFirefighter(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+               WITH filtered_departures AS (
+                SELECT 
+                    vc.Driver,
+                    vc.Commander,
+                    vc.Firefighter_1,
+                    vc.Firefighter_2,
+                    vc.Firefighter_3,
+                    vc.Firefighter_4,
+                    vc.Firefighter_5,
+                    vc.Firefighter_6,
+                    vc.Firefighter_7,
+                    z01.Nick_Driver_01,
+                    z01.Nick_Commander_01,
+                    z01.Nick_Firefighter_01_1,
+                    z01.Nick_Firefighter_01_2,
+                    z01.Nick_Firefighter_01_3,
+                    z01.Nick_Firefighter_01_4,
+                    z15.Nick_Driver_15,
+                    z15.Nick_Commander_15,
+                    z15.Nick_Firefighter_15_1,
+                    z15.Nick_Firefighter_15_2,
+                    z15.Nick_Firefighter_15_3,
+                    z15.Nick_Firefighter_15_4,
+                    z18.Nick_Driver_18,
+                    z18.Nick_Commander_18,
+                    z18.Nick_Firefighter_18_1,
+                    z18.Nick_Firefighter_18_2,
+                    z18.Nick_Firefighter_18_3,
+                    z19.Nick_Driver_19,
+                    z19.Nick_Commander_19,
+                    z19.Nick_Firefighter_19_1,
+                    z19.Nick_Firefighter_19_2,
+                    z19.Nick_Firefighter_19_3,
+                    z19.Nick_Firefighter_19_4,
+                    dc.hour
+                FROM 
+                    departure_card AS dc
+                LEFT JOIN departure_card_vehicle AS dcv ON dc.ID_departure_card = dcv.DepartureCard_ID
+                LEFT JOIN vehicle_card AS vc ON dcv.VehicleCard_ID = vc.ID_Vehicle_card
+                LEFT JOIN incident AS inc ON dc.ID_reason_departure = inc.ID_incident
+                LEFT JOIN incident_type AS it ON inc.ID_Incident_Type = it.ID
+                LEFT JOIN 499z01_departure AS z01 ON dc.ID_499z01 = z01.ID_01
+                LEFT JOIN 499z15_departure AS z15 ON dc.ID_499z15 = z15.ID_15
+                LEFT JOIN 499z18_departure AS z18 ON dc.ID_499z18 = z18.id_18
+                LEFT JOIN 499z19_departure AS z19 ON dc.ID_499z19 = z19.id_19
+                WHERE 
+                    dc.Year BETWEEN @From AND @To
+                    AND it.ID_Rate = 1
+            ),
+            all_names AS (
+                SELECT Driver AS name, hour FROM filtered_departures
+                UNION ALL SELECT Commander, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_1, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_2, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_3, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_4, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_5, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_6, hour FROM filtered_departures
+                UNION ALL SELECT Firefighter_7, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Driver_01, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Commander_01, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_01_1, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_01_2, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_01_3, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_01_4, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Driver_15, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Commander_15, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_15_1, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_15_2, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_15_3, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_15_4, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Driver_18, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Commander_18, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_18_1, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_18_2, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_18_3, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Driver_19, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Commander_19, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_19_1, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_19_2, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_19_3, hour FROM filtered_departures
+                UNION ALL SELECT Nick_Firefighter_19_4, hour FROM filtered_departures
+            ),
+            siksa AS (
+                SELECT name, SUM(hour) AS total_hours, COUNT(*) AS total_count
+                FROM all_names
+                WHERE name IS NOT NULL AND name != '' AND name != '0'
+                GROUP BY name
+            )
+            SELECT firefighter.name AS imie, firefighter.last_name AS nazwisko,  siksa.total_count AS liczba_wyjazdow, siksa.total_hours AS liczba_godzin
+            FROM siksa
+            LEFT JOIN firefighter ON siksa.name = firefighter.Nick
+            ORDER BY siksa.total_count DESC, firefighter.name ASC;
+
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheBestFirefighter>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheBestFirefighter>();
+                }
+            }
+        }
+
+        public List<TheBestDriver> TheBestDriver(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                WITH filtered_departures AS (
+                    SELECT 
+                        vc.Driver,
+                        z01.Nick_Driver_01,
+                        z15.Nick_Driver_15,
+                        z18.Nick_Driver_18,
+                        z19.Nick_Driver_19
+                    FROM 
+                        departure_card AS dc
+                    LEFT JOIN departure_card_vehicle AS dcv ON dc.ID_departure_card = dcv.DepartureCard_ID
+                    LEFT JOIN vehicle_card AS vc ON dcv.VehicleCard_ID = vc.ID_Vehicle_card
+                    LEFT JOIN incident AS inc ON dc.ID_reason_departure = inc.ID_incident
+                    LEFT JOIN incident_type AS it ON inc.ID_Incident_Type = it.ID
+                    LEFT JOIN 499z01_departure AS z01 ON dc.ID_499z01 = z01.ID_01
+                    LEFT JOIN 499z15_departure AS z15 ON dc.ID_499z15 = z15.ID_15
+                    LEFT JOIN 499z18_departure AS z18 ON dc.ID_499z18 = z18.id_18
+                    LEFT JOIN 499z19_departure AS z19 ON dc.ID_499z19 = z19.id_19
+                    WHERE 
+                        dc.Year BETWEEN @From AND @To
+                        AND it.ID_Rate = 1
+                ),
+                all_names AS (
+                    SELECT Driver AS name FROM filtered_departures
+                    UNION ALL
+                    SELECT Nick_Driver_01 FROM filtered_departures
+                    UNION ALL
+                    SELECT Nick_Driver_15 FROM filtered_departures
+                    UNION ALL
+                    SELECT Nick_Driver_18 FROM filtered_departures
+                    UNION ALL
+                    SELECT Nick_Driver_19 FROM filtered_departures
+                )
+                SELECT
+                    firefighter.name AS imie,
+                    firefighter.last_name AS nazwisko,
+                    siksa.count AS liczba_wyjazdow
+                FROM (
+                    SELECT 
+                        name,
+                        COUNT(*) AS count
+                    FROM all_names
+                    WHERE name IS NOT NULL AND name != '' AND name != '0'
+                    GROUP BY name
+                ) AS siksa
+                LEFT JOIN firefighter ON siksa.name = firefighter.Nick
+                ORDER BY siksa.count DESC, firefighter.name;
+
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheBestDriver>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheBestDriver>();
+                }
+            }
+        }
+
+        public List<TheMostDangerousDayOfMonth> TheMostDangerousDayOfMonth(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+                SELECT 
+                    DAY(STR_TO_DATE(dc.Departure_date, '%d.%m.%Y')) AS dzien_miesiaca,
+                    COUNT(*) AS liczba_wyjazdow
+                FROM 
+                    departure_card as dc
+                JOIN 
+                    incident ON dc.ID_reason_departure = incident.ID_incident
+                JOIN 
+                    incident_type ON incident.ID_Incident_Type = incident_type.ID
+                WHERE 
+                    dc.Year BETWEEN @From AND @To 
+                    AND incident_type.ID_Rate = 1
+                GROUP BY 
+                    dzien_miesiaca
+                ORDER BY 
+                    liczba_wyjazdow DESC;
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheMostDangerousDayOfMonth>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheMostDangerousDayOfMonth>();
+                }
+            }
+        }
+
+        public List<TheMostDangerousDayOfWeek> TheMostDangerousDayOfWeek(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+                SELECT 
+                    DAYNAME(STR_TO_DATE(dc.Departure_date, '%d.%m.%Y')) AS dzien_tygodnia,
+                    COUNT(*) AS liczba_wyjazdow
+                FROM 
+                    departure_card AS dc
+                JOIN 
+                    incident ON dc.ID_reason_departure = incident.ID_incident
+                JOIN 
+                    incident_type ON incident.ID_Incident_Type = incident_type.ID
+                WHERE 
+                   dc.Year BETWEEN @From AND @To
+                    AND incident_type.ID_Rate = 1
+                GROUP BY 
+                    dzien_tygodnia
+                ORDER BY 
+                    liczba_wyjazdow DESC;
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheMostDangerousDayOfWeek>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheMostDangerousDayOfWeek>();
+                }
+            }
+        }
+        public List<TheMostFrequentVehicle> TheMostFrequentVehicle(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+               SELECT 
+                    g.Car_operational_number AS numery_operacyjne, 
+                    COUNT(dcv.DepartureCard_ID) AS liczba_wyjazdow
+                FROM garage g
+                -- Łączymy garaż z tabelą łączącą pojazdy i karty wyjazdu
+                LEFT JOIN vehicle_card vc ON g.ID_garage = vc.ID_Vehicle
+                LEFT JOIN departure_card_vehicle dcv ON vc.ID_Vehicle_card = dcv.VehicleCard_ID
+                -- Łączymy z samą kartą wyjazdu, aby sprawdzić daty i powody
+                LEFT JOIN departure_card dc ON dcv.DepartureCard_ID = dc.ID_departure_card
+                LEFT JOIN incident i ON dc.ID_reason_departure = i.ID_incident
+                LEFT JOIN incident_type it ON i.ID_Incident_Type = it.ID
+                WHERE 
+                    -- Filtry stosujemy tak, aby nie wykluczyć wozów, które nie wyjechały (opcjonalnie)
+                    (dc.Year BETWEEN @From AND @To OR dc.Year IS NULL)
+                    AND (it.ID_Rate = 1 OR it.ID_Rate IS NULL)
+                GROUP BY 
+                    g.Car_operational_number
+                ORDER BY 
+                    liczba_wyjazdow DESC;
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<TheMostFrequentVehicle>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<TheMostFrequentVehicle>();
+                }
+            }
+        }
+
+        public List<NumberOfTrips> NumberOfTrips(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+               SELECT SUM(max_departure_number) AS liczba_wyjazdow
+                FROM (
+                    SELECT MAX(departure_card.Departure_number) AS max_departure_number
+                    FROM departure_card
+                    WHERE departure_card.Year BETWEEN @From AND @To
+                    GROUP BY departure_card.Year
+                ) AS yearly_maxes;
+
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<NumberOfTrips>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<NumberOfTrips>();
+                }
+            }
+        }
+
+        public List<LongestBreakBetweenTrips> LongestBreakBetweenTrips(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+               
+                    WITH sorted_dates AS (
+                    SELECT 
+                        STR_TO_DATE(dc.Departure_date, '%d.%m.%Y') AS formatted_departure_date
+                    FROM departure_card dc
+                    INNER JOIN incident i ON dc.ID_reason_departure = i.ID_incident
+                    INNER JOIN incident_type it ON i.ID_Incident_Type = it.ID
+                    WHERE dc.Departure_date IS NOT NULL
+                      AND dc.Year BETWEEN @From AND @To
+                      AND it.ID_Rate = 1
+                    ORDER BY formatted_departure_date
+                ),
+                date_differences AS (
+                    SELECT 
+                        formatted_departure_date AS current_departure_date,
+                        LAG(formatted_departure_date) OVER (ORDER BY formatted_departure_date) AS previous_departure_date,
+                        DATEDIFF(formatted_departure_date, LAG(formatted_departure_date) OVER (ORDER BY formatted_departure_date)) AS days_gap
+                    FROM sorted_dates
+                )
+                SELECT 
+                    DATE_FORMAT(previous_departure_date, '%d.%m.%Y') AS Od,
+                    DATE_FORMAT(current_departure_date, '%d.%m.%Y') AS Do,
+                    days_gap AS Liczba_dni_przerwy
+                FROM date_differences
+                WHERE days_gap IS NOT NULL
+                ORDER BY days_gap DESC
+                LIMIT 1
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<LongestBreakBetweenTrips>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<LongestBreakBetweenTrips>();
+                }
+            }
+        }
+
+        public List<LongestPeriodOfTripsInARow> LongestPeriodOfTripsInARow(int from, int to)
+        {
+            using (var cnn = new MySqlConnection(connectionString))
+            {
+                string sqlquery = @"
+                
+
+                
+                    
+               
+                    WITH formatted_dates AS (
+                    SELECT DISTINCT 
+                        STR_TO_DATE(Departure_date, '%d.%m.%Y') AS formatted_departure_date
+                    FROM departure_card, incident, incident_type
+                    WHERE Departure_date IS NOT NULL
+                      AND YEAR(STR_TO_DATE(Departure_date, '%d.%m.%Y')) BETWEEN @From AND @To
+                      AND incident_type.ID_Rate = 1
+                ),
+                gaps AS (
+                    SELECT 
+                        formatted_departure_date,
+                        DATE_SUB(formatted_departure_date, INTERVAL ROW_NUMBER() OVER (ORDER BY formatted_departure_date) DAY) AS gap_group
+                    FROM formatted_dates
+                ),
+                grouped_days AS (
+                    SELECT 
+                        gap_group,
+                        MIN(formatted_departure_date) AS start_date,
+                        MAX(formatted_departure_date) AS end_date,
+                        COUNT(*) AS days_in_row
+                    FROM gaps
+                    GROUP BY gap_group
+                )
+                SELECT 
+                    DATE_FORMAT(start_date, '%d.%m.%Y') AS Od,
+	                DATE_FORMAT(end_date, '%d.%m.%Y') AS Do,
+                    days_in_row AS Liczba_dni_wyjazdow_pod_rzad 
+                FROM grouped_days
+                ORDER BY days_in_row DESC
+                LIMIT 1
+                ";
+
+                try
+                {
+                    // Dapper zajmie się otwarciem połączenia i mapowaniem
+                    return cnn.Query<LongestPeriodOfTripsInARow>(sqlquery, new { From = from, To = to }).ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Problem z pobraniem danych: " + ex.Message);
+                    return new List<LongestPeriodOfTripsInARow>();
+                }
+            }
+        }
         #endregion
 
 
