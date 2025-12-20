@@ -163,7 +163,19 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 PDF.CreatePDFv2(Basic, Place, Reason, ID_Vehicle, Year, Month, Time, Commander);
                 test++;
 
+                try
+                {
+                    Process print = new Process();
+                    print.StartInfo = new ProcessStartInfo()
+                    {
+                        CreateNoWindow = true,
+                        Verb = "print",
+                        FileName = PDF.CreatePDFv2(Basic, Place, Reason, ID_Vehicle, Year, Month, Time, Commander)
+                    };
+                    print.Start();
 
+                }
+                catch { MessageBox.Show("Wystąpił problem z drukowaniem.\n Sprawdź:\n1.Czy drukarka jest włączona?\n2.Czy jest ustawiona jako domyślna?\n3.Czy ma toner/tusz?"); }
                 test++;
 
                 SqlConnectorv2.SQLVoid("INSERT INTO `departure_card`(`ID_departure_card`, `Departure_number`, `Departure_date`, `Hour_departure`, `Hour_arrival`, `ID_place_departure`, `ID_reason_departure`, `ID_Departure_commander`, `ID_499z01`, `ID_499z15`, `ID_499z18`, `ID_499z19`, `Year`, `Mounth`, `Hour`, `Trip`) VALUES('', " + Basic[0] + ", '" + Basic[5] + "', '" + Basic[1] + ":" + Basic[2] + "', '" + Basic[3] + ":" + Basic[4] + "' , " + ID_Place + ", " + ID_Reason + ", " + ID_Commander + ", 1, 1, 1, 1, " + Year + ", " + Month + " , " + Time + ", " + Place[2] + ")"); //6
