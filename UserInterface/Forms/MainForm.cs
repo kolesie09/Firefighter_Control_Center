@@ -114,7 +114,7 @@ namespace FirefighterControlCenter.UserInterface.Forms
             DepartureCardv2 frm = new DepartureCardv2();
             Show(frm);
 
-            await WebUpdater.CheckForUpdateAsync(this);
+            
             HelpPrograms help = new HelpPrograms();
             help.CheckReview();
         }

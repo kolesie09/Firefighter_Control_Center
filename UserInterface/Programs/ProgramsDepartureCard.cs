@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Net.Mail;
 using System.Threading;
@@ -179,7 +180,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 #endregion
 
                
-                PDF.CreatePDFv2(Basic, Place, Reason, ID_Vehicle, Year, Month, Time, Commander);
+                //PDF.CreatePDFv2(Basic, Place, Reason, ID_Vehicle, Year, Month, Time, Commander);
                 test++;
 
                 try
@@ -296,7 +297,6 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 test++;
 
                 #endregion
-
                 #region Vehicle
 
 
@@ -306,6 +306,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 ID_Vehicle_Old = SelectedFirefighterFromTruck(Vehicle_Old);
                 ID_Commander = SqlConnectorv2.SelectIdFireFighter(Commander);
                 test++;
+                #endregion
                 try
                 {
                     Process print = new Process();
@@ -320,11 +321,8 @@ namespace FirefighterControlCenter.UserInterface.Programs
                 }
                 catch { MessageBox.Show("Wystąpił problem z drukowaniem.\n Sprawdź:\n1.Czy drukarka jest włączona?\n2.Czy jest ustawiona jako domyślna?\n3.Czy ma toner/tusz?"); }
                 test++;
-               
-                
-                #endregion
 
-                SqlConnectorv2.SQLVoid($"UPDATE `departure_card` SET `Departure_date`= '{NewBasic[5]}',`Hour_departure`= '{NewBasic[1]}:{NewBasic[2]}',`Hour_arrival`='{NewBasic[3]}:{NewBasic[4]}',`ID_place_departure`= {ID_Place_New},`ID_reason_departure`= {ID_Reason_New},`ID_Departure_commander`= {ID_Commander},`ID_499z01`= 1,`ID_499z15`= 1,`ID_499z18`= 1,`ID_499z19`= 1,`Year`= {Year},`Mounth`= {Month} ,`Hour`= {Time},`Trip`= {NewPlace[3]} WHERE departure_card.ID_departure_card = {ID_Departure_card}");
+                SqlConnectorv2.SQLVoid($"UPDATE `departure_card` SET `Departure_date`= '{NewBasic[5]}',`Hour_departure`= '{NewBasic[1]}:{NewBasic[2]}',`Hour_arrival`='{NewBasic[3]}:{NewBasic[4]}',`ID_place_departure`= {ID_Place_New},`ID_reason_departure`= {ID_Reason_New},`ID_Departure_commander`= {ID_Commander},`ID_499z01`= 1,`ID_499z15`= 1,`ID_499z18`= 1,`ID_499z19`= 1,`Year`= {Year},`Mounth`= {Month} ,`Hour`= {Time},`Trip`= {NewPlace[2]} WHERE departure_card.ID_departure_card = {ID_Departure_card}");
                 test++;
                 test++;
                 AddVehicleToDepartureCard(ID_Vehicle_New, ID_Departure_card, Year);
@@ -334,7 +332,7 @@ namespace FirefighterControlCenter.UserInterface.Programs
 
 
 
-                if (NewPlace[1] != "")
+                if (NewPlace[1].Count() >= 3)
                 {
                     string Title = $"{NewBasic[0]}-{Year} - {NewPlace[0]}, ul. {NewPlace[1]} - {NewReason[1]}";
                     Email_send("Poprawa wyjazdu " + Title, $"c:/OSP/Wyjazdy/{Year} Rok/{MonthName(Month)} Miesiąc/{Title}.pdf", ID_Departure_card);
